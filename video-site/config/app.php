@@ -31,5 +31,5 @@ return [
     'show_error_msg'   => false,
 	
 	// 'host' => 'http://lo.com/',
-	'host' => 'https://www.video.com/',
+	'host' => 'http://www.video.com/',
 ];

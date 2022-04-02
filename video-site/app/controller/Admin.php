@@ -11,20 +11,6 @@ use think\facade\Db;
 class Admin extends BackController
 {
 	
-	public $order_status_list = [
-		0 => '待付款',
-		1 => '已付款',
-		2 => '付款失败',
-		3 => '已退款',
-		4 => '已取消'
-	];
-	
-	public $cashout_status_list = [
-		0 => '待支付',
-		1 => '已支付',
-		// 2 => '废弃'
-	];
-   
 
     public function videoList(){
 		$list = Db::name('video_list')

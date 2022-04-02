@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>video</title>
+    <script src="/static/js/DPlayer.min.js"></script>
+</head>
+<style>
+	.video{
+				padding: 6% 10%;
+				box-sizing: border-box;
+				position: relative;
+				text-align: center;
+			}
+			.dplayer-vs{
+				width:800px;
+				height:460px; 
+				margin: 0 auto;
+			}
+			
+			@media screen and (max-width: 750px){
+				.video{
+					padding: 0;
+					padding-top: 10px;
+					box-sizing: border-box;
+					position: relative;
+					text-align: center;
+				}
+				.dplayer-vs{
+					width: 100%;
+				}
+			}
+</style>
+<body>
+	<div class="video">
+        <div id="player1" class="dplayer-vs dplayer">
+
+        </div>
+		</div>
+    <script>
+
+        var dp1 = new DPlayer({
+            element: document.getElementById('dplayer1'),
+            preload: 'none',
+            screenshot: true,
+            video: {
+                url: "<?php echo $file_url; ?>",
+               // pic: 'https://i.loli.net/2019/06/06/5cf8c5d9c57b510947.png',
+               // thumbnails: 'https://i.loli.net/2019/06/06/5cf8c5d9cec8510758.jpg'
+            },
+            subtitle: {
+              //  url: 'https://s-sh-17-dplayercdn.oss.dogecdn.com/hikarunara.vtt'
+            }
+        });
+
+    </script>
+</body>
+</html>
