@@ -24,106 +24,6 @@ class Admin extends BackController
 		return View::fetch('videoList');
     }
 
-    public function cashoutList(){
-		View::assign('cashout_status_list', $this->cashout_status_list);
-		return View::fetch('cashoutList');
-    }
-	
-	public function ajaxCashoutList(){
-		
-		$where = [];
-		
-		$status = intval(Request::param('status'));
-		if(isset($_GET['status']) && $_GET['status'] !== null && $_GET['status'] !== ''){
-			$where['a.status'] = $status;
-		}
-		
-		$page = intval(Request::param('page'));
-		if(! $page){
-			$page = 1;
-		}
-		$limit = intval(Request::param('limit'));
-		if(! $limit){
-			$limit = 20;
-		}
-		
-		$count = Db::name('cashout_record')
-			->alias('a')
-			->join('user b', 'a.userid = b.id', 'left')
-			->join('user_card c', 'a.userid = c.userid', 'left')
-			->where($where)
-			->field('count(*) as count')
-			->select();
-			
-		$list = Db::name('cashout_record')
-			->alias('a')
-			->join('user b', 'a.userid = b.id', 'left')
-			->join('user_card c', 'a.userid = c.userid', 'left')
-			->where($where)
-			->field('a.*, c.name, c.card, c.brand, c.wx_qrcode, c.ali_qrcode, b.mobile')
-		    ->order('a.id', 'desc')
-			->limit(($page - 1) * $limit, $limit)
-			->select();
-		
-		$url = $this->url('/index.php?s=Admin/cashoutEdit');
-
-		$ret = [
-			'code' => 0,
-			'count' => $count[0]['count'],
-			'data' => $list,
-			'msg' => ''
-		];
-		return json($ret);
-	}
-
-    public function cashoutEdit(){
-		$url = $this->url('/Admin/actionCashoutEditAction');
-		View::assign('url', $url);
-		$id = intval(Request::param('id'));
-		$where['a.id'] = $id;
-		$data = Db::name('cashout_record')
-			->alias('a')
-			->join('user b', 'a.userid = b.id', 'left')
-			->join('user_card c', 'a.userid = c.userid', 'left')
-			->where($where)
-			->field('a.id, a.amount, b.mobile, a.status')
-			->find();
-			
-		View::assign('data', $data);
-		View::assign('cashout_status_list', $this->cashout_status_list);
-        return View::fetch('cashoutEdit');
-    }
-
-    public function actionCashoutEditAction(){
-        $ret = [
-			'code' => 0,
-			'data' => '',
-			'msg' => ''
-		];
-        $id = intval(Request::param('id'));
-        $status = intval(Request::param('status'));
-		if(! $id){
-			$ret['msg'] = '参数错误';
-			return json($ret);
-		}
-		$date = date('Y-m-d H:i:s');
-		$data = [
-			'status' => $status,
-			'updated_by' => $this->userid,
-			'updated_date' => $date,
-        ];
-        $where = [
-            'id' => $id
-        ];
-		$status = Db::name('cashout_record')->where($where)->update($data);
-		if(! $status){
-			$ret['msg'] = '更新失败';
-			return json($ret);
-		}
-		$ret['code'] = 1;
-		return json($ret);
-    }
-
 	public function ajaxUserList(){
 		
 		$where = 'a.`status` = 1 ';
@@ -241,26 +141,26 @@ class Admin extends BackController
 		return json($ret);
 	}
 
-    public function taskEdit(){
+    public function videoEdit(){
 		$id = intval(Request::param('id'));
 		$data = [
 			'name' => '',
 			'id' => ''
 		];
-		$url = $this->url('/Admin/actionTaskAdd');
-		$url_update = $this->url('/Admin/actionTaskEdit');
+		$url = $this->url('/Admin/actionVideoAdd');
+		$url_update = $this->url('/Admin/actionVideoEdit');
 		if(! $id){
 			View::assign('url', $url);
 		}else{
-			$data = Db::name('task')->field('id, name')->where(['id' => $id])->find();
+			$data = Db::name('video_list')->field('id, name')->where(['id' => $id])->find();
 			View::assign('url', $url_update);
 		}
 		
 		View::assign('data', $data);
-        return View::fetch('taskEdit');
+        return View::fetch('videoEdit');
     }
 
-    public function actionTaskEdit(){
+    public function actionVideoEdit(){
         $ret = [
 			'code' => 0,
 			'data' => '',
@@ -281,7 +181,7 @@ class Admin extends BackController
         $where = [
             'id' => $id
         ];
-		$status = Db::name('task')->where($where)->update($data);
+		$status = Db::name('video_list')->where($where)->update($data);
 		if(! $status){
 			$ret['msg'] = '更新失败';
 			return json($ret);
@@ -290,15 +190,21 @@ class Admin extends BackController
 		return json($ret);
     }
 
-    public function actionTaskAdd(){
+    public function actionVideoAdd(){
 		$ret = [
 			'code' => 0,
 			'data' => '',
 			'msg' => ''
 		];
+		// echo '<pre>'; print_r($_POST); die;
 		$name = trim(Request::param('name'));
 		if(! $name){
 			$ret['msg'] = '参数错误';
+			return json($ret);
+		}
+		$res = $this->_dealUpload();
+		if($res === false){
+			$ret['msg'] = '添加失败 code 10001';
 			return json($ret);
 		}
 		$date = date('Y-m-d H:i:s');
@@ -308,12 +214,82 @@ class Admin extends BackController
 			'added_date' => $date,
 			
 		];
-		$status = Db::name('task')->insert($data);
+		$status = Db::name('video_list')->insert($data);
 		if(! $status){
-			$ret['msg'] = '添加失败';
+			$ret['msg'] = '添加失败 code 10002';
 			return json($ret);
 		}
 		$ret['code'] = 1;
 		return json($ret);
 	}
+	
+	private function _dealUpload(){
+		$origin_uri = $this->_moveOriginFile();
+		$video_uri = $this->_ffpmegVideo();
+		$qrcode_data = $this->_genQrcode();
+		$detail_uri = '';
+		
+		return [
+			
+		]; 
+	}
+	
+	private function _moveOriginFile(){
+		
+	}
+	
+	public function upload($name='image',$size=1024*1024*10,$ext='jpg,png,gif,jpeg',$save_dir='./uploads',$rule='date',$module='admin',$use='admin', $is_return = false){
+	        $data = input();
+	        $name = isset($data['name']) ? $data['name'] : $name; //提交的文件name
+	        $size = isset($data['size']) ? $data['size'] : $size; //限制上传的文件大小
+	        $ext  = isset($data['ext'])  ? $data['ext']  : $ext;  //文件格式
+	        $save_dir = isset($data['save_dir']) ? $data['save_dir'] : $save_dir; //保存路径
+	        $rule = isset($data['rule']) ? $data['rule'] : $rule; //生成的文件命名方式，默认支持：date根据日期和微秒数生成，md5对文件使用md5_file散列生成,sha1对文件使用sha1_file散列生成
+	        $module = isset($data['module']) ? $data['module'] : $module;
+	        $use = isset($data['use']) ? $data['use'] : $use;
+	        if($this->request->file('file')){
+	            $file = $this->request->file('file');
+	            $info = $file->validate(['size'=>$size,'ext'=>$ext])->rule($rule)->move($save_dir);
+	            if($info){
+	                $url = $info->getSaveName();
+	                $arr['url'] = $save_dir.'/'.$url;
+	                $admininfo = $this->admininfo;
+	                $data = [];
+	                $uparr['module']      = $module;
+	                $uparr['title']       = $info->getInfo('name');
+	                $uparr['filename']    = $info->getFilename();//文件名
+	                $uparr['filepath']    = ltrim($arr['url'],'.');//文件路径
+	                $uparr['fileext']     = $info->getExtension();//文件后缀
+	                $uparr['filesize']    = $info->getSize();//文件大小
+	                $uparr['create_time'] = time();//时间
+	                $uparr['uploadip']    = $this->request->ip();//IP
+	                $uparr['u_id']        = isset($admininfo['id']) ? $admininfo['id'] : 0;
+	
+	                $uparr['use']     = $this->request->param('use') ? $this->request->param('use') : $use;//用处
+	                $uparr['u_title'] = $this->request->param('utitle') ? $this->request->param('utitle') : '未知';
+	                $nimg = str_replace("\\","/",$arr['url']);
+	                $imgas = explode('.',$nimg);
+	                $image = \think\Image::open($nimg);
+	                // 按照原图的比例生成一个最大为150*150的缩略图并保存为thumb.png
+	                $image->thumb(160,160)->save('.'.$imgas[1].'_160x160.'.$imgas[2]);
+	                $image2 = \think\Image::open($nimg);
+	                $image2->thumb(320,320)->save('.'.$imgas[1].'_320x320.'.$imgas[2]);
+	                $uparr['filepath']         = $nimg;
+	                $uparr['filepath_240x160'] = $imgas[1].'_240x160.'.$imgas[2];
+	                $uparr['filepath_480x320'] = $imgas[1].'_480x320.'.$imgas[2];
+	                $arr['id']   = Db::name('attachment')->insertGetId($uparr);
+	                $arr['url']  = ltrim($arr['url'],'.');
+	
+	                if($is_return){
+	                    return $arr;
+	                }
+	
+	                return json(['code'=>0,'msg'=>'上传成功','returnData'=>$arr]);
+	            }else{
+	                return json(['code'=>1,'msg'=>'上传失败','returnData'=>$file->getError()]);
+	            }
+	        }else{
+	            return json(['code'=>2,'msg'=>'请选择上传的图片','returnData'=>'']);
+	        }
+	    }
 }

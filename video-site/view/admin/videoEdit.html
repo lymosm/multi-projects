@@ -9,17 +9,26 @@
 			<div class="layui-row">
 				<form class="layui-form" method="POST">
 					<div class="layui-form-item">
-						<label class="layui-form-label">任务名称</label>
+						<label class="layui-form-label">视频名称</label>
 						<div class="layui-input-block">
-							<input type="text" name="name" required lay-verify="required" placeholder="请输入任务名称"
+							<input type="text" name="name" id="name" required lay-verify="required" placeholder="请输入名称"
 								autocomplete="off" class="layui-input" value="{$data.name}">
 						</div>
 					</div>
+					<div class="layui-form-item">
+						<label class="layui-form-label">选择视频</label>
+						<div class="layui-input-block">
+							<button type="button" class="layui-btn" id="file1">
+							  <i class="layui-icon">&#xe67c;</i>上传视频
+							</button>
+						</div>
+					</div>
+					
 			
 					<div class="layui-form-item">
 						<div class="layui-input-block">
 							<input type="hidden" name="id" id="id" value="{$data.id}">
-							<button class="layui-btn" lay-submit lay-filter="task-form">提交</button>
+							<button type="button" class="layui-btn" id="submit-video" lay-submit lay-filter="video-form">提交</button>
 						</div>
 					</div>
 				</form>
@@ -27,13 +36,16 @@
 		</div>
 		<script src="/static/extend/layui/layui.js"></script>
 		<script>
-			layui.use(['element', 'layer', 'util', 'jquery', "form"], function() {
+			layui.use(['element', 'layer', 'util', 'jquery', "form", "upload"], function() {
 				var form = layui.form,
 					element = layui.element,
 					layer = layui.layer,
+					upload = layui.upload,
 					util = layui.util,
+					
 					$ = layui.$;
 				//监听提交
+				/*
 				form.on('submit(task-form)', function(data) {
 				
 					$.ajax({
@@ -57,6 +69,31 @@
 					
 					return false;
 				});
+				*/
+				   
+				//执行实例
+				var uploadInst = upload.render({
+				    elem: '#file1',
+				    url: "{$url}",
+					accept: "file",  // video
+					data: {name: function(){
+						return $("#name").val();
+					}},
+					auto: false,
+					bindAction: "#submit-video",
+					before: function(obj){
+					    // layer.load(); //上传loading
+					},
+				    done: function(res){
+						console.log(res);
+						if(res.code != 1){
+							layer.msg(res.msg);
+						}
+				    },
+				    error: function(){
+				    }
+				});
+			   
 			});
 		</script>
 	</body>
