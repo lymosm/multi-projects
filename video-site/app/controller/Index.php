@@ -15,7 +15,7 @@ class Index extends BaseController
         return View::fetch('index');
     }
 
-    public function hello($name = 'ThinkPHP6')
+    public function hello($name = 'hello')
     {
         return 'hello,' . $name;
     }

@@ -31,6 +31,7 @@
 					width: 100%;
 				}
 			}
+			
 </style>
 <body>
 	<div class="video">
@@ -42,8 +43,17 @@
 
         var dp1 = new DPlayer({
             element: document.getElementById('dplayer1'),
-            preload: 'none',
-            screenshot: true,
+            preload: 'auto', // none
+            screenshot: false,
+			//danmaku: false,
+			// subtitle: false,
+			/*
+			contextmenu: [
+				
+			{
+            text: 'custom1',
+            link: 'https://github.com/DIYgod/DPlayer',
+        }],*/
             video: {
                 url: "<?php echo $file_url; ?>",
                // pic: 'https://i.loli.net/2019/06/06/5cf8c5d9c57b510947.png',
@@ -53,7 +63,8 @@
               //  url: 'https://s-sh-17-dplayercdn.oss.dogecdn.com/hikarunara.vtt'
             }
         });
-
+		document.querySelector(".dplayer-menu").style.display = "none";
+		document.querySelector(".dplayer-mask").style.display = "none";
     </script>
 </body>
 </html>

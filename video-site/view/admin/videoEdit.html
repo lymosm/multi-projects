@@ -33,6 +33,31 @@
 					</div>
 				</form>
 			</div>
+			<table class="layui-table">
+			  <colgroup>
+			    <col width="200">
+			    <col width="260">
+			    <col>
+			  </colgroup>
+			  <thead>
+			    <tr>
+			      <th>视频名称</th>
+			      <th>进度（未完成请不要关闭此窗口）</th>
+			      <th>状态</th>
+			    </tr> 
+			  </thead>
+			  <tbody>
+			    <tr>
+			      <td>贤心</td>
+			      <td>
+					  <div class="layui-progress" lay-showPercent="yes">
+					    <div class="layui-progress-bar layui-bg-green" lay-percent="30%"></div>
+					  </div>
+				  </td>
+			      <td>进行中</td>
+			    </tr>
+			  </tbody>
+			</table>
 		</div>
 		<script src="/static/extend/layui/layui.js"></script>
 		<script>
@@ -84,10 +109,21 @@
 					before: function(obj){
 					    // layer.load(); //上传loading
 					},
+					progress: function(n, elem, res, index){
+					    var percent = n + '%' //获取进度百分比
+					    element.progress('demo', percent); //可配合 layui 进度条元素使用
+					    
+					    console.log(elem); //得到当前触发的元素 DOM 对象。可通过该元素定义的属性值匹配到对应的进度条。
+					    console.log(res); //得到 progress 响应信息
+					    console.log(index); //得到当前上传文件的索引，多文件上传时的进度条控制，如：
+					    element.progress('demo-'+ index, n + '%'); //进度条
+					  },
 				    done: function(res){
 						console.log(res);
 						if(res.code != 1){
 							layer.msg(res.msg);
+						}else{
+							layer.msg("添加成功");
 						}
 				    },
 				    error: function(){

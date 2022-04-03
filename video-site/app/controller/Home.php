@@ -19,13 +19,31 @@ class Home extends BaseController
 		echo uniqid();
 		die;
 	}
-    
-	public function video($id){
+	
+	public function qrcode($id){
+		$id = addslashes(trim($id));
 		if(! $id){
 			echo 'error';
 			exit;
 		}
-		$id = '6247c151ce020'; // debug
+		
+		$data = Db::name('video_list')->field('name, qrcode_img_uri')->where(['detail_uri' => $id])->find();
+		if(! $data){
+			echo 'page not found!';
+			exit;
+		}
+		View::assign('name', $data['name']);
+		View::assign('img_url', $this->url($$data['qrcode_img_uri']));
+		return View::fetch('qrcode');
+	}
+    
+	public function video($id){
+		$id = addslashes(trim($id));
+		if(! $id){
+			echo 'error';
+			exit;
+		}
+		// $id = '6247c151ce020'; // debug
 		// $data = Db::name('video_list')->field('video_uri')->where(['qrcode_uri' => $id])->find();
 		$data = Db::name('video_list')->field('video_uri')->where(['qrcode_uri' => $id])->find();
 		$uri = $data['video_uri'];
