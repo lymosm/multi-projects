@@ -5,7 +5,7 @@
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => '3fb5f7fadad5097206d10329182c4557efd80b6a',
+        'reference' => 'd14a00b7c0391f5bd664b69acc762f485ed4271a',
         'name' => 'topthink/think',
         'dev' => true,
     ),
@@ -38,12 +38,12 @@
             'dev_requirement' => false,
         ),
         'endroid/qr-code' => array(
-            'pretty_version' => '4.1.4',
-            'version' => '4.1.4.0',
+            'pretty_version' => '4.3.5',
+            'version' => '4.3.5.0',
             'type' => 'library',
             'install_path' => __DIR__ . '/../endroid/qr-code',
             'aliases' => array(),
-            'reference' => 'f38ff0d968788aef0ddefb957062024b4ea521e1',
+            'reference' => '5630e192948b466d418608ecce697465d20260af',
             'dev_requirement' => false,
         ),
         'evenement/evenement' => array(
@@ -376,7 +376,7 @@
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => '3fb5f7fadad5097206d10329182c4557efd80b6a',
+            'reference' => 'd14a00b7c0391f5bd664b69acc762f485ed4271a',
             'dev_requirement' => false,
         ),
         'topthink/think-helper' => array(

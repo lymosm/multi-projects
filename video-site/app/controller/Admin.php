@@ -6,6 +6,18 @@ use think\facade\View;
 use app\model\User; 
 use think\facade\Request;
 use think\facade\Db;
+use FFMpeg\FFMpeg;
+use FFMpeg\FFProbe;
+use FFMpeg\Coordinate\Dimension;
+use FFMpeg\Format\Video\X264;
+use FFMpeg\Filters\Video\ResizeFilter;
+use Endroid\QrCode\Builder\Builder;
+use Endroid\QrCode\Encoding\Encoding;
+use Endroid\QrCode\ErrorCorrectionLevel\ErrorCorrectionLevelHigh;
+use Endroid\QrCode\Label\Alignment\LabelAlignmentCenter;
+use Endroid\QrCode\Label\Font\NotoSans;
+use Endroid\QrCode\RoundBlockSizeMode\RoundBlockSizeModeMargin;
+use Endroid\QrCode\Writer\PngWriter;
 // use think\App;
 
 class Admin extends BackController
@@ -224,8 +236,11 @@ class Admin extends BackController
 	}
 	
 	private function _dealUpload(){
-		$origin_uri = $this->_moveOriginFile();
-		$video_uri = $this->_ffpmegVideo();
+		// $origin_uri = $this->_moveOriginFile();
+		// echo $origin_uri; die;
+		$origin_uri = BASE_PATH . '/public/storage/v-origin/20220403/27.MOV'; // debug
+		$video_uri = $this->_ffpmegVideo($origin_uri);
+		echo $video_uri; die;
 		$qrcode_data = $this->_genQrcode();
 		$detail_uri = '';
 		
@@ -234,8 +249,67 @@ class Admin extends BackController
 		]; 
 	}
 	
-	private function _moveOriginFile(){
+	private function _ffpmegVideo($origin_uri){
+		$config = [
+			'ffmpeg.binaries' => '/usr/local/ffmpeg/bin/ffmpeg',
+			'ffprobe.binaries' => '/usr/local/ffmpeg/bin/ffprobe'
+		];
+		$ffmpeg = FFMpeg::create($config);
+		$video = $ffmpeg->open($origin_uri);
+		$watermark = BASE_PATH . '/public/static/image/watermark.png';
+		// try{
+			$video->filters()
+		    ->resize(new Dimension(320, 240), ResizeFilter::RESIZEMODE_INSET, true)
+			->watermark($watermark, array(
+			        'position' => 'relative',
+			        'bottom' => 50,
+			        'right' => 0,
+			    ))
+		    ->synchronize();
+			// $video->frame(FFMpeg\Coordinate\TimeCode::fromSeconds(10))->save('frame.jpg');
+			$filepath = BASE_PATH . '/public/storage/v-encode/' . date('Ymd');
+			if(! file_exists($filepath)){
+				mkdir($filepath, 0777, true);
+			}
+			$file =  $filepath . '/' . uniqid() . '.mp4';
 		
+			$ret = $video->save(new X264('libfdk_aac'), $file);
+		// }catch(\Exception $e){
+			// echo $e->getMessage(); die;
+		// }
+
+		return str_replace(BASE_PATH, '', $file);
+		/*
+./configure --prefix=/usr/local/ffmpeg  --enable-gpl  --enable-nonfree  --enable-libfdk-aac  --enable-libx264  --enable-libx265 --enable-filter=delogo --enable-debug --disable-optimizations --enable-libspeex --enable-videotoolbox --enable-shared --enable-pthreads --enable-version3 --enable-hardcoded-tables --cc=clang --host-cflags= --host-ldflags=
+*/
+	}
+	
+	private function _genQrcode(){
+		$info = 'Custom QR code contents';
+		$label = 'This is the label';
+		$file = '';
+		$result = Builder::create()
+		    ->writer(new PngWriter())
+		    ->writerOptions([])
+		    ->data($info)
+		    ->encoding(new Encoding('UTF-8'))
+		    ->errorCorrectionLevel(new ErrorCorrectionLevelHigh())
+		    ->size(300)
+		    ->margin(10)
+		    ->roundBlockSizeMode(new RoundBlockSizeModeMargin())
+		 //   ->logoPath(__DIR__.'/assets/symfony.png')
+		    ->labelText($label)
+		    ->labelFont(new NotoSans(20))
+		    ->labelAlignment(new LabelAlignmentCenter())
+		    ->build();
+		$result->saveToFile($file);
+	}
+	
+	private function _moveOriginFile(){
+		$file = request()->file('file');	
+		$filename = $file->getOriginalName();
+		$savename = \think\facade\Filesystem::disk('public')->putFileAs('v-origin/' . date('Ymd'), $file, $filename);
+		return '/storage/' . $savename;
 	}
 	
 	public function upload($name='image',$size=1024*1024*10,$ext='jpg,png,gif,jpeg',$save_dir='./uploads',$rule='date',$module='admin',$use='admin', $is_return = false){

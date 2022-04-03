@@ -105,7 +105,7 @@ abstract class AbstractVideo extends Audio
         }
 
         $this->fs->clean($this->fsId);
-
+// echo '<pre>'; print_r($failure); die;
         if (null !== $failure) {
             throw new RuntimeException('Encoding failed', $failure->getCode(), $failure);
         }

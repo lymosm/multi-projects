@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9793aad2850db9bbcb31a5be7d347237",
+    "content-hash": "e169c4dcafb5ca96a13b599edef28c8d",
     "packages": [
         {
             "name": "alchemy/binary-driver",
@@ -186,23 +186,17 @@
         },
         {
             "name": "endroid/qr-code",
-            "version": "4.1.4",
+            "version": "4.3.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/endroid/qr-code.git",
-                "reference": "f38ff0d968788aef0ddefb957062024b4ea521e1"
+                "reference": "5630e192948b466d418608ecce697465d20260af"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/endroid/qr-code/zipball/f38ff0d968788aef0ddefb957062024b4ea521e1",
-                "reference": "f38ff0d968788aef0ddefb957062024b4ea521e1",
-                "shasum": "",
-                "mirrors": [
-                    {
-                        "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
-                        "preferred": true
-                    }
-                ]
+                "url": "https://api.github.com/repos/endroid/qr-code/zipball/5630e192948b466d418608ecce697465d20260af",
+                "reference": "5630e192948b466d418608ecce697465d20260af",
+                "shasum": ""
             },
             "require": {
                 "bacon/bacon-qr-code": "^2.0",
@@ -252,7 +246,7 @@
             ],
             "support": {
                 "issues": "https://github.com/endroid/qr-code/issues",
-                "source": "https://github.com/endroid/qr-code/tree/4.1.4"
+                "source": "https://github.com/endroid/qr-code/tree/4.3.5"
             },
             "funding": [
                 {
@@ -260,7 +254,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-05-08T14:30:54+00:00"
+            "time": "2021-09-17T07:50:43+00:00"
         },
         {
             "name": "evenement/evenement",
@@ -2840,5 +2834,5 @@
         "php": ">=7.1.0"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.2.0"
+    "plugin-api-version": "2.3.0"
 }
