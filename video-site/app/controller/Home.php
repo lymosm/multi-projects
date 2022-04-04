@@ -33,7 +33,7 @@ class Home extends BaseController
 			exit;
 		}
 		View::assign('name', $data['name']);
-		View::assign('img_url', $this->url($$data['qrcode_img_uri']));
+		View::assign('img_url', $this->url($data['qrcode_img_uri']));
 		return View::fetch('qrcode');
 	}
     

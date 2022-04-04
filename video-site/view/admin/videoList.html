@@ -17,7 +17,7 @@
 					<li class="layui-nav-item layui-show-xs-inline-block layui-hide-sm" lay-header-event="menuLeft">
 						<i class="layui-icon layui-icon-spread-left"></i>
 					</li>
-
+				
 					<li class="layui-nav-item layui-hide-xs"><a href="">video列表</a></li>
 					
 				</ul>
@@ -52,50 +52,62 @@
 			</div>
 
 			<div class="layui-body">
-				<!-- 内容主体区域 -->
 				<div style="padding: 15px;"><button id="btn-add" type="button" class="layui-btn">添加</button></div>
-				<table class="layui-table">
-					<colgroup>
-						<col width="150">
-						<col width="400">
-						<col>
-					</colgroup>
-					<thead>
-						<tr>
-							<th>ID</th>
-							<th>video名称</th>
-							<th>添加时间</th>
-							<th>操作</th>
-						</tr>
-					</thead>
-					<tbody>
-						{foreach $list as $rs}
-						<tr>
-							<td>{$rs.id}</td>
-							<td>{$rs.name}</td>
-							<td>{$rs.added_date}</td>
-							<td>
-								<button type="button" class="layui-btn" onclick="updateTask('{$rs.id}')">访问</button>
-							</td>
-						</tr>
-						{/foreach}
-					</tbody>
+				<table class="layui-table" id="video-list">
 				</table>
 			</div>
 
-			
+			<!--
+			<div class="layui-footer">
+				底部固定区域
+			</div>
+			-->
 		</div>
 		<script src="/static/extend/layui/layui.js"></script>
 		<script>
-				//JS
-				var $ = null; 
-				layui.use(['element', 'layer', 'util', 'jquery'], function() {
+			var home = "{$home}",
+				base_url = "{$base_url}";
+				//JS 
+				layui.use(['element', 'layer', 'util', 'jquery', 'form', "table"], function() {
 					var element = layui.element,
 						layer = layui.layer,
-						util = layui.util;
+						util = layui.util,
+						$ = layui.$;
 						
-
-					$ = layui.$;
+					var table = layui.table;
+					  
+					  //第一个实例
+					  var tablens = table.render({
+					    elem: '#video-list'
+					    ,height: 312
+					    ,url: "/Admin/ajaxVideoList" //数据接口
+					    ,page: true ,//开启分页
+						height: 680,
+						limit: 20
+					    ,cols: [[ //表头
+					      {field: 'id', title: 'ID', width:60,  fixed: 'left'}
+					      ,{field: 'name', title: 'video名称', width: 180}
+					      ,{field: 'qrcode', title: '二维码', width: 180, templet: function(d){
+							  return '<div style="height: 200px; "><img src="' + base_url + d.qrcode_img_uri + '"><div>';
+						  }},
+						  {field: 'video_uri', title: '视频页面', width: 100, templet: function(d){
+							  return '<a href="' + home + '/video/id/' + d.qrcode_uri + '" target="_blank">查看</a>';
+						  }},
+						  {field: 'view', title: '二维码页面', width: 100, templet: function(d){
+							  return '<a href="' + home + '/qrcode/id/' + d.detail_uri + '" target="_blank">查看</a>';
+						  }}
+					     
+					    ]]
+					  });
+					 /* 
+					$("#btn-search").on("click", function(){
+						tablens.reload({
+							where: {
+								keyword: $("#keyword").val()
+							}
+						});
+					});
+*/
 					//头部事件
 					util.event('lay-header-event', {
 						//左侧菜单事件
@@ -117,7 +129,16 @@
 						}
 					});
 					
-					$("#btn-add").on("click", function(){
+					var form = layui.form;
+					
+					//监听提交
+					/*
+					form.on('submit(formDemo)', function(data){
+					 // layer.msg(JSON.stringify(data.field));
+					  return true;
+					});
+				*/
+				   $("#btn-add").on("click", function(){
 						layer.open({
 							title: "添加任务",
 							type: 2,
@@ -125,35 +146,10 @@
 							content: '{$url}' //这里content是一个URL，如果你不想让iframe出现滚动条，你还可以content: ['http://sentsin.com', 'no']
 						}); 
 					});
+				   
 
 				});
 				
-				function updateTask(id){
-					layer.open({
-						title: "更新任务",
-						type: 2,
-						area: ["680px", "320px"],
-						content: "/Admin/taskEdit/?id=" + id
-					}); 
-				}
-
-				function deleteTask(id){
-					$.ajax({
-						type: "POST",
-						data: {id: id},
-						url: "/Admin/actionTaskDelete",
-						success: function(res){
-							console.log(res);
-							if(res.code == 1){
-								layer.alert("删除成功！", function(){
-									location.reload();
-								})
-							}else{
-								layer.alert(res.msg);
-							}
-						}
-					}); 
-				}
 			
 		</script>
 	</body>

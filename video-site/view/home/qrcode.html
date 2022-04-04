@@ -6,16 +6,22 @@
     <title>{$name}</title>
 </head>
 <style>
-			
+			.title{
+				text-align: center;
+				margin-top: 40px;
+			}
+			.img-box{
+				text-align: center;
+			}
 			@media screen and (max-width: 750px){
 				
 			}
 			
 </style>
 <body>
-	<div class="title">{name}</div>
+	<div class="title"><h3>{$name}</h3></div>
 	<div class="img-box">
-		<img src="{img_url}">
+		<img src="{$img_url}">
 	</div>
 </body>
 </html>

@@ -32,7 +32,11 @@ class Admin extends BackController
 		
 		View::assign('list', $list);
 		$url = $this->url('/Admin/videoEdit');
+		$home = $this->url('/Home');
+		$base_url = $this->url('/');
 		View::assign('url', $url);
+		View::assign('base_url', $base_url);
+		View::assign('home', $home);
 		return View::fetch('videoList');
     }
 	
@@ -52,16 +56,14 @@ class Admin extends BackController
 			$limit = 20;
 		}
 		
-		$list = Db::name('video_list')->alias('a')
-			->join('user b', 'a.userid = b.id', 'left')
+		$list = Db::name('video_list')
 			->field('*')
 		    ->where($where)
 		    ->order('id', 'desc')
 			->limit(($page - 1) * $limit, $limit)
 			->select();
 			
-		$count = Db::name('video_list')->alias('a')
-			->join('user b', 'a.userid = b.id', 'left')
+		$count = Db::name('video_list')
 			->field('count(*) as count')
 		    ->where($where)
 			->select();
@@ -125,6 +127,7 @@ class Admin extends BackController
     }
 
     public function actionVideoAdd(){
+		sleep(10);
 		$ret = [
 			'code' => 0,
 			'data' => '',
@@ -132,10 +135,12 @@ class Admin extends BackController
 		];
 		// echo '<pre>'; print_r($_POST); die;
 		$name = trim(Request::param('name'));
-		if(! $name){
+		$uid = trim(Request::param('uid'));
+		if(! $name || ! $uid){
 			$ret['msg'] = '参数错误';
 			return json($ret);
 		}
+		$ret['data'] = $uid;
 		$res = $this->_dealUpload();
 		if($res === false){
 			$ret['msg'] = '添加失败 code 10001';
