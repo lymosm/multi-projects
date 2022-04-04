@@ -42,8 +42,8 @@
 			  <thead>
 			    <tr>
 			      <th>视频名称</th>
-			      <th>进度（未完成请不要关闭此窗口）</th>
-			      <th>状态</th>
+			      <!-- <th>进度（未完成请不要关闭此窗口）</th> -->
+			      <th>状态（未完成请不要关闭此窗口）</th>
 			    </tr> 
 			  </thead>
 			  <tbody id="tbody-list">
@@ -133,9 +133,11 @@
 						$("#uid").val(uid);
 						var html = '<tr id="' + uid + '">' + 
 						  '<td class="td-name">' + name + '</td>' + 
+						  /*
 						  '<td class="td-process">' + 
 							  '<div class="layui-progress" lay-showPercent="yes" lay-filter="' + uid + '">' + 
-								'<div class="layui-progress-bar layui-bg-green" lay-percent="1%"></div></div></td>' + 
+								'<div class="layui-progress-bar layui-bg-green" lay-percent="1%"></div></div></td>' + 							
+								*/
 						  '<td class="td-status td-status-doing">进行中</td></tr>';
 						$("#tbody-list").append(html);
 				  
@@ -143,7 +145,7 @@
 					progress: function(n, elem, res, index){
 					    var percent = n + '%'; //获取进度百分比
 						var sid = $("#uid").val();
-						if($("#" + sid).length > 0){
+						if($("#" + sid).length > 0 && n <= 90){
 							element.progress(sid, percent);
 						}
 					    

@@ -127,13 +127,13 @@ class Admin extends BackController
     }
 
     public function actionVideoAdd(){
-		sleep(10);
+		$this->_drawtext(); // debug
+		// sleep(10);
 		$ret = [
 			'code' => 0,
 			'data' => '',
 			'msg' => ''
 		];
-		// echo '<pre>'; print_r($_POST); die;
 		$name = trim(Request::param('name'));
 		$uid = trim(Request::param('uid'));
 		if(! $name || ! $uid){
@@ -168,12 +168,10 @@ class Admin extends BackController
 	}
 	
 	private function _dealUpload(){
-		// $origin_uri = $this->_moveOriginFile();
-		// echo $origin_uri; die;
-		$origin_uri = BASE_PATH . '/public/storage/v-origin/20220403/27.MOV'; // debug
+		$origin_uri = $this->_moveOriginFile();
+		// $origin_uri = BASE_PATH . '/public/storage/v-origin/20220403/27.MOV'; // debug
 		$uname = uniqid();
-		// $video_uri = $this->_ffpmegVideo($origin_uri, $uname);
-		$video_uri = '777';
+		$video_uri = $this->_ffpmegVideo(BASE_PATH . '/public' . $origin_uri, $uname);
 		if(! $video_uri){
 			return false;
 		}
@@ -198,11 +196,21 @@ class Admin extends BackController
 		// try{
 			$video->filters()
 		    ->resize(new Dimension(320, 240), ResizeFilter::RESIZEMODE_INSET, true)
-			->watermark($watermark, array(
-			        'position' => 'relative',
-			        'bottom' => 50,
-			        'right' => 0,
-			    ))
+			->watermark($watermark, 
+				array(
+			        'position' => 'absolute',
+			        'x' => 0,
+			        'y' => 200,
+			    )
+			
+			   /*
+				array(
+				    'position' => 'relative',
+				    'top' => 0,
+				    'right' => '100',
+				)
+				*/
+			)
 		    ->synchronize();
 			// $video->frame(FFMpeg\Coordinate\TimeCode::fromSeconds(10))->save('frame.jpg');
 			$filepath = BASE_PATH . '/public/storage/v-encode/' . date('Ymd');
@@ -218,8 +226,25 @@ class Admin extends BackController
 
 		return str_replace(BASE_PATH . '/public', '', $file);
 		/*
-./configure --prefix=/usr/local/ffmpeg  --enable-gpl  --enable-nonfree  --enable-libfdk-aac  --enable-libx264  --enable-libx265 --enable-filter=delogo --enable-debug --disable-optimizations --enable-libspeex --enable-videotoolbox --enable-shared --enable-pthreads --enable-version3 --enable-hardcoded-tables --cc=clang --host-cflags= --host-ldflags=
+./configure --prefix=/usr/local/ffmpeg  --enable-gpl  --enable-nonfree  --enable-libfdk-aac  --enable-libx264  --enable-libx265 --enable-filter=delogo --enable-debug --disable-optimizations --enable-libspeex --enable-videotoolbox --enable-shared --enable-pthreads --enable-libfreetype --enable-version3 --enable-hardcoded-tables --cc=clang --host-cflags= --host-ldflags=
 */
+
+/*
+
+
+/usr/local/ffmpeg/bin/ffmpeg -i "/Users/lymos/Downloads/27.MOV" -vf "drawtext=text='TangJiuling9009':y=h-line_h-10:x=(mod(2*n\,w+tw)-tw):fontsize=24:fontcolor=yellow:shadowy=2" -b:v 3000k /Users/lymos/Downloads/28.mov
+*/
+	}
+	
+	private function _drawtext(){
+		$command = '/usr/local/ffmpeg/bin/ffmpeg -i "/Users/lymos/Downloads/27.MOV" -vf "drawtext=fontfile=/Users/lymos/Downloads/font.TTF:text=' . "'TangJiuling9009'" . ':y=h-line_h-10:x=(mod(2*n\,w+tw)-tw):fontsize=24:fontcolor=yellow:shadowy=2" -b:v 500k -c:v libx264 -s 640x320 /Users/lymos/Downloads/28.mp4';
+		$ret = exec($command, $output, $status);
+		echo '<pre>'; print_r($ret); die;
+	}
+	
+	private function _addGif(){
+		$command = "ffmpeg -y -i test1.mp4 -ignore_loop 0 -i girl.gif  -filter_complex '[0:0]scale=iw:ih[a];[1:0]scale=iw/4:-1[wm];[a][wm]overlay=x=0:0:shortest=1' test_out8.mp4";
+		
 	}
 	
 	private function _genQrcode($uname){

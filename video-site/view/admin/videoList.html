@@ -53,7 +53,7 @@
 
 			<div class="layui-body">
 				<div style="padding: 15px;"><button id="btn-add" type="button" class="layui-btn">添加</button></div>
-				<table class="layui-table" id="video-list">
+				<table class="layui-table" id="video-list" lay-size="lg">
 				</table>
 			</div>
 
@@ -63,6 +63,12 @@
 			</div>
 			-->
 		</div>
+		<style>
+		tbody .layui-table-cell {
+		            height: 100px;
+		            line-height: 100px;
+		        }
+		</style>
 		<script src="/static/extend/layui/layui.js"></script>
 		<script>
 			var home = "{$home}",
@@ -79,21 +85,20 @@
 					  //第一个实例
 					  var tablens = table.render({
 					    elem: '#video-list'
-					    ,height: 312
 					    ,url: "/Admin/ajaxVideoList" //数据接口
 					    ,page: true ,//开启分页
 						height: 680,
 						limit: 20
 					    ,cols: [[ //表头
 					      {field: 'id', title: 'ID', width:60,  fixed: 'left'}
-					      ,{field: 'name', title: 'video名称', width: 180}
+					      ,{field: 'name', title: 'video名称', width: 240}
 					      ,{field: 'qrcode', title: '二维码', width: 180, templet: function(d){
 							  return '<div style="height: 200px; "><img src="' + base_url + d.qrcode_img_uri + '"><div>';
 						  }},
 						  {field: 'video_uri', title: '视频页面', width: 100, templet: function(d){
 							  return '<a href="' + home + '/video/id/' + d.qrcode_uri + '" target="_blank">查看</a>';
 						  }},
-						  {field: 'view', title: '二维码页面', width: 100, templet: function(d){
+						  {field: 'view', title: '二维码页面', templet: function(d){
 							  return '<a href="' + home + '/qrcode/id/' + d.detail_uri + '" target="_blank">查看</a>';
 						  }}
 					     
@@ -143,7 +148,10 @@
 							title: "添加任务",
 							type: 2,
 							area: ["680px", "320px"],
-							content: '{$url}' //这里content是一个URL，如果你不想让iframe出现滚动条，你还可以content: ['http://sentsin.com', 'no']
+							content: '{$url}',
+							end: function(){
+								tablens.reload();
+							}
 						}); 
 					});
 				   
