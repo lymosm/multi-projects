@@ -127,7 +127,6 @@ class Admin extends BackController
     }
 
     public function actionVideoAdd(){
-		$this->_drawtext(); // debug
 		// sleep(10);
 		$ret = [
 			'code' => 0,
@@ -171,7 +170,25 @@ class Admin extends BackController
 		$origin_uri = $this->_moveOriginFile();
 		// $origin_uri = BASE_PATH . '/public/storage/v-origin/20220403/27.MOV'; // debug
 		$uname = uniqid();
-		$video_uri = $this->_ffpmegVideo(BASE_PATH . '/public' . $origin_uri, $uname);
+		// $video_uri = $this->_ffpmegVideo(BASE_PATH . '/public' . $origin_uri, $uname);
+		$bin = '/usr/local/ffmpeg/bin/ffmpeg';
+		$text = trim(Request::param('text'));
+		$fontsize = intval(Request::param('fontsize'));
+		if(! $fontsize){
+			$fontsize = 20;
+		}
+		$color = trim(Request::param('color'));
+		if(! $color){
+			$color = 'Yellow';
+		}
+		$filepath = BASE_PATH . '/public/storage/v-encode/' . date('Ymd');
+		if(! file_exists($filepath)){
+			mkdir($filepath, 0777, true);
+		}
+		$file =  $filepath . '/' . $uname . '.mp4';
+		
+		$video_uri = $this->_drawtext($bin, BASE_PATH . '/public' . $origin_uri, $text, $fontsize, $color, $file);
+		
 		if(! $video_uri){
 			return false;
 		}
@@ -236,10 +253,18 @@ class Admin extends BackController
 */
 	}
 	
-	private function _drawtext(){
-		$command = '/usr/local/ffmpeg/bin/ffmpeg -i "/Users/lymos/Downloads/27.MOV" -vf "drawtext=fontfile=/Users/lymos/Downloads/font.TTF:text=' . "'TangJiuling9009'" . ':y=h-line_h-10:x=(mod(2*n\,w+tw)-tw):fontsize=24:fontcolor=yellow:shadowy=2" -b:v 500k -c:v libx264 -s 640x320 /Users/lymos/Downloads/28.mp4';
+	private function _drawtext($bin, $origin, $text, $fontsize, $color, $out){
+		// $command = '/usr/local/ffmpeg/bin/ffmpeg -i "/Users/lymos/Downloads/27.MOV" -vf "drawtext=fontfile=/Users/lymos/Downloads/font.TTF:text=' . "'TangJiuling9009'" . ':y=h-line_h-10:x=(mod(2*n\,w+tw)-tw):fontsize=24:fontcolor=yellow:shadowy=2" -b:v 500k -c:v libx264 -s 640x320 /Users/lymos/Downloads/28.mp4';
+		// 从左往右 x=(mod(2*n\,w+tw)-tw)
+		// 从右往左 x=w-(t-4.5)*w/5.5(只滚一次) x=w-w/10*mod(t\,13)(多次滚)
+		$command = $bin . ' -i "' . $origin . '" -vf "drawtext=fontfile=' . BASE_PATH . '/public/static/fonts/font.TTF:text=' . "'" . $text . "'" . ':y=h-line_h-10:x=w-w/10*mod(t\,13):fontsize=' . $fontsize . ':fontcolor=' . $color . ':shadowy=2" -b:v 500k -c:v libx264 ' . $out;
 		$ret = exec($command, $output, $status);
-		echo '<pre>'; print_r($ret); die;
+		// $ret = system($command, $status);
+		if($status){
+			return false;
+		}
+		// echo '<pre>'; print_r($ret); die;
+		return str_replace(BASE_PATH . '/public', '', $out);
 	}
 	
 	private function _addGif(){
