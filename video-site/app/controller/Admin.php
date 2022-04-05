@@ -257,8 +257,9 @@ class Admin extends BackController
 		// $command = '/usr/local/ffmpeg/bin/ffmpeg -i "/Users/lymos/Downloads/27.MOV" -vf "drawtext=fontfile=/Users/lymos/Downloads/font.TTF:text=' . "'TangJiuling9009'" . ':y=h-line_h-10:x=(mod(2*n\,w+tw)-tw):fontsize=24:fontcolor=yellow:shadowy=2" -b:v 500k -c:v libx264 -s 640x320 /Users/lymos/Downloads/28.mp4';
 		// 从左往右 x=(mod(2*n\,w+tw)-tw)
 		// 从右往左 x=w-(t-4.5)*w/5.5(只滚一次) x=w-w/10*mod(t\,13)(多次滚)
-		$command = $bin . ' -i "' . $origin . '" -vf "drawtext=fontfile=' . BASE_PATH . '/public/static/fonts/font.TTF:text=' . "'" . $text . "'" . ':y=h-line_h-10:x=w-w/10*mod(t\,13):fontsize=' . $fontsize . ':fontcolor=' . $color . ':shadowy=2" -b:v 500k -c:v libx264 ' . $out;
+		$command = $bin . ' -i "' . $origin . '" -vf "drawtext=fontfile=' . BASE_PATH . '/public/static/fonts/font.TTF:text=' . "'" . $text . "'" . ':y=h-line_h-20:x=w-w/50*mod(t\,50):fontsize=' . $fontsize . ':fontcolor=' . $color . ':shadowy=2" -b:v 1600k -c:v libx264 ' . $out . ' 2>&1';
 		$ret = exec($command, $output, $status);
+
 		// $ret = system($command, $status);
 		if($status){
 			return false;
