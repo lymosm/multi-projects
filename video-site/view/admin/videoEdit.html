@@ -44,6 +44,13 @@
 						</div>
 					</div>
 					<div class="layui-form-item">
+						<label class="layui-form-label">码率</label>
+						<div class="layui-input-block">
+							<input type="text" name="ma" id="ma" required lay-verify="required" placeholder="正整数，比如800，越小视频占用空间越小"
+								autocomplete="off" class="layui-input" value="">
+						</div>
+					</div>
+					<div class="layui-form-item">
 						<label class="layui-form-label">选择视频</label>
 						<div class="layui-input-block">
 							<button type="button" class="layui-btn" id="file1">
@@ -144,7 +151,9 @@
 						return $("#color").val();
 					}, mins: function(){
 						return $("#mins").val();
-					}, 
+					}, ma: function(){
+						return $("#ma").val();
+					},
 					},
 					auto: false,
 					bindAction: "#submit-video",

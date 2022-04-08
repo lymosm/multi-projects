@@ -23,6 +23,9 @@ use Endroid\QrCode\Writer\PngWriter;
 class Admin extends BackController
 {
 	
+	public function index(){
+		return $this->videoList();
+	}
 
     public function videoList(){
 		$list = Db::name('video_list')
@@ -213,6 +216,14 @@ class Admin extends BackController
 		return json($ret);
 	}
 	
+	private function _drawtextTest(){
+		 $command = '/usr/local/ffmpeg/bin/ffmpeg -i "/Users/lymos/Downloads/27.MOV" -vf "drawtext=fontfile=/Users/lymos/Downloads/font.TTF:text=' . "'TangJiuling9009'" . ':y=h-line_h-10:x=:fontsize=60:fontcolor=yellow:shadowy=2" -b:v 500k -c:v libx264 -s 640x320 /Users/lymos/Downloads/28.mp4';
+		// 从左往右 x=(mod(2*n\,w+tw)-tw)
+		// 从右往左 x=w-(t-4.5)*w/5.5(只滚一次) x=w-w/10*mod(t\,13)(多次滚)
+		$ret = exec($command, $output, $status);
+		die;
+	}
+	
 	private function _dealUpload(){
 		$origin_uri = $this->_moveOriginFile();
 		// $origin_uri = BASE_PATH . '/public/storage/v-origin/20220403/27.MOV'; // debug
@@ -228,6 +239,10 @@ class Admin extends BackController
 		if(! $mins){
 			$mins = 30;
 		}
+		$ma = intval(Request::param('ma'));
+		if(! $ma){
+			$ma = 1000;
+		}
 		$color = trim(Request::param('color'));
 		if(! $color){
 			$color = 'Yellow';
@@ -238,7 +253,7 @@ class Admin extends BackController
 		}
 		$file =  $filepath . '/' . $uname . '.mp4';
 		
-		$video_uri = $this->_drawtext($bin, BASE_PATH . '/public' . $origin_uri, $text, $fontsize, $color, $file, $mins);
+		$video_uri = $this->_drawtext($bin, BASE_PATH . '/public' . $origin_uri, $text, $fontsize, $color, $file, $mins, $ma);
 		
 		if(! $video_uri){
 			return false;
@@ -328,11 +343,14 @@ class Admin extends BackController
 		return json($ret);
     }
 	
-	private function _drawtext($bin, $origin, $text, $fontsize, $color, $out, $mins){
+	private function _drawtext($bin, $origin, $text, $fontsize, $color, $out, $mins, $ma){
 		// $command = '/usr/local/ffmpeg/bin/ffmpeg -i "/Users/lymos/Downloads/27.MOV" -vf "drawtext=fontfile=/Users/lymos/Downloads/font.TTF:text=' . "'TangJiuling9009'" . ':y=h-line_h-10:x=(mod(2*n\,w+tw)-tw):fontsize=24:fontcolor=yellow:shadowy=2" -b:v 500k -c:v libx264 -s 640x320 /Users/lymos/Downloads/28.mp4';
 		// 从左往右 x=(mod(2*n\,w+tw)-tw)
 		// 从右往左 x=w-(t-4.5)*w/5.5(只滚一次) x=w-w/10*mod(t\,13)(多次滚)
-		$command = $bin . ' -i "' . $origin . '" -vf "drawtext=fontfile=' . BASE_PATH . '/public/static/fonts/font.TTF:text=' . "'" . $text . "'" . ':y=h-line_h-20:x=w-w/' . $mins . '*mod(t\,' . $mins . '):fontsize=' . $fontsize . ':fontcolor=' . $color . ':shadowy=2" -b:v 1600k -c:v libx264 ' . $out . ' 2>&1';
+		// x=w-w/' . $mins . '*mod(t\,' . $mins . ')
+		// x=w-t*w/' . $mins . '*mod(t\,' . $mins . ')
+		// x=w-t*w/10
+		$command = $bin . ' -i "' . $origin . '" -vf "drawtext=fontfile=' . BASE_PATH . '/public/static/fonts/font.TTF:text=' . "'" . $text . "'" . ':y=h-line_h-20:x=w-(w+tw)/' . $mins . '*mod(t\,' . $mins . '):fontsize=' . $fontsize . ':fontcolor=' . $color . ':shadowy=2" -b:v ' . $ma . 'k -r 24 -c:v libx264 ' . $out . ' 2>&1';
 		$ret = exec($command, $output, $status);
 
 		// $ret = system($command, $status);
