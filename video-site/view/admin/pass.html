@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link href="/static/extend/layui/css/layui.css" rel="stylesheet">
+		<link href="/static/backend.css" rel="stylesheet">
+	</head>
+	<body>
+		<div class="layui-container">
+			<div class="layui-row">
+				<form class="layui-form" method="POST">
+					<div class="layui-form-item">
+						<label class="layui-form-label">新密码</label>
+						<div class="layui-input-block">
+							<input type="password" name="pass" id="pass" required lay-verify="required" placeholder=""
+								autocomplete="off" class="layui-input" value="">
+						</div>
+					</div>
+					<div class="layui-form-item">
+						<label class="layui-form-label">确认密码</label>
+						<div class="layui-input-block">
+							<input type="password" name="pass2" id="pass2" required lay-verify="required" placeholder=""
+								autocomplete="off" class="layui-input" value="">
+						</div>
+					</div>
+			
+					<div class="layui-form-item">
+						<div class="layui-input-block">
+							<input type="hidden" name="uid" id="uid" value="">
+							<button type="button" class="layui-btn" id="submit-video" lay-submit lay-filter="pass-form">修改</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+		<script src="/static/extend/layui/layui.js"></script>
+		<script>
+			var uid = "";
+			layui.use(['element', 'layer', 'util', 'jquery', "form", "upload"], function() {
+				var form = layui.form,
+					element = layui.element,
+					layer = layui.layer,
+					upload = layui.upload,
+					util = layui.util,
+					
+					$ = layui.$;
+				//监听提交
+				form.on('submit(pass-form)', function(data) {
+				
+					$.ajax({
+						type: "POST",
+						// async: false,
+						dataType: "json",
+						data: data.field,
+						url: "{$url}",
+						success: function(res){
+							if(res.code == 1){
+								layer.msg("修改成功");
+								//window.parent.location.reload();//
+								//var index = parent.layer.getFrameIndex(window.name); //
+							//	parent.layer.close(index);
+							}else{
+								layer.msg(res.msg);
+							}
+						}
+					});
+					
+					return false;
+				});				   
+				
+			});
+			
+		</script>
+	</body>
+</html>

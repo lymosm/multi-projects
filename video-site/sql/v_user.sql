@@ -11,5 +11,5 @@ create table v_user(
 	unique key(account)
 )ENGINE=INNODB default charset=utf8mb4 comment "用户表";
 
-insert into v_user (account, pwd, added_date) values ("tb710741910", md5(md5('tb7107419108888video')), "2021-05-28 12:12:12");
+insert into v_user (account, pwd, added_date) values ("123641", md5(md5('tb7107419108888video')), "2021-05-28 12:12:12");
 

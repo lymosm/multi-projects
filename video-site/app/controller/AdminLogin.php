@@ -69,7 +69,9 @@ class AdminLogin extends BackController
 	public function logout(){
 		$this->setLogout();
 		$login_url = $this->url('/AdminLogin');
+		ob_clean();
 		header('Location: ' . $login_url);
+		exit;
 	}
 	
 	public function setLogin($userid){

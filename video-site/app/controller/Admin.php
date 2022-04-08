@@ -32,9 +32,13 @@ class Admin extends BackController
 		
 		View::assign('list', $list);
 		$url = $this->url('/Admin/videoEdit');
+		$url_pass = $this->url('/Admin/pass');
+		$logout_url = $this->url('/AdminLogin/logout');
 		$home = $this->url('/Home');
 		$base_url = $this->url('/');
 		View::assign('url', $url);
+		View::assign('url_pass', $url_pass);
+		View::assign('logout_url', $logout_url);
 		View::assign('base_url', $base_url);
 		View::assign('home', $home);
 		return View::fetch('videoList');
@@ -95,6 +99,49 @@ class Admin extends BackController
 		View::assign('data', $data);
         return View::fetch('videoEdit');
     }
+
+    public function pass(){
+		$url = $this->url('/Admin/actionPass');
+		View::assign('url', $url);
+		
+        return View::fetch('pass');
+    }
+
+    public function actionPass(){
+        $ret = [
+			'code' => 0,
+			'data' => '',
+			'msg' => ''
+		];
+        $id = trim(Request::param('pass'));
+        $name = trim(Request::param('pass2'));
+		if(!$id || ! $name){
+			$ret['msg'] = '参数错误';
+			return json($ret);
+		}
+		if($id != $name){
+			$ret['msg'] = '两次密码不一致';
+			return json($ret);
+		}
+
+		$date = date('Y-m-d H:i:s');
+		$pass = md5(md5($name . 'video'));
+		$data = [
+			'pwd' => $pass,
+			'updated_date' => $date
+        ];
+        $where = [
+            'id' => $this->userid
+        ];
+		$status = Db::name('user')->where($where)->update($data);
+		if(! $status){
+			$ret['msg'] = '更新失败';
+			return json($ret);
+		}
+		$ret['code'] = 1;
+		return json($ret);
+    }
+
 
     public function actionVideoEdit(){
         $ret = [
@@ -177,6 +224,10 @@ class Admin extends BackController
 		if(! $fontsize){
 			$fontsize = 20;
 		}
+		$mins = intval(Request::param('mins'));
+		if(! $mins){
+			$mins = 30;
+		}
 		$color = trim(Request::param('color'));
 		if(! $color){
 			$color = 'Yellow';
@@ -187,7 +238,7 @@ class Admin extends BackController
 		}
 		$file =  $filepath . '/' . $uname . '.mp4';
 		
-		$video_uri = $this->_drawtext($bin, BASE_PATH . '/public' . $origin_uri, $text, $fontsize, $color, $file);
+		$video_uri = $this->_drawtext($bin, BASE_PATH . '/public' . $origin_uri, $text, $fontsize, $color, $file, $mins);
 		
 		if(! $video_uri){
 			return false;
@@ -252,12 +303,36 @@ class Admin extends BackController
 /usr/local/ffmpeg/bin/ffmpeg -i "/Users/lymos/Downloads/27.MOV" -vf "drawtext=text='TangJiuling9009':y=h-line_h-10:x=(mod(2*n\,w+tw)-tw):fontsize=24:fontcolor=yellow:shadowy=2" -b:v 3000k /Users/lymos/Downloads/28.mov
 */
 	}
+
+	public function actionVideoDelete(){
+        $ret = [
+			'code' => 0,
+			'data' => '',
+			'msg' => ''
+		];
+        $id = intval(Request::param('id'));
+		if(!$id){
+			$ret['msg'] = '参数错误';
+			return json($ret);
+		}
+
+        $where = [
+            'id' => $id
+        ];
+		$status = Db::name('video_list')->where($where)->delete();
+		if(! $status){
+			$ret['msg'] = '删除失败';
+			return json($ret);
+		}
+		$ret['code'] = 1;
+		return json($ret);
+    }
 	
-	private function _drawtext($bin, $origin, $text, $fontsize, $color, $out){
+	private function _drawtext($bin, $origin, $text, $fontsize, $color, $out, $mins){
 		// $command = '/usr/local/ffmpeg/bin/ffmpeg -i "/Users/lymos/Downloads/27.MOV" -vf "drawtext=fontfile=/Users/lymos/Downloads/font.TTF:text=' . "'TangJiuling9009'" . ':y=h-line_h-10:x=(mod(2*n\,w+tw)-tw):fontsize=24:fontcolor=yellow:shadowy=2" -b:v 500k -c:v libx264 -s 640x320 /Users/lymos/Downloads/28.mp4';
 		// 从左往右 x=(mod(2*n\,w+tw)-tw)
 		// 从右往左 x=w-(t-4.5)*w/5.5(只滚一次) x=w-w/10*mod(t\,13)(多次滚)
-		$command = $bin . ' -i "' . $origin . '" -vf "drawtext=fontfile=' . BASE_PATH . '/public/static/fonts/font.TTF:text=' . "'" . $text . "'" . ':y=h-line_h-20:x=w-w/50*mod(t\,50):fontsize=' . $fontsize . ':fontcolor=' . $color . ':shadowy=2" -b:v 1600k -c:v libx264 ' . $out . ' 2>&1';
+		$command = $bin . ' -i "' . $origin . '" -vf "drawtext=fontfile=' . BASE_PATH . '/public/static/fonts/font.TTF:text=' . "'" . $text . "'" . ':y=h-line_h-20:x=w-w/' . $mins . '*mod(t\,' . $mins . '):fontsize=' . $fontsize . ':fontcolor=' . $color . ':shadowy=2" -b:v 1600k -c:v libx264 ' . $out . ' 2>&1';
 		$ret = exec($command, $output, $status);
 
 		// $ret = system($command, $status);

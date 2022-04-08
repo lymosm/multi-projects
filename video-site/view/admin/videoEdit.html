@@ -37,6 +37,13 @@
 						</div>
 					</div>
 					<div class="layui-form-item">
+						<label class="layui-form-label">滚动速度</label>
+						<div class="layui-input-block">
+							<input type="text" name="mins" id="mins" required lay-verify="required" placeholder="正整数，比如20，表示滚完一屏需要20秒"
+								autocomplete="off" class="layui-input" value="">
+						</div>
+					</div>
+					<div class="layui-form-item">
 						<label class="layui-form-label">选择视频</label>
 						<div class="layui-input-block">
 							<button type="button" class="layui-btn" id="file1">
@@ -135,6 +142,8 @@
 						return $("#fontsize").val();
 					}, color: function(){
 						return $("#color").val();
+					}, mins: function(){
+						return $("#mins").val();
 					}, 
 					},
 					auto: false,

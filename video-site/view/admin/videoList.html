@@ -29,7 +29,7 @@
 							Admin
 						</a>
 						<dl class="layui-nav-child">
-							
+							<dd><a href="javascript:void(0)" id="btn-pass">修改密码</a></dd>
 							<dd><a href="{$logout_url}">Sign out</a></dd>
 						</dl>
 					</li>
@@ -72,6 +72,7 @@
 		<script src="/static/extend/layui/layui.js"></script>
 		<script>
 			var home = "{$home}",
+				del = '',
 				base_url = "{$base_url}";
 				//JS 
 				layui.use(['element', 'layer', 'util', 'jquery', 'form', "table"], function() {
@@ -100,6 +101,9 @@
 						  }},
 						  {field: 'view', title: '二维码页面', templet: function(d){
 							  return '<a href="' + home + '/qrcode/id/' + d.detail_uri + '" target="_blank">查看</a>';
+						  }},
+						  {field: 'view', title: '操作', templet: function(d){
+							  return '<a  href="javascript:void(0);" onclick="del(' + d.id + ')">删除</a>';
 						  }}
 					     
 					    ]]
@@ -112,7 +116,27 @@
 							}
 						});
 					});
+
+
 */
+
+					del = function(id){
+						$.ajax({
+							type: "POST",
+							data: {id: id},
+							url: "/Admin/actionVideoDelete",
+							success: function(res){
+								console.log(res);
+								if(res.code == 1){
+									layer.alert("删除成功！", function(){
+										location.reload();
+									})
+								}else{
+									layer.alert(res.msg);
+								}
+							}
+						}); 
+					}
 					//头部事件
 					util.event('lay-header-event', {
 						//左侧菜单事件
@@ -145,12 +169,24 @@
 				*/
 				   $("#btn-add").on("click", function(){
 						layer.open({
-							title: "添加任务",
+							title: "添加视频",
 							type: 2,
 							area: ["780px", "560px"],
 							content: '{$url}',
 							end: function(){
 								tablens.reload();
+							}
+						}); 
+					});
+
+				   $("#btn-pass").on("click", function(){
+						layer.open({
+							title: "修改密码",
+							type: 2,
+							area: ["480px", "320px"],
+							content: '{$url_pass}',
+							end: function(){
+								//tablens.reload();
 							}
 						}); 
 					});
