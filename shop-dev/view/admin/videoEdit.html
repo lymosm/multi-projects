@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link href="/static/extend/layui/css/layui.css" rel="stylesheet">
+		<link href="/static/backend.css" rel="stylesheet">
+	</head>
+	<body>
+		<div class="layui-container">
+			<div class="layui-row">
+				<form class="layui-form" method="POST">
+					<div class="layui-form-item">
+						<label class="layui-form-label">视频名称</label>
+						<div class="layui-input-block">
+							<input type="text" name="name" id="name" required lay-verify="required" placeholder="请输入名称"
+								autocomplete="off" class="layui-input" value="{$data.name}">
+						</div>
+					</div>
+					<div class="layui-form-item">
+						<label class="layui-form-label">水印文字</label>
+						<div class="layui-input-block">
+							<input type="text" name="text" id="text" required lay-verify="required" placeholder=""
+								autocomplete="off" class="layui-input" value="">
+						</div>
+					</div>
+					<div class="layui-form-item">
+						<label class="layui-form-label">文字大小</label>
+						<div class="layui-input-block">
+							<input type="text" name="fontsize" id="fontsize" required lay-verify="required" placeholder="正整数，比如40"
+								autocomplete="off" class="layui-input" value="">
+						</div>
+					</div>
+					<div class="layui-form-item">
+						<label class="layui-form-label">文字颜色</label>
+						<div class="layui-input-block">
+							<input type="text" name="color" id="color" required lay-verify="required" placeholder="Yellow/Blue/Gold/Green/White"
+								autocomplete="off" class="layui-input" value="">
+						</div>
+					</div>
+					<div class="layui-form-item">
+						<label class="layui-form-label">滚动速度</label>
+						<div class="layui-input-block">
+							<input type="text" name="mins" id="mins" required lay-verify="required" placeholder="正整数，比如20，表示滚完一屏需要20秒"
+								autocomplete="off" class="layui-input" value="">
+						</div>
+					</div>
+					<div class="layui-form-item">
+						<label class="layui-form-label">码率</label>
+						<div class="layui-input-block">
+							<input type="text" name="ma" id="ma" required lay-verify="required" placeholder="正整数，比如800，越小视频占用空间越小"
+								autocomplete="off" class="layui-input" value="">
+						</div>
+					</div>
+					<div class="layui-form-item">
+						<label class="layui-form-label">选择视频</label>
+						<div class="layui-input-block">
+							<button type="button" class="layui-btn" id="file1">
+							  <i class="layui-icon">&#xe67c;</i>上传视频
+							</button>
+						</div>
+					</div>
+					
+			
+					<div class="layui-form-item">
+						<div class="layui-input-block">
+							<input type="hidden" name="uid" id="uid" value="">
+							<button type="button" class="layui-btn" id="submit-video" lay-submit lay-filter="video-form">提交</button>
+						</div>
+					</div>
+				</form>
+			</div>
+			<table class="layui-table">
+			  <colgroup>
+			    <col width="200">
+			    <col width="260">
+			    <col>
+			  </colgroup>
+			  <thead>
+			    <tr>
+			      <th>视频名称</th>
+			      <!-- <th>进度（未完成请不要关闭此窗口）</th> -->
+			      <th>状态（未完成请不要关闭此窗口）</th>
+			    </tr> 
+			  </thead>
+			  <tbody id="tbody-list">
+				  <!-- 
+			    <tr>
+			      <td class="td-name">贤心</td>
+			      <td class="td-process">
+					  <div class="layui-progress" lay-showPercent="yes">
+					    <div class="layui-progress-bar layui-bg-green" lay-percent="30%"></div>
+					  </div>
+				  </td>
+			      <td class="td-status">进行中</td>
+			    </tr>
+				-->
+			  </tbody>
+			</table>
+		</div>
+		<script src="/static/extend/layui/layui.js"></script>
+		<script>
+			var uid = "";
+			layui.use(['element', 'layer', 'util', 'jquery', "form", "upload"], function() {
+				var form = layui.form,
+					element = layui.element,
+					layer = layui.layer,
+					upload = layui.upload,
+					util = layui.util,
+					
+					$ = layui.$;
+				//监听提交
+				/*
+				form.on('submit(task-form)', function(data) {
+				
+					$.ajax({
+						type: "POST",
+						// async: false,
+						dataType: "json",
+						data: data.field,
+						url: "{$url}",
+						success: function(res){
+							console.log(res);
+							if(res.code == 1){
+								layer.msg("提交成功");
+								window.parent.location.reload();//刷新父页面
+								var index = parent.layer.getFrameIndex(window.name); //获取窗口索引
+								parent.layer.close(index);
+							}else{
+								layer.msg(res.msg);
+							}
+						}
+					});
+					
+					return false;
+				});
+				*/
+				   
+				//执行实例
+				var uploadInst = upload.render({
+				    elem: '#file1',
+				    url: "{$url}",
+					accept: "file",  // video
+					data: {name: function(){
+						return $("#name").val();
+					}, uid: function(){
+						return $("#uid").val();
+					}, text: function(){
+						return $("#text").val();
+					}, fontsize: function(){
+						return $("#fontsize").val();
+					}, color: function(){
+						return $("#color").val();
+					}, mins: function(){
+						return $("#mins").val();
+					}, ma: function(){
+						return $("#ma").val();
+					},
+					},
+					auto: false,
+					bindAction: "#submit-video",
+					/*
+					choose: function(obj){
+						// 阻止上传
+						// uploadInst.config.elem.next()[0].value = "";
+						obj.preview(function(index, file){
+							// obj.upload(index, file);
+						});
+					},
+					*/
+					before: function(obj){
+						var len = $("#tbody-list").find(".td-status-doing").length;
+						if(len >= 5){
+							layer.alert("同时进行中任务最多5个");
+							return false;
+						}
+					    // layer.load(); //上传loading
+						var nid = createUniqueId(1),
+							name = $("#name").val(),
+						uid = nid[0];
+						$("#uid").val(uid);
+						var html = '<tr id="' + uid + '">' + 
+						  '<td class="td-name">' + name + '</td>' + 
+						  /*
+						  '<td class="td-process">' + 
+							  '<div class="layui-progress" lay-showPercent="yes" lay-filter="' + uid + '">' + 
+								'<div class="layui-progress-bar layui-bg-green" lay-percent="1%"></div></div></td>' + 							
+								*/
+						  '<td class="td-status td-status-doing">进行中<img src="/static/image/loading.gif"></td></tr>';
+						$("#tbody-list").append(html);
+				  
+					},
+					progress: function(n, elem, res, index){
+					    var percent = n + '%'; //获取进度百分比
+						var sid = $("#uid").val();
+						if($("#" + sid).length > 0 && n <= 90){
+							element.progress(sid, percent);
+						}
+					    
+					 //   console.log(elem); //得到当前触发的元素 DOM 对象。可通过该元素定义的属性值匹配到对应的进度条。
+					 //   console.log(res); //得到 progress 响应信息
+					 //   console.log(index); //得到当前上传文件的索引，多文件上传时的进度条控制，如：
+					  //  element.progress('demo-'+ index, n + '%'); //进度条
+					},
+				    done: function(res){
+						var td_status = $("#" + res.data).find(".td-status");
+						if(res.code != 1){
+							td_status.html("失败");
+							layer.msg(res.msg);
+						}else{
+							element.progress(res.data, '100%');
+							td_status.removeClass("td-status-doing");
+							td_status.html("已完成");
+							layer.msg("添加成功");
+						}
+				    },
+				    error: function(){
+				    }
+				});
+			   
+			});
+			
+			function createUniqueId(n) {
+			    var random = function() { // 生成10-12位不等的字符串
+			        return Number(Math.random().toString().substr(2)).toString(36); // 转换成十六进制
+			    }
+			    var arr = [];
+			    function createId() {
+			        var num = random();
+			        var _bool = false;
+			        arr.forEach(v => {
+			            if(v === num) _bool = true;
+			        });
+			        if(_bool) {
+			            createId();
+			        }else {
+			            arr.push(num);
+			        }
+			    }
+			    var i = 0;
+			    while(i < n) {
+			        createId();
+			        i++;
+			    }
+			    return arr;
+			}
+		</script>
+	</body>
+</html>

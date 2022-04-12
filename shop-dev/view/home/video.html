@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>video</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<link href="/static/css/mui.min.css" rel="stylesheet" />
+		<link href="/static/css/main.css" rel="stylesheet" />
+		<style>
+			html,body {
+				background-color: #efeff4;
+			}
+			.video{
+				padding: 6% 10%;
+				box-sizing: border-box;
+				position: relative;
+				text-align: center;
+			}
+			.video video{
+				width: 80%;
+			}
+			@media screen and (max-width: 750px){
+				.video{
+					padding: 0;
+					padding-top: 10px;
+					box-sizing: border-box;
+					position: relative;
+					text-align: center;
+				}
+				.video video{
+					width: 100%;
+				}
+			}
+			
+		</style>
+	</head>
+
+	<body>
+		<div class="video">
+		 	<video id="demovideo" controls="controls" src="<?php echo $file_url; ?>"></video>
+		</div>
+	</body>
+	<script src="/static/js/mui.min.js"></script>
+	<script id="bfwone" data="dep=jquery.17&err=0" type="text/javascript" src="/static/js/bfwone.js"></script>
+		<script src="/static/js/main.js"></script>
+	<script>
+		mui.init({
+			swipeBack:true //启用右滑关闭功能
+		});
+		function dataURItoBlob(dataURI) {
+            var mimeString = dataURI.split(',')[0].split(':')[1].split(';')[0]; // mime类型
+            var byteString = atob(dataURI.split(',')[1]); //base64 解码
+            var arrayBuffer = new ArrayBuffer(byteString.length); //创建缓冲数组
+            var intArray = new Uint8Array(arrayBuffer); //创建视图
+
+            for (var i = 0; i < byteString.length; i++) {
+                intArray[i] = byteString.charCodeAt(i);
+            }
+            return new Blob([intArray], {
+                type: mimeString
+            });
+        }
+
+        /**
+        *
+        * blob二进制 to base64
+        **/
+        function blobToDataURI(blob, callback) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                callback(e.target.result);
+            }
+            reader.readAsDataURL(blob);
+        }
+        bready(function() {
+			/*
+            let xhr = new XMLHttpRequest();
+            xhr.open('POST', '<?php echo $uri; ?>', true);
+            xhr.responseType = 'blob';
+            xhr.onload = function(e) {
+                if (this.status === 200) {
+                    // 获取blob对象
+                    let blob = this.response;
+                    console.log(blob);
+                    // 获取blob对象地址，并把值赋给容器
+                    $("#demovideo").attr("src", URL.createObjectURL(blob));
+                    $("#demovideo").trigger("play"); //
+                }
+            }
+            xhr.send();
+			*/
+        });
+	</script>
+</html>

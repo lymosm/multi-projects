@@ -36,6 +36,11 @@ class Home extends BaseController
 		View::assign('img_url', $this->url($data['qrcode_img_uri']));
 		return View::fetch('qrcode');
 	}
+
+	public function video2(){
+		
+	    return View::fetch('video3');
+	}
     
 	public function video($id){
 		$id = addslashes(trim($id));
