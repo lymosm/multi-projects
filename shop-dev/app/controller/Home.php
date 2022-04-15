@@ -7,6 +7,7 @@ use app\model\User;
 use think\facade\Request;
 use think\facade\Db;
 use think\response\Json;
+use app\model\Widget;
 
 class Home extends BaseController
 {
@@ -16,6 +17,8 @@ class Home extends BaseController
 	}
 
 	public function index(){
+		$home_top_banner = Widget::getHomeLoopBanner();
+		View::assign('home_top_banner', $home_top_banner);
 		View::assign('title', 'index');
 		return View::fetch('index');
 	}
