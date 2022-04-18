@@ -1,0 +1,41 @@
+body,html{
+    padding: 0;
+    margin: 0;
+}
+.ls-home-top{
+    width: 90%;
+    margin: 0 auto;
+}
+.ls-home-top img{
+    height: 600px;
+}
+.ls-home-top .slick-slide .img-link{
+    display: block;
+    justify-content: center;
+    align-items: center;
+}
+.ls-nav{
+    width: 90%;
+    height: 80px;
+    margin: 0 auto;
+    display: flex;
+    margin-bottom: 12px;
+}
+.ls-logo-box{
+    width: 10%;
+    height: 100%;
+    border: 1px solid red;
+}
+.ls-logo-box{
+    line-height: 80px;
+}
+.ls-cate-box{
+    width: 70%;
+    height: 100%;
+    border: 1px solid red;
+}
+.ls-account-box{
+    width: 20%;
+    height: 100%;
+    border: 1px solid red;
+}

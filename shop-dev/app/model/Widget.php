@@ -11,11 +11,11 @@ class Widget extends Model{
         $ret = Db::name('loop_banner')->field('*')
             ->where(['type' => $type])->select();
 
-        $html = '<div class="ls-home-top">';
+        $html = '<div class="ls-home-top" id="ls-home-top">';
         foreach($ret as $rs){
             $html .= '<div>';
             if($rs['link']){
-                $html .= '<a href="' . $rs['link'] . '">';
+                $html .= '<a class="img-link" href="' . $rs['link'] . '">';
             }
             $html .= '<img src="' . $rs['img_uri'] . '">';
             if($rs['btn']){

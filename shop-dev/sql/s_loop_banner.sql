@@ -19,3 +19,8 @@ create table s_loop_banner(
 	primary key(id)
 )ENGINE=INNODB default charset=utf8mb4 comment "loop banner";
 
+INSERT INTO `shop`.`s_loop_banner`(`id`, `name`, `img_uri`, `type`, `text`, `btn`, `btn_link`, `link`, `order`, `added_by`, `added_date`, `updated_by`, `updated_date`) VALUES (1, '777', '/storage/images/20220418/1.jpg', 'home-top', '777', '77', '777', '777', 0, 0, NULL, 0, NULL);
+INSERT INTO `shop`.`s_loop_banner`(`id`, `name`, `img_uri`, `type`, `text`, `btn`, `btn_link`, `link`, `order`, `added_by`, `added_date`, `updated_by`, `updated_date`) VALUES (2, '777', '/storage/images/20220418/2.jpg', 'home-top', '777', '77', '777', '777', 0, 0, NULL, 0, NULL);
+INSERT INTO `shop`.`s_loop_banner`(`id`, `name`, `img_uri`, `type`, `text`, `btn`, `btn_link`, `link`, `order`, `added_by`, `added_date`, `updated_by`, `updated_date`) VALUES (3, '777', '/storage/images/20220418/3.jpg', 'home-top', '777', '77', '777', '777', 0, 0, NULL, 0, NULL);
+
+
