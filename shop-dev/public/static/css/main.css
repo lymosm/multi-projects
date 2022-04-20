@@ -162,3 +162,13 @@ a{
     color: #a7a7a7;
     background: #666;
 }
+.lo-product{
+    display: flex;
+}
+.lo-product-inner{
+    width: 70%;
+    display: flex;
+}
+.lo-product-recommand{
+    width: 30%;
+}
