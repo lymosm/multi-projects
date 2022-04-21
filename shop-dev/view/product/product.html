@@ -3,10 +3,30 @@
     <div class="lo-product-inner">
         <div class="product-left">
             <div class="p-img-main">
-
+                <div class="p-img-gallary" id="p-img-gallary">
+                    <?php
+                    $html = '';
+                    foreach($product_img as $rs){
+                        $html .= '<div>';
+                        $html .= '<img src="' . $rs['uri'] . '">';
+                        $html .= '</div>';
+                    }
+                    echo $html;
+                    ?>
+                </div>
             </div>
             <div class="p-img-thumb">
-
+                <div class="p-img-gallary-thumb" id="p-img-gallary-thumb">
+                    <?php
+                    $html = '';
+                    foreach($product_img as $rs){
+                        $html .= '<div class="gallary-thumb-item">';
+                        $html .= '<img src="' . $rs['uri'] . '">';
+                        $html .= '</div>';
+                    }
+                    echo $html;
+                    ?>
+                </div>
             </div>
         </div>
         <div class="product-right">

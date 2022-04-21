@@ -172,3 +172,24 @@ a{
 .lo-product-recommand{
     width: 30%;
 }
+.product-left{
+    width: 60%;
+}
+.product-right{
+    width: 40%;
+}
+.p-img-thumb{
+    margin-top: 12px;
+    margin-bottom: 12px;
+}
+.gallary-thumb-item{
+    padding: 6px;
+    border: 1px solid #ccc;
+}
+.p-img-thumb .slick-track{
+    margin-left: unset;
+}
+.gallary-thumb-item{
+    width: 80px;
+    height: 80px;
+}
