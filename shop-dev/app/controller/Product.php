@@ -26,10 +26,12 @@ class Product extends BaseController
 			return View::fetch('no-product');
 		}
 		$product_img = ProductModel::getProductImg($id);
+		$product_recommand = ProductModel::getProductRecommand($id);
 
 		View::assign('title', $product['name']);
 		View::assign('product', $product);
 		View::assign('product_img', $product_img);
+		View::assign('product_recommand', $product_recommand);
 		return View::fetch('product');
 	}
 }

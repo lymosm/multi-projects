@@ -38,12 +38,26 @@
 
             </div>
             <div class="p-action">
-                <a href="">Add To Cart</a>
+                <label>
+                    Number:
+                    <input type="number" name="quity" value="1">
+                </label>
+                <a href="" class="ls-btn-cart">Add To Cart</a>
             </div>
         </div>
     </div>
-    <div class="lo-product-recommand">
+    <div class="ls-product-recommand">
+        <?php foreach($product_recommand as $rs){
+        ?>
+        <a class="ls-verital-p-item" href="">
+            <div class="ls-v-img"></div>
+            <div class="ls-v-text">
+                <div class="p-price-box">
 
+                </div>
+                <h2 class="p-title"></h2>
+            </div>
+        </a>
     </div>
 </div>
 {include file="home/common/footer" /}

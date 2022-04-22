@@ -25,4 +25,15 @@ class ProductModel extends Model{
         ->select();  
         return $ret;
     }
+
+    public static function getProductRecommand($uri = ''){
+        $ret = Db::name('product')
+            ->alias('a')
+            ->join('product_img b', 'a.id = b.product_id', 'left')
+            ->field('a.name, a.url as product_uri, b.uri as img_uri, b.sort, b.product_id')
+        ->limit(5)
+        ->order('a.id desc')
+        ->select();  
+        return $ret;
+    }
 }

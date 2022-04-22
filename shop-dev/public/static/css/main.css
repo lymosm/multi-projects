@@ -169,7 +169,7 @@ a{
     width: 70%;
     display: flex;
 }
-.lo-product-recommand{
+.ls-product-recommand{
     width: 30%;
 }
 .product-left{
@@ -192,4 +192,8 @@ a{
 .gallary-thumb-item{
     width: 80px;
     height: 80px;
+}
+.ls-btn-cart{
+    display: block;
+    padding: 10px 20px;
 }
