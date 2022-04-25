@@ -177,14 +177,21 @@ a{
 }
 .product-right{
     width: 40%;
+    padding-left: 2vw;
 }
 .p-img-thumb{
     margin-top: 12px;
     margin-bottom: 12px;
+    padding-left: 1.2vw;
+    padding-right: 1.2vw;
 }
 .gallary-thumb-item{
-    padding: 6px;
+    padding: 1px;
+    cursor: pointer;
+}
+.thumb-img-inner{
     border: 1px solid #ccc;
+    padding: 0.2vw;
 }
 .p-img-thumb .slick-track{
     margin-left: unset;
@@ -196,4 +203,25 @@ a{
 .ls-btn-cart{
     display: block;
     padding: 10px 20px;
+    background-color: #33ae33;
+    margin-top: 20px;
+    width: 30%;
+    text-align: center;
+    color: #fff;
+}
+h2.p-title{
+    padding: 0;
+    margin-top: 0;
+}
+.p-short-desc{
+    padding: 0 1vw 2vw 0;
+}
+.p-action{
+    margin-top: 20px;
+}
+button.slick-next:before{
+    color: #000;
+}
+button.slick-prev:before{
+    color: #000;
 }

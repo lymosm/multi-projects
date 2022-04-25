@@ -15,3 +15,9 @@ create table s_product_img(
 	primary key(id)
 )ENGINE=INNODB default charset=utf8mb4 comment "s_product_img";
 
+INSERT INTO `shop`.`s_product_img`(`id`, `product_id`, `name`, `uri`, `sort`, `added_by`, `added_date`, `updated_by`, `updated_date`) VALUES (1, 1, '88.jpg', '/storage/images/20220418/1.jpg', 0, 0, NULL, 0, NULL);
+INSERT INTO `shop`.`s_product_img`(`id`, `product_id`, `name`, `uri`, `sort`, `added_by`, `added_date`, `updated_by`, `updated_date`) VALUES (2, 1, '99.jpg', '/storage/images/20220418/2.jpg', 0, 0, NULL, 0, NULL);
+INSERT INTO `shop`.`s_product_img`(`id`, `product_id`, `name`, `uri`, `sort`, `added_by`, `added_date`, `updated_by`, `updated_date`) VALUES (3, 1, '66.jpg', '/storage/images/20220418/3.jpg', 0, 0, NULL, 0, NULL);
+INSERT INTO `shop`.`s_product_img`(`id`, `product_id`, `name`, `uri`, `sort`, `added_by`, `added_date`, `updated_by`, `updated_date`) VALUES (4, 1, '99.jpg', '/storage/images/20220418/2.jpg', 0, 0, NULL, 0, NULL);
+INSERT INTO `shop`.`s_product_img`(`id`, `product_id`, `name`, `uri`, `sort`, `added_by`, `added_date`, `updated_by`, `updated_date`) VALUES (5, 1, '99.jpg', '/storage/images/20220418/1.jpg', 0, 0, NULL, 0, NULL);
+INSERT INTO `shop`.`s_product_img`(`id`, `product_id`, `name`, `uri`, `sort`, `added_by`, `added_date`, `updated_by`, `updated_date`) VALUES (6, 1, '99.jpg', '/storage/images/20220418/3.jpg', 0, 0, NULL, 0, NULL);

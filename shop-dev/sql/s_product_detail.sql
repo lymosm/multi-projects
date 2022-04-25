@@ -10,3 +10,4 @@ create table s_product_detail(
 	primary key(id)
 )ENGINE=INNODB default charset=utf8mb4 comment "s_product_detail";
 
+INSERT INTO `shop`.`s_product_detail`(`id`, `product_id`, `price`, `short_desc`, `long_desc`) VALUES (1, 1, '66', '6666666', 'dddddddddd');

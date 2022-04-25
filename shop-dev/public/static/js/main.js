@@ -10,6 +10,8 @@ $(function(){
         infinite: true,
         slidesToShow: 1,
         slidesToScroll: 1,
+        accessibility: false,
+        arrows: false
     });
 
     $('#p-img-gallary-thumb').slick({

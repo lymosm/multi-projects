@@ -20,8 +20,8 @@
                     <?php
                     $html = '';
                     foreach($product_img as $rs){
-                        $html .= '<div class="gallary-thumb-item">';
-                        $html .= '<img src="' . $rs['uri'] . '">';
+                        $html .= '<div class="gallary-thumb-item"><div class="thumb-img-inner">';
+                        $html .= '<img src="' . $rs['uri'] . '"></div>';
                         $html .= '</div>';
                     }
                     echo $html;
@@ -30,12 +30,12 @@
             </div>
         </div>
         <div class="product-right">
-            <h2>{$product['name']}</h2>
+            <h2 class="p-title">{$product['name']}</h2>
             <div class="p-short-desc">
                 {$product['short_desc']}
             </div>
             <div class="p-price-box">
-
+                ${$product['price']}
             </div>
             <div class="p-action">
                 <label>
@@ -58,6 +58,9 @@
                 <h2 class="p-title"></h2>
             </div>
         </a>
+        <?php
+            }
+        ?>
     </div>
 </div>
 {include file="home/common/footer" /}
