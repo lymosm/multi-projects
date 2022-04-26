@@ -40,9 +40,10 @@
             <div class="p-action">
                 <label>
                     Number:
-                    <input type="number" name="quity" value="1">
+                    <input type="number" id="qty" name="quity" value="1">
                 </label>
-                <a href="" class="ls-btn-cart">Add To Cart</a>
+                <input type="hidden" id="product-id" value="{$product['short_desc']}">
+                <a href="javascript:void(0);" id="ls-btn-add-cart" class="ls-btn-cart">Add To Cart</a>
             </div>
         </div>
     </div>
@@ -50,17 +51,37 @@
         <?php foreach($product_recommand as $rs){
         ?>
         <a class="ls-verital-p-item" href="">
-            <div class="ls-v-img"></div>
+            <div class="ls-v-img">
+                <img src="{$rs['img_uri']}">
+            </div>
             <div class="ls-v-text">
+                <h3 class="p-title">{$rs['name']}</h3>
                 <div class="p-price-box">
-
+                    ${$rs['price']}
                 </div>
-                <h2 class="p-title"></h2>
+                
             </div>
         </a>
         <?php
             }
         ?>
+        <?php foreach($product_recommand as $rs){
+            ?>
+            <a class="ls-verital-p-item" href="">
+                <div class="ls-v-img">
+                    <img src="{$rs['img_uri']}">
+                </div>
+                <div class="ls-v-text">
+                    <h3 class="p-title">{$rs['name']}</h3>
+                    <div class="p-price-box">
+                        ${$rs['price']}
+                    </div>
+                    
+                </div>
+            </a>
+            <?php
+                }
+            ?>
     </div>
 </div>
 {include file="home/common/footer" /}

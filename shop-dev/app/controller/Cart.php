@@ -19,11 +19,16 @@ class Cart extends BaseController
 
 	public function index(){
 		
-		
-		$cart = CartModel::getCartData();
+		$session_id = session_id();
+		$session_id = ''; // debug
+		$cart = CartModel::getCartData($session_id);
 
 		View::assign('title', 'Cart');
 		View::assign('cart', $cart);
 		return View::fetch('cart');
+	}
+
+	public function addToCart(){
+		
 	}
 }

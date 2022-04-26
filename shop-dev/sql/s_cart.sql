@@ -3,6 +3,7 @@ drop table if exists s_cart;
 create table s_cart(
 	id int(11) not null auto_increment,
 	session_id varchar(125) not null default "",
+	user_id int(11) not null default 0,
 	`cart_content` text default null,
 	updated_date datetime default null,
 	expired_date datetime default null,

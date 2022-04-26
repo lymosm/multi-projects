@@ -14,8 +14,16 @@ class CartModel extends Model{
      */
     public static function getCartData($session_id){
         $ret = Db::name('cart')
-            ->field('id, session_id, cart_content')
+            ->field('id, session_id, user_id, cart_content')
         ->where(['session_id' => $session_id])
+        ->find();  
+        return $ret;
+    }
+
+    public static function getCartDataUid($uid){
+        $ret = Db::name('cart')
+            ->field('id, session_id, user_id, cart_content')
+        ->where(['user_id' => $uid])
         ->find();  
         return $ret;
     }
