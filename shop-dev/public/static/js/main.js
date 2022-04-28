@@ -34,9 +34,18 @@ $(function(){
     }
 
     $("#ls-btn-add-cart").on("click", function(){
-        var url = host;
+        var url = host + "Cart/addToCart";
+        var data = {
+            id: $("#product-id").val(),
+            qty: $("#qty").val()
+        };
         $.ajax({
-            type: "POST"
+            type: "POST",
+            url: url,
+            data: data,
+            success: function(res){
+
+            }
         });
     });
 

@@ -38,4 +38,14 @@ class ProductModel extends Model{
         ->select();  
         return $ret;
     }
+
+    public static function getProductById($id){
+        $ret = Db::name('product')
+            ->alias('a')
+            ->join('product_detail c', 'a.id = c.product_id', 'left')
+            ->field('a.name, c.price')
+        ->where(['a.id' => $id])
+        ->find();  
+        return $ret;
+    }
 }

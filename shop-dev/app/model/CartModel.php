@@ -27,4 +27,12 @@ class CartModel extends Model{
         ->find();  
         return $ret;
     }
+
+    public static function saveCartData($session_id, $data){
+        $ret = Db::name('cart')
+            ->field('id, session_id, user_id, cart_content')
+        ->where(['session_id' => $session_id])
+        ->find();  
+        return $ret;
+    }
 }
