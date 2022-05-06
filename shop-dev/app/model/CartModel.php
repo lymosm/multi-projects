@@ -28,11 +28,20 @@ class CartModel extends Model{
         return $ret;
     }
 
-    public static function saveCartData($session_id, $data){
-        $ret = Db::name('cart')
-            ->field('id, session_id, user_id, cart_content')
-        ->where(['session_id' => $session_id])
-        ->find();  
+    public static function saveCartData($session_id, $data, $is_update){
+        $cart_data = [
+            'cart_content' => json_encode($data),
+            'session_id' => $session_id,
+            'updated_date' => date('Y-m-d H:i:s')
+        ];
+        if(! $is_update){
+            $ret = Db::name('cart')
+                ->insert($cart_data);
+        }else{
+            $ret = Db::name('cart')
+            ->where(['session_id' => $session_id])
+            ->update($cart_data);
+        }   
         return $ret;
     }
 }

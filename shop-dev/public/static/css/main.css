@@ -358,3 +358,40 @@ button.slick-prev:before{
     border-right: 1px solid #ddd;
     margin-right: 2vw;
 }
+.ls-shade-box{
+    width: 100%;
+    height: 100vh;
+    background-color: #000;
+    opacity: 0.4;
+    z-index: 2;
+    position: fixed;
+    top: 0;
+    left: 0;
+    text-align: center;
+    padding-top: 10%;
+    display: none;
+}
+.ls-shade-box.active{
+    display: block;
+}
+.ls-shade-box img{
+    align-items: center;
+    width: 20px;
+}
+.ls-alert-box{
+    position: fixed;
+    width: 20%;
+    height: 100px;
+    background-color: #555;
+    top: 20%;
+    margin-left: -10%;
+    left: 50%;
+    z-index: 3;
+    color: #fff;
+    padding-top: 20px;
+    text-align: center;
+    display: none;
+}
+.ls-alert-box.active{
+    display: block;
+}

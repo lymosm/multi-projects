@@ -55,11 +55,11 @@ class Cart extends BaseController
 			'price' => $product['price'],
 			'item_price' => $item_price
 		];
-
+		session_start();
 		$session_id = session_id();
 		$cart = CartModel::getCartData($session_id);
+		$is_update = false;
 		if(! $cart){
-			
 			$cart = [
 				'product_list' => [
 					$product_item
@@ -69,11 +69,18 @@ class Cart extends BaseController
 				]
 				];
 		}else{
+			$cart = $cart['cart_content'];
+			$is_update = true;
 			$cart = json_decode($cart, true);
 			$cart['product_list'][] = $product_item;
 			$cart['price_obj']['total_price'] += $item_price;
 		}
-		
+		$res = CartModel::saveCartData($session_id, $cart, $is_update);
+		if($res === false){
+			$ret['msg'] = 'save cart error';
+			return json($ret);
+		}
+		$ret['code'] = 1;
 
 		return json($ret);
 	}

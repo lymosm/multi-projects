@@ -1,4 +1,14 @@
 var host = "http://lo.s.com/";
+var ls_obj = {
+    message: function(msg){
+        var $ing = $("#ls-alert-box");
+        $ing.html(msg);
+        $ing.addClass("active");
+        setTimeout(function(){
+            $ing.removeClass("active");
+        }, 2000);
+    }
+}
 $(function(){
     $('#ls-home-top').slick({
         infinite: true,
@@ -39,12 +49,15 @@ $(function(){
             id: $("#product-id").val(),
             qty: $("#qty").val()
         };
+        var $loading = $("#ls-shade-box");
+        $loading.addClass("active");
         $.ajax({
             type: "POST",
             url: url,
             data: data,
             success: function(res){
-
+                ls_obj.message("added success");
+                $loading.removeClass("active");
             }
         });
     });
