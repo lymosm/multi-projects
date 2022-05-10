@@ -43,7 +43,7 @@ class ProductModel extends Model{
         $ret = Db::name('product')
             ->alias('a')
             ->join('product_detail c', 'a.id = c.product_id', 'left')
-            ->field('a.name, c.price, a.id')
+            ->field('a.name, c.price, a.id, a.uri')
         ->where(['a.id' => $id])
         ->find();  
         return $ret;

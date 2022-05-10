@@ -1,27 +1,25 @@
 {include file="home/common/header" /}
 <div class="ls-cart-box">
     <div class="cart-product">
+        <?php
+            foreach($product_list as $rs){
+        ?>
         <div class="cart-item">
             <div class="c-item-img"></div>
             <div class="c-item-title">
-                <a class="ls-link" href="">product1</a>
+                <a class="ls-link" href="Product/index/id/{$rs['uri']}">{$rs['product_name']}</a>
             </div>
-            <div class="c-item-number">2</div>
+            <div class="c-item-number">{$rs['qty']}</div>
             <div class="c-item-action"><a href="" class="ls-btn">delete</a></div>
         </div>
-        <div class="cart-item">
-            <div class="c-item-img"></div>
-            <div class="c-item-title">
-                <a class="ls-link" href="">product1</a>
-            </div>
-            <div class="c-item-number">2</div>
-            <div class="c-item-action"><a href="" class="ls-btn">delete</a></div>
-        </div>
+        <?php
+            }
+        ?>
     </div>
     <div class="offset-10"></div>
     <div class="cart-price">
         <div class="total-price">
-            <label>total: </label>$89
+            <label>total: </label>${$price_obj['total_price']}
         </div>
         <div class="cart-action">
             <a class="ls-btn-checkout" href="/Checkout">Checkout</a>

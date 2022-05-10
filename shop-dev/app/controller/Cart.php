@@ -19,13 +19,17 @@ class Cart extends BaseController
 	}
 
 	public function index(){
-		
+		session_start();
 		$session_id = session_id();
-		$session_id = ''; // debug
 		$cart = CartModel::getCartData($session_id);
-
 		View::assign('title', 'Cart');
-		View::assign('cart', $cart);
+		if(! $cart){
+			return View::fetch('cart_empty');
+		}
+		$cart_content = json_decode($cart['cart_content'], true);
+		
+		View::assign('product_list', $cart_content['product_list']);
+		View::assign('price_obj', $cart_content['price_obj']);
 		return View::fetch('cart');
 	}
 
@@ -50,6 +54,7 @@ class Cart extends BaseController
 		$item_price = $product['price'] * $qty;
 		$product_item = [
 			'product_id' => $product['id'],
+			'uri' => $product['uri'],
 			'product_name' => $product['name'],
 			'qty' => $qty,
 			'price' => $product['price'],

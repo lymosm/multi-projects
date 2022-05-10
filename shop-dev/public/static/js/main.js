@@ -62,4 +62,20 @@ $(function(){
         });
     });
 
+    $("#ls-btn-checkout").on("click", function(){
+        var url = host + "Checkout/saveCheckout";
+        var data = $("#checkout-form").searilize();
+        var $loading = $("#ls-shade-box");
+        $loading.addClass("active");
+        $.ajax({
+            type: "POST",
+            url: url,
+            data: data,
+            success: function(res){
+                ls_obj.message("added success");
+                $loading.removeClass("active");
+            }
+        });
+    });
+
 });

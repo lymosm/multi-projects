@@ -1,20 +1,22 @@
 {include file="home/common/header" /}
 <div class="ls-checkout-box">
     <div class="checkout-form">
-        <div class="form-title">
-            Billing Address
-        </div>
-        <div class="form-item">
-            <input type="text" autocomplete="off" name="" placeholder="first name">
-            <input type="text" name="" placeholder="last name">
-        </div>
-        <div class="form-item">
-            <input type="text" name="" placeholder="phone">
-            <input type="text" name="" placeholder="email">
-        </div>
-        <div class="form-item">
-            <input type="text" name="" placeholder="address">
-        </div>
+        <form id="checkout-form">
+            <div class="form-title">
+                Billing Address
+            </div>
+            <div class="form-item">
+                <input type="text" autocomplete="off" name="first_name" placeholder="first name">
+                <input type="text" name="last_name" placeholder="last name">
+            </div>
+            <div class="form-item">
+                <input type="text" name="phone" placeholder="phone">
+                <input type="text" name="email" placeholder="email">
+            </div>
+            <div class="form-item">
+                <input type="text" name="address" placeholder="address">
+            </div>
+        </form>
     </div>
     <div class="offset-10 split"></div>
     <div class="checkout-detail">
@@ -22,14 +24,20 @@
             Order Summary
         </div>
         <div class="order-product-list">
+            <?php
+                foreach($product_list as $rs){
+            ?>
             <div class="product-item">
                 <div class="item-title">
-                    product1 x 2
+                   {$rs['product_name']} x {$rs['qty']}
                 </div>
                 <div class="item-price">
-                    $66
+                    ${$rs['price']}
                 </div>
             </div>
+            <?php
+                }
+            ?>
         </div>
         <div class="order-price">
             <div class="price-item">
@@ -37,12 +45,12 @@
                     total
                 </div>
                 <div class="item-price">
-                    $66
+                    ${$price_obj['total_price']}
                 </div>
             </div>
         </div>
         <div class="cart-action">
-            <a class="ls-btn-checkout">Order</a>
+            <a class="ls-btn-checkout" id="ls-btn-checkout">Order</a>
         </div>
     </div>
 </div>

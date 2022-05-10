@@ -41,6 +41,8 @@ abstract class BaseController
      */
     protected $middleware = [];
 
+    public $session_id = '';
+
     /**
      * 构造方法
      * @access public
@@ -48,6 +50,8 @@ abstract class BaseController
      */
     public function __construct(App $app, $check_token = true)
     {
+        session_start();
+        $this->session_id = session_id();
         $this->app     = $app;
         $this->request = $this->app->request;
 
