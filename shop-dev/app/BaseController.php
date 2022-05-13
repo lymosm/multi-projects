@@ -42,6 +42,7 @@ abstract class BaseController
     protected $middleware = [];
 
     public $session_id = '';
+    public $uid = 0;
 
     /**
      * 构造方法

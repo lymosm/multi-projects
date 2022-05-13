@@ -7,7 +7,7 @@ create table s_order_product(
 	`product_name` varchar(120) not null default "",
 	`price` varchar(6) not null default "",
 	qty int(11) not null default 0,
-	`total_price` varchar(6) not null default "",
+	`item_price` varchar(6) not null default "",
 	
 	primary key(id)
 )ENGINE=INNODB default charset=utf8mb4 comment "s_order_product";

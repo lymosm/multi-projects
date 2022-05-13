@@ -11,6 +11,7 @@ use app\model\Widget;
 use app\model\CartModel;
 use app\model\CheckoutModel;
 use app\model\OrderModel;
+use app\model\PaypalModel;
 
 class Checkout extends BaseController
 {
@@ -32,13 +33,21 @@ class Checkout extends BaseController
 		return View::fetch('checkout');
 	}
 
+	public function result($order){
+		if(! trim($order)){
+			return View::fetch('no_order');
+		}
+		
+		return View::fetch('result');
+	}
+
 	/**
      * [
      *  'product_list',
      *  'price_detail' 
      * ]
      */
-    public function saveCheckout($cart){
+    public function saveCheckout(){
 		$ret = [
 			'code' => 0,
 			'data' => '',
@@ -60,7 +69,8 @@ class Checkout extends BaseController
 			'phone' => $phone,
 			'email' => $email,
 			'address' => $address,
-			'session_id' => $this->session_id
+			'session_id' => $this->session_id,
+			'uid' => $this->uid
 		];
 
 		$cart = CartModel::getCartData($this->session_id);
@@ -74,9 +84,39 @@ class Checkout extends BaseController
 		$price_obj = $cart_content['price_obj'];
 
 		$status = OrderModel::addOrder($user, $product_list, $price_obj);
-		if($price_obj['need_payment']){
-			// redirect
+		if($status === false){
+			$ret['msg'] = 'Add Cart Failed';
+			return json($ret);
 		}
+		$order_id = $status;
+		$need_payment = $price_obj['need_payment'];
+		$res = [
+			'redirect_url' => '/Checkout/result/order/' . $order_id
+		];
 
+		// debug
+		$ret['code'] = 1;
+		$ret['data'] = ['redirect' => $res['redirect_url']];
+		return json($ret);
+
+		if($need_payment){
+			$payment_type = $price_obj['payment_type'];
+			switch($payment_type){
+				case 'paypal':
+					$res = PaypalModel::payment();
+					break;
+				case 'stripe':
+					$res = StripeModel::payment();
+					break;
+				case 'alipay':
+					$res = AlipayModel::payment();
+					break;
+			}
+		}else{
+			
+		}
+		$ret['code'] = 1;
+		$ret['data'] = ['redirect' => $res['redirect_url']];
+		return json($ret);
     }
 }

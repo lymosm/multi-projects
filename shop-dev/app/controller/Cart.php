@@ -19,9 +19,7 @@ class Cart extends BaseController
 	}
 
 	public function index(){
-		session_start();
-		$session_id = session_id();
-		$cart = CartModel::getCartData($session_id);
+		$cart = CartModel::getCartData($this->session_id);
 		View::assign('title', 'Cart');
 		if(! $cart){
 			return View::fetch('cart_empty');
@@ -60,9 +58,8 @@ class Cart extends BaseController
 			'price' => $product['price'],
 			'item_price' => $item_price
 		];
-		session_start();
-		$session_id = session_id();
-		$cart = CartModel::getCartData($session_id);
+
+		$cart = CartModel::getCartData($this->session_id);
 		$is_update = false;
 		if(! $cart){
 			$cart = [
@@ -80,7 +77,12 @@ class Cart extends BaseController
 			$cart['product_list'][] = $product_item;
 			$cart['price_obj']['total_price'] += $item_price;
 		}
-		$res = CartModel::saveCartData($session_id, $cart, $is_update);
+		$cart['price_obj']['need_payment'] = true;
+		$cart['price_obj']['payment_type'] = 'paypal';
+		if($cart['price_obj']['total_price'] == 0){
+			$cart['price_obj']['need_payment'] = false;
+		}
+		$res = CartModel::saveCartData($this->session_id, $cart, $is_update);
 		if($res === false){
 			$ret['msg'] = 'save cart error';
 			return json($ret);

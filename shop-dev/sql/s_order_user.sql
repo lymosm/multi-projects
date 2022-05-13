@@ -5,13 +5,13 @@ create table s_order_user(
 	order_id int(11) not null default 0,
 	user_id int(11) not null default 0,
 	`session_id` varchar(60) not null default "",
-	`country` varchar(25) not null default "",
+	`country` varchar(60) not null default "",
 	`state` varchar(25) not null default "",
 	`city` varchar(25) not null default "",
 	`first_name` varchar(25) not null default "",
 	`last_name` varchar(25) not null default "",
-	`email` varchar(25) not null default "",
-	`address` varchar(25) not null default "",
+	`email` varchar(60) not null default "",
+	`address` varchar(255) not null default "",
 	`phone` varchar(25) not null default "",
 	
 	primary key(id)

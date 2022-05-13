@@ -64,7 +64,7 @@ $(function(){
 
     $("#ls-btn-checkout").on("click", function(){
         var url = host + "Checkout/saveCheckout";
-        var data = $("#checkout-form").searilize();
+        var data = $("#checkout-form").serialize();
         var $loading = $("#ls-shade-box");
         $loading.addClass("active");
         $.ajax({
@@ -72,7 +72,12 @@ $(function(){
             url: url,
             data: data,
             success: function(res){
-                ls_obj.message("added success");
+                if(res.code == 1){
+                    ls_obj.message("added success");
+                }else{
+                    ls_obj.message(res.msg);
+                }
+                
                 $loading.removeClass("active");
             }
         });

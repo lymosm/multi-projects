@@ -15,7 +15,12 @@ class OrderModel extends Model{
             'added_date' => $date
         ];
         // transtion 
-        $order_id = Db::name('order')->insert($order_data)->last_id();
+        Db::startTrans();
+        $order_id = Db::name('order')->insertGetId($order_data);
+        if(! $order_id){
+            Db::rollback();
+            return false;
+        }
 
         $order_user = [
             'order_id' => $order_id,
@@ -28,6 +33,10 @@ class OrderModel extends Model{
             'phone' => $user['phone']
         ];
         $order_user_status = Db::name('order_user')->insert($order_user);
+        if($order_user_status === false){
+            Db::rollback();
+            return false;
+        }
 
         foreach($product_list as $rs){
             $order_product = [
@@ -36,9 +45,13 @@ class OrderModel extends Model{
                 'product_name' => $rs['product_name'],
                 'price' => $rs['price'],
                 'qty' => $rs['qty'],
-                'total_price' => $rs['total_price'],
+                'item_price' => $rs['item_price'],
             ];
             $order_product_status = Db::name('order_product')->insert($order_product);
+            if($order_product_status === false){
+                Db::rollback();
+                return false;
+            }
         }
         
         $order_price = [
@@ -46,9 +59,22 @@ class OrderModel extends Model{
             'total_price' => $price_obj['total_price'],
         ];
         $order_user_status = Db::name('order_price')->insert($order_price);
+        if($order_user_status === false){
+            Db::rollback();
+            return false;
+        }
 
         // commit
+        $commit = Db::commit();
+        if($commit === false){
+            Db::rollback();
+            return false;
+        }
 
-        return true;
+        return $order_id;
+    }
+
+    private static function genOrderNum(){
+        return '0001';
     }
 }
