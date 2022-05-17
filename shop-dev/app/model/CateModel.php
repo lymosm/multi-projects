@@ -14,8 +14,7 @@ class CateModel extends Model{
             ->select();
         
         $data = self::make_tree($list);
-        error_log(print_r($data, true) . "\r\n", 3, '/mnt/d/www/debug.log');
-
+        return $data;
     }
 
     /**
