@@ -6,6 +6,7 @@
 	</div>
 	<div class="ls-cate-box">
 		<ul class="nav-main">
+			<!--
 			<li>
 				<a href="">aa</a>
 			</li>
@@ -28,6 +29,44 @@
 					<li><a href="">ccc2</a></li>
 				</ul>
 			</li>
+			-->
+			<?php
+			foreach($cate_list as $rs){
+			?>
+			<li>
+				<a href="">{$rs['cate_name']}</a>
+				<?php
+				if(isset($rs['_child']) && $rs['_child']){
+				?>
+				<ul class="sub-menu">
+					<?php 
+					foreach($rs['_child'] as $rs1){
+					?>
+					<li><a href="">{$rs1['cate_name']}</a>
+						<?php 
+						if(isset($rs1['_child']) && $rs1['_child']){
+						?>
+							<ul class="sub-menu">
+							<?php
+							foreach($rs1['_child'] as $rs2){
+							?>
+								<li><a href="">{$rs2['cate_name']}</a></li>
+							<?php
+							}
+							?>
+							</ul>
+						<?php
+						}
+						?>
+					</li>
+					<?php
+					}
+					?>
+				</ul>
+			</li>
+			<?php
+			}
+			?>
 		</ul>
 	</div>
 	<div class="ls-account-box">

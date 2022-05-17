@@ -34,10 +34,15 @@ class Checkout extends BaseController
 	}
 
 	public function result($order){
+		View::assign('title', 'Result');
 		if(! trim($order)){
 			return View::fetch('no_order');
 		}
-		
+		$data = OrderModel::getOrderByNum($order);
+
+		View::assign('product_list', $data['product_list']);
+		View::assign('user', $data['user']);
+		View::assign('price', $data['price']);
 		return View::fetch('result');
 	}
 
@@ -88,6 +93,7 @@ class Checkout extends BaseController
 			$ret['msg'] = 'Add Cart Failed';
 			return json($ret);
 		}
+		$this->_removeCart($this->session_id);
 		$order_id = $status;
 		$need_payment = $price_obj['need_payment'];
 		$res = [
@@ -119,4 +125,8 @@ class Checkout extends BaseController
 		$ret['data'] = ['redirect' => $res['redirect_url']];
 		return json($ret);
     }
+
+	private function _removeCart($session_id){
+		return Db::name('cart')->where(['session_id' => $session_id])->delete();
+	}
 }

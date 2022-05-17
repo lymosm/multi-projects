@@ -74,6 +74,7 @@ $(function(){
             success: function(res){
                 if(res.code == 1){
                     ls_obj.message("added success");
+                    location.href = res.data.redirect;
                 }else{
                     ls_obj.message(res.msg);
                 }

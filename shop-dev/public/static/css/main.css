@@ -395,3 +395,31 @@ button.slick-prev:before{
 .ls-alert-box.active{
     display: block;
 }
+
+.ls-title{
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+.rs-product-list{
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+.rs-list-title{
+    display: flex;
+    margin-bottom: 8px;
+}
+.rs-list-box{
+    display: flex;
+}
+.rs-box-l{
+    width: 50%;
+}
+.rs-box-r{
+    width: 40%;
+}
+.rs-px-l{
+    width: 70%;
+}
+.rs-px-r{
+    width: 30%;
+}

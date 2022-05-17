@@ -71,10 +71,36 @@ class OrderModel extends Model{
             return false;
         }
 
-        return $order_id;
+        return $order_num;
     }
 
     private static function genOrderNum(){
-        return '0001';
+        return uniqid();
+    }
+
+    public static function getOrderByNum($num){
+        $where = [
+            'a.order_num' => $num
+        ];
+        $product_list = Db::name('order')->alias('a')
+            ->join('order_product b', 'a.id = b.order_id', 'left')
+            ->field('b.order_id, b.product_id, b.product_name, b.price, b.qty, b.item_price, a.order_num')
+            ->where($where)
+            ->select();
+        $user = Db::name('order')->alias('a')
+            ->join('order_user b', 'a.id = b.order_id', 'left')
+            ->field('b.order_id, b.session_id, b.country, b.state, b.city, b.first_name, b.last_name, b.email, b.address, b.phone')
+            ->where($where)
+            ->find();
+        $price = Db::name('order')->alias('a')
+            ->join('order_price b', 'a.id = b.order_id', 'left')
+            ->field('b.order_id, b.discount_price, b.total_price, a.order_num, a.paid_type, a.added_date')
+            ->where($where)
+            ->find();
+        return [
+            'product_list' => $product_list,
+            'user' => $user,
+            'price' => $price
+        ];
     }
 }

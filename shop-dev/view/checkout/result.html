@@ -1,10 +1,48 @@
 {include file="home/common/header" /}
 <div class="ls-checkout-box">
-    <div class="order-box">
-        
+    <div class="rs-box-l">
+        <div class="ls-title">Order Detail</div>
+        <div class="rs-product-list">
+            <div class="rs-list-title">
+                <div class="rs-px-l">product</div>
+                <div class="rs-px-r">total</div>
+            </div>
+            <?php
+            foreach($product_list as $rs){
+            ?>
+            <div class="rs-list-box">
+                <div class="rs-px-l">{$rs['product_name']} x {$rs['qty']}</div>
+                <div class="rs-px-r">${$rs['item_price']}</div>
+            </div>
+            <?php
+            }
+            ?>
+        </div>
+        <div class="ls-title">Address</div>
+        <div class="rs-user">
+            <div>{$user['country']}</div>
+            <div>{$user['state']}</div>
+            <div>{$user['city']}</div>
+            <div>{$user['first_name']} {$user['last_name']}</div>
+            <div>{$user['email']}</div>
+            <div>{$user['address']}</div>
+            <div>{$user['phone']}</div>
+        </div>
     </div>
     <div class="offset-10 split"></div>
-    <div class="checkout-detail">
+    <div class="rs-box-r">
+        <div class="ls-title">Order Info</div>
+        <div class="rs-order">
+            <div class="info-item">
+                Order Number: {$price['order_num']}
+            </div>
+            <div class="info-item">
+                Order Date: {$price['added_date']}
+            </div>
+            <div class="info-item">
+                Payment Method: {$price['paid_type']}
+            </div>
+        </div>
     </div>
 </div>
 {include file="home/common/footer" /}
