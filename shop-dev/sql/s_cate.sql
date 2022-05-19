@@ -11,7 +11,8 @@ create table s_cate(
 	updated_by int(11) not null default 0,
 	updated_date datetime default null,
 	
-	primary key(id)
+	primary key(id),
+	unique key(uri)
 )ENGINE=INNODB default charset=utf8mb4 comment "product cate";
 
 INSERT INTO `shop`.`s_cate`(`id`, `cate_name`, `added_by`, `added_date`, `updated_by`, `updated_date`) VALUES (1, 'aa', 0, '2022-04-19 15:40:35', 0, NULL);

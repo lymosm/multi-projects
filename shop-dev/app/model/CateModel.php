@@ -9,11 +9,18 @@ class CateModel extends Model{
     public static function getList(){
         $list = Db::name('cate')->alias('a')
             ->join('cate_rela b', 'a.id = b.cate_id', 'left')
-           // ->join('cate_rela c', 'a.id = c.parent_id', 'left')
             ->field('*')
             ->select();
         
         $data = self::make_tree($list);
+        return $data;
+    }
+
+    public static function getCateInfo($uri){
+        $data = Db::name('cate')
+            ->field('id, uri, cate_name, img_uri, desc')
+            ->where(['uri' => $uri])
+            ->find();
         return $data;
     }
 

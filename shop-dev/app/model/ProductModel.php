@@ -16,6 +16,20 @@ class ProductModel extends Model{
         return $ret;
     }
 
+    public static function getProductListByCate($where, $page, $limit){
+        $ret = Db::name('product')
+            ->alias('a')
+            ->join('product_detail b', 'a.id = b.product_id', 'left')
+            ->join('product_cate_rela c', 'c.product_id = a.id', 'left')
+            ->field('a.id, a.name, a.uri, b.short_desc, b.long_desc, b.price')
+            ->where($where)
+            ->order('a.id desc')
+            ->limit(($page - 1) * $limit, $limit)
+            ->select()
+            ->toArray();  
+        return $ret;
+    }
+
     public static function getProductImg($uri){
         $ret = Db::name('product')
             ->alias('a')

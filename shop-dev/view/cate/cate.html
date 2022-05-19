@@ -1,0 +1,34 @@
+{include file="home/common/header" /}
+<div class="ls-top-picks">
+    <h2 class="picks-title">
+        {$cate['cate_name']}
+    </h2>
+    <div class="ls-pick-inner">
+        <?php
+        foreach($list as $rs){
+        ?>
+        <div class="ls-product-box">
+            <?php
+            foreach($rs as $r){
+            ?>
+            <div class="ls-product-item">
+                <a class="ls-p-inner" href="/Product/index/id/{$r['uri']}">
+                    <div class="ls-p-img">
+                        <img src="/storage/images/20220418/1.jpg">
+                    </div>
+                    <div class="ls-p-info">
+                        <div class="ls-p-price">${$r['price']}</div>
+                        <h2 class="ls-p-title">{$r['name']}</h2>
+                    </div>
+                </a>
+            </div>
+            <?php
+            }
+            ?>
+        </div>
+        <?php
+        }
+        ?>
+    </div>
+</div>
+{include file="home/common/footer" /}

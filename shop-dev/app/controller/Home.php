@@ -19,9 +19,7 @@ class Home extends BaseController
 
 	public function index(){
 		$home_top_banner = Widget::getHomeLoopBanner();
-		$cate_list = CateModel::getList();
-
-		View::assign('cate_list', $cate_list);
+		
 		View::assign('home_top_banner', $home_top_banner);
 		View::assign('title', 'index');
 		return View::fetch('index');

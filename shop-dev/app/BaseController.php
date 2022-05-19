@@ -9,6 +9,8 @@ use think\Validate;
 use think\response\Json;
 use think\facade\Db;
 use think\facade\Request;
+use think\facade\View;
+use app\model\CateModel;
 
 /**
  * 控制器基础类
@@ -55,6 +57,10 @@ abstract class BaseController
         $this->session_id = session_id();
         $this->app     = $app;
         $this->request = $this->app->request;
+
+        $cate_list = CateModel::getList();
+
+		View::assign('cate_list', $cate_list);
 
         // 控制器初始化
         $this->initialize();
