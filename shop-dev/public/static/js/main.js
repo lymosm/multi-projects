@@ -85,3 +85,69 @@ $(function(){
     });
 
 });
+
+var stripe_obj = {
+    init: function(){
+        var need = 1;
+        if(typeof stripe === "undefined"){
+            return ;
+        }
+        this.bind();
+        var elementStyles = {
+            base: {
+                iconColor: '#666EE8',
+                color: '#31325F',
+                fontSize: '15px',
+                '::placeholder': {
+                      color: '#CFD7E0',
+                }
+            }
+        };
+
+        var elementClasses = {
+            focus: 'focused',
+            empty: 'empty',
+            invalid: 'invalid',
+        };
+        var eles                = stripe.elements();
+        var _card = eles.create( 'cardNumber', { style: elementStyles, classes: elementClasses } );
+        var _exp  = eles.create( 'cardExpiry', { style: elementStyles, classes: elementClasses } );
+        var _cvc  = eles.create( 'cardCvc', { style: elementStyles, classes: elementClasses } );
+
+        if(need){
+            _card.mount( '#ele-card' );
+            _exp.mount( '#ele-card-date' );
+            _cvc.mount( '#ele-card-cvc' );
+
+            var $ele_tip = jQuery("#ele-tip");
+            _card.addEventListener( 'change', function( event ) {
+                $ele_tip.hide();
+            });
+            _exp.addEventListener( 'change', function( event ) {
+                $ele_tip.hide();
+            });
+            _cvc.addEventListener( 'change', function( event ) {
+                $ele_tip.hide();
+            });
+        }
+    },
+    bind: function(){
+        var _this = this;
+        $('#stripe-box').on('click', '#btn-stripe', function(){
+            $("#payment-method").val("stripe");
+            stripe.createSource( _card ).then(_this.sourceRes);
+        })
+    },
+    sourceRes: function(res){
+        if(typeof res.source !== "undefined" && typeof res.source.id !== "undefined"){
+            $("#stripe-source").val(res.source.id);
+            $("#ls-btn-checkout").click();
+        }else{
+            var $ele_tip = $("#ele-tip");
+            if(typeof res.error !== "undefined" && typeof res.error.message !== "undefined"){
+                $ele_tip.html(res.error.message).show();
+            }
+        }
+    }
+}
+stripe_obj.init();

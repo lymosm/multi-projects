@@ -16,6 +16,8 @@
             <div class="form-item">
                 <input type="text" name="address" placeholder="address">
             </div>
+            <input type='hidden' id="stripe-source" name="stripe_source" value="">
+            <input type='hidden' id="payment-method" name="payment_method" value="">
         </form>
     </div>
     <div class="offset-10 split"></div>
@@ -50,8 +52,21 @@
             </div>
         </div>
         <div class="cart-action">
-            <a class="ls-btn-checkout" id="ls-btn-checkout">Order</a>
+            <a class="ls-btn-checkout" id="ls-btn-checkout" href="javascript:void(0);">Paypal</a>
+        </div>
+        <div class="stripe-box" id="stripe-box">
+            <div class="ipt-item" id="ele-card"></div>
+            <div class="ipt-item" id="ele-card-date"></div>
+            <div class="ipt-item" id="ele-card-cvc"></div>
+            <div class="ele-tip" id="ele-tip"></div>
+            <a class="btn-stripe ls-btn-checkout" id="btn-stripe" href="javascript:void(0);">
+                Stripe Pay
+            </a>
         </div>
     </div>
 </div>
+<script src="https://js.stripe.com/v3/"></script>
+<script>
+var stripe = Stripe('pk_test_C0j5hBWBIMfSwlUzg6HcMDeh00IwQOvZBm');
+</script>
 {include file="home/common/footer" /}

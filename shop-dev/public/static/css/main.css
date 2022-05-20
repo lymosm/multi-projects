@@ -423,3 +423,16 @@ button.slick-prev:before{
 .rs-px-r{
     width: 30%;
 }
+.ipt-item{
+	margin-bottom: 20px;
+	border: 1px solid #999;
+	padding: 4px;
+}
+.ele-tip{
+	margin-bottom: 8px;
+	color: red;
+	display: none;
+}
+.stripe-box{
+    margin-top: 20px;
+}
