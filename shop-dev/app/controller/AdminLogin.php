@@ -20,10 +20,14 @@ class AdminLogin extends BackController
     {
 		$url = $this->url('/AdminLogin/login');
 		View::assign('url', $url);
-		$video_list_url = $this->url('/Admin/videoList');
-		View::assign('video_list_url', $video_list_url);
+		$list_url = $this->url('/Admin/productList');
+		View::assign('list_url', $list_url);
         return View::fetch('login');
     }
+
+	public function captcha(){
+
+	}
 
     public function login(Requ $request){
 		
@@ -41,11 +45,19 @@ class AdminLogin extends BackController
 		
         $account = trim(Request::param('account'));
         $pwd = trim(Request::param('pwd'));
-		if(! $account || ! $pwd){
+		$captcha = trim(Request::param('captcha'));
+		if(! $account || ! $pwd || ! $captcha){
 			$ret['msg'] = '参数错误';
 			return json($ret);
 		}
-		$pwd = md5(md5($pwd . 'video'));
+
+		if(! captcha_check($captcha)){
+			$ret['msg'] = 'captcha error';
+			return json($ret);
+		};
+
+
+		$pwd = md5(md5($pwd . 'shop'));
 		$where = [
 			'account' => $account,
             'pwd' => $pwd

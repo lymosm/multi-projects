@@ -12,6 +12,7 @@ use app\model\CartModel;
 use app\model\CheckoutModel;
 use app\model\OrderModel;
 use app\model\PaypalModel;
+use app\model\StripeModel;
 
 class Checkout extends BaseController
 {

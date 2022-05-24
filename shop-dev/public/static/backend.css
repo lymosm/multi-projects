@@ -11,3 +11,10 @@
 .layui-nav .active{
 	background-color: #009688;
 }
+.login-captcha{
+	margin-top: 14px;
+	text-align: left;
+}
+.login-captcha img{
+	height: 40px;
+}

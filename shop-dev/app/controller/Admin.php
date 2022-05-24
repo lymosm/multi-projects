@@ -24,11 +24,11 @@ class Admin extends BackController
 {
 	
 	public function index(){
-		return $this->videoList();
+		return $this->productList();
 	}
 
-    public function videoList(){
-		$list = Db::name('video_list')
+    public function productList(){
+		$list = Db::name('product')
 			->field('id, name, added_date')
             ->order('id', 'desc')
 			->select();
@@ -44,7 +44,7 @@ class Admin extends BackController
 		View::assign('logout_url', $logout_url);
 		View::assign('base_url', $base_url);
 		View::assign('home', $home);
-		return View::fetch('videoList');
+		return View::fetch('productList');
     }
 	
 	public function ajaxVideoList(){

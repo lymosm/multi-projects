@@ -1,4 +1,4 @@
-var host = "http://lo.s.com/";
+var host = "https://lo.s.com/";
 var ls_obj = {
     message: function(msg){
         var $ing = $("#ls-alert-box");
@@ -113,7 +113,7 @@ var stripe_obj = {
         var _card = eles.create( 'cardNumber', { style: elementStyles, classes: elementClasses } );
         var _exp  = eles.create( 'cardExpiry', { style: elementStyles, classes: elementClasses } );
         var _cvc  = eles.create( 'cardCvc', { style: elementStyles, classes: elementClasses } );
-
+        this._card = _card;
         if(need){
             _card.mount( '#ele-card' );
             _exp.mount( '#ele-card-date' );
@@ -135,7 +135,7 @@ var stripe_obj = {
         var _this = this;
         $('#stripe-box').on('click', '#btn-stripe', function(){
             $("#payment-method").val("stripe");
-            stripe.createSource( _card ).then(_this.sourceRes);
+            stripe.createSource( _this._card ).then(_this.sourceRes);
         })
     },
     sourceRes: function(res){

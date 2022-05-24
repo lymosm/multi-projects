@@ -6,7 +6,7 @@
 	</head>
 	<body>
 		<div class="layui-container login-form">
-			<div class="l-title">Video后台管理系统</div>
+			<div class="l-title">Shop Admin</div>
 			<div class="layui-row">
 				<form class="layui-form" method="POST">
 					<input type="hidden" name="__token__" value="{:token()}" />
@@ -22,6 +22,16 @@
 						<div class="layui-input-block">
 							<input type="password" name="pwd" required lay-verify="required" placeholder="请输入密码"
 								autocomplete="off" class="layui-input">
+						</div>
+					</div>
+					<div class="layui-form-item">
+						<label class="layui-form-label">Captcha</label>
+						<div class="layui-input-block">
+							<input type="text" name="captcha" required lay-verify="required" placeholder=""
+								autocomplete="off" class="layui-input">
+							<div class="login-captcha">
+								{:captcha_img()}
+							</div>
 						</div>
 					</div>
 					<div class="layui-form-item">

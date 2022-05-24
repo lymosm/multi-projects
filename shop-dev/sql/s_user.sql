@@ -11,5 +11,5 @@ create table s_user(
 	unique key(account)
 )ENGINE=INNODB default charset=utf8mb4 comment "用户表";
 
-insert into s_user (account, pwd, added_date) values ("admin", md5(md5('123456video')), "2021-05-28 12:12:12");
+insert into s_user (account, pwd, added_date) values ("admin", md5(md5('123456shop')), "2021-05-28 12:12:12");
 

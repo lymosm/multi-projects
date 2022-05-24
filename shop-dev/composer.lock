@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e169c4dcafb5ca96a13b599edef28c8d",
+    "content-hash": "381909c1fe5a83f79d20c04814a9f4ea",
     "packages": [
         {
             "name": "alchemy/binary-driver",
@@ -2318,6 +2318,59 @@
             "time": "2021-01-25T14:48:29+00:00"
         },
         {
+            "name": "topthink/think-captcha",
+            "version": "v3.0.7",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/top-think/think-captcha.git",
+                "reference": "a450602932a5d9ba183e288b79921ba3b9a92331"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/top-think/think-captcha/zipball/a450602932a5d9ba183e288b79921ba3b9a92331",
+                "reference": "a450602932a5d9ba183e288b79921ba3b9a92331",
+                "shasum": ""
+            },
+            "require": {
+                "topthink/framework": "^6.0.0"
+            },
+            "type": "library",
+            "extra": {
+                "think": {
+                    "services": [
+                        "think\\captcha\\CaptchaService"
+                    ],
+                    "config": {
+                        "captcha": "src/config.php"
+                    }
+                }
+            },
+            "autoload": {
+                "files": [
+                    "src/helper.php"
+                ],
+                "psr-4": {
+                    "think\\captcha\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "yunwuxin",
+                    "email": "448901948@qq.com"
+                }
+            ],
+            "description": "captcha package for thinkphp",
+            "support": {
+                "issues": "https://github.com/top-think/think-captcha/issues",
+                "source": "https://github.com/top-think/think-captcha/tree/v3.0.7"
+            },
+            "time": "2022-04-23T02:38:14+00:00"
+        },
+        {
             "name": "topthink/think-helper",
             "version": "v3.1.4",
             "source": {
@@ -2834,5 +2887,5 @@
         "php": ">=7.1.0"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.3.0"
+    "plugin-api-version": "2.2.0"
 }
