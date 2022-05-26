@@ -1,0 +1,275 @@
+2022-05-26T09:56:46+00:00 CRITICAL Uncaught Error: Class 'WC_Customer' not found in /mnt/e/www/multi-projects/wp-woo-site1/wp-content/plugins/woocommerce/includes/class-woocommerce.php:809
+Stack trace:
+#0 /mnt/e/www/multi-projects/wp-woo-site1/wp-content/plugins/woocommerce/includes/wc-core-functions.php(2512): WooCommerce->initialize_cart()
+#1 /mnt/e/www/multi-projects/wp-woo-site1/wp-content/plugins/woocommerce/includes/class-woocommerce.php(631): wc_load_cart()
+#2 /mnt/e/www/multi-projects/wp-woo-site1/wp-includes/class-wp-hook.php(307): WooCommerce->init()
+#3 /mnt/e/www/multi-projects/wp-woo-site1/wp-includes/class-wp-hook.php(331): WP_Hook->apply_filters()
+#4 /mnt/e/www/multi-projects/wp-woo-site1/wp-includes/plugin.php(476): WP_Hook->do_action()
+#5 /mnt/e/www/multi-projects/wp-woo-site1/wp-settings.php(598): do_action()
+#6 /mnt/e/www/multi-projects/wp-woo-site1/wp-config.php(96): require_once('/mnt/e/www/mult...')
+#7 /mnt/e/www/multi-projects/wp-woo-site1/wp-load.php(50): require_once('/mnt/e/www/mult...')
+#8 /mnt/e/www/multi-projects/wp in /mnt/e/www/multi-projects/wp-woo-site1/wp-content/plugins/woocommerce/includes/class-woocommerce.php on line 809
+
+2022-05-26T09:56:46+00:00 CRITICAL Uncaught Error: Class 'WC_Customer' not found in /mnt/e/www/multi-projects/wp-woo-site1/wp-content/plugins/woocommerce/includes/class-woocommerce.php:809
+Stack trace:
+#0 /mnt/e/www/multi-projects/wp-woo-site1/wp-content/plugins/woocommerce/includes/wc-core-functions.php(2512): WooCommerce->initialize_cart()
+#1 /mnt/e/www/multi-projects/wp-woo-site1/wp-content/plugins/woocommerce/includes/class-woocommerce.php(631): wc_load_cart()
+#2 /mnt/e/www/multi-projects/wp-woo-site1/wp-includes/class-wp-hook.php(307): WooCommerce->init()
+#3 /mnt/e/www/multi-projects/wp-woo-site1/wp-includes/class-wp-hook.php(331): WP_Hook->apply_filters()
+#4 /mnt/e/www/multi-projects/wp-woo-site1/wp-includes/plugin.php(476): WP_Hook->do_action()
+#5 /mnt/e/www/multi-projects/wp-woo-site1/wp-settings.php(598): do_action()
+#6 /mnt/e/www/multi-projects/wp-woo-site1/wp-config.php(96): require_once('/mnt/e/www/mult...')
+#7 /mnt/e/www/multi-projects/wp-woo-site1/wp-load.php(50): require_once('/mnt/e/www/mult...')
+#8 /mnt/e/www/multi-projects/wp in /mnt/e/www/multi-projects/wp-woo-site1/wp-content/plugins/woocommerce/includes/class-woocommerce.php on line 809
+
+2022-05-26T09:56:46+00:00 CRITICAL Uncaught Error: Class 'WC_Customer' not found in /mnt/e/www/multi-projects/wp-woo-site1/wp-content/plugins/woocommerce/includes/class-woocommerce.php:809
+Stack trace:
+#0 /mnt/e/www/multi-projects/wp-woo-site1/wp-content/plugins/woocommerce/includes/wc-core-functions.php(2512): WooCommerce->initialize_cart()
+#1 /mnt/e/www/multi-projects/wp-woo-site1/wp-content/plugins/woocommerce/includes/class-woocommerce.php(631): wc_load_cart()
+#2 /mnt/e/www/multi-projects/wp-woo-site1/wp-includes/class-wp-hook.php(307): WooCommerce->init()
+#3 /mnt/e/www/multi-projects/wp-woo-site1/wp-includes/class-wp-hook.php(331): WP_Hook->apply_filters()
+#4 /mnt/e/www/multi-projects/wp-woo-site1/wp-includes/plugin.php(476): WP_Hook->do_action()
+#5 /mnt/e/www/multi-projects/wp-woo-site1/wp-settings.php(598): do_action()
+#6 /mnt/e/www/multi-projects/wp-woo-site1/wp-config.php(96): require_once('/mnt/e/www/mult...')
+#7 /mnt/e/www/multi-projects/wp-woo-site1/wp-load.php(50): require_once('/mnt/e/www/mult...')
+#8 /mnt/e/www/multi-projects/wp in /mnt/e/www/multi-projects/wp-woo-site1/wp-content/plugins/woocommerce/includes/class-woocommerce.php on line 809
+
+2022-05-26T09:56:46+00:00 CRITICAL Uncaught Error: Class 'WC_Customer' not found in /mnt/e/www/multi-projects/wp-woo-site1/wp-content/plugins/woocommerce/includes/class-woocommerce.php:809
+Stack trace:
+#0 /mnt/e/www/multi-projects/wp-woo-site1/wp-content/plugins/woocommerce/includes/wc-core-functions.php(2512): WooCommerce->initialize_cart()
+#1 /mnt/e/www/multi-projects/wp-woo-site1/wp-content/plugins/woocommerce/includes/class-woocommerce.php(631): wc_load_cart()
+#2 /mnt/e/www/multi-projects/wp-woo-site1/wp-includes/class-wp-hook.php(307): WooCommerce->init()
+#3 /mnt/e/www/multi-projects/wp-woo-site1/wp-includes/class-wp-hook.php(331): WP_Hook->apply_filters()
+#4 /mnt/e/www/multi-projects/wp-woo-site1/wp-includes/plugin.php(476): WP_Hook->do_action()
+#5 /mnt/e/www/multi-projects/wp-woo-site1/wp-settings.php(598): do_action()
+#6 /mnt/e/www/multi-projects/wp-woo-site1/wp-config.php(96): require_once('/mnt/e/www/mult...')
+#7 /mnt/e/www/multi-projects/wp-woo-site1/wp-load.php(50): require_once('/mnt/e/www/mult...')
+#8 /mnt/e/www/multi-projects/wp in /mnt/e/www/multi-projects/wp-woo-site1/wp-content/plugins/woocommerce/includes/class-woocommerce.php on line 809
+
+2022-05-26T09:56:46+00:00 CRITICAL Uncaught Error: Class 'WC_Customer' not found in /mnt/e/www/multi-projects/wp-woo-site1/wp-content/plugins/woocommerce/includes/class-woocommerce.php:809
+Stack trace:
+#0 /mnt/e/www/multi-projects/wp-woo-site1/wp-content/plugins/woocommerce/includes/wc-core-functions.php(2512): WooCommerce->initialize_cart()
+#1 /mnt/e/www/multi-projects/wp-woo-site1/wp-content/plugins/woocommerce/includes/class-woocommerce.php(631): wc_load_cart()
+#2 /mnt/e/www/multi-projects/wp-woo-site1/wp-includes/class-wp-hook.php(307): WooCommerce->init()
+#3 /mnt/e/www/multi-projects/wp-woo-site1/wp-includes/class-wp-hook.php(331): WP_Hook->apply_filters()
+#4 /mnt/e/www/multi-projects/wp-woo-site1/wp-includes/plugin.php(476): WP_Hook->do_action()
+#5 /mnt/e/www/multi-projects/wp-woo-site1/wp-settings.php(598): do_action()
+#6 /mnt/e/www/multi-projects/wp-woo-site1/wp-config.php(96): require_once('/mnt/e/www/mult...')
+#7 /mnt/e/www/multi-projects/wp-woo-site1/wp-load.php(50): require_once('/mnt/e/www/mult...')
+#8 /mnt/e/www/multi-projects/wp in /mnt/e/www/multi-projects/wp-woo-site1/wp-content/plugins/woocommerce/includes/class-woocommerce.php on line 809
+
+2022-05-26T09:56:46+00:00 CRITICAL Uncaught Error: Class 'Automattic\WooCommerce\Blocks\BlockTypes\MiniCart' not found in /mnt/e/www/multi-projects/wp-woo-site1/wp-content/plugins/woocommerce/packages/woocommerce-blocks/src/BlockTypesController.php:62
+Stack trace:
+#0 /mnt/e/www/multi-projects/wp-woo-site1/wp-includes/class-wp-hook.php(307): Automattic\WooCommerce\Blocks\BlockTypesController->register_blocks()
+#1 /mnt/e/www/multi-projects/wp-woo-site1/wp-includes/class-wp-hook.php(331): WP_Hook->apply_filters()
+#2 /mnt/e/www/multi-projects/wp-woo-site1/wp-includes/plugin.php(476): WP_Hook->do_action()
+#3 /mnt/e/www/multi-projects/wp-woo-site1/wp-settings.php(598): do_action()
+#4 /mnt/e/www/multi-projects/wp-woo-site1/wp-config.php(96): require_once('/mnt/e/www/mult...')
+#5 /mnt/e/www/multi-projects/wp-woo-site1/wp-load.php(50): require_once('/mnt/e/www/mult...')
+#6 /mnt/e/www/multi-projects/wp-woo-site1/wp-blog-header.php(13): require_once('/mnt/e/www/mult...')
+#7 /mnt/e/www/multi-projects/wp-woo-site1/index.php(17): require('/mnt/e/www/mult... in /mnt/e/www/multi-projects/wp-woo-site1/wp-content/plugins/woocommerce/packages/woocommerce-blocks/src/BlockTypesController.php on line 62
+
+2022-05-26T09:56:46+00:00 CRITICAL Uncaught Error: Class 'WC_Customer' not found in /mnt/e/www/multi-projects/wp-woo-site1/wp-content/plugins/woocommerce/includes/class-woocommerce.php:809
+Stack trace:
+#0 /mnt/e/www/multi-projects/wp-woo-site1/wp-content/plugins/woocommerce/includes/wc-core-functions.php(2512): WooCommerce->initialize_cart()
+#1 /mnt/e/www/multi-projects/wp-woo-site1/wp-content/plugins/woocommerce/includes/class-woocommerce.php(631): wc_load_cart()
+#2 /mnt/e/www/multi-projects/wp-woo-site1/wp-includes/class-wp-hook.php(307): WooCommerce->init()
+#3 /mnt/e/www/multi-projects/wp-woo-site1/wp-includes/class-wp-hook.php(331): WP_Hook->apply_filters()
+#4 /mnt/e/www/multi-projects/wp-woo-site1/wp-includes/plugin.php(476): WP_Hook->do_action()
+#5 /mnt/e/www/multi-projects/wp-woo-site1/wp-settings.php(598): do_action()
+#6 /mnt/e/www/multi-projects/wp-woo-site1/wp-config.php(96): require_once('/mnt/e/www/mult...')
+#7 /mnt/e/www/multi-projects/wp-woo-site1/wp-load.php(50): require_once('/mnt/e/www/mult...')
+#8 /mnt/e/www/multi-projects/wp in /mnt/e/www/multi-projects/wp-woo-site1/wp-content/plugins/woocommerce/includes/class-woocommerce.php on line 809
+
+2022-05-26T09:56:53+00:00 CRITICAL Uncaught Error: Class 'WC_Customer' not found in /mnt/e/www/multi-projects/wp-woo-site1/wp-content/plugins/woocommerce/includes/class-woocommerce.php:809
+Stack trace:
+#0 /mnt/e/www/multi-projects/wp-woo-site1/wp-content/plugins/woocommerce/includes/wc-core-functions.php(2512): WooCommerce->initialize_cart()
+#1 /mnt/e/www/multi-projects/wp-woo-site1/wp-content/plugins/woocommerce/includes/class-woocommerce.php(631): wc_load_cart()
+#2 /mnt/e/www/multi-projects/wp-woo-site1/wp-includes/class-wp-hook.php(307): WooCommerce->init()
+#3 /mnt/e/www/multi-projects/wp-woo-site1/wp-includes/class-wp-hook.php(331): WP_Hook->apply_filters()
+#4 /mnt/e/www/multi-projects/wp-woo-site1/wp-includes/plugin.php(476): WP_Hook->do_action()
+#5 /mnt/e/www/multi-projects/wp-woo-site1/wp-settings.php(598): do_action()
+#6 /mnt/e/www/multi-projects/wp-woo-site1/wp-config.php(96): require_once('/mnt/e/www/mult...')
+#7 /mnt/e/www/multi-projects/wp-woo-site1/wp-load.php(50): require_once('/mnt/e/www/mult...')
+#8 /mnt/e/www/multi-projects/wp in /mnt/e/www/multi-projects/wp-woo-site1/wp-content/plugins/woocommerce/includes/class-woocommerce.php on line 809
+
+2022-05-26T09:56:53+00:00 CRITICAL Uncaught Error: Class 'WC_Customer' not found in /mnt/e/www/multi-projects/wp-woo-site1/wp-content/plugins/woocommerce/includes/class-woocommerce.php:809
+Stack trace:
+#0 /mnt/e/www/multi-projects/wp-woo-site1/wp-content/plugins/woocommerce/includes/wc-core-functions.php(2512): WooCommerce->initialize_cart()
+#1 /mnt/e/www/multi-projects/wp-woo-site1/wp-content/plugins/woocommerce/includes/class-woocommerce.php(631): wc_load_cart()
+#2 /mnt/e/www/multi-projects/wp-woo-site1/wp-includes/class-wp-hook.php(307): WooCommerce->init()
+#3 /mnt/e/www/multi-projects/wp-woo-site1/wp-includes/class-wp-hook.php(331): WP_Hook->apply_filters()
+#4 /mnt/e/www/multi-projects/wp-woo-site1/wp-includes/plugin.php(476): WP_Hook->do_action()
+#5 /mnt/e/www/multi-projects/wp-woo-site1/wp-settings.php(598): do_action()
+#6 /mnt/e/www/multi-projects/wp-woo-site1/wp-config.php(96): require_once('/mnt/e/www/mult...')
+#7 /mnt/e/www/multi-projects/wp-woo-site1/wp-load.php(50): require_once('/mnt/e/www/mult...')
+#8 /mnt/e/www/multi-projects/wp in /mnt/e/www/multi-projects/wp-woo-site1/wp-content/plugins/woocommerce/includes/class-woocommerce.php on line 809
+
+2022-05-26T09:57:01+00:00 CRITICAL Uncaught Error: Class 'WC_Customer' not found in /mnt/e/www/multi-projects/wp-woo-site1/wp-content/plugins/woocommerce/includes/class-woocommerce.php:809
+Stack trace:
+#0 /mnt/e/www/multi-projects/wp-woo-site1/wp-content/plugins/woocommerce/includes/wc-core-functions.php(2512): WooCommerce->initialize_cart()
+#1 /mnt/e/www/multi-projects/wp-woo-site1/wp-content/plugins/woocommerce/includes/class-woocommerce.php(631): wc_load_cart()
+#2 /mnt/e/www/multi-projects/wp-woo-site1/wp-includes/class-wp-hook.php(307): WooCommerce->init()
+#3 /mnt/e/www/multi-projects/wp-woo-site1/wp-includes/class-wp-hook.php(331): WP_Hook->apply_filters()
+#4 /mnt/e/www/multi-projects/wp-woo-site1/wp-includes/plugin.php(476): WP_Hook->do_action()
+#5 /mnt/e/www/multi-projects/wp-woo-site1/wp-settings.php(598): do_action()
+#6 /mnt/e/www/multi-projects/wp-woo-site1/wp-config.php(96): require_once('/mnt/e/www/mult...')
+#7 /mnt/e/www/multi-projects/wp-woo-site1/wp-load.php(50): require_once('/mnt/e/www/mult...')
+#8 /mnt/e/www/multi-projects/wp in /mnt/e/www/multi-projects/wp-woo-site1/wp-content/plugins/woocommerce/includes/class-woocommerce.php on line 809
+
+2022-05-26T09:57:16+00:00 CRITICAL Uncaught Error: Class 'WC_Customer' not found in /mnt/e/www/multi-projects/wp-woo-site1/wp-content/plugins/woocommerce/includes/class-woocommerce.php:809
+Stack trace:
+#0 /mnt/e/www/multi-projects/wp-woo-site1/wp-content/plugins/woocommerce/includes/wc-core-functions.php(2512): WooCommerce->initialize_cart()
+#1 /mnt/e/www/multi-projects/wp-woo-site1/wp-content/plugins/woocommerce/includes/class-woocommerce.php(631): wc_load_cart()
+#2 /mnt/e/www/multi-projects/wp-woo-site1/wp-includes/class-wp-hook.php(307): WooCommerce->init()
+#3 /mnt/e/www/multi-projects/wp-woo-site1/wp-includes/class-wp-hook.php(331): WP_Hook->apply_filters()
+#4 /mnt/e/www/multi-projects/wp-woo-site1/wp-includes/plugin.php(476): WP_Hook->do_action()
+#5 /mnt/e/www/multi-projects/wp-woo-site1/wp-settings.php(598): do_action()
+#6 /mnt/e/www/multi-projects/wp-woo-site1/wp-config.php(96): require_once('/mnt/e/www/mult...')
+#7 /mnt/e/www/multi-projects/wp-woo-site1/wp-load.php(50): require_once('/mnt/e/www/mult...')
+#8 /mnt/e/www/multi-projects/wp in /mnt/e/www/multi-projects/wp-woo-site1/wp-content/plugins/woocommerce/includes/class-woocommerce.php on line 809
+
+2022-05-26T09:57:41+00:00 CRITICAL Uncaught Error: Class 'WC_Customer' not found in /mnt/e/www/multi-projects/wp-woo-site1/wp-content/plugins/woocommerce/includes/class-woocommerce.php:809
+Stack trace:
+#0 /mnt/e/www/multi-projects/wp-woo-site1/wp-content/plugins/woocommerce/includes/wc-core-functions.php(2512): WooCommerce->initialize_cart()
+#1 /mnt/e/www/multi-projects/wp-woo-site1/wp-content/plugins/woocommerce/includes/class-woocommerce.php(631): wc_load_cart()
+#2 /mnt/e/www/multi-projects/wp-woo-site1/wp-includes/class-wp-hook.php(307): WooCommerce->init()
+#3 /mnt/e/www/multi-projects/wp-woo-site1/wp-includes/class-wp-hook.php(331): WP_Hook->apply_filters()
+#4 /mnt/e/www/multi-projects/wp-woo-site1/wp-includes/plugin.php(476): WP_Hook->do_action()
+#5 /mnt/e/www/multi-projects/wp-woo-site1/wp-settings.php(598): do_action()
+#6 /mnt/e/www/multi-projects/wp-woo-site1/wp-config.php(96): require_once('/mnt/e/www/mult...')
+#7 /mnt/e/www/multi-projects/wp-woo-site1/wp-load.php(50): require_once('/mnt/e/www/mult...')
+#8 /mnt/e/www/multi-projects/wp in /mnt/e/www/multi-projects/wp-woo-site1/wp-content/plugins/woocommerce/includes/class-woocommerce.php on line 809
+
+2022-05-26T09:57:43+00:00 CRITICAL Uncaught Error: Class 'WC_Customer' not found in /mnt/e/www/multi-projects/wp-woo-site1/wp-content/plugins/woocommerce/includes/class-woocommerce.php:809
+Stack trace:
+#0 /mnt/e/www/multi-projects/wp-woo-site1/wp-content/plugins/woocommerce/includes/wc-core-functions.php(2512): WooCommerce->initialize_cart()
+#1 /mnt/e/www/multi-projects/wp-woo-site1/wp-content/plugins/woocommerce/includes/class-woocommerce.php(631): wc_load_cart()
+#2 /mnt/e/www/multi-projects/wp-woo-site1/wp-includes/class-wp-hook.php(307): WooCommerce->init()
+#3 /mnt/e/www/multi-projects/wp-woo-site1/wp-includes/class-wp-hook.php(331): WP_Hook->apply_filters()
+#4 /mnt/e/www/multi-projects/wp-woo-site1/wp-includes/plugin.php(476): WP_Hook->do_action()
+#5 /mnt/e/www/multi-projects/wp-woo-site1/wp-settings.php(598): do_action()
+#6 /mnt/e/www/multi-projects/wp-woo-site1/wp-config.php(96): require_once('/mnt/e/www/mult...')
+#7 /mnt/e/www/multi-projects/wp-woo-site1/wp-load.php(50): require_once('/mnt/e/www/mult...')
+#8 /mnt/e/www/multi-projects/wp in /mnt/e/www/multi-projects/wp-woo-site1/wp-content/plugins/woocommerce/includes/class-woocommerce.php on line 809
+
+2022-05-26T09:58:28+00:00 CRITICAL Uncaught Error: Class 'WC_Customer' not found in /mnt/e/www/multi-projects/wp-woo-site1/wp-content/plugins/woocommerce/includes/class-woocommerce.php:809
+Stack trace:
+#0 /mnt/e/www/multi-projects/wp-woo-site1/wp-content/plugins/woocommerce/includes/wc-core-functions.php(2512): WooCommerce->initialize_cart()
+#1 /mnt/e/www/multi-projects/wp-woo-site1/wp-content/plugins/woocommerce/includes/class-woocommerce.php(631): wc_load_cart()
+#2 /mnt/e/www/multi-projects/wp-woo-site1/wp-includes/class-wp-hook.php(307): WooCommerce->init()
+#3 /mnt/e/www/multi-projects/wp-woo-site1/wp-includes/class-wp-hook.php(331): WP_Hook->apply_filters()
+#4 /mnt/e/www/multi-projects/wp-woo-site1/wp-includes/plugin.php(476): WP_Hook->do_action()
+#5 /mnt/e/www/multi-projects/wp-woo-site1/wp-settings.php(598): do_action()
+#6 /mnt/e/www/multi-projects/wp-woo-site1/wp-config.php(96): require_once('/mnt/e/www/mult...')
+#7 /mnt/e/www/multi-projects/wp-woo-site1/wp-load.php(50): require_once('/mnt/e/www/mult...')
+#8 /mnt/e/www/multi-projects/wp in /mnt/e/www/multi-projects/wp-woo-site1/wp-content/plugins/woocommerce/includes/class-woocommerce.php on line 809
+
+2022-05-26T09:58:28+00:00 CRITICAL Uncaught Error: Class 'WC_Customer' not found in /mnt/e/www/multi-projects/wp-woo-site1/wp-content/plugins/woocommerce/includes/class-woocommerce.php:809
+Stack trace:
+#0 /mnt/e/www/multi-projects/wp-woo-site1/wp-content/plugins/woocommerce/includes/wc-core-functions.php(2512): WooCommerce->initialize_cart()
+#1 /mnt/e/www/multi-projects/wp-woo-site1/wp-content/plugins/woocommerce/includes/class-woocommerce.php(631): wc_load_cart()
+#2 /mnt/e/www/multi-projects/wp-woo-site1/wp-includes/class-wp-hook.php(307): WooCommerce->init()
+#3 /mnt/e/www/multi-projects/wp-woo-site1/wp-includes/class-wp-hook.php(331): WP_Hook->apply_filters()
+#4 /mnt/e/www/multi-projects/wp-woo-site1/wp-includes/plugin.php(476): WP_Hook->do_action()
+#5 /mnt/e/www/multi-projects/wp-woo-site1/wp-settings.php(598): do_action()
+#6 /mnt/e/www/multi-projects/wp-woo-site1/wp-config.php(96): require_once('/mnt/e/www/mult...')
+#7 /mnt/e/www/multi-projects/wp-woo-site1/wp-load.php(50): require_once('/mnt/e/www/mult...')
+#8 /mnt/e/www/multi-projects/wp in /mnt/e/www/multi-projects/wp-woo-site1/wp-content/plugins/woocommerce/includes/class-woocommerce.php on line 809
+
+2022-05-26T09:58:28+00:00 CRITICAL Uncaught Error: Class 'WC_Customer' not found in /mnt/e/www/multi-projects/wp-woo-site1/wp-content/plugins/woocommerce/includes/class-woocommerce.php:809
+Stack trace:
+#0 /mnt/e/www/multi-projects/wp-woo-site1/wp-content/plugins/woocommerce/includes/wc-core-functions.php(2512): WooCommerce->initialize_cart()
+#1 /mnt/e/www/multi-projects/wp-woo-site1/wp-content/plugins/woocommerce/includes/class-woocommerce.php(631): wc_load_cart()
+#2 /mnt/e/www/multi-projects/wp-woo-site1/wp-includes/class-wp-hook.php(307): WooCommerce->init()
+#3 /mnt/e/www/multi-projects/wp-woo-site1/wp-includes/class-wp-hook.php(331): WP_Hook->apply_filters()
+#4 /mnt/e/www/multi-projects/wp-woo-site1/wp-includes/plugin.php(476): WP_Hook->do_action()
+#5 /mnt/e/www/multi-projects/wp-woo-site1/wp-settings.php(598): do_action()
+#6 /mnt/e/www/multi-projects/wp-woo-site1/wp-config.php(96): require_once('/mnt/e/www/mult...')
+#7 /mnt/e/www/multi-projects/wp-woo-site1/wp-load.php(50): require_once('/mnt/e/www/mult...')
+#8 /mnt/e/www/multi-projects/wp in /mnt/e/www/multi-projects/wp-woo-site1/wp-content/plugins/woocommerce/includes/class-woocommerce.php on line 809
+
+2022-05-26T09:58:28+00:00 CRITICAL Uncaught Error: Class 'WC_Customer' not found in /mnt/e/www/multi-projects/wp-woo-site1/wp-content/plugins/woocommerce/includes/class-woocommerce.php:809
+Stack trace:
+#0 /mnt/e/www/multi-projects/wp-woo-site1/wp-content/plugins/woocommerce/includes/wc-core-functions.php(2512): WooCommerce->initialize_cart()
+#1 /mnt/e/www/multi-projects/wp-woo-site1/wp-content/plugins/woocommerce/includes/class-woocommerce.php(631): wc_load_cart()
+#2 /mnt/e/www/multi-projects/wp-woo-site1/wp-includes/class-wp-hook.php(307): WooCommerce->init()
+#3 /mnt/e/www/multi-projects/wp-woo-site1/wp-includes/class-wp-hook.php(331): WP_Hook->apply_filters()
+#4 /mnt/e/www/multi-projects/wp-woo-site1/wp-includes/plugin.php(476): WP_Hook->do_action()
+#5 /mnt/e/www/multi-projects/wp-woo-site1/wp-settings.php(598): do_action()
+#6 /mnt/e/www/multi-projects/wp-woo-site1/wp-config.php(96): require_once('/mnt/e/www/mult...')
+#7 /mnt/e/www/multi-projects/wp-woo-site1/wp-load.php(50): require_once('/mnt/e/www/mult...')
+#8 /mnt/e/www/multi-projects/wp in /mnt/e/www/multi-projects/wp-woo-site1/wp-content/plugins/woocommerce/includes/class-woocommerce.php on line 809
+
+2022-05-26T09:58:28+00:00 CRITICAL Uncaught Error: Class 'WC_Customer' not found in /mnt/e/www/multi-projects/wp-woo-site1/wp-content/plugins/woocommerce/includes/class-woocommerce.php:809
+Stack trace:
+#0 /mnt/e/www/multi-projects/wp-woo-site1/wp-content/plugins/woocommerce/includes/wc-core-functions.php(2512): WooCommerce->initialize_cart()
+#1 /mnt/e/www/multi-projects/wp-woo-site1/wp-content/plugins/woocommerce/includes/class-woocommerce.php(631): wc_load_cart()
+#2 /mnt/e/www/multi-projects/wp-woo-site1/wp-includes/class-wp-hook.php(307): WooCommerce->init()
+#3 /mnt/e/www/multi-projects/wp-woo-site1/wp-includes/class-wp-hook.php(331): WP_Hook->apply_filters()
+#4 /mnt/e/www/multi-projects/wp-woo-site1/wp-includes/plugin.php(476): WP_Hook->do_action()
+#5 /mnt/e/www/multi-projects/wp-woo-site1/wp-settings.php(598): do_action()
+#6 /mnt/e/www/multi-projects/wp-woo-site1/wp-config.php(96): require_once('/mnt/e/www/mult...')
+#7 /mnt/e/www/multi-projects/wp-woo-site1/wp-load.php(50): require_once('/mnt/e/www/mult...')
+#8 /mnt/e/www/multi-projects/wp in /mnt/e/www/multi-projects/wp-woo-site1/wp-content/plugins/woocommerce/includes/class-woocommerce.php on line 809
+
+2022-05-26T09:58:28+00:00 CRITICAL Uncaught Error: Class 'WC_Customer' not found in /mnt/e/www/multi-projects/wp-woo-site1/wp-content/plugins/woocommerce/includes/class-woocommerce.php:809
+Stack trace:
+#0 /mnt/e/www/multi-projects/wp-woo-site1/wp-content/plugins/woocommerce/includes/wc-core-functions.php(2512): WooCommerce->initialize_cart()
+#1 /mnt/e/www/multi-projects/wp-woo-site1/wp-content/plugins/woocommerce/includes/class-woocommerce.php(631): wc_load_cart()
+#2 /mnt/e/www/multi-projects/wp-woo-site1/wp-includes/class-wp-hook.php(307): WooCommerce->init()
+#3 /mnt/e/www/multi-projects/wp-woo-site1/wp-includes/class-wp-hook.php(331): WP_Hook->apply_filters()
+#4 /mnt/e/www/multi-projects/wp-woo-site1/wp-includes/plugin.php(476): WP_Hook->do_action()
+#5 /mnt/e/www/multi-projects/wp-woo-site1/wp-settings.php(598): do_action()
+#6 /mnt/e/www/multi-projects/wp-woo-site1/wp-config.php(96): require_once('/mnt/e/www/mult...')
+#7 /mnt/e/www/multi-projects/wp-woo-site1/wp-load.php(50): require_once('/mnt/e/www/mult...')
+#8 /mnt/e/www/multi-projects/wp in /mnt/e/www/multi-projects/wp-woo-site1/wp-content/plugins/woocommerce/includes/class-woocommerce.php on line 809
+
+2022-05-26T09:58:28+00:00 CRITICAL Uncaught Error: Class 'WC_Customer' not found in /mnt/e/www/multi-projects/wp-woo-site1/wp-content/plugins/woocommerce/includes/class-woocommerce.php:809
+Stack trace:
+#0 /mnt/e/www/multi-projects/wp-woo-site1/wp-content/plugins/woocommerce/includes/wc-core-functions.php(2512): WooCommerce->initialize_cart()
+#1 /mnt/e/www/multi-projects/wp-woo-site1/wp-content/plugins/woocommerce/includes/class-woocommerce.php(631): wc_load_cart()
+#2 /mnt/e/www/multi-projects/wp-woo-site1/wp-includes/class-wp-hook.php(307): WooCommerce->init()
+#3 /mnt/e/www/multi-projects/wp-woo-site1/wp-includes/class-wp-hook.php(331): WP_Hook->apply_filters()
+#4 /mnt/e/www/multi-projects/wp-woo-site1/wp-includes/plugin.php(476): WP_Hook->do_action()
+#5 /mnt/e/www/multi-projects/wp-woo-site1/wp-settings.php(598): do_action()
+#6 /mnt/e/www/multi-projects/wp-woo-site1/wp-config.php(96): require_once('/mnt/e/www/mult...')
+#7 /mnt/e/www/multi-projects/wp-woo-site1/wp-load.php(50): require_once('/mnt/e/www/mult...')
+#8 /mnt/e/www/multi-projects/wp in /mnt/e/www/multi-projects/wp-woo-site1/wp-content/plugins/woocommerce/includes/class-woocommerce.php on line 809
+
+2022-05-26T09:58:28+00:00 CRITICAL Uncaught Error: Class 'WC_Customer' not found in /mnt/e/www/multi-projects/wp-woo-site1/wp-content/plugins/woocommerce/includes/class-woocommerce.php:809
+Stack trace:
+#0 /mnt/e/www/multi-projects/wp-woo-site1/wp-content/plugins/woocommerce/includes/wc-core-functions.php(2512): WooCommerce->initialize_cart()
+#1 /mnt/e/www/multi-projects/wp-woo-site1/wp-content/plugins/woocommerce/includes/class-woocommerce.php(631): wc_load_cart()
+#2 /mnt/e/www/multi-projects/wp-woo-site1/wp-includes/class-wp-hook.php(307): WooCommerce->init()
+#3 /mnt/e/www/multi-projects/wp-woo-site1/wp-includes/class-wp-hook.php(331): WP_Hook->apply_filters()
+#4 /mnt/e/www/multi-projects/wp-woo-site1/wp-includes/plugin.php(476): WP_Hook->do_action()
+#5 /mnt/e/www/multi-projects/wp-woo-site1/wp-settings.php(598): do_action()
+#6 /mnt/e/www/multi-projects/wp-woo-site1/wp-config.php(96): require_once('/mnt/e/www/mult...')
+#7 /mnt/e/www/multi-projects/wp-woo-site1/wp-load.php(50): require_once('/mnt/e/www/mult...')
+#8 /mnt/e/www/multi-projects/wp in /mnt/e/www/multi-projects/wp-woo-site1/wp-content/plugins/woocommerce/includes/class-woocommerce.php on line 809
+
+2022-05-26T09:58:39+00:00 CRITICAL Uncaught Error: Class 'WC_Customer' not found in /mnt/e/www/multi-projects/wp-woo-site1/wp-content/plugins/woocommerce/includes/class-woocommerce.php:809
+Stack trace:
+#0 /mnt/e/www/multi-projects/wp-woo-site1/wp-content/plugins/woocommerce/includes/wc-core-functions.php(2512): WooCommerce->initialize_cart()
+#1 /mnt/e/www/multi-projects/wp-woo-site1/wp-content/plugins/woocommerce/includes/class-woocommerce.php(631): wc_load_cart()
+#2 /mnt/e/www/multi-projects/wp-woo-site1/wp-includes/class-wp-hook.php(307): WooCommerce->init()
+#3 /mnt/e/www/multi-projects/wp-woo-site1/wp-includes/class-wp-hook.php(331): WP_Hook->apply_filters()
+#4 /mnt/e/www/multi-projects/wp-woo-site1/wp-includes/plugin.php(476): WP_Hook->do_action()
+#5 /mnt/e/www/multi-projects/wp-woo-site1/wp-settings.php(598): do_action()
+#6 /mnt/e/www/multi-projects/wp-woo-site1/wp-config.php(96): require_once('/mnt/e/www/mult...')
+#7 /mnt/e/www/multi-projects/wp-woo-site1/wp-load.php(50): require_once('/mnt/e/www/mult...')
+#8 /mnt/e/www/multi-projects/wp in /mnt/e/www/multi-projects/wp-woo-site1/wp-content/plugins/woocommerce/includes/class-woocommerce.php on line 809
+
+2022-05-26T09:58:39+00:00 CRITICAL Uncaught Error: Class 'WC_Customer' not found in /mnt/e/www/multi-projects/wp-woo-site1/wp-content/plugins/woocommerce/includes/class-woocommerce.php:809
+Stack trace:
+#0 /mnt/e/www/multi-projects/wp-woo-site1/wp-content/plugins/woocommerce/includes/wc-core-functions.php(2512): WooCommerce->initialize_cart()
+#1 /mnt/e/www/multi-projects/wp-woo-site1/wp-content/plugins/woocommerce/includes/class-woocommerce.php(631): wc_load_cart()
+#2 /mnt/e/www/multi-projects/wp-woo-site1/wp-includes/class-wp-hook.php(307): WooCommerce->init()
+#3 /mnt/e/www/multi-projects/wp-woo-site1/wp-includes/class-wp-hook.php(331): WP_Hook->apply_filters()
+#4 /mnt/e/www/multi-projects/wp-woo-site1/wp-includes/plugin.php(476): WP_Hook->do_action()
+#5 /mnt/e/www/multi-projects/wp-woo-site1/wp-settings.php(598): do_action()
+#6 /mnt/e/www/multi-projects/wp-woo-site1/wp-config.php(96): require_once('/mnt/e/www/mult...')
+#7 /mnt/e/www/multi-projects/wp-woo-site1/wp-load.php(50): require_once('/mnt/e/www/mult...')
+#8 /mnt/e/www/multi-projects/wp in /mnt/e/www/multi-projects/wp-woo-site1/wp-content/plugins/woocommerce/includes/class-woocommerce.php on line 809
+
