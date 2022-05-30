@@ -1,9 +1,0 @@
-{
-	"apiVersion": 2,
-	"name": "rehub/popupbutton",
-	"title": "Popup toggler",
-	"category": "helpler-modules",
-	"description": "For popup creation",
-    "icon": "pressthis",
-	"textdomain": "rehub-framework"
-}
