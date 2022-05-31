@@ -58,10 +58,14 @@ abstract class BackController
 
         // 控制器初始化
         $this->initialize();
-		
+		$home = $this->url('/Home');
+		$base_url = $this->url('/');
 		$logout_url = $this->url('/AdminLogin/Logout');
+        $url_pass = $this->url('/Admin/pass');
+        View::assign('url_pass', $url_pass);
 		View::assign('logout_url', $logout_url);
-		
+		View::assign('base_url', $base_url);
+		View::assign('home', $home);
     }
 
     public function isLogin(){

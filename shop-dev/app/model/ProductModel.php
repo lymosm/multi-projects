@@ -53,6 +53,36 @@ class ProductModel extends Model{
         return $ret;
     }
 
+    public static function getProductCount($where = []){
+        $where = array_merge(['b.is_main' => 1], $where);
+        $ret = Db::name('product')
+            ->alias('a')
+            ->join('product_img b', 'a.id = b.product_id', 'left')
+            ->join('product_detail c', 'a.id = c.product_id', 'left')
+            ->join('product_cate_rela d', 'a.id = d.product_id', 'left')
+            ->join('cate e', 'd.cate_id = e.id', 'left')
+            ->field('count(*) as count')
+        ->where($where)
+        ->find();  
+        return $ret['count'];
+    }
+
+    public static function getProductList($where = [], $limit_s = 0, $limit_e = 0){
+        $where = array_merge(['b.is_main' => 1], $where);
+        $ret = Db::name('product')
+            ->alias('a')
+            ->join('product_img b', 'a.id = b.product_id', 'left')
+            ->join('product_detail c', 'a.id = c.product_id', 'left')
+            ->join('product_cate_rela d', 'a.id = d.product_id', 'left')
+            ->join('cate e', 'd.cate_id = e.id', 'left')
+            ->field('a.name, a.uri as product_uri, b.uri as img_uri, e.cate_name, b.product_id, c.price')
+        ->where($where)
+        ->limit($limit_s, $limit_e)
+        ->order('a.id desc')
+        ->select();  
+        return $ret;
+    }
+
     public static function getProductById($id){
         $ret = Db::name('product')
             ->alias('a')

@@ -16,6 +16,28 @@ class CateModel extends Model{
         return $data;
     }
 
+    public static function getCateList($where = [], $limit_s = 0, $limit_e = 0){
+        $list = Db::name('cate')
+            ->alias('a')
+            ->field('a.cate_name, a.id, b.parent_id')
+            ->join('cate_rela b', 'a.id = b.cate_id', 'left')
+            ->where($where)
+            ->select();
+        
+        $data = self::getTree($list);
+        return $data;
+    }
+
+    public static function getCateCount($where = []){
+        $data = Db::name('cate')
+            ->field('count(*) as count')
+            ->where($where)
+            ->select()
+            ->toArray();
+
+        return $data[0]['count'];
+    }
+
     public static function getCateInfo($uri){
         $data = Db::name('cate')
             ->field('id, uri, cate_name, img_uri, desc')

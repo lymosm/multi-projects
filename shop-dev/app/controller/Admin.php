@@ -18,6 +18,8 @@ use Endroid\QrCode\Label\Alignment\LabelAlignmentCenter;
 use Endroid\QrCode\Label\Font\NotoSans;
 use Endroid\QrCode\RoundBlockSizeMode\RoundBlockSizeModeMargin;
 use Endroid\QrCode\Writer\PngWriter;
+use app\model\ProductModel;
+use app\model\CateModel;
 // use think\App;
 
 class Admin extends BackController
@@ -28,28 +30,17 @@ class Admin extends BackController
 	}
 
     public function productList(){
-		$list = Db::name('product')
-			->field('id, name, added_date')
-            ->order('id', 'desc')
-			->select();
 		
-		View::assign('list', $list);
 		$url = $this->url('/Admin/videoEdit');
-		$url_pass = $this->url('/Admin/pass');
-		$logout_url = $this->url('/AdminLogin/logout');
-		$home = $this->url('/Home');
-		$base_url = $this->url('/');
+		
 		View::assign('url', $url);
-		View::assign('url_pass', $url_pass);
-		View::assign('logout_url', $logout_url);
-		View::assign('base_url', $base_url);
-		View::assign('home', $home);
+		View::assign('uri', 'productList');
 		return View::fetch('productList');
     }
 	
-	public function ajaxVideoList(){
+	public function ajaxProductList(){
 		
-		$where = '';
+		$where = [];
 		$keyword = addslashes(trim(Request::param('keyword')));
 		if($keyword){
 			$where .= 'a.name like "%' . $keyword . '%" or b.qrcode_uri like "%' . $keyword . '%"';
@@ -63,28 +54,58 @@ class Admin extends BackController
 			$limit = 20;
 		}
 		
-		$list = Db::name('video_list')
-			->field('*')
-		    ->where($where)
-		    ->order('id', 'desc')
-			->limit(($page - 1) * $limit, $limit)
-			->select();
+		$list = ProductModel::getProductList($where, ($page - 1) * $limit, $limit);
 			
-		$count = Db::name('video_list')
-			->field('count(*) as count')
-		    ->where($where)
-			->select();
+		$count = ProductModel::getProductCount($where);
 	
 		$ret = [
 			'code' => 0,
-			'count' => $count[0]['count'],
+			'count' => $count,
 			'data' => $list,
 			'msg' => ''
 		];
 		return json($ret);
 	}
 
-    public function videoEdit(){
+	public function cateList(){
+
+		$url = $this->url('/Admin/videoEdit');
+
+		View::assign('url', $url);
+		View::assign('uri', 'cateList');
+		return View::fetch('cateList');
+    }
+
+	public function ajaxCateList(){
+		
+		$where = [];
+		$keyword = addslashes(trim(Request::param('keyword')));
+		if($keyword){
+			$where .= 'a.name like "%' . $keyword . '%" or b.qrcode_uri like "%' . $keyword . '%"';
+		}
+		$page = intval(Request::param('page'));
+		if(! $page){
+			$page = 1;
+		}
+		$limit = intval(Request::param('limit'));
+		if(! $limit){
+			$limit = 20;
+		}
+		
+		$list = CateModel::getCateList($where, ($page - 1) * $limit, $limit);
+			
+		$count = CateModel::getCateCount($where);
+	
+		$ret = [
+			'code' => 0,
+			'count' => $count,
+			'data' => $list['child'],
+			'msg' => ''
+		];
+		return json($ret);
+	}
+
+    public function cateEdit(){
 		$id = intval(Request::param('id'));
 		$data = [
 			'name' => '',
@@ -92,15 +113,16 @@ class Admin extends BackController
 		];
 		$url = $this->url('/Admin/actionVideoAdd');
 		$url_update = $this->url('/Admin/actionVideoEdit');
+		View::assign('uri', 'cateList');
 		if(! $id){
 			View::assign('url', $url);
 		}else{
-			$data = Db::name('video_list')->field('id, name')->where(['id' => $id])->find();
+			$data = Db::name('cate')->field('id, cate_name')->where(['id' => $id])->find();
 			View::assign('url', $url_update);
 		}
 		
 		View::assign('data', $data);
-        return View::fetch('videoEdit');
+        return View::fetch('cateEdit');
     }
 
     public function pass(){
