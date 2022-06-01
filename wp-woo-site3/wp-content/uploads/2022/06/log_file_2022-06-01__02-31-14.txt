@@ -1,0 +1,84 @@
+
+---Downloaded files---
+The import files for: ReFashion were successfully downloaded!
+Initial max execution time = 30
+Files info:
+Site URL = https://lo.woo2.com
+Data file = /mnt/e/www/multi-projects/wp-woo-site2/wp-content/uploads/2022/06/demo-content-import-file_2022-06-01__02-31-14.xml
+Widget file = /mnt/e/www/multi-projects/wp-woo-site2/wp-content/uploads/2022/06/demo-widgets-import-file_2022-06-01__02-31-14.json
+Customizer file = not defined!
+Redux files:
+not defined!
+
+---ocdi/before_content_import---
+
+
+------
+New AJAX call!
+
+
+------
+New AJAX call!
+
+
+------
+New AJAX call!
+
+
+------
+New AJAX call!
+
+
+------
+New AJAX call!
+
+
+------
+New AJAX call!
+
+
+------
+New AJAX call!
+
+
+---Importing widgets---
+Post Sidebar Area : 
+
+ReHub: Ajax Tabs - No Title - Imported
+ReHub: Sticky on scroll - No Title - Imported
+
+Footer 1 : 
+
+Text - About Rehub - Imported
+
+Footer 2 : 
+
+Text - No Title - Imported
+
+Footer 3 : 
+
+Text - Sign Up for Weekly Newsletter - Imported
+Image - No Title - Imported
+
+Custom sidebar area : 
+
+Archives - No Title - Imported
+Categories - No Title - Imported
+Meta - No Title - Imported
+
+Woocommerce shop sidebar : 
+
+Filter Products by Price - Filter by price - Imported
+ReHub: Better categories - No Title - Imported
+Filter Products by Attribute - Color - Imported
+Filter Products by Attribute - Size - Imported
+Filter Products by Rating - Average rating - Imported
+
+Woocommerce product sidebar : 
+
+ReHub: Top Offers/Products - Top offers - Imported
+
+
+
+---ocdi/after_import---
+Theme Options was updated-------Customizer was updated-------Menu was assigned-------Menu hierarchy was fixed-------Menu hierarchy was fixed-------Menu hierarchy was fixed-------Menu hierarchy was fixed-------Menu hierarchy was fixed-------Menu hierarchy was fixed-------Menu hierarchy was fixed-------Menu hierarchy was fixed-------HomePage was assigned-------
