@@ -5,29 +5,49 @@
 					<div class="layui-form-item">
 						<label class="layui-form-label">name</label>
 						<div class="layui-input-block">
-							<input type="text" name="name" id="name" required lay-verify="required" placeholder="请输入名称"
-								autocomplete="off" class="layui-input" value="{$data.name}">
+							<input type="text" name="name" id="name" required lay-verify="required" placeholder="name"
+								autocomplete="off" class="layui-input" value="{$data.cate_name}">
+						</div>
+					</div>
+					<div class="layui-form-item">
+						<label class="layui-form-label">uri</label>
+						<div class="layui-input-block">
+							<input type="text" name="uri" id="uri" required lay-verify="required" placeholder="uri"
+								autocomplete="off" class="layui-input" value="{$data.uri}">
 						</div>
 					</div>
 					<div class="layui-form-item">
 						<label class="layui-form-label">parent</label>
 						<div class="layui-input-block">
-						<select name="city" lay-verify="required">
+						<select name="parent_id">
 							<option value=""></option>
-							<option value="0">北京</option>
-							<option value="1">上海</option>
-							<option value="2">广州</option>
-							<option value="3">深圳</option>
-							<option value="4">杭州</option>
+							<?php foreach($cate_list as $rs){ 
+								if($rs['level'] >= 2){
+									continue;
+								}
+							?>
+							<option value="{$rs['id']}"><?php 
+								if($rs['level'] == 1){ echo '-'; }  
+								echo $rs['cate_name']; ?></option>
+							<?php
+							}
+							?>
 						</select>
+						</div>
+					</div>
+					<div class="layui-form-item">
+						<label class="layui-form-label">description</label>
+						<div class="layui-input-block">
+							<textarea name="desc" id="desc" required lay-verify="required" placeholder="description"
+								autocomplete="off" class="layui-textarea">{$data.desc}</textarea>
 						</div>
 					</div>
 					
 			
 					<div class="layui-form-item">
 						<div class="layui-input-block">
-							<input type="hidden" name="uid" id="uid" value="">
-							<button type="button" class="layui-btn" id="submit-video" lay-submit lay-filter="video-form">提交</button>
+							<input type="hidden" name="id" id="id" value="{$data['id']}">
+							<button type="button" class="layui-btn" id="submit-video" lay-submit lay-filter="cate-form">提交</button>
 						</div>
 					</div>
 				</form>
@@ -44,9 +64,8 @@
 					util = layui.util,
 					
 					$ = layui.$;
-				//监听提交
-				/*
-				form.on('submit(task-form)', function(data) {
+				
+				form.on('submit(cate-form)', function(data) {
 				
 					$.ajax({
 						type: "POST",
@@ -55,12 +74,15 @@
 						data: data.field,
 						url: "{$url}",
 						success: function(res){
-							console.log(res);
 							if(res.code == 1){
-								layer.msg("提交成功");
+								layer.msg(res.msg, function(){
+									location.href = "{$url_list}";
+								});
+								/*
 								window.parent.location.reload();//刷新父页面
 								var index = parent.layer.getFrameIndex(window.name); //获取窗口索引
 								parent.layer.close(index);
+								*/
 							}else{
 								layer.msg(res.msg);
 							}
@@ -68,9 +90,7 @@
 					});
 					
 					return false;
-				});
-				*/
-				   
+				});		   
 				
 			});
 

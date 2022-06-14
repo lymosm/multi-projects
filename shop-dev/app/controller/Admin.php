@@ -35,6 +35,7 @@ class Admin extends BackController
 		
 		View::assign('url', $url);
 		View::assign('uri', 'productList');
+		View::assign('title', 'Product List');
 		return View::fetch('productList');
     }
 	
@@ -70,7 +71,7 @@ class Admin extends BackController
 	public function cateList(){
 
 		$url = $this->url('/Admin/videoEdit');
-
+		View::assign('title', 'Category List');
 		View::assign('url', $url);
 		View::assign('uri', 'cateList');
 		return View::fetch('cateList');
@@ -108,19 +109,27 @@ class Admin extends BackController
     public function cateEdit(){
 		$id = intval(Request::param('id'));
 		$data = [
-			'name' => '',
-			'id' => ''
+			'cate_name' => '',
+			'id' => '',
+			'desc' => '',
+			'uri' => ''
 		];
-		$url = $this->url('/Admin/actionVideoAdd');
-		$url_update = $this->url('/Admin/actionVideoEdit');
+		$url = $this->url('/Admin/actionCateAdd');
+		$url_list = $this->url('/Admin/cateList');
+		$url_update = $this->url('/Admin/actionCateEdit');
+		$cate_list = CateModel::getCateList();
 		View::assign('uri', 'cateList');
+		View::assign('cate_list', $cate_list['child']);
+
 		if(! $id){
+			View::assign('title', 'Category Add');
 			View::assign('url', $url);
 		}else{
-			$data = Db::name('cate')->field('id, cate_name')->where(['id' => $id])->find();
+			View::assign('title', 'Category Edit');
+			$data = Db::name('cate')->field('id, cate_name, desc, uri')->where(['id' => $id])->find();
 			View::assign('url', $url_update);
 		}
-		
+		View::assign('url_list', $url_list);
 		View::assign('data', $data);
         return View::fetch('cateEdit');
     }
@@ -168,83 +177,117 @@ class Admin extends BackController
     }
 
 
-    public function actionVideoEdit(){
+    public function actionCateEdit(){
         $ret = [
 			'code' => 0,
 			'data' => '',
 			'msg' => ''
 		];
-        $id = trim(Request::param('id'));
-        $name = trim(Request::param('name'));
-		if(!$id || ! $name){
-			$ret['msg'] = '参数错误';
+		$name = trim(Request::param('name'));
+		$url = trim(Request::param('uri'));
+		$desc = trim(Request::param('desc'));
+		$parent_id = intval(Request::param('parent_id'));
+		$id = intval(Request::param('id'));
+		if(! $name || ! $url || ! $id){
+			$ret['msg'] = 'param error';
 			return json($ret);
 		}
+		
 		$date = date('Y-m-d H:i:s');
 		$data = [
-			'name' => $name,
+			'cate_name' => $name,
 			'updated_by' => $this->userid,
-			'updated_date' => $date
-        ];
-        $where = [
-            'id' => $id
-        ];
-		$status = Db::name('video_list')->where($where)->update($data);
-		if(! $status){
-			$ret['msg'] = '更新失败';
+			'updated_date' => $date,
+			'cate_name' => $name,
+			'uri' => $url,
+			'img_uri' => '',
+			'desc' => $desc
+		];
+		Db::startTrans();
+		$status = Db::name('cate')->where(['id' => $id])->update($data);
+		if($status === false){
+			Db::rollback();
+			$ret['msg'] = 'save failed code 10002';
 			return json($ret);
 		}
+
+		$rela = [
+			'parent_id' => $parent_id
+		];
+		$status2 = Db::name('cate_rela')->where(['cate_id' => $id])->update($rela);
+		if($status2 === false){
+			Db::rollback();
+			$ret['msg'] = 'save failed code 10003';
+			return json($ret);
+		}
+
+		$commit = Db::commit();
+        if($commit === false){
+            Db::rollback();
+            return false;
+        }
+
 		$ret['code'] = 1;
+		$ret['msg'] = 'save success';
 		return json($ret);
     }
 
-    public function actionVideoAdd(){
-		// sleep(10);
+    public function actionCateAdd(){
+		
 		$ret = [
 			'code' => 0,
 			'data' => '',
 			'msg' => ''
 		];
 		$name = trim(Request::param('name'));
-		$uid = trim(Request::param('uid'));
-		if(! $name || ! $uid){
-			$ret['msg'] = '参数错误';
+		$url = trim(Request::param('uri'));
+		$desc = trim(Request::param('desc'));
+		$parent_id = trim(Request::param('parent_id'));
+		if(! $name || ! $url){
+			$ret['msg'] = 'param error';
 			return json($ret);
 		}
-		$ret['data'] = $uid;
-		$res = $this->_dealUpload();
-		if($res === false){
-			$ret['msg'] = '添加失败 code 10001';
-			return json($ret);
-		}
+		
 		$date = date('Y-m-d H:i:s');
 		$data = [
-			'name' => $name,
+			'cate_name' => $name,
 			'added_by' => $this->userid,
 			'added_date' => $date,
-			'origin_video_uri' => $res['origin_uri'],
-			'video_uri' => $res['video_uri'],
-			'qrcode_uri' => $res['qrcode_uri'],
-			'qrcode_text' => $res['qrcode_text'],
-			'qrcode_img_uri' => $res['qrcode_img_uri'],
-			'detail_uri' => $res['detail_uri']
+			'cate_name' => $name,
+			'uri' => $url,
+			'img_uri' => '',
+			'desc' => $desc
 		];
-		$status = Db::name('video_list')->insert($data);
-		if(! $status){
-			$ret['msg'] = '添加失败 code 10002';
+		Db::startTrans();
+		$status = Db::name('cate')->insertGetId($data);
+		if($status === false){
+			Db::rollback();
+			$ret['msg'] = 'save failed code 10002';
 			return json($ret);
 		}
+
+		$rela = [
+			'cate_id' => $status,
+			'parent_id' => $parent_id
+		];
+		$status2 = Db::name('cate_rela')->insert($rela);
+		if($status2 === false){
+			Db::rollback();
+			$ret['msg'] = 'save failed code 10003';
+			return json($ret);
+		}
+
+		$commit = Db::commit();
+        if($commit === false){
+            Db::rollback();
+            return false;
+        }
+
 		$ret['code'] = 1;
+		$ret['msg'] = 'save success';
 		return json($ret);
 	}
 	
-	private function _drawtextTest(){
-		 $command = '/usr/local/ffmpeg/bin/ffmpeg -i "/Users/lymos/Downloads/27.MOV" -vf "drawtext=fontfile=/Users/lymos/Downloads/font.TTF:text=' . "'TangJiuling9009'" . ':y=h-line_h-10:x=:fontsize=60:fontcolor=yellow:shadowy=2" -b:v 500k -c:v libx264 -s 640x320 /Users/lymos/Downloads/28.mp4';
-		// 从左往右 x=(mod(2*n\,w+tw)-tw)
-		// 从右往左 x=w-(t-4.5)*w/5.5(只滚一次) x=w-w/10*mod(t\,13)(多次滚)
-		$ret = exec($command, $output, $status);
-		die;
-	}
 	
 	private function _dealUpload(){
 		$origin_uri = $this->_moveOriginFile();
@@ -290,57 +333,6 @@ class Admin extends BackController
 		]); 
 	}
 	
-	private function _ffpmegVideo($origin_uri, $uname){
-		$config = [
-			'ffmpeg.binaries' => '/usr/local/ffmpeg/bin/ffmpeg',
-			'ffprobe.binaries' => '/usr/local/ffmpeg/bin/ffprobe'
-		];
-		$ffmpeg = FFMpeg::create($config);
-		$video = $ffmpeg->open($origin_uri);
-		$watermark = BASE_PATH . '/public/static/image/watermark.png';
-		// try{
-			$video->filters()
-		    ->resize(new Dimension(320, 240), ResizeFilter::RESIZEMODE_INSET, true)
-			->watermark($watermark, 
-				array(
-			        'position' => 'absolute',
-			        'x' => 0,
-			        'y' => 200,
-			    )
-			
-			   /*
-				array(
-				    'position' => 'relative',
-				    'top' => 0,
-				    'right' => '100',
-				)
-				*/
-			)
-		    ->synchronize();
-			// $video->frame(FFMpeg\Coordinate\TimeCode::fromSeconds(10))->save('frame.jpg');
-			$filepath = BASE_PATH . '/public/storage/v-encode/' . date('Ymd');
-			if(! file_exists($filepath)){
-				mkdir($filepath, 0777, true);
-			}
-			$file =  $filepath . '/' . $uname . '.mp4';
-		
-			$ret = $video->save(new X264('libfdk_aac'), $file);
-		// }catch(\Exception $e){
-			// echo $e->getMessage(); die;
-		// }
-
-		return str_replace(BASE_PATH . '/public', '', $file);
-		/*
-./configure --prefix=/usr/local/ffmpeg  --enable-gpl  --enable-nonfree  --enable-libfdk-aac  --enable-libx264  --enable-libx265 --enable-filter=delogo --enable-debug --disable-optimizations --enable-libspeex --enable-videotoolbox --enable-shared --enable-pthreads --enable-libfreetype --enable-version3 --enable-hardcoded-tables --cc=clang --host-cflags= --host-ldflags=
-*/
-
-/*
-
-
-/usr/local/ffmpeg/bin/ffmpeg -i "/Users/lymos/Downloads/27.MOV" -vf "drawtext=text='TangJiuling9009':y=h-line_h-10:x=(mod(2*n\,w+tw)-tw):fontsize=24:fontcolor=yellow:shadowy=2" -b:v 3000k /Users/lymos/Downloads/28.mov
-*/
-	}
-
 	public function actionVideoDelete(){
         $ret = [
 			'code' => 0,
@@ -365,28 +357,6 @@ class Admin extends BackController
 		return json($ret);
     }
 	
-	private function _drawtext($bin, $origin, $text, $fontsize, $color, $out, $mins, $ma){
-		// $command = '/usr/local/ffmpeg/bin/ffmpeg -i "/Users/lymos/Downloads/27.MOV" -vf "drawtext=fontfile=/Users/lymos/Downloads/font.TTF:text=' . "'TangJiuling9009'" . ':y=h-line_h-10:x=(mod(2*n\,w+tw)-tw):fontsize=24:fontcolor=yellow:shadowy=2" -b:v 500k -c:v libx264 -s 640x320 /Users/lymos/Downloads/28.mp4';
-		// 从左往右 x=(mod(2*n\,w+tw)-tw)
-		// 从右往左 x=w-(t-4.5)*w/5.5(只滚一次) x=w-w/10*mod(t\,13)(多次滚)
-		// x=w-w/' . $mins . '*mod(t\,' . $mins . ')
-		// x=w-t*w/' . $mins . '*mod(t\,' . $mins . ')
-		// x=w-t*w/10
-		$command = $bin . ' -i "' . $origin . '" -vf "drawtext=fontfile=' . BASE_PATH . '/public/static/fonts/font.TTF:text=' . "'" . $text . "'" . ':y=h-line_h-20:x=w-(w+tw)/' . $mins . '*mod(t\,' . $mins . '):fontsize=' . $fontsize . ':fontcolor=' . $color . ':shadowy=2" -b:v ' . $ma . 'k -r 24 -c:v libx264 ' . $out . ' 2>&1';
-		$ret = exec($command, $output, $status);
-
-		// $ret = system($command, $status);
-		if($status){
-			return false;
-		}
-		// echo '<pre>'; print_r($ret); die;
-		return str_replace(BASE_PATH . '/public', '', $out);
-	}
-	
-	private function _addGif(){
-		$command = "ffmpeg -y -i test1.mp4 -ignore_loop 0 -i girl.gif  -filter_complex '[0:0]scale=iw:ih[a];[1:0]scale=iw/4:-1[wm];[a][wm]overlay=x=0:0:shortest=1' test_out8.mp4";
-		
-	}
 	
 	private function _genQrcode($uname){
 		$filepath = BASE_PATH . '/public/storage/qrcode/' . date('Ymd');
