@@ -3,7 +3,7 @@
 			
 
 			<div class="layui-body">
-				<div style="padding: 15px;"><button id="btn-add" type="button" class="layui-btn">Add</button></div>
+				<div style="padding: 15px;"><a class="layui-btn" href="/Admin/productEdit">Add</a></div>
 				<table class="layui-table" id="video-list" lay-size="lg">
 				</table>
 			</div>
@@ -19,6 +19,7 @@
 		<script>
 			var home = "{$home}",
 				del = '',
+				edit = '',
 				base_url = "{$base_url}";
 				//JS 
 				layui.use(['element', 'layer', 'util', 'jquery', 'form', "table"], function() {
@@ -47,7 +48,7 @@
 						  }},
 						  {field: 'cate_name', title: 'category'},
 						  {field: 'view', title: '操作', templet: function(d){
-							  return '<a  href="javascript:void(0);" onclick="del(' + d.id + ')">edit</a>';
+							  return '<a class="layui-btn" href="javascript:void(0);" onclick="edit(' + d.id + ')">edit</a>';
 						  }}
 					     
 					    ]]
@@ -81,6 +82,11 @@
 							}
 						}); 
 					}
+
+					edit = function(id){
+						location.href = "/Admin/productEdit/id/" + id;
+					}
+
 					//头部事件
 					util.event('lay-header-event', {
 						//左侧菜单事件

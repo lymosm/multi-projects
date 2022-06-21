@@ -126,12 +126,46 @@ class Admin extends BackController
 			View::assign('url', $url);
 		}else{
 			View::assign('title', 'Category Edit');
-			$data = Db::name('cate')->field('id, cate_name, desc, uri')->where(['id' => $id])->find();
+			$data = Db::name('cate')->alias('a')
+				->join('cate_rela b', 'a.id = b.cate_id', 'left')
+				->field('a.id, a.cate_name, a.desc, a.uri, b.parent_id')->where(['a.id' => $id])->find();
 			View::assign('url', $url_update);
 		}
 		View::assign('url_list', $url_list);
 		View::assign('data', $data);
         return View::fetch('cateEdit');
+    }
+
+	public function productEdit(){
+		$id = intval(Request::param('id'));
+		$data = [
+			'cate_id' => '',
+			'name' => '',
+			'id' => '',
+			'price' => '',
+			'short_desc' => '',
+			'long_desc' => '',
+			'uri' => ''
+		];
+		$url = $this->url('/Admin/actionProductAdd');
+		$url_list = $this->url('/Admin/productList');
+		$url_update = $this->url('/Admin/actionProductEdit');
+		$cate_list = CateModel::getCateList();
+
+		View::assign('uri', 'productList');
+		View::assign('cate_list', $cate_list['child']);
+
+		if(! $id){
+			View::assign('title', 'Product Add');
+			View::assign('url', $url);
+		}else{
+			View::assign('title', 'Product Edit');
+			$data = ProductModel::getProductAllById($id);
+			View::assign('url', $url_update);
+		}
+		View::assign('url_list', $url_list);
+		View::assign('data', $data);
+        return View::fetch('productEdit');
     }
 
     public function pass(){
@@ -218,6 +252,72 @@ class Admin extends BackController
 		if($status2 === false){
 			Db::rollback();
 			$ret['msg'] = 'save failed code 10003';
+			return json($ret);
+		}
+
+		$commit = Db::commit();
+        if($commit === false){
+            Db::rollback();
+            return false;
+        }
+
+		$ret['code'] = 1;
+		$ret['msg'] = 'save success';
+		return json($ret);
+    }
+
+	public function actionProductEdit(){
+        $ret = [
+			'code' => 0,
+			'data' => '',
+			'msg' => ''
+		];
+		$name = trim(Request::param('name'));
+		$url = trim(Request::param('uri'));
+		$short_desc = trim(Request::param('short_desc'));
+		$long_desc = trim(Request::param('long_desc'));
+		$price = trim(Request::param('price'));
+		$cate_id = intval(Request::param('cate_id'));
+		$id = intval(Request::param('id'));
+		if(! $name || ! $url || ! $id){
+			$ret['msg'] = 'param error';
+			return json($ret);
+		}
+		
+		$date = date('Y-m-d H:i:s');
+		$data = [
+			'name' => $name,
+			'updated_by' => $this->userid,
+			'updated_date' => $date,
+			'uri' => $url
+		];
+		Db::startTrans();
+		$status = Db::name('product')->where(['id' => $id])->update($data);
+		if($status === false){
+			Db::rollback();
+			$ret['msg'] = 'save failed code 10002';
+			return json($ret);
+		}
+
+		$rela = [
+			'cate_id' => $cate_id
+		];
+		$status2 = Db::name('product_cate_rela')->where(['product_id' => $id])->update($rela);
+		if($status2 === false){
+			Db::rollback();
+			$ret['msg'] = 'save failed code 10003';
+			return json($ret);
+		}
+
+		$detail = [
+			'price' => $price,
+			'short_desc' => $short_desc,
+			'long_desc' => $long_desc
+		];
+		$status3 = Db::name('product_detail')->where(['product_id' => $id])->update($detail);
+		if($status3 === false){
+			Db::rollback();
+			$ret['msg'] = 'save failed code 10004';
 			return json($ret);
 		}
 

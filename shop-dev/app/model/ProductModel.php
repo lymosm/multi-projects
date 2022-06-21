@@ -75,7 +75,7 @@ class ProductModel extends Model{
             ->join('product_detail c', 'a.id = c.product_id', 'left')
             ->join('product_cate_rela d', 'a.id = d.product_id', 'left')
             ->join('cate e', 'd.cate_id = e.id', 'left')
-            ->field('a.name, a.uri as product_uri, b.uri as img_uri, e.cate_name, b.product_id, c.price')
+            ->field('a.name, a.uri as product_uri, b.uri as img_uri, e.cate_name, a.id, b.product_id, c.price')
         ->where($where)
         ->limit($limit_s, $limit_e)
         ->order('a.id desc')
@@ -88,6 +88,17 @@ class ProductModel extends Model{
             ->alias('a')
             ->join('product_detail c', 'a.id = c.product_id', 'left')
             ->field('a.name, c.price, a.id, a.uri')
+        ->where(['a.id' => $id])
+        ->find();  
+        return $ret;
+    }
+
+    public static function getProductAllById($id){
+        $ret = Db::name('product')
+            ->alias('a')
+            ->join('product_detail c', 'a.id = c.product_id', 'left')
+            ->join('product_cate_rela d', 'a.id = d.product_id', 'left')
+            ->field('a.name, c.price, a.id, a.uri, d.cate_id, c.short_desc, c.long_desc')
         ->where(['a.id' => $id])
         ->find();  
         return $ret;

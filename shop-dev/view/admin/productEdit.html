@@ -6,7 +6,7 @@
 						<label class="layui-form-label">name</label>
 						<div class="layui-input-block">
 							<input type="text" name="name" id="name" required lay-verify="required" placeholder="name"
-								autocomplete="off" class="layui-input" value="{$data.cate_name}">
+								autocomplete="off" class="layui-input" value="{$data.name}">
 						</div>
 					</div>
 					<div class="layui-form-item">
@@ -17,21 +17,26 @@
 						</div>
 					</div>
 					<div class="layui-form-item">
-						<label class="layui-form-label">parent</label>
+						<label class="layui-form-label">price</label>
 						<div class="layui-input-block">
-						<select name="parent_id">
+							<input type="text" name="price" id="price" required lay-verify="required" placeholder="price"
+								autocomplete="off" class="layui-input" value="{$data.price}">
+						</div>
+					</div>
+					<div class="layui-form-item">
+						<label class="layui-form-label">Category</label>
+						<div class="layui-input-block">
+						<select name="cate_id">
 							<option value=""></option>
 							<?php foreach($cate_list as $rs){ 
-								if($rs['level'] >= 2){
-									continue;
-								}
+					
 								$checked = '';
-								if($data['parent_id'] == $rs['id']){
+								if($data['cate_id'] == $rs['id']){
 									$checked = 'selected';
 								}
 							?>
 							<option value="{$rs['id']}" <?php echo $checked; ?>><?php 
-								if($rs['level'] == 1){ echo '-'; }  
+								if($rs['level'] == 1){ echo '-'; } else if($rs['level'] == 2){ echo '--'; }  
 								echo $rs['cate_name']; ?></option>
 							<?php
 							}
@@ -40,10 +45,17 @@
 						</div>
 					</div>
 					<div class="layui-form-item">
-						<label class="layui-form-label">description</label>
+						<label class="layui-form-label">short description</label>
 						<div class="layui-input-block">
-							<textarea name="desc" id="desc" required lay-verify="required" placeholder="description"
-								autocomplete="off" class="layui-textarea">{$data.desc}</textarea>
+							<textarea name="short_desc" id="short_desc" required lay-verify="required" placeholder="short_desc"
+								autocomplete="off" class="layui-textarea">{$data.short_desc}</textarea>
+						</div>
+					</div>
+					<div class="layui-form-item">
+						<label class="layui-form-label">long description</label>
+						<div class="layui-input-block">
+							<textarea name="long_desc" required lay-verify="required" placeholder="long desc"
+								autocomplete="off" class="layui-textarea">{$data.long_desc}</textarea>
 						</div>
 					</div>
 					
@@ -51,7 +63,7 @@
 					<div class="layui-form-item">
 						<div class="layui-input-block">
 							<input type="hidden" name="id" id="id" value="{$data['id']}">
-							<button type="button" class="layui-btn" id="submit-video" lay-submit lay-filter="cate-form">提交</button>
+							<button type="button" class="layui-btn" id="submit-video" lay-submit lay-filter="cate-form">Save</button>
 						</div>
 					</div>
 				</form>
