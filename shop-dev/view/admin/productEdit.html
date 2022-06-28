@@ -45,6 +45,48 @@
 						</div>
 					</div>
 					<div class="layui-form-item">
+						<label class="layui-form-label">Main Image</label>
+						<div class="layui-input-block">
+							<button type="button" class="layui-btn" id="upload-img">
+								<i class="layui-icon">&#xe67c;</i><span id="review_img_text">Upload</span>
+							</button>
+							<div id="show-img" class="show-img">
+								<?php
+									$html = '';
+									$ids = [];
+									foreach($img_data as $rs){
+										$ids[] = $rs['img_id'];
+										$url = $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'] . str_replace('./', '/', $rs['filepath']);
+										$html .= '<div class="img-item" data-id="' . $rs['img_id'] . '"><img src="' . $url . '"><span class="img-close" onclick="removeImg(this);">X</span></div>';
+									}
+									echo $html;
+								?>
+							</div>
+							<input id="main-img-id" name="main_img_id" type="hidden" value="<?php echo implode(',', $ids); ?>">
+						</div>
+					</div>
+					<div class="layui-form-item">
+						<label class="layui-form-label">Images</label>
+						<div class="layui-input-block">
+							<button type="button" class="layui-btn" id="upload-img">
+								<i class="layui-icon">&#xe67c;</i><span id="review_img_text">Upload</span>
+							</button>
+							<div id="show-img" class="show-img">
+								<?php
+									$html = '';
+									$ids = [];
+									foreach($img_data as $rs){
+										$ids[] = $rs['img_id'];
+										$url = $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'] . str_replace('./', '/', $rs['filepath']);
+										$html .= '<div class="img-item" data-id="' . $rs['img_id'] . '"><img src="' . $url . '"><span class="img-close" onclick="removeImg(this);">X</span></div>';
+									}
+									echo $html;
+								?>
+							</div>
+							<input id="img-ids" name="img_ids" type="hidden" value="<?php echo implode(',', $ids); ?>">
+						</div>
+					</div>
+					<div class="layui-form-item">
 						<label class="layui-form-label">short description</label>
 						<div class="layui-input-block">
 							<textarea name="short_desc" id="short_desc" required lay-verify="required" placeholder="short_desc"
@@ -106,7 +148,71 @@
 					});
 					
 					return false;
-				});		   
+				});		
+				
+				var upload = layui.upload;
+        var upload_data = {
+            utitle: "invite"
+        };
+        
+        //执行实例
+        var uploadInst = upload.render({
+            elem: '#upload-img', //绑定元素
+            url: '/home/invite/uploadFile/', //上传接口
+            accept: "images",
+            size: 10240,
+            auto: true,
+            multiple: true,
+            data: upload_data,
+            choose: function(obj){
+                //将每次选择的文件追加到文件队列
+                var files = obj.pushFile();
+                
+                //预读本地文件，如果是多文件，则会遍历。(不支持ie8/9)
+                obj.preview(function(index, file, result){
+                    console.log(index); //得到文件索引
+                    console.log(file); //得到文件对象
+                    console.log(result); //得到文件base64编码，比如图片
+                
+                    //obj.resetFile(index, file, '123.jpg'); //重命名文件名，layui 2.3.0 开始新增
+                
+                    //这里还可以做一些 append 文件列表 DOM 的操作
+                    //obj.upload(index, file); //对上传失败的单个文件重新上传，一般在某个事件中使用
+                    //delete files[index]; //删除列表中对应的文件，一般在某个事件中使用
+                });
+
+            },
+            before: function(obj){
+                layer.load(); //上传loading
+            },
+            done: function(res){
+                layer.closeAll('loading'); //关闭loading
+                //上传完毕回调
+                console.log(res);
+                if(res.code !== 0){
+                    layer.msg("image error", { icon: 2, time: 5000 });
+                    return ;
+                }
+                var data = res.returnData,
+                    $obj = $("#img-ids");
+                var val = $obj.val();
+                if(val != ""){
+                    var val_arr = val.split(",");
+                }else{
+                    var val_arr = [];
+                }
+                val_arr.push(data.id);
+                var val_str = val_arr.join(",");
+                $obj.val(val_str);
+                
+                var html = '<div class="img-item" data-id="' + data.id + '"><img src="' + data.url + '"><span class="img-close" onclick="removeImg(this);">X</span></div>';
+                
+                $("#show-img").append(html);
+            },
+            error: function(){
+                //请求异常回调
+            }
+        });
 				
 			});
 

@@ -31,7 +31,7 @@ class Admin extends BackController
 
     public function productList(){
 		
-		$url = $this->url('/Admin/videoEdit');
+		$url = $this->url('/Admin/productEdit');
 		
 		View::assign('url', $url);
 		View::assign('uri', 'productList');
@@ -70,7 +70,7 @@ class Admin extends BackController
 
 	public function cateList(){
 
-		$url = $this->url('/Admin/videoEdit');
+		$url = $this->url('/Admin/cateEdit');
 		View::assign('title', 'Category List');
 		View::assign('url', $url);
 		View::assign('uri', 'cateList');
@@ -151,8 +151,10 @@ class Admin extends BackController
 		$url_list = $this->url('/Admin/productList');
 		$url_update = $this->url('/Admin/actionProductEdit');
 		$cate_list = CateModel::getCateList();
+		$img_data = [];
 
 		View::assign('uri', 'productList');
+		View::assign('img_data', $img_data);
 		View::assign('cate_list', $cate_list['child']);
 
 		if(! $id){
@@ -252,6 +254,88 @@ class Admin extends BackController
 		if($status2 === false){
 			Db::rollback();
 			$ret['msg'] = 'save failed code 10003';
+			return json($ret);
+		}
+
+		$commit = Db::commit();
+        if($commit === false){
+            Db::rollback();
+            return false;
+        }
+
+		$ret['code'] = 1;
+		$ret['msg'] = 'save success';
+		return json($ret);
+    }
+
+	public function actionProductAdd(){
+        $ret = [
+			'code' => 0,
+			'data' => '',
+			'msg' => ''
+		];
+		$name = trim(Request::param('name'));
+		$url = trim(Request::param('uri'));
+		$short_desc = trim(Request::param('short_desc'));
+		$long_desc = trim(Request::param('long_desc'));
+		$price = trim(Request::param('price'));
+		$cate_id = intval(Request::param('cate_id'));
+		if(! $name || ! $url){
+			$ret['msg'] = 'param error';
+			return json($ret);
+		}
+		
+		$date = date('Y-m-d H:i:s');
+		$data = [
+			'name' => $name,
+			'added_by' => $this->userid,
+			'added_date' => $date,
+			'uri' => $url
+		];
+		Db::startTrans();
+		$id = Db::name('product')->insertGetId($data);
+		if($id === false){
+			Db::rollback();
+			$ret['msg'] = 'save failed code 10002';
+			return json($ret);
+		}
+
+		$rela = [
+			'cate_id' => $cate_id,
+			'product_id' => $id
+		];
+		$status2 = Db::name('product_cate_rela')->insert($rela);
+		if($status2 === false){
+			Db::rollback();
+			$ret['msg'] = 'save failed code 10003';
+			return json($ret);
+		}
+
+		$detail = [
+			'product_id' => $id,
+			'price' => $price,
+			'short_desc' => $short_desc,
+			'long_desc' => $long_desc
+		];
+		$status3 = Db::name('product_detail')->insert($detail);
+		if($status3 === false){
+			Db::rollback();
+			$ret['msg'] = 'save failed code 10004';
+			return json($ret);
+		}
+
+		$imgs = [
+			'product_id' => $id,
+			'name' => $name,
+			'added_by' => $this->userid,
+			'added_date' => $date,
+			'uri' => '',
+			'is_main' => 1
+		];
+		$status4 = Db::name('product_img')->insert($imgs);
+		if($status4 === false){
+			Db::rollback();
+			$ret['msg'] = 'save failed code 10005';
 			return json($ret);
 		}
 
