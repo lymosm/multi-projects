@@ -27,7 +27,9 @@
         "endroid/qr-code": "^4.3",
         "wechatpay/wechatpay": "^1.2",
         "php-ffmpeg/php-ffmpeg": "^0.19.0",
-        "topthink/think-captcha": "^3.0"
+        "topthink/think-captcha": "^3.0",
+        "lymos/stripe": "dev-main",
+        "lymos/paypal": "dev-main"
     },
     "require-dev": {
         "symfony/var-dumper": "^4.2",

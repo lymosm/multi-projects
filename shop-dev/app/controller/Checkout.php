@@ -64,6 +64,7 @@ class Checkout extends BaseController
 		$phone = addslashes(trim(Request::param('phone')));
 		$email = addslashes(trim(Request::param('email')));
 		$address = addslashes(trim(Request::param('address')));
+		$source = addslashes(trim(Request::param('source')));
         
 		if(! $email || ! $first_name){
 			$ret['msg'] = '参数错误';
@@ -102,18 +103,21 @@ class Checkout extends BaseController
 		];
 
 		// debug
+		/*
 		$ret['code'] = 1;
 		$ret['data'] = ['redirect' => $res['redirect_url']];
 		return json($ret);
+*/
 
 		if($need_payment){
 			$payment_type = $price_obj['payment_type'];
 			switch($payment_type){
 				case 'paypal':
-					$res = PaypalModel::payment();
+					$res = PaypalModel::payment($price_obj);
 					break;
 				case 'stripe':
-					$res = StripeModel::payment();
+					$price_obj['source'] = $source;
+					$res = StripeModel::payment($price_obj);
 					break;
 				case 'alipay':
 					$res = AlipayModel::payment();
@@ -121,6 +125,10 @@ class Checkout extends BaseController
 			}
 		}else{
 			
+		}
+		if(! $res){
+			$ret['msg'] = 'Order Failed';
+			return json($ret);
 		}
 		$ret['code'] = 1;
 		$ret['data'] = ['redirect' => $res['redirect_url']];

@@ -34,7 +34,8 @@ class ProductModel extends Model{
         $ret = Db::name('product')
             ->alias('a')
             ->join('product_img b', 'a.id = b.product_id', 'left')
-            ->field('b.name, b.uri, b.sort, b.product_id')
+            ->join('attachment c', 'b.attachment_id = c.id', 'left')
+            ->field('c.name, c.uri, b.sort, b.product_id')
         ->where(['a.uri' => $uri])
         ->select();  
         return $ret;
@@ -44,8 +45,9 @@ class ProductModel extends Model{
         $ret = Db::name('product')
             ->alias('a')
             ->join('product_img b', 'a.id = b.product_id', 'left')
+            ->join('attachment d', 'b.attachment_id = d.id', 'left')
             ->join('product_detail c', 'a.id = c.product_id', 'left')
-            ->field('a.name, a.uri as product_uri, b.uri as img_uri, b.sort, b.product_id, c.price')
+            ->field('a.name, a.uri as product_uri, d.uri as img_uri, b.sort, b.product_id, c.price')
         ->where(['b.is_main' => 1])
         ->limit(5)
         ->order('a.id desc')

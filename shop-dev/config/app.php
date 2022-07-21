@@ -33,4 +33,15 @@ return [
 	
 	// 'host' => 'http://lo.com/',
 	'host' => 'http://www.video.com/',
+    
+    'paypal' => [
+        'test_mode' => true,
+        'client_id' => 'AQAcuRuWIEhtkrWZeAUA3ZSIjxNAtom-xlfpJ2gAjVyxItwq5sC7sRK_-aK8rPxnKc27jO-dMHC7EjuR',
+        'client_secret' => 'ELOVxwMOnpq4njtcEyJWhk5gNVlw4YYdZBgbsn9V_PMbJTKscYuN7LG2NBZIVgaFNL_2eyAkm0sqqUAX'
+    ],
+    'stripe' => [
+        'test_mode' => true,
+        'key' => 'sk_test_DiSWYAGGrHqwawYjWopzklpS00ohKhFRhz'
+    ]
+
 ];

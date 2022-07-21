@@ -859,6 +859,86 @@
             "install-path": "../league/mime-type-detection"
         },
         {
+            "name": "lymos/paypal",
+            "version": "dev-main",
+            "version_normalized": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/lymoslymos/lymosPaypal.git",
+                "reference": "3d2c310656d047967ee83253c26f5815c2af4e82"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/lymoslymos/lymosPaypal/zipball/3d2c310656d047967ee83253c26f5815c2af4e82",
+                "reference": "3d2c310656d047967ee83253c26f5815c2af4e82",
+                "shasum": ""
+            },
+            "time": "2022-07-12T10:21:29+00:00",
+            "default-branch": true,
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "Lymos\\Paypal\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "lymos"
+                }
+            ],
+            "description": "lymos paypal api",
+            "support": {
+                "issues": "https://github.com/lymoslymos/lymosPaypal/issues",
+                "source": "https://github.com/lymoslymos/lymosPaypal/tree/main"
+            },
+            "install-path": "../lymos/paypal"
+        },
+        {
+            "name": "lymos/stripe",
+            "version": "dev-main",
+            "version_normalized": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/lymoslymos/lymos-stripe.git",
+                "reference": "0f723bb69f346c63142ee49dd1a25aa8eda7f411"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/lymoslymos/lymos-stripe/zipball/0f723bb69f346c63142ee49dd1a25aa8eda7f411",
+                "reference": "0f723bb69f346c63142ee49dd1a25aa8eda7f411",
+                "shasum": ""
+            },
+            "time": "2022-07-06T02:56:04+00:00",
+            "default-branch": true,
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "Lymos\\Stripe\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "lymos"
+                }
+            ],
+            "description": "lymos stripe api",
+            "support": {
+                "issues": "https://github.com/lymoslymos/lymos-stripe/issues",
+                "source": "https://github.com/lymoslymos/lymos-stripe/tree/main"
+            },
+            "install-path": "../lymos/stripe"
+        },
+        {
             "name": "neutron/temporary-filesystem",
             "version": "3.0.1",
             "version_normalized": "3.0.1.0",

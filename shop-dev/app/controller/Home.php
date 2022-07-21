@@ -9,12 +9,19 @@ use think\facade\Db;
 use think\response\Json;
 use app\model\Widget;
 use app\model\CateModel;
+use Lymos\Stripe\stripe;
 
 class Home extends BaseController
 {
 	
 	public function __construct(\think\App $app){
 		parent::__construct($app, false);
+	}
+
+	public function test(){
+		$obj = new stripe;
+		$obj->charge();
+		exit;
 	}
 
 	public function index(){

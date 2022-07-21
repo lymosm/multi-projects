@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "381909c1fe5a83f79d20c04814a9f4ea",
+    "content-hash": "e5a57bbda4244ca302e7cd5f88a3179a",
     "packages": [
         {
             "name": "alchemy/binary-driver",
@@ -827,6 +827,80 @@
                 }
             ],
             "time": "2021-01-18T20:58:21+00:00"
+        },
+        {
+            "name": "lymos/paypal",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/lymoslymos/lymosPaypal.git",
+                "reference": "3d2c310656d047967ee83253c26f5815c2af4e82"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/lymoslymos/lymosPaypal/zipball/3d2c310656d047967ee83253c26f5815c2af4e82",
+                "reference": "3d2c310656d047967ee83253c26f5815c2af4e82",
+                "shasum": ""
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Lymos\\Paypal\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "lymos"
+                }
+            ],
+            "description": "lymos paypal api",
+            "support": {
+                "issues": "https://github.com/lymoslymos/lymosPaypal/issues",
+                "source": "https://github.com/lymoslymos/lymosPaypal/tree/main"
+            },
+            "time": "2022-07-12T10:21:29+00:00"
+        },
+        {
+            "name": "lymos/stripe",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/lymoslymos/lymos-stripe.git",
+                "reference": "0f723bb69f346c63142ee49dd1a25aa8eda7f411"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/lymoslymos/lymos-stripe/zipball/0f723bb69f346c63142ee49dd1a25aa8eda7f411",
+                "reference": "0f723bb69f346c63142ee49dd1a25aa8eda7f411",
+                "shasum": ""
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Lymos\\Stripe\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "lymos"
+                }
+            ],
+            "description": "lymos stripe api",
+            "support": {
+                "issues": "https://github.com/lymoslymos/lymos-stripe/issues",
+                "source": "https://github.com/lymoslymos/lymos-stripe/tree/main"
+            },
+            "time": "2022-07-06T02:56:04+00:00"
         },
         {
             "name": "neutron/temporary-filesystem",
@@ -2880,12 +2954,15 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "lymos/stripe": 20,
+        "lymos/paypal": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
         "php": ">=7.1.0"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.2.0"
+    "plugin-api-version": "2.3.0"
 }

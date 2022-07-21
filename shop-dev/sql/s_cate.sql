@@ -14,12 +14,3 @@ create table s_cate(
 	primary key(id),
 	unique key(uri)
 )ENGINE=INNODB default charset=utf8mb4 comment "product cate";
-
-INSERT INTO `shop`.`s_cate`(`id`, `cate_name`, `added_by`, `added_date`, `updated_by`, `updated_date`) VALUES (1, 'aa', 0, '2022-04-19 15:40:35', 0, NULL);
-INSERT INTO `shop`.`s_cate`(`id`, `cate_name`, `added_by`, `added_date`, `updated_by`, `updated_date`) VALUES (2, 'bb', 0, '2022-04-19 15:40:35', 0, NULL);
-INSERT INTO `shop`.`s_cate`(`id`, `cate_name`, `added_by`, `added_date`, `updated_by`, `updated_date`) VALUES (3, 'cc', 0, '2022-04-19 15:40:35', 0, NULL);
-INSERT INTO `shop`.`s_cate`(`id`, `cate_name`, `added_by`, `added_date`, `updated_by`, `updated_date`) VALUES (4, 'bbb', 0, '2022-04-19 15:40:35', 0, NULL);
-INSERT INTO `shop`.`s_cate`(`id`, `cate_name`, `added_by`, `added_date`, `updated_by`, `updated_date`) VALUES (5, 'bbb2', 0, '2022-04-19 15:40:35', 0, NULL);
-INSERT INTO `shop`.`s_cate`(`id`, `cate_name`, `added_by`, `added_date`, `updated_by`, `updated_date`) VALUES (6, 'ccc', 0, '2022-04-19 15:40:35', 0, NULL);
-INSERT INTO `shop`.`s_cate`(`id`, `cate_name`, `added_by`, `added_date`, `updated_by`, `updated_date`) VALUES (7, 'ccc2', 0, '2022-04-19 15:40:35', 0, NULL);
-INSERT INTO `shop`.`s_cate`(`id`, `cate_name`, `added_by`, `added_date`, `updated_by`, `updated_date`) VALUES (8, 'cccc', 0, '2022-04-19 15:40:35', 0, NULL);

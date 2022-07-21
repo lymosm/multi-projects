@@ -23,7 +23,8 @@ class Product extends BaseController
 		}
 		$product = ProductModel::getProductInfo($id);
 		if(! $product){
-			return View::fetch('no-product');
+			View::assign('title', 'Product Not Found');
+			return View::fetch('no_product');
 		}
 		$product_img = ProductModel::getProductImg($id);
 		$product_recommand = ProductModel::getProductRecommand($id);
