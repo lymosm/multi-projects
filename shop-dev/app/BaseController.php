@@ -44,7 +44,8 @@ abstract class BaseController
     protected $middleware = [];
 
     public $session_id = '';
-    public $uid = 0;
+    public $userid = 0;
+    public $date = '';
 
     /**
      * 构造方法
@@ -57,7 +58,9 @@ abstract class BaseController
         $this->session_id = session_id();
         $this->app     = $app;
         $this->request = $this->app->request;
-
+        $this->userid = intval(session('userid'));
+        $this->date = date('Y-m-d H:i:s');
+		
         $cate_list = CateModel::getList();
 
 		View::assign('cate_list', $cate_list);

@@ -11,7 +11,7 @@
  Target Server Version : 100803
  File Encoding         : 65001
 
- Date: 05/07/2022 13:21:08
+ Date: 30/08/2022 16:49:32
 */
 
 SET NAMES utf8mb4;
@@ -49,11 +49,12 @@ CREATE TABLE `s_cart`  (
   `updated_date` datetime NULL DEFAULT NULL,
   `expired_date` datetime NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = 's_cart' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 9 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = 's_cart' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of s_cart
 -- ----------------------------
+INSERT INTO `s_cart` VALUES (8, 'e879f421cbafe263a4d1010de61e622b', 0, '{\"product_list\":[{\"product_id\":\"1\",\"uri\":\"product1\",\"product_name\":\"product1\",\"qty\":1,\"price\":\"66\",\"item_price\":66}],\"price_obj\":{\"total_price\":66,\"need_payment\":true,\"payment_type\":\"paypal\"}}', '2022-07-19 17:59:08', NULL);
 
 -- ----------------------------
 -- Table structure for s_cate
@@ -71,11 +72,12 @@ CREATE TABLE `s_cate`  (
   `updated_date` datetime NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE,
   UNIQUE INDEX `uri`(`uri`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = 'product cate' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = 'product cate' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of s_cate
 -- ----------------------------
+INSERT INTO `s_cate` VALUES (2, 'sui55', 'uwiw', '', '2222', 1, '2022-08-30 16:47:43', 1, '2022-08-30 16:47:54');
 
 -- ----------------------------
 -- Table structure for s_cate_rela
@@ -87,19 +89,12 @@ CREATE TABLE `s_cate_rela`  (
   `parent_id` int(11) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`) USING BTREE,
   UNIQUE INDEX `cate_id`(`cate_id`, `parent_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 9 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = 'cate relation' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 11 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = 'cate relation' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of s_cate_rela
 -- ----------------------------
-INSERT INTO `s_cate_rela` VALUES (1, 1, 0);
-INSERT INTO `s_cate_rela` VALUES (2, 2, 0);
-INSERT INTO `s_cate_rela` VALUES (3, 3, 0);
-INSERT INTO `s_cate_rela` VALUES (4, 4, 2);
-INSERT INTO `s_cate_rela` VALUES (5, 5, 2);
-INSERT INTO `s_cate_rela` VALUES (6, 6, 3);
-INSERT INTO `s_cate_rela` VALUES (7, 7, 3);
-INSERT INTO `s_cate_rela` VALUES (8, 8, 6);
+INSERT INTO `s_cate_rela` VALUES (10, 2, 0);
 
 -- ----------------------------
 -- Table structure for s_loop_banner
@@ -143,11 +138,18 @@ CREATE TABLE `s_order`  (
   `updated_by` int(11) NOT NULL DEFAULT 0,
   `updated_date` datetime NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = 's_order' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 8 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = 's_order' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of s_order
 -- ----------------------------
+INSERT INTO `s_order` VALUES (1, '62d67020e52c7', NULL, '', 0, '2022-07-19 16:49:36', 0, NULL);
+INSERT INTO `s_order` VALUES (2, '62d670666b9f9', NULL, '', 0, '2022-07-19 16:50:46', 0, NULL);
+INSERT INTO `s_order` VALUES (3, '62d67460edf64', NULL, '', 0, '2022-07-19 17:07:44', 0, NULL);
+INSERT INTO `s_order` VALUES (4, '62d67652018d6', NULL, '', 0, '2022-07-19 17:16:02', 0, NULL);
+INSERT INTO `s_order` VALUES (5, '62d6778383af1', NULL, '', 0, '2022-07-19 17:21:07', 0, NULL);
+INSERT INTO `s_order` VALUES (6, '62d678a9a8cc3', NULL, '', 0, '2022-07-19 17:26:01', 0, NULL);
+INSERT INTO `s_order` VALUES (7, '62d679082f23c', NULL, '', 0, '2022-07-19 17:27:36', 0, NULL);
 
 -- ----------------------------
 -- Table structure for s_order_price
@@ -159,11 +161,18 @@ CREATE TABLE `s_order_price`  (
   `discount_price` varchar(6) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT '',
   `total_price` varchar(6) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT '',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = 's_order_price' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 8 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = 's_order_price' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of s_order_price
 -- ----------------------------
+INSERT INTO `s_order_price` VALUES (1, 1, '', '66');
+INSERT INTO `s_order_price` VALUES (2, 2, '', '66');
+INSERT INTO `s_order_price` VALUES (3, 3, '', '66');
+INSERT INTO `s_order_price` VALUES (4, 4, '', '66');
+INSERT INTO `s_order_price` VALUES (5, 5, '', '66');
+INSERT INTO `s_order_price` VALUES (6, 6, '', '66');
+INSERT INTO `s_order_price` VALUES (7, 7, '', '66');
 
 -- ----------------------------
 -- Table structure for s_order_product
@@ -178,11 +187,18 @@ CREATE TABLE `s_order_product`  (
   `qty` int(11) NOT NULL DEFAULT 0,
   `item_price` varchar(6) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT '',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = 's_order_product' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 8 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = 's_order_product' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of s_order_product
 -- ----------------------------
+INSERT INTO `s_order_product` VALUES (1, 1, 1, 'product1', '66', 1, '66');
+INSERT INTO `s_order_product` VALUES (2, 2, 1, 'product1', '66', 1, '66');
+INSERT INTO `s_order_product` VALUES (3, 3, 1, 'product1', '66', 1, '66');
+INSERT INTO `s_order_product` VALUES (4, 4, 1, 'product1', '66', 1, '66');
+INSERT INTO `s_order_product` VALUES (5, 5, 1, 'product1', '66', 1, '66');
+INSERT INTO `s_order_product` VALUES (6, 6, 1, 'product1', '66', 1, '66');
+INSERT INTO `s_order_product` VALUES (7, 7, 1, 'product1', '66', 1, '66');
 
 -- ----------------------------
 -- Table structure for s_order_user
@@ -202,11 +218,18 @@ CREATE TABLE `s_order_user`  (
   `address` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT '',
   `phone` varchar(25) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT '',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = 's_order_user' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 8 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = 's_order_user' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of s_order_user
 -- ----------------------------
+INSERT INTO `s_order_user` VALUES (1, 1, 0, 'e879f421cbafe263a4d1010de61e622b', '', '', '', 'suoiw', 'dddd', 'yuanming.liang@esr-case.net', '12345, 9999658588', '888888');
+INSERT INTO `s_order_user` VALUES (2, 2, 0, 'e879f421cbafe263a4d1010de61e622b', '', '', '', 'suoiw', 'dddd', 'yuanming.liang@esr-case.net', '12345, 9999658588', '888888');
+INSERT INTO `s_order_user` VALUES (3, 3, 0, 'e879f421cbafe263a4d1010de61e622b', '', '', '', 'suoiw', 'dddd', 'yuanming.liang@esr-case.net', '12345, 9999658588', '888888');
+INSERT INTO `s_order_user` VALUES (4, 4, 0, 'e879f421cbafe263a4d1010de61e622b', '', '', '', '666', '6666', 'yuanming.liang@esr.com', '66666', '6666');
+INSERT INTO `s_order_user` VALUES (5, 5, 0, 'e879f421cbafe263a4d1010de61e622b', '', '', '', 'suoiw', 'dddd', 'yuanming.liang@esr-case.net', '12345, 9999658588', '888888');
+INSERT INTO `s_order_user` VALUES (6, 6, 0, 'e879f421cbafe263a4d1010de61e622b', '', '', '', '666', '6666', 'yuanming.liang@esr.com', '66666', '6666');
+INSERT INTO `s_order_user` VALUES (7, 7, 0, 'e879f421cbafe263a4d1010de61e622b', '', '', '', 'suoiw', 'dddd', 'yuanming.liang@esr-case.net', '12345, 9999658588', '888888');
 
 -- ----------------------------
 -- Table structure for s_product

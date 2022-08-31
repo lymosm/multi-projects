@@ -68,10 +68,10 @@
 					<div class="layui-form-item">
 						<label class="layui-form-label">Images</label>
 						<div class="layui-input-block">
-							<button type="button" class="layui-btn" id="upload-img">
+							<button type="button" class="layui-btn" id="upload-img2">
 								<i class="layui-icon">&#xe67c;</i><span id="review_img_text">Upload</span>
 							</button>
-							<div id="show-img" class="show-img">
+							<div id="show-img2" class="show-img">
 								<?php
 									$html = '';
 									$ids = [];
@@ -158,7 +158,7 @@
         //执行实例
         var uploadInst = upload.render({
             elem: '#upload-img', //绑定元素
-            url: '/home/invite/uploadFile/', //上传接口
+            url: '/File/upload/', //上传接口
             accept: "images",
             size: 10240,
             auto: true,

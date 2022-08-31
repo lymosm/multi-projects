@@ -100,7 +100,7 @@ class Admin extends BackController
 		$ret = [
 			'code' => 0,
 			'count' => $count,
-			'data' => $list['child'],
+			'data' => isset($list['child']) ? $list['child'] : [],
 			'msg' => ''
 		];
 		return json($ret);
@@ -118,8 +118,13 @@ class Admin extends BackController
 		$url_list = $this->url('/Admin/cateList');
 		$url_update = $this->url('/Admin/actionCateEdit');
 		$cate_list = CateModel::getCateList();
+		if(! isset($cate_list['child'])){
+			$cate_list = [
+				'child' => []
+			];
+		}
 		View::assign('uri', 'cateList');
-		View::assign('cate_list', $cate_list['child']);
+		View::assign('cate_list',  $cate_list['child']);
 
 		if(! $id){
 			View::assign('title', 'Category Add');
