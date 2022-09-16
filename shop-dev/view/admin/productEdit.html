@@ -57,7 +57,7 @@
 									foreach($img_data as $rs){
 										$ids[] = $rs['img_id'];
 										$url = $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'] . str_replace('./', '/', $rs['filepath']);
-										$html .= '<div class="img-item" data-id="' . $rs['img_id'] . '"><img src="' . $url . '"><span class="img-close" onclick="removeImg(this);">X</span></div>';
+										$html .= '<div class="img-item pro-edit-img" data-id="' . $rs['img_id'] . '"><img src="' . $url . '"><span class="img-close" onclick="removeImg(this);">X</span></div>';
 									}
 									echo $html;
 								?>
@@ -189,11 +189,11 @@
                 layer.closeAll('loading'); //关闭loading
                 //上传完毕回调
                 console.log(res);
-                if(res.code !== 0){
+                if(res.code !== 1){
                     layer.msg("image error", { icon: 2, time: 5000 });
                     return ;
                 }
-                var data = res.returnData,
+                var data = res.data,
                     $obj = $("#img-ids");
                 var val = $obj.val();
                 if(val != ""){

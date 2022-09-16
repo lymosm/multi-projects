@@ -6,6 +6,7 @@ use think\facade\View;
 use think\facade\Request;
 use think\facade\Db;
 use think\response\Json;
+use think\facade\Route;
 // use think\Request;
 
 
@@ -30,10 +31,10 @@ class File extends BaseController
 
 		$type = 'doc';
 		$dir = 'product';
-		// $file_name = \think\facade\Filesystem::disk('public')->putFile($dir, $file);
-		$file_name = \think\facade\Filesystem::putFile($dir, $file);
+		$file_name = \think\facade\Filesystem::disk('public')->putFile($dir, $file);
+		// $file_name = \think\facade\Filesystem::putFile($dir, $file);
 
-		$ret['data'] = $this->_saveAttachData($file_name, $dir . '/' . $file_name, $type);
+		$ret['data'] = $this->_saveAttachData($file_name, $file_name, $type);
 		if($ret['data']){
 			$ret['code'] = 1;
 		}
@@ -53,9 +54,10 @@ class File extends BaseController
 		if(! $id){
 			return false;
 		}
+
 		return [
 			'id' => $id,
-			'url' => $uri 
+			'url' => '/storage/' . $uri
 		];
 	}
 }

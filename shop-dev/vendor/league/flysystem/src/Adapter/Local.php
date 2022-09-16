@@ -365,8 +365,8 @@ class Local extends AbstractAdapter
     {
         $location = $this->applyPathPrefix($path);
         $type = is_dir($location) ? 'dir' : 'file';
-        $success = chmod($location, $this->permissionMap[$type][$visibility]);
-
+        $success = @chmod($location, $this->permissionMap[$type][$visibility]);
+        
         if ($success === false) {
             return false;
         }
