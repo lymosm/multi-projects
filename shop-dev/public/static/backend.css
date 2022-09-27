@@ -24,3 +24,16 @@
 .pro-edit-img img{
 	width: 200px;
 }
+.pro-edit-img{
+	position: relative;
+}
+.show-img{
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+.img-close{
+	position: absolute;
+    top: 0;
+    background-color: #fff;
+	cursor: pointer;
+}

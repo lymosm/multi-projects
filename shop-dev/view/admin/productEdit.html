@@ -1,57 +1,59 @@
 {include file="admin/header" /}
-		<div class="layui-container edit-box">
-			<div class="layui-row">
-				<form class="layui-form" method="POST">
-					<div class="layui-form-item">
-						<label class="layui-form-label">name</label>
-						<div class="layui-input-block">
-							<input type="text" name="name" id="name" required lay-verify="required" placeholder="name"
-								autocomplete="off" class="layui-input" value="{$data.name}">
-						</div>
-					</div>
-					<div class="layui-form-item">
-						<label class="layui-form-label">uri</label>
-						<div class="layui-input-block">
-							<input type="text" name="uri" id="uri" required lay-verify="required" placeholder="uri"
-								autocomplete="off" class="layui-input" value="{$data.uri}">
-						</div>
-					</div>
-					<div class="layui-form-item">
-						<label class="layui-form-label">price</label>
-						<div class="layui-input-block">
-							<input type="text" name="price" id="price" required lay-verify="required" placeholder="price"
-								autocomplete="off" class="layui-input" value="{$data.price}">
-						</div>
-					</div>
-					<div class="layui-form-item">
-						<label class="layui-form-label">Category</label>
-						<div class="layui-input-block">
-						<select name="cate_id">
-							<option value=""></option>
-							<?php foreach($cate_list as $rs){ 
+<div class="layui-container edit-box">
+	<div class="layui-row">
+		<form class="layui-form" method="POST">
+			<div class="layui-form-item">
+				<label class="layui-form-label">name</label>
+				<div class="layui-input-block">
+					<input type="text" name="name" id="name" required lay-verify="required" placeholder="name"
+						autocomplete="off" class="layui-input" value="{$data.name}">
+				</div>
+			</div>
+			<div class="layui-form-item">
+				<label class="layui-form-label">uri</label>
+				<div class="layui-input-block">
+					<input type="text" name="uri" id="uri" required lay-verify="required" placeholder="uri"
+						autocomplete="off" class="layui-input" value="{$data.uri}">
+				</div>
+			</div>
+			<div class="layui-form-item">
+				<label class="layui-form-label">price</label>
+				<div class="layui-input-block">
+					<input type="text" name="price" id="price" required lay-verify="required" placeholder="price"
+						autocomplete="off" class="layui-input" value="{$data.price}">
+				</div>
+			</div>
+			<div class="layui-form-item">
+				<label class="layui-form-label">Category</label>
+				<div class="layui-input-block">
+					<select name="cate_id">
+						<option value=""></option>
+						<?php foreach($cate_list as $rs){ 
 					
 								$checked = '';
 								if($data['cate_id'] == $rs['id']){
 									$checked = 'selected';
 								}
 							?>
-							<option value="{$rs['id']}" <?php echo $checked; ?>><?php 
+						<option value="{$rs['id']}" <?php echo $checked; ?>>
+							<?php 
 								if($rs['level'] == 1){ echo '-'; } else if($rs['level'] == 2){ echo '--'; }  
-								echo $rs['cate_name']; ?></option>
-							<?php
+								echo $rs['cate_name']; ?>
+						</option>
+						<?php
 							}
 							?>
-						</select>
-						</div>
-					</div>
-					<div class="layui-form-item">
-						<label class="layui-form-label">Main Image</label>
-						<div class="layui-input-block">
-							<button type="button" class="layui-btn" id="upload-img">
-								<i class="layui-icon">&#xe67c;</i><span id="review_img_text">Upload</span>
-							</button>
-							<div id="show-img" class="show-img">
-								<?php
+					</select>
+				</div>
+			</div>
+			<div class="layui-form-item">
+				<label class="layui-form-label">Main Image</label>
+				<div class="layui-input-block">
+					<button type="button" class="layui-btn" id="upload-img">
+						<i class="layui-icon">&#xe67c;</i><span id="review_img_text">Upload</span>
+					</button>
+					<div id="show-img" class="show-img">
+						<?php
 									$html = '';
 									$ids = [];
 									foreach($img_data as $rs){
@@ -61,161 +63,215 @@
 									}
 									echo $html;
 								?>
-							</div>
-							<input id="main-img-id" name="main_img_id" type="hidden" value="<?php echo implode(',', $ids); ?>">
-						</div>
 					</div>
-					<div class="layui-form-item">
-						<label class="layui-form-label">Images</label>
-						<div class="layui-input-block">
-							<button type="button" class="layui-btn" id="upload-img2">
-								<i class="layui-icon">&#xe67c;</i><span id="review_img_text">Upload</span>
-							</button>
-							<div id="show-img2" class="show-img">
-								<?php
+					<input id="main-img-id" name="main_img_id" type="hidden" value="<?php echo implode(',', $ids); ?>">
+				</div>
+			</div>
+			<div class="layui-form-item">
+				<label class="layui-form-label">Images</label>
+				<div class="layui-input-block">
+					<button type="button" class="layui-btn" id="upload-img2">
+						<i class="layui-icon">&#xe67c;</i><span id="review_img_text">Upload</span>
+					</button>
+					<div id="show-img2" class="show-img">
+						<?php
 									$html = '';
 									$ids = [];
 									foreach($img_data as $rs){
 										$ids[] = $rs['img_id'];
 										$url = $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'] . str_replace('./', '/', $rs['filepath']);
-										$html .= '<div class="img-item" data-id="' . $rs['img_id'] . '"><img src="' . $url . '"><span class="img-close" onclick="removeImg(this);">X</span></div>';
+										$html .= '<div class="img-item pro-edit-img" data-id="' . $rs['img_id'] . '"><img src="' . $url . '"><span class="img-close" onclick="removeImg(this);">X</span></div>';
 									}
 									echo $html;
 								?>
-							</div>
-							<input id="img-ids" name="img_ids" type="hidden" value="<?php echo implode(',', $ids); ?>">
-						</div>
 					</div>
-					<div class="layui-form-item">
-						<label class="layui-form-label">short description</label>
-						<div class="layui-input-block">
-							<textarea name="short_desc" id="short_desc" required lay-verify="required" placeholder="short_desc"
-								autocomplete="off" class="layui-textarea">{$data.short_desc}</textarea>
-						</div>
-					</div>
-					<div class="layui-form-item">
-						<label class="layui-form-label">long description</label>
-						<div class="layui-input-block">
-							<textarea name="long_desc" required lay-verify="required" placeholder="long desc"
-								autocomplete="off" class="layui-textarea">{$data.long_desc}</textarea>
-						</div>
-					</div>
-					
-			
-					<div class="layui-form-item">
-						<div class="layui-input-block">
-							<input type="hidden" name="id" id="id" value="{$data['id']}">
-							<button type="button" class="layui-btn" id="submit-video" lay-submit lay-filter="cate-form">Save</button>
-						</div>
-					</div>
-				</form>
+					<input id="img-ids" name="img_ids" type="hidden" value="<?php echo implode(',', $ids); ?>">
+				</div>
 			</div>
-			
-		</div>
-		<script>
-			var uid = "";
-			layui.use(['element', 'layer', 'util', 'jquery', "form", "upload"], function() {
-				var form = layui.form,
-					element = layui.element,
-					layer = layui.layer,
-					upload = layui.upload,
-					util = layui.util,
-					
-					$ = layui.$;
-				
-				form.on('submit(cate-form)', function(data) {
-				
-					$.ajax({
-						type: "POST",
-						// async: false,
-						dataType: "json",
-						data: data.field,
-						url: "{$url}",
-						success: function(res){
-							if(res.code == 1){
-								layer.msg(res.msg, function(){
-									location.href = "{$url_list}";
-								});
-								/*
-								window.parent.location.reload();//刷新父页面
-								var index = parent.layer.getFrameIndex(window.name); //获取窗口索引
-								parent.layer.close(index);
-								*/
-							}else{
-								layer.msg(res.msg);
-							}
-						}
-					});
-					
-					return false;
-				});		
-				
-				var upload = layui.upload;
-        var upload_data = {
-            utitle: "invite"
-        };
-        
-        //执行实例
-        var uploadInst = upload.render({
-            elem: '#upload-img', //绑定元素
-            url: '/File/upload/', //上传接口
-            accept: "images",
-            size: 10240,
-            auto: true,
-            multiple: true,
-            data: upload_data,
-            choose: function(obj){
-                //将每次选择的文件追加到文件队列
-                var files = obj.pushFile();
-                
-                //预读本地文件，如果是多文件，则会遍历。(不支持ie8/9)
-                obj.preview(function(index, file, result){
-                    console.log(index); //得到文件索引
-                    console.log(file); //得到文件对象
-                    console.log(result); //得到文件base64编码，比如图片
-                
-                    //obj.resetFile(index, file, '123.jpg'); //重命名文件名，layui 2.3.0 开始新增
-                
-                    //这里还可以做一些 append 文件列表 DOM 的操作
-                    //obj.upload(index, file); //对上传失败的单个文件重新上传，一般在某个事件中使用
-                    //delete files[index]; //删除列表中对应的文件，一般在某个事件中使用
-                });
+			<div class="layui-form-item">
+				<label class="layui-form-label">short description</label>
+				<div class="layui-input-block">
+					<textarea name="short_desc" id="short_desc" required lay-verify="required" placeholder="short_desc"
+						autocomplete="off" class="layui-textarea">{$data.short_desc}</textarea>
+				</div>
+			</div>
+			<div class="layui-form-item">
+				<label class="layui-form-label">long description</label>
+				<div class="layui-input-block">
+					<textarea name="long_desc" required lay-verify="required" placeholder="long desc" autocomplete="off"
+						class="layui-textarea">{$data.long_desc}</textarea>
+				</div>
+			</div>
 
-            },
-            before: function(obj){
-                layer.load(); //上传loading
-            },
-            done: function(res){
-                layer.closeAll('loading'); //关闭loading
-                //上传完毕回调
-                console.log(res);
-                if(res.code !== 1){
-                    layer.msg("image error", { icon: 2, time: 5000 });
-                    return ;
-                }
-                var data = res.data,
-                    $obj = $("#img-ids");
-                var val = $obj.val();
-                if(val != ""){
-                    var val_arr = val.split(",");
-                }else{
-                    var val_arr = [];
-                }
-                val_arr.push(data.id);
-                var val_str = val_arr.join(",");
-                $obj.val(val_str);
-                
-                var html = '<div class="img-item" data-id="' + data.id + '"><img src="' + data.url + '"><span class="img-close" onclick="removeImg(this);">X</span></div>';
-                
-                $("#show-img").append(html);
-            },
-            error: function(){
-                //请求异常回调
-            }
-        });
-				
+
+			<div class="layui-form-item">
+				<div class="layui-input-block">
+					<input type="hidden" name="id" id="id" value="{$data['id']}">
+					<button type="button" class="layui-btn" id="submit-video" lay-submit
+						lay-filter="cate-form">Save</button>
+				</div>
+			</div>
+		</form>
+	</div>
+
+</div>
+<script>
+	var uid = "";
+	layui.use(['element', 'layer', 'util', 'jquery', "form", "upload"], function () {
+		var form = layui.form,
+			element = layui.element,
+			layer = layui.layer,
+			upload = layui.upload,
+			util = layui.util,
+
+			$ = layui.$;
+
+		form.on('submit(cate-form)', function (data) {
+
+			$.ajax({
+				type: "POST",
+				// async: false,
+				dataType: "json",
+				data: data.field,
+				url: "{$url}",
+				success: function (res) {
+					if (res.code == 1) {
+						layer.msg(res.msg, function () {
+							location.href = "{$url_list}";
+						});
+						/*
+						window.parent.location.reload();//刷新父页面
+						var index = parent.layer.getFrameIndex(window.name); //获取窗口索引
+						parent.layer.close(index);
+						*/
+					} else {
+						layer.msg(res.msg);
+					}
+				}
 			});
 
-		</script>
+			return false;
+		});
+
+		var upload = layui.upload;
+		var upload_data = {
+			utitle: "invite"
+		};
+
+		//执行实例
+		var uploadInst = upload.render({
+			elem: '#upload-img', //绑定元素
+			url: '/File/upload/', //上传接口
+			accept: "images",
+			size: 10240,
+			auto: true,
+			multiple: true,
+			data: upload_data,
+			choose: function (obj) {
+				//将每次选择的文件追加到文件队列
+				var files = obj.pushFile();
+
+				//预读本地文件，如果是多文件，则会遍历。(不支持ie8/9)
+				obj.preview(function (index, file, result) {
+					console.log(index); //得到文件索引
+					console.log(file); //得到文件对象
+					console.log(result); //得到文件base64编码，比如图片
+
+					//obj.resetFile(index, file, '123.jpg'); //重命名文件名，layui 2.3.0 开始新增
+
+					//这里还可以做一些 append 文件列表 DOM 的操作
+					//obj.upload(index, file); //对上传失败的单个文件重新上传，一般在某个事件中使用
+					//delete files[index]; //删除列表中对应的文件，一般在某个事件中使用
+				});
+
+			},
+			before: function (obj) {
+				layer.load(); //上传loading
+			},
+			done: function (res) {
+				layer.closeAll('loading'); //关闭loading
+				//上传完毕回调
+				console.log(res);
+				if (res.code !== 1) {
+					layer.msg("image error", { icon: 2, time: 5000 });
+					return;
+				}
+				var data = res.data,
+					$obj = $("#main-img-id");
+				var val = $obj.val();
+				if (val != "") {
+					var val_arr = val.split(",");
+				} else {
+					var val_arr = [];
+				}
+				val_arr.push(data.id);
+				var val_str = val_arr.join(",");
+				$obj.val(val_str);
+
+				var html = '<div class="img-item pro-edit-img" data-id="' + data.id + '"><img src="' + data.url + '"><span class="img-close" onclick="removeImg(this);">X</span></div>';
+
+				$("#show-img").append(html);
+			},
+			error: function () {
+				//请求异常回调
+			}
+		});
+
+		var uploadInst2 = upload.render({
+			elem: '#upload-img2', //绑定元素
+			url: '/File/upload/', //上传接口
+			accept: "images",
+			size: 10240,
+			auto: true,
+			multiple: true,
+			data: upload_data,
+			choose: function (obj) {
+				//将每次选择的文件追加到文件队列
+				var files = obj.pushFile();
+
+				//预读本地文件，如果是多文件，则会遍历。(不支持ie8/9)
+				obj.preview(function (index, file, result) {
+					console.log(index); //得到文件索引
+					console.log(file); //得到文件对象
+					console.log(result); //得到文件base64编码，比如图片
+
+				});
+
+			},
+			before: function (obj) {
+				layer.load(); //上传loading
+			},
+			done: function (res) {
+				layer.closeAll('loading'); //关闭loading
+				//上传完毕回调
+				console.log(res);
+				if (res.code !== 1) {
+					layer.msg("image error", { icon: 2, time: 5000 });
+					return;
+				}
+				var data = res.data,
+					$obj = $("#img-ids");
+				var val = $obj.val();
+				if (val != "") {
+					var val_arr = val.split(",");
+				} else {
+					var val_arr = [];
+				}
+				val_arr.push(data.id);
+				var val_str = val_arr.join(",");
+				$obj.val(val_str);
+
+				var html = '<div class="img-item pro-edit-img" data-id="' + data.id + '"><img src="' + data.url + '"><span class="img-close" onclick="removeImg(this);">X</span></div>';
+
+				$("#show-img2").append(html);
+			},
+			error: function () {
+				//请求异常回调
+			}
+		});
+
+	});
+
+</script>
 
 {include file="admin/footer" /}
