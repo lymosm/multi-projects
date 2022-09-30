@@ -54,17 +54,14 @@
 					</button>
 					<div id="show-img" class="show-img">
 						<?php
-									$html = '';
-									$ids = [];
-									foreach($img_data as $rs){
-										$ids[] = $rs['img_id'];
-										$url = $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'] . str_replace('./', '/', $rs['filepath']);
-										$html .= '<div class="img-item pro-edit-img" data-id="' . $rs['img_id'] . '"><img src="' . $url . '"><span class="img-close" onclick="removeImg(this);">X</span></div>';
-									}
-									echo $html;
-								?>
+	
+							$url = $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'] . '/storage/' . $data['main_img_uri'];
+							$html = '<div class="img-item pro-edit-img" data-id="' . $data['main_img_id'] . '"><img src="' . $url . '"><span class="img-close" onclick="removeImg(this);">X</span></div>';
+					
+							echo $html;
+						?>
 					</div>
-					<input id="main-img-id" name="main_img_id" type="hidden" value="<?php echo implode(',', $ids); ?>">
+					<input id="main-img-id" name="main_img_id" type="hidden" value="<?php echo $data['main_img_id']; ?>">
 				</div>
 			</div>
 			<div class="layui-form-item">
@@ -170,7 +167,7 @@
 			choose: function (obj) {
 				//将每次选择的文件追加到文件队列
 				var files = obj.pushFile();
-
+				this.files = files;
 				//预读本地文件，如果是多文件，则会遍历。(不支持ie8/9)
 				obj.preview(function (index, file, result) {
 					console.log(index); //得到文件索引
@@ -188,7 +185,8 @@
 			before: function (obj) {
 				layer.load(); //上传loading
 			},
-			done: function (res) {
+			done: function (res, index) {
+				delete this.files[index];
 				layer.closeAll('loading'); //关闭loading
 				//上传完毕回调
 				console.log(res);
@@ -228,7 +226,7 @@
 			choose: function (obj) {
 				//将每次选择的文件追加到文件队列
 				var files = obj.pushFile();
-
+				this.files = files;
 				//预读本地文件，如果是多文件，则会遍历。(不支持ie8/9)
 				obj.preview(function (index, file, result) {
 					console.log(index); //得到文件索引
@@ -241,7 +239,8 @@
 			before: function (obj) {
 				layer.load(); //上传loading
 			},
-			done: function (res) {
+			done: function (res, index) {
+				delete this.files[index];
 				layer.closeAll('loading'); //关闭loading
 				//上传完毕回调
 				console.log(res);

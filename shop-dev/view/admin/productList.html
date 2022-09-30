@@ -41,7 +41,7 @@
 					      {field: 'product_id', title: 'ID', width:60,  fixed: 'left'}
 					      ,{field: 'name', title: 'name', width: 240}
 					      ,{field: 'img_uri', title: 'image', width: 180, templet: function(d){
-							  return '<div style="height: 200px; "><img src="' + base_url + d.img_uri + '"><div>';
+							  return '<div style="height: 200px; "><img src="' + base_url + "storage/" + d.img_uri + '"><div>';
 						  }},
 						  {field: 'price', title: 'price', width: 100, templet: function(d){
 							  return "$" + d.price;

@@ -26,6 +26,8 @@
 }
 .pro-edit-img{
 	position: relative;
+	display: inline-block;
+    margin-right: 20px;
 }
 .show-img{
 	padding-top: 10px;
@@ -34,6 +36,7 @@
 .img-close{
 	position: absolute;
     top: 0;
+	right: -12px;
     background-color: #fff;
 	cursor: pointer;
 }

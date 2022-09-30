@@ -101,7 +101,9 @@ class ProductModel extends Model{
             ->alias('a')
             ->join('product_detail c', 'a.id = c.product_id', 'left')
             ->join('product_cate_rela d', 'a.id = d.product_id', 'left')
-            ->field('a.name, c.price, a.id, a.uri, d.cate_id, c.short_desc, c.long_desc')
+            ->join('product_img b', 'a.id = b.product_id and b.is_main = 1', 'left')
+            ->join('attachment e', 'e.id = b.attachment_id', 'left')
+            ->field('a.name, c.price, a.id, a.uri, d.cate_id, c.short_desc, c.long_desc, b.attachment_id as main_img_id, e.uri as main_img_uri')
         ->where(['a.id' => $id])
         ->find();  
         return $ret;

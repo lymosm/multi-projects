@@ -285,6 +285,8 @@ class Admin extends BackController
 		$long_desc = trim(Request::param('long_desc'));
 		$price = trim(Request::param('price'));
 		$cate_id = intval(Request::param('cate_id'));
+		$img_ids = trim(Request::param('img_ids'));
+		$main_img_id = intval(Request::param('main_img_id'));
 		if(! $name || ! $url){
 			$ret['msg'] = 'param error';
 			return json($ret);
@@ -330,14 +332,30 @@ class Admin extends BackController
 		}
 
 		$imgs = [
-			'product_id' => $id,
-			'name' => $name,
-			'added_by' => $this->userid,
-			'added_date' => $date,
-			'uri' => '',
-			'is_main' => 1
+			
 		];
-		$status4 = Db::name('product_img')->insert($imgs);
+		if($main_img_id){
+			$imgs[] = [
+				'product_id' => $id,
+				'attachment_id' => $main_img_id,
+				'is_main' => 1
+			];
+		}
+		if($img_ids){
+			$img_arr = explode(',', $img_ids);
+			foreach($img_arr as $a_id){
+				$a_id = intval($a_id);
+				if(! $a_id){
+					continue;
+				}
+				$imgs[] = [
+					'product_id' => $id,
+					'attachment_id' => $a_id,
+					'is_main' => 0
+				];
+			}
+		}
+		$status4 = Db::name('product_img')->insertAll($imgs);
 		if($status4 === false){
 			Db::rollback();
 			$ret['msg'] = 'save failed code 10005';
