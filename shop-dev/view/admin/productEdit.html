@@ -55,8 +55,8 @@
 					<div id="show-img" class="show-img">
 						<?php
 	
-							$url = $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'] . '/storage/' . $data['main_img_uri'];
-							$html = '<div class="img-item pro-edit-img" data-id="' . $data['main_img_id'] . '"><img src="' . $url . '"><span class="img-close" onclick="removeImg(this);">X</span></div>';
+							$main_img_url = $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'] . '/storage/' . $data['main_img_uri'];
+							$html = '<div class="img-item pro-edit-img" data-id="' . $data['main_img_id'] . '"><img src="' . $main_img_url . '"><span class="img-close" onclick="removeImg(this);">X</span></div>';
 					
 							echo $html;
 						?>
@@ -122,9 +122,7 @@
 			util = layui.util,
 
 			$ = layui.$;
-
 		form.on('submit(cate-form)', function (data) {
-
 			$.ajax({
 				type: "POST",
 				// async: false,

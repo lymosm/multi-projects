@@ -20,6 +20,7 @@ use Endroid\QrCode\RoundBlockSizeMode\RoundBlockSizeModeMargin;
 use Endroid\QrCode\Writer\PngWriter;
 use app\model\ProductModel;
 use app\model\CateModel;
+use app\controller\ProductCommon;
 // use think\App;
 
 class Admin extends BackController
@@ -428,10 +429,18 @@ class Admin extends BackController
 			return json($ret);
 		}
 
+		$img_status = ProductCommon::productImgSave($id);
+		if($img_status === false){
+			$ret['msg'] = 'save failed code 10005';
+			Db::rollback();
+			return json($ret);
+		}
+
 		$commit = Db::commit();
         if($commit === false){
             Db::rollback();
-            return false;
+			$ret['msg'] = 'save failed code 10006';
+            return json($ret);
         }
 
 		$ret['code'] = 1;
