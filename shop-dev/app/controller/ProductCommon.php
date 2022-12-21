@@ -36,6 +36,12 @@ class ProductCommon extends BackController
 		}
 		
 		if($img_ids){
+			$status3 = Db::name('product_img')->where(['product_id' => $id, 'is_main' => 0])->delete();
+
+			if($status3 === false){			
+				return false;
+			}
+
 			$img_arr = explode(',', $img_ids);
 			foreach($img_arr as $a_id){
 				$a_id = intval($a_id);
@@ -50,13 +56,11 @@ class ProductCommon extends BackController
 			}
 		}
 		$status4 = Db::name('product_img')->insertAll($imgs);
-		if($status4 === false){
-			Db::rollback();
-			
-			return json($ret);
+		if($status4 === false){			
+			return false;
 		}
 
-		return json($ret);
+		return true;
     }
 
 	public static function getMainImgId(int $id){
@@ -68,6 +72,17 @@ class ProductCommon extends BackController
 			return $data['id'];
 		}
 		return ;
+	}
+
+	public static function getProductImgs($id){
+		$data = Db::name('product_img')
+			->alias('a')
+			->join('attachment b', 'a.attachment_id = b.id', 'left')
+			->field('a.product_id, a.attachment_id, b.uri')
+			->where(['a.product_id' => $id, 'a.is_main' => 0])
+			->select()
+			->toArray();
+		return $data;
 	}
 
 }

@@ -157,7 +157,7 @@ class Admin extends BackController
 		$url_list = $this->url('/Admin/productList');
 		$url_update = $this->url('/Admin/actionProductEdit');
 		$cate_list = CateModel::getCateList();
-		$img_data = [];
+		$img_data = ProductCommon::getProductImgs($id);
 
 		View::assign('uri', 'productList');
 		View::assign('img_data', $img_data);

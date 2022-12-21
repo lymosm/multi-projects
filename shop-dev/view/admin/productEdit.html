@@ -54,14 +54,16 @@
 					</button>
 					<div id="show-img" class="show-img">
 						<?php
-	
-							$main_img_url = $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'] . '/storage/' . $data['main_img_uri'];
-							$html = '<div class="img-item pro-edit-img" data-id="' . $data['main_img_id'] . '"><img src="' . $main_img_url . '"><span class="img-close" onclick="removeImg(this);">X</span></div>';
+							if($data && isset($data['main_img_uri'])){
+								$main_img_url = $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'] . '/storage/' . $data['main_img_uri'];
+								$html = '<div class="img-item pro-edit-img" data-id="' . $data['main_img_id'] . '"><img src="' . $main_img_url . '"><span class="img-close" onclick="removeImg(this, ' . $data['main_img_id'] . ', false);">X</span></div>';
 					
-							echo $html;
+								echo $html;
+							}
+							
 						?>
 					</div>
-					<input id="main-img-id" name="main_img_id" type="hidden" value="<?php echo $data['main_img_id']; ?>">
+					<input id="main-img-id" name="main_img_id" type="hidden" value="<?php echo isset($data['main_img_id']) ? $data['main_img_id'] : ''; ?>">
 				</div>
 			</div>
 			<div class="layui-form-item">
@@ -75,9 +77,9 @@
 									$html = '';
 									$ids = [];
 									foreach($img_data as $rs){
-										$ids[] = $rs['img_id'];
-										$url = $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'] . str_replace('./', '/', $rs['filepath']);
-										$html .= '<div class="img-item pro-edit-img" data-id="' . $rs['img_id'] . '"><img src="' . $url . '"><span class="img-close" onclick="removeImg(this);">X</span></div>';
+										$ids[] = $rs['attachment_id'];
+										$img_url = $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'] . '/storage/' . $rs['uri'];
+										$html .= '<div class="img-item pro-edit-img" data-id="' . $rs['attachment_id'] . '"><img src="' . $img_url . '"><span class="img-close" onclick="removeImg(this, ' . $rs['attachment_id'] . ', true);">X</span></div>';
 									}
 									echo $html;
 								?>
@@ -113,13 +115,14 @@
 
 </div>
 <script>
-	var uid = "";
+	var uid = "",
+		$;
 	layui.use(['element', 'layer', 'util', 'jquery', "form", "upload"], function () {
 		var form = layui.form,
 			element = layui.element,
 			layer = layui.layer,
 			upload = layui.upload,
-			util = layui.util,
+			util = layui.util;
 
 			$ = layui.$;
 		form.on('submit(cate-form)', function (data) {
@@ -268,6 +271,22 @@
 		});
 
 	});
+
+	var removeImg = function(obj, id, is_multi){
+		var $this = $(obj);
+		var $target = $this.parents(".img-item");
+		$target.remove();
+		if(! is_multi){
+			$("#main-img-id").val("");
+		}else{
+			var $imgs = $("#img-ids");
+			var imgs_arr = $imgs.val().split(",");
+			// imgs_arr.splice(imgs_arr.indexOf(id), 1);
+			var arr = imgs_arr.filter(item => item != id);
+			var str = arr.join(",");
+			$imgs.val(str);
+		}
+	};
 
 </script>
 
