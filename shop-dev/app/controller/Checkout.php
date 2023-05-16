@@ -16,6 +16,7 @@ use app\model\StripeModel;
 
 class Checkout extends BaseController
 {
+	private $_uid = 0;
 	
 	public function __construct(\think\App $app){
 		parent::__construct($app, false);
@@ -64,7 +65,8 @@ class Checkout extends BaseController
 		$phone = addslashes(trim(Request::param('phone')));
 		$email = addslashes(trim(Request::param('email')));
 		$address = addslashes(trim(Request::param('address')));
-		$source = addslashes(trim(Request::param('source')));
+		$source = addslashes(trim(Request::param('stripe_source')));
+		$payment_type_param = addslashes(trim(Request::param('payment_type')));
         
 		if(! $email || ! $first_name){
 			$ret['msg'] = '参数错误';
@@ -77,7 +79,7 @@ class Checkout extends BaseController
 			'email' => $email,
 			'address' => $address,
 			'session_id' => $this->session_id,
-			'uid' => $this->uid
+			'uid' => $this->_uid
 		];
 
 		$cart = CartModel::getCartData($this->session_id);
@@ -110,14 +112,28 @@ class Checkout extends BaseController
 */
 
 		if($need_payment){
-			$payment_type = $price_obj['payment_type'];
+			if($payment_type_param){
+				$payment_type = $payment_type_param;
+			}else{
+				$payment_type = $price_obj['payment_type'];
+			}
+			
 			switch($payment_type){
 				case 'paypal':
 					$res = PaypalModel::payment($price_obj);
 					break;
 				case 'stripe':
 					$price_obj['source'] = $source;
-					$res = StripeModel::payment($price_obj);
+					$res_stripe = StripeModel::payment($price_obj);
+					if($res_stripe){
+						$res_stripe = json_decode($res_stripe, true);
+						if(isset($res_stripe['object']) && $res_stripe['object'] == 'charge' && $res_stripe['paid'] && $res_stripe['status'] == 'succeeded'){
+							$charge_id = $res_stripe['id'];
+						}else{
+							$res_stripe = false;
+							$res = false;
+						}
+					}
 					break;
 				case 'alipay':
 					$res = AlipayModel::payment();

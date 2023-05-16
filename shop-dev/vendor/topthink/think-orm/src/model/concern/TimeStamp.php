@@ -78,6 +78,21 @@ trait TimeStamp
     }
 
     /**
+     * 设置时间字段名称
+     * @access public
+     * @param  string $createTime
+     * @param  string $updateTime
+     * @return $this
+     */
+    public function setTimeField(string $createTime, string $updateTime)
+    {
+        $this->createTime = $createTime;
+        $this->updateTime = $updateTime;
+
+        return $this;
+    }
+
+    /**
      * 获取自动写入时间字段
      * @access public
      * @return bool|string
@@ -164,7 +179,7 @@ trait TimeStamp
     protected function formatDateTime($format, $time = 'now', bool $timestamp = false)
     {
         if (empty($time)) {
-            return;
+            return $time;
         }
 
         if (false === $format) {

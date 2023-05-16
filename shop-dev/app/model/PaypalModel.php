@@ -4,6 +4,7 @@ namespace app\model;
 use think\Model;
 use think\facade\Db;
 use Lymos\Paypal\paypal;
+use think\facade\Config;
 
 class PaypalModel extends Model{
 

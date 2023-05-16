@@ -237,8 +237,11 @@ class StreamHandler
             return true;
         });
 
-        $resource = $callback();
-        \restore_error_handler();
+        try {
+            $resource = $callback();
+        } finally {
+            \restore_error_handler();
+        }
 
         if (!$resource) {
             $message = 'Error creating resource: ';
@@ -261,6 +264,10 @@ class StreamHandler
         static $methods;
         if (!$methods) {
             $methods = \array_flip(\get_class_methods(__CLASS__));
+        }
+
+        if (!\in_array($request->getUri()->getScheme(), ['http', 'https'])) {
+            throw new RequestException(\sprintf("The scheme '%s' is not supported.", $request->getUri()->getScheme()), $request);
         }
 
         // HTTP/1.1 streams using the PHP stream wrapper require a
@@ -315,7 +322,7 @@ class StreamHandler
         return $this->createResource(
             function () use ($uri, &$http_response_header, $contextResource, $context, $options, $request) {
                 $resource = @\fopen((string) $uri, 'r', false, $contextResource);
-                $this->lastHeaders = $http_response_header;
+                $this->lastHeaders = $http_response_header ?? [];
 
                 if (false === $resource) {
                     throw new ConnectException(sprintf('Connection refused for URI %s', $uri), $request, null, $context);
@@ -374,11 +381,14 @@ class StreamHandler
                 'ignore_errors'    => true,
                 'follow_location'  => 0,
             ],
+            'ssl' => [
+                'peer_name' => $request->getUri()->getHost(),
+            ],
         ];
 
         $body = (string) $request->getBody();
 
-        if (!empty($body)) {
+        if ('' !== $body) {
             $context['http']['content'] = $body;
             // Prevent the HTTP handler from adding a Content-Type header.
             if (!$request->hasHeader('Content-Type')) {
@@ -465,6 +475,25 @@ class StreamHandler
     /**
      * @param mixed $value as passed via Request transfer options.
      */
+    private function add_crypto_method(RequestInterface $request, array &$options, $value, array &$params): void
+    {
+        if (
+            $value === \STREAM_CRYPTO_METHOD_TLSv1_0_CLIENT
+            || $value === \STREAM_CRYPTO_METHOD_TLSv1_1_CLIENT
+            || $value === \STREAM_CRYPTO_METHOD_TLSv1_2_CLIENT
+            || (defined('STREAM_CRYPTO_METHOD_TLSv1_3_CLIENT') && $value === \STREAM_CRYPTO_METHOD_TLSv1_3_CLIENT)
+        ) {
+            $options['http']['crypto_method'] = $value;
+
+            return;
+        }
+
+        throw new \InvalidArgumentException('Invalid crypto_method request option: unknown version provided');
+    }
+
+    /**
+     * @param mixed $value as passed via Request transfer options.
+     */
     private function add_verify(RequestInterface $request, array &$options, $value, array &$params): void
     {
         if ($value === false) {
@@ -514,7 +543,9 @@ class StreamHandler
             $params,
             static function ($code, $a, $b, $c, $transferred, $total) use ($value) {
                 if ($code == \STREAM_NOTIFY_PROGRESS) {
-                    $value($total, $transferred, null, null);
+                    // The upload progress cannot be determined. Use 0 for cURL compatibility:
+                    // https://curl.se/libcurl/c/CURLOPT_PROGRESSFUNCTION.html
+                    $value($total, $transferred, 0, 0);
                 }
             }
         );

@@ -8,7 +8,7 @@
 // +----------------------------------------------------------------------
 // | Author: liu21st <liu21st@gmail.com>
 // +----------------------------------------------------------------------
-declare (strict_types = 1);
+declare(strict_types=1);
 
 namespace think\db;
 
@@ -290,7 +290,7 @@ abstract class Connection implements ConnectionInterface
     protected function getCacheKey(BaseQuery $query, string $method = ''): string
     {
         if (!empty($query->getOptions('key')) && empty($method)) {
-            $key = 'think:' . $this->getConfig('database') . '.' . $query->getTable() . '|' . $query->getOptions('key');
+            $key = 'think_' . $this->getConfig('database') . '.' . $query->getTable() . '|' . $query->getOptions('key');
         } else {
             $key = $query->getQueryGuid();
         }

@@ -2,7 +2,6 @@
 
 namespace WeChatPay\Util;
 
-use function openssl_get_privatekey;
 use function openssl_x509_read;
 use function openssl_x509_parse;
 use function file_get_contents;
@@ -91,6 +90,6 @@ class PemUtil
             throw new UnexpectedValueException('Read the $certificate failed, please check it whether or nor correct');
         }
 
-        return strtoupper($info['serialNumberHex'] ?? '');
+        return strtoupper($info['serialNumberHex']);
     }
 }

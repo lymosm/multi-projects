@@ -17,7 +17,6 @@ class charge{
         $url = $this->config->base_url . $this->uri;
         $requ = new request;
         $ret = $requ->post($url, $data, $options);
-        echo $ret;
         return $ret;
     }
 

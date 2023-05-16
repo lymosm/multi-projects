@@ -7,6 +7,8 @@ use Psr\Http\Message\ResponseInterface;
 
 /**
  * Signature of the Chainable `GuzzleHttp\Client` interface
+ * @property-read OpenAPI\V2 $v2 - The entrance of the APIv2 endpoint
+ * @property-read OpenAPI\V3 $v3 - The entrance of the APIv3 endpoint
  */
 interface BuilderChainable
 {
@@ -18,9 +20,9 @@ interface BuilderChainable
     /**
      * Chainable the given `$segment` with the `ClientDecoratorInterface` instance
      *
-     * @param string|int $segment - The sgement or `URI`
+     * @param string $segment - The sgement or `URI`
      */
-    public function chain($segment): BuilderChainable;
+    public function chain(string $segment): BuilderChainable;
 
     /**
      * Create and send an HTTP GET request.

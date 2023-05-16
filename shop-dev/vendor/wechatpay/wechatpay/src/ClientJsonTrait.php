@@ -5,7 +5,6 @@ namespace WeChatPay;
 use function abs;
 use function intval;
 use function is_string;
-use function is_numeric;
 use function is_resource;
 use function is_object;
 use function is_array;
@@ -14,8 +13,8 @@ use function count;
 use function sprintf;
 use function array_key_exists;
 use function array_keys;
-
-use Throwable;
+use function strcasecmp;
+use function strncasecmp;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Middleware;
@@ -33,6 +32,7 @@ const WechatpayNonce = 'Wechatpay-Nonce';
 const WechatpaySerial = 'Wechatpay-Serial';
 const WechatpaySignature = 'Wechatpay-Signature';
 const WechatpayTimestamp = 'Wechatpay-Timestamp';
+const WechatpayStatementSha1 = 'Wechatpay-Statement-Sha1';
 
 /**
  * JSON based Client interface for sending HTTP requests.
@@ -45,7 +45,7 @@ trait ClientJsonTrait
     protected static $defaults = [
         'base_uri' => 'https://api.mch.weixin.qq.com/',
         'headers' => [
-            'Accept' => 'application/json, text/plain, application/x-gzip',
+            'Accept' => 'application/json, text/plain, application/x-gzip, application/pdf, image/png, image/*;q=0.5',
             'Content-Type' => 'application/json; charset=utf-8',
         ],
     ];
@@ -91,6 +91,13 @@ trait ClientJsonTrait
     protected static function assertSuccessfulResponse(array &$certs): callable
     {
         return static function (ResponseInterface $response, RequestInterface $request) use(&$certs): ResponseInterface {
+            if (
+                0 === strcasecmp($url = $request->getUri()->getPath(), '/v3/billdownload/file')
+                || (0 === strncasecmp($url, '/v3/merchant-service/images/', 28) && 0 !== strcasecmp($url, '/v3/merchant-service/images/upload'))
+            ) {
+                return $response;
+            }
+
             if (!($response->hasHeader(WechatpayNonce) && $response->hasHeader(WechatpaySerial)
                 && $response->hasHeader(WechatpaySignature) && $response->hasHeader(WechatpayTimestamp))) {
                 throw new RequestException(sprintf(
@@ -120,13 +127,19 @@ trait ClientJsonTrait
                 ), $request, $response);
             }
 
+            $isOverseas = (0 === strcasecmp($url, '/hk/v3/statements') || 0 === strcasecmp($url, '/v3/global/statements')) && $response->hasHeader(WechatpayStatementSha1);
+
             $verified = false;
             try {
                 $verified = Crypto\Rsa::verify(
-                    Formatter::response($timestamp, $nonce, static::body($response)),
+                    Formatter::response(
+                        $timestamp,
+                        $nonce,
+                        $isOverseas ? static::digestBody($response) : static::body($response)
+                    ),
                     $signature, $certs[$serial]
                 );
-            } catch (Throwable $exception) {}
+            } catch (\Exception $exception) {}
             if ($verified === false) {
                 throw new RequestException(sprintf(
                     Exception\WeChatPayException::EV3_RES_HEADER_SIGNATURE_DIGEST,
@@ -136,6 +149,28 @@ trait ClientJsonTrait
 
             return $response;
         };
+    }
+
+    /**
+     * Downloading the reconciliation was required the client to format the `WechatpayStatementSha1` digest string as `JSON`.
+     *
+     * There was also sugguestion that to validate the response streaming's `SHA1` digest whether or nor equals to `WechatpayStatementSha1`.
+     * Here may contains with or without `gzip` parameter. Both of them are validating the plain `CSV` stream.
+     * Keep the same logic with the mainland's one(without `SHA1` validation).
+     * If someone needs this feature built-in, contrubiting is welcome.
+     *
+     * @see https://pay.weixin.qq.com/wiki/doc/api/wxpay/ch/fusion_wallet_ch/QuickPay/chapter8_5.shtml
+     * @see https://pay.weixin.qq.com/wiki/doc/api/wxpay/en/fusion_wallet/QuickPay/chapter8_5.shtml
+     * @see https://pay.weixin.qq.com/wiki/doc/api_external/ch/apis/chapter3_1_6.shtml
+     * @see https://pay.weixin.qq.com/wiki/doc/api_external/en/apis/chapter3_1_6.shtml
+     *
+     * @param ResponseInterface $response - The response instance
+     *
+     * @return string - The JSON string
+     */
+    protected static function digestBody(ResponseInterface $response): string
+    {
+        return sprintf('{"sha1":"%s"}', $response->getHeader(WechatpayStatementSha1)[0]);
     }
 
     /**
@@ -171,7 +206,7 @@ trait ClientJsonTrait
     public static function jsonBased(array $config = []): Client
     {
         if (!(
-           isset($config['mchid']) && (is_string($config['mchid']) || is_numeric($config['mchid']))
+           isset($config['mchid']) && is_string($config['mchid'])
         )) { throw new Exception\InvalidArgumentException(Exception\ERR_INIT_MCHID_IS_MANDATORY); }
 
         if (!(

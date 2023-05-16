@@ -344,6 +344,9 @@ class Client implements ClientInterface, \Psr\Http\Client\ClientInterface
         ];
 
         if (isset($options['headers'])) {
+            if (array_keys($options['headers']) === range(0, count($options['headers']) - 1)) {
+                throw new InvalidArgumentException('The headers array must have header name as keys.');
+            }
             $modify['set_headers'] = $options['headers'];
             unset($options['headers']);
         }
@@ -432,6 +435,10 @@ class Client implements ClientInterface, \Psr\Http\Client\ClientInterface
             if (\is_bool($options['sink'])) {
                 throw new InvalidArgumentException('sink must not be a boolean');
             }
+        }
+
+        if (isset($options['version'])) {
+            $modify['version'] = $options['version'];
         }
 
         $request = Psr7\Utils::modifyRequest($request, $modify);

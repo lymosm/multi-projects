@@ -46,7 +46,7 @@ final class Builder
 
             /**
              * Compose the chainable `ClientDecorator` instance, most starter with the tree root point
-             * @param array<string|int> $input
+             * @param string[] $input
              * @param ?ClientDecoratorInterface $instance
              */
             public function __construct(array $input = [], ?ClientDecoratorInterface $instance = null) {
@@ -81,8 +81,8 @@ final class Builder
 
             /**
              * Normalize the `$thing` by the rules: `PascalCase` -> `camelCase`
-             *                                    & `camelCase` -> `camel-case`
-             *                                    & `_dynamic_` -> `{dynamic}`
+             *                                    & `camelCase` -> `kebab-case`
+             *                                    & `_placeholder_` -> `{placeholder}`
              *
              * @param string $thing - The string waiting for normalization
              *
@@ -112,7 +112,7 @@ final class Builder
             /**
              * Only retrieve a copy array of the URI segments
              *
-             * @return (string|int)[] - The URI segments array
+             * @return string[] - The URI segments array
              */
             protected function simplized(): array
             {
@@ -136,7 +136,7 @@ final class Builder
             /**
              * @inheritDoc
              */
-            public function chain($segment): BuilderChainable
+            public function chain(string $segment): BuilderChainable
             {
                 return $this->offsetGet($segment);
             }

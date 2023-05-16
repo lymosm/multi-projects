@@ -68,16 +68,22 @@ abstract class Relation
     protected $selfRelation = false;
 
     /**
-     * 关联数据数量限制
-     * @var int
-     */
-    protected $withLimit;
-
-    /**
      * 关联数据字段限制
      * @var array
      */
     protected $withField;
+
+    /**
+     * 排除关联数据字段
+     * @var array
+     */
+    protected $withoutField;
+
+    /**
+     * 默认数据
+     * @var mixed
+     */
+    protected $default;
 
     /**
      * 获取关联的所属模型
@@ -189,27 +195,35 @@ abstract class Relation
     }
 
     /**
-     * 更新数据
+     * 限制关联数据的字段
      * @access public
-     * @param  array $data 更新数据
-     * @return integer
+     * @param  array|string $field 关联字段限制
+     * @return $this
      */
-    public function update(array $data = []): int
+    public function withField($field)
     {
-        return $this->query->update($data);
+        if (is_string($field)) {
+            $field = array_map('trim', explode(',', $field));
+        }
+
+        $this->withField = $field;
+        return $this;
     }
 
     /**
-     * 删除记录
+     * 排除关联数据的字段
      * @access public
-     * @param  mixed $data 表达式 true 表示强制删除
-     * @return int
-     * @throws Exception
-     * @throws PDOException
+     * @param  array|string $field 关联字段限制
+     * @return $this
      */
-    public function delete($data = null): int
+    public function withoutField($field)
     {
-        return $this->query->delete($data);
+        if (is_string($field)) {
+            $field = array_map('trim', explode(',', $field));
+        }
+
+        $this->withoutField = $field;
+        return $this;
     }
 
     /**
@@ -220,20 +234,40 @@ abstract class Relation
      */
     public function withLimit(int $limit)
     {
-        $this->withLimit = $limit;
+        $this->query->limit($limit);
         return $this;
     }
 
     /**
-     * 限制关联数据的字段
+     * 设置关联数据不存在的时候默认值
      * @access public
-     * @param  array $field 关联字段限制
+     * @param  mixed $data 默认值
      * @return $this
      */
-    public function withField(array $field)
+    public function withDefault($data = null)
     {
-        $this->withField = $field;
+        $this->default = $data;
         return $this;
+    }
+
+    /**
+     * 获取关联数据默认值
+     * @access protected
+     * @return mixed
+     */
+    protected function getDefaultModel()
+    {
+        if (is_array($this->default)) {
+            $model = (new $this->model)->data($this->default);
+        } elseif ($this->default instanceof Closure) {
+            $closure = $this->default;
+            $model   = new $this->model;
+            $closure($model);
+        } else {
+            $model = $this->default;
+        }
+
+        return $model;
     }
 
     /**
@@ -241,14 +275,15 @@ abstract class Relation
      * @access protected
      * @return mixed
      */
-    protected function getClosureType(Closure $closure)
+    protected function getClosureType(Closure $closure, $query = null)
     {
         $reflect = new ReflectionFunction($closure);
         $params  = $reflect->getParameters();
 
         if (!empty($params)) {
-            $type = $params[0]->getType();
-            return is_null($type) || Relation::class == $type->getName() ? $this : $this->query;
+            $type  = $params[0]->getType();
+            $query = $query ?: $this->query;
+            return is_null($type) || Relation::class == $type->getName() ? $this : $query;
         }
 
         return $this;

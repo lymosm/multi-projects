@@ -3,15 +3,15 @@
 namespace WeChatPay;
 
 use function array_replace_recursive;
-use function array_push;
-use function extension_loaded;
-use function function_exists;
+use function call_user_func;
 use function sprintf;
 use function php_uname;
 use function implode;
 use function strncasecmp;
 use function strcasecmp;
 use function substr;
+use function constant;
+use function defined;
 
 use const PHP_OS;
 use const PHP_VERSION;
@@ -59,16 +59,13 @@ final class ClientDecorator implements ClientDecoratorInterface
      */
     protected static function userAgent(): array
     {
-        $value = [
+        return ['User-Agent' => implode(' ', [
             sprintf('wechatpay-php/%s', static::VERSION),
-            sprintf('GuzzleHttp/%d', ClientInterface::MAJOR_VERSION),
-        ];
-
-        extension_loaded('curl') && function_exists('curl_version') && array_push($value, 'curl/' . ((array)curl_version())['version']);
-
-        array_push($value, sprintf('(%s/%s) PHP/%s', PHP_OS, php_uname('r'), PHP_VERSION));
-
-        return ['User-Agent' => implode(' ', $value)];
+            sprintf('GuzzleHttp/%s', constant(ClientInterface::class . (defined(ClientInterface::class . '::VERSION') ? '::VERSION' : '::MAJOR_VERSION'))),
+            sprintf('curl/%s', ((array)call_user_func('\curl_version'))['version'] ?? 'unknown'),
+            sprintf('(%s/%s)', PHP_OS, php_uname('r')),
+            sprintf('PHP/%s', PHP_VERSION),
+        ])];
     }
 
     /**
@@ -136,9 +133,9 @@ final class ClientDecorator implements ClientDecoratorInterface
      */
     public function request(string $method, string $uri, array $options = []): ResponseInterface
     {
-        [$protocol, $pathname] = static::prepare($uri);
+        [$protocol, $pathname] = self::prepare(UriTemplate::expand($uri, $options));
 
-        return $this->select($protocol)->request($method, UriTemplate::expand($pathname, $options), $options);
+        return $this->select($protocol)->request($method, $pathname, $options);
     }
 
     /**
@@ -146,8 +143,8 @@ final class ClientDecorator implements ClientDecoratorInterface
      */
     public function requestAsync(string $method, string $uri, array $options = []): PromiseInterface
     {
-        [$protocol, $pathname] = static::prepare($uri);
+        [$protocol, $pathname] = self::prepare(UriTemplate::expand($uri, $options));
 
-        return $this->select($protocol)->requestAsync($method, UriTemplate::expand($pathname, $options), $options);
+        return $this->select($protocol)->requestAsync($method, $pathname, $options);
     }
 }

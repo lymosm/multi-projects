@@ -7,6 +7,7 @@ namespace Endroid\QrCode\Builder;
 use Endroid\QrCode\Color\ColorInterface;
 use Endroid\QrCode\Encoding\EncodingInterface;
 use Endroid\QrCode\ErrorCorrectionLevel\ErrorCorrectionLevelInterface;
+use Endroid\QrCode\Exception\ValidationException;
 use Endroid\QrCode\Label\Alignment\LabelAlignmentInterface;
 use Endroid\QrCode\Label\Font\FontInterface;
 use Endroid\QrCode\Label\Label;
@@ -23,12 +24,39 @@ use Endroid\QrCode\Writer\WriterInterface;
 
 class Builder implements BuilderInterface
 {
-    /** @var array<mixed> */
-    private $options;
+    /**
+     * @var array<mixed>{
+     *     data: string,
+     *     writer: WriterInterface,
+     *     writerOptions: array,
+     *     qrCodeClass: class-string,
+     *     logoClass: class-string,
+     *     labelClass: class-string,
+     *     validateResult: bool,
+     *     size?: int,
+     *     encoding?: EncodingInterface,
+     *     errorCorrectionLevel?: ErrorCorrectionLevelInterface,
+     *     roundBlockSizeMode?: RoundBlockSizeModeInterface,
+     *     margin?: int,
+     *     backgroundColor?: ColorInterface,
+     *     foregroundColor?: ColorInterface,
+     *     labelText?: string,
+     *     labelFont?: FontInterface,
+     *     labelAlignment?: LabelAlignmentInterface,
+     *     labelMargin?: MarginInterface,
+     *     labelTextColor?: ColorInterface,
+     *     logoPath?: string,
+     *     logoResizeToWidth?: int,
+     *     logoResizeToHeight?: int,
+     *     logoPunchoutBackground?: bool
+     * }
+     */
+    private array $options;
 
     public function __construct()
     {
         $this->options = [
+            'data' => '',
             'writer' => new PngWriter(),
             'writerOptions' => [],
             'qrCodeClass' => QrCode::class,
@@ -186,14 +214,10 @@ class Builder implements BuilderInterface
 
     public function build(): ResultInterface
     {
-        if (!isset($this->options['writer']) || !$this->options['writer'] instanceof WriterInterface) {
-            throw new \Exception('Pass a valid writer via $builder->writer()');
-        }
-
         $writer = $this->options['writer'];
 
         if ($this->options['validateResult'] && !$writer instanceof ValidatingWriterInterface) {
-            throw new \Exception('Unable to validate result with '.get_class($writer));
+            throw ValidationException::createForUnsupportedWriter(strval(get_class($writer)));
         }
 
         /** @var QrCode $qrCode */

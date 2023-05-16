@@ -3,10 +3,8 @@
 namespace WeChatPay;
 
 use function strlen;
-use function trigger_error;
 use function sprintf;
-
-use const E_USER_DEPRECATED;
+use function in_array;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\HandlerStack;
@@ -30,6 +28,38 @@ trait ClientXmlTrait
         'Content-Type' => 'text/xml; charset=utf-8',
     ];
 
+    /**
+     * @var string[] - Special URLs whose were designed that none signature respond.
+     */
+    protected static $noneSignatureRespond = [
+        '/mchrisk/querymchrisk',
+        '/mchrisk/setmchriskcallback',
+        '/mchrisk/syncmchriskresult',
+        '/mmpaymkttransfers/gethbinfo',
+        '/mmpaymkttransfers/gettransferinfo',
+        '/mmpaymkttransfers/pay_bank',
+        '/mmpaymkttransfers/promotion/paywwsptrans2pocket',
+        '/mmpaymkttransfers/promotion/querywwsptrans2pocket',
+        '/mmpaymkttransfers/promotion/transfers',
+        '/mmpaymkttransfers/query_bank',
+        '/mmpaymkttransfers/sendgroupredpack',
+        '/mmpaymkttransfers/sendminiprogramhb',
+        '/mmpaymkttransfers/sendredpack',
+        '/papay/entrustweb',
+        '/papay/h5entrustweb',
+        '/papay/partner/entrustweb',
+        '/papay/partner/h5entrustweb',
+        '/pay/downloadbill',
+        '/pay/downloadfundflow',
+        '/payitil/report',
+        '/risk/getpublickey',
+        '/risk/getviolation',
+        '/sandboxnew/pay/downloadbill',
+        '/sandboxnew/pay/getsignkey',
+        '/secapi/mch/submchmanage',
+        '/xdc/apiv2getsignkey/sign/getsignkey',
+    ];
+
     abstract protected static function body(MessageInterface $message): string;
 
     abstract protected static function withDefaults(array ...$config): array;
@@ -47,12 +77,10 @@ trait ClientXmlTrait
     public static function transformRequest(?string $mchid = null, string $secret = '', ?array $merchant = null): callable
     {
         return static function (callable $handler) use ($mchid, $secret, $merchant): callable {
-            @trigger_error(Exception\WeChatPayException::DEP_XML_PROTOCOL_IS_REACHABLE_EOL, E_USER_DEPRECATED);
-
             return static function (RequestInterface $request, array $options = []) use ($handler, $mchid, $secret, $merchant): PromiseInterface {
                 $data = $options['xml'] ?? [];
 
-                if ($mchid && $mchid !== ($inputMchId = $data['mch_id'] ?? $data['mchid'] ?? null)) {
+                if ($mchid && $mchid !== ($inputMchId = $data['mch_id'] ?? $data['mchid'] ?? $data['combine_mch_id'] ?? null)) {
                     throw new Exception\InvalidArgumentException(sprintf(Exception\EV2_REQ_XML_NOTMATCHED_MCHID, $inputMchId ?? '', $mchid));
                 }
 
@@ -88,9 +116,14 @@ trait ClientXmlTrait
     {
         return static function (callable $handler) use ($secret): callable {
             return static function (RequestInterface $request, array $options = []) use ($secret, $handler): PromiseInterface {
+                if (in_array($request->getUri()->getPath(), static::$noneSignatureRespond)) {
+                    return $handler($request, $options);
+                }
+
                 return $handler($request, $options)->then(static function(ResponseInterface $response) use ($secret) {
                     $result = Transformer::toArray(static::body($response));
 
+                    /** @var ?string $sign */
                     $sign = $result['sign'] ?? null;
                     $type = $sign && strlen($sign) === 64 ? Crypto\Hash::ALGO_HMAC_SHA256 : Crypto\Hash::ALGO_MD5;
                     /** @var string $calc - calculated digest string, it's naver `null` here because of \$type known. */

@@ -4,6 +4,7 @@ namespace app\model;
 use think\Model;
 use think\facade\Db;
 use Lymos\Stripe\stripe;
+use think\facade\Config;
 
 class StripeModel extends Model{
 
@@ -26,7 +27,7 @@ class StripeModel extends Model{
                     'Authorization: Bearer ' . $key
                 ]
                 ];
-        $obj->charge($data, $options);
+        return $obj->charge($data, $options);
     }
 
     

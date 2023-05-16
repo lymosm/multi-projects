@@ -1,0 +1,2003 @@
+2023-02-21T12:54:48+00:00 DEBUG GET https://api.sandbox.paypal.com/v1/customer/partners/MPMFHQTVMBZ6G/merchant-integrations/AF1D2bDUwl8V-eLQ-C2kgEUnxii0AkXgigFYgwPs0HvbzVf2Y5tD3WOp
+Response Debug ID: 510dae5150ea5
+Response: Array
+(
+    [code] => 404
+    [message] => Not Found
+)
+
+Response Body: {"name":"USER_BUSINESS_ERROR","message":"Invalid account: AF1D2bDUwl8V-eLQ-C2kgEUnxii0AkXgigFYgwPs0HvbzVf2Y5tD3WOp","debug_id":"510dae5150ea5"}
+
+2023-02-21T12:54:48+00:00 WARNING [USER_BUSINESS_ERROR] Invalid account: AF1D2bDUwl8V-eLQ-C2kgEUnxii0AkXgigFYgwPs0HvbzVf2Y5tD3WOp
+2023-02-21T12:55:04+00:00 DEBUG GET https://api.sandbox.paypal.com/v1/customer/partners/MPMFHQTVMBZ6G/merchant-integrations/AF1D2bDUwl8V-eLQ-C2kgEUnxii0AkXgigFYgwPs0HvbzVf2Y5tD3WOp
+Response Debug ID: 55f36f205fb52
+Response: Array
+(
+    [code] => 404
+    [message] => Not Found
+)
+
+Response Body: {"name":"USER_BUSINESS_ERROR","message":"Invalid account: AF1D2bDUwl8V-eLQ-C2kgEUnxii0AkXgigFYgwPs0HvbzVf2Y5tD3WOp","debug_id":"55f36f205fb52"}
+
+2023-02-21T12:55:04+00:00 WARNING [USER_BUSINESS_ERROR] Invalid account: AF1D2bDUwl8V-eLQ-C2kgEUnxii0AkXgigFYgwPs0HvbzVf2Y5tD3WOp
+2023-02-21T12:55:06+00:00 DEBUG GET https://api.sandbox.paypal.com/v1/customer/partners/MPMFHQTVMBZ6G/merchant-integrations/AF1D2bDUwl8V-eLQ-C2kgEUnxii0AkXgigFYgwPs0HvbzVf2Y5tD3WOp
+Response Debug ID: cebe7c850fded
+Response: Array
+(
+    [code] => 404
+    [message] => Not Found
+)
+
+Response Body: {"name":"USER_BUSINESS_ERROR","message":"Invalid account: AF1D2bDUwl8V-eLQ-C2kgEUnxii0AkXgigFYgwPs0HvbzVf2Y5tD3WOp","debug_id":"cebe7c850fded"}
+
+2023-02-21T12:55:06+00:00 WARNING [USER_BUSINESS_ERROR] Invalid account: AF1D2bDUwl8V-eLQ-C2kgEUnxii0AkXgigFYgwPs0HvbzVf2Y5tD3WOp
+2023-02-21T12:55:08+00:00 DEBUG GET https://api.sandbox.paypal.com/v1/customer/partners/MPMFHQTVMBZ6G/merchant-integrations/AF1D2bDUwl8V-eLQ-C2kgEUnxii0AkXgigFYgwPs0HvbzVf2Y5tD3WOp
+Response Debug ID: 8891d6ae10dac
+Response: Array
+(
+    [code] => 404
+    [message] => Not Found
+)
+
+Response Body: {"name":"USER_BUSINESS_ERROR","message":"Invalid account: AF1D2bDUwl8V-eLQ-C2kgEUnxii0AkXgigFYgwPs0HvbzVf2Y5tD3WOp","debug_id":"8891d6ae10dac"}
+
+2023-02-21T12:55:08+00:00 WARNING [USER_BUSINESS_ERROR] Invalid account: AF1D2bDUwl8V-eLQ-C2kgEUnxii0AkXgigFYgwPs0HvbzVf2Y5tD3WOp
+2023-02-21T12:55:10+00:00 DEBUG GET https://api.sandbox.paypal.com/v1/notifications/webhooks
+Response Debug ID: 48e7c83f095a2
+Response: Array
+(
+    [code] => 200
+    [message] => OK
+)
+
+
+2023-02-21T13:22:37+00:00 DEBUG GET https://api.sandbox.paypal.com/v1/notifications/webhooks
+Response Debug ID: 3d22b5288511a
+Response: Array
+(
+    [code] => 200
+    [message] => OK
+)
+
+
+2023-02-21T13:22:39+00:00 DEBUG GET https://api.sandbox.paypal.com/v1/customer/partners/MPMFHQTVMBZ6G/merchant-integrations/AF1D2bDUwl8V-eLQ-C2kgEUnxii0AkXgigFYgwPs0HvbzVf2Y5tD3WOp
+Response Debug ID: 8d27b0c9941c1
+Response: Array
+(
+    [code] => 404
+    [message] => Not Found
+)
+
+Response Body: {"name":"USER_BUSINESS_ERROR","message":"Invalid account: AF1D2bDUwl8V-eLQ-C2kgEUnxii0AkXgigFYgwPs0HvbzVf2Y5tD3WOp","debug_id":"8d27b0c9941c1"}
+
+2023-02-21T13:22:39+00:00 WARNING [USER_BUSINESS_ERROR] Invalid account: AF1D2bDUwl8V-eLQ-C2kgEUnxii0AkXgigFYgwPs0HvbzVf2Y5tD3WOp
+2023-02-21T13:22:42+00:00 DEBUG GET https://api.sandbox.paypal.com/v1/customer/partners/MPMFHQTVMBZ6G/merchant-integrations/AF1D2bDUwl8V-eLQ-C2kgEUnxii0AkXgigFYgwPs0HvbzVf2Y5tD3WOp
+Response Debug ID: 15fd4d3a73f6b
+Response: Array
+(
+    [code] => 404
+    [message] => Not Found
+)
+
+Response Body: {"name":"USER_BUSINESS_ERROR","message":"Invalid account: AF1D2bDUwl8V-eLQ-C2kgEUnxii0AkXgigFYgwPs0HvbzVf2Y5tD3WOp","debug_id":"15fd4d3a73f6b"}
+
+2023-02-21T13:22:42+00:00 WARNING [USER_BUSINESS_ERROR] Invalid account: AF1D2bDUwl8V-eLQ-C2kgEUnxii0AkXgigFYgwPs0HvbzVf2Y5tD3WOp
+2023-02-21T13:22:43+00:00 DEBUG GET https://api.sandbox.paypal.com/v1/customer/partners/MPMFHQTVMBZ6G/merchant-integrations/AF1D2bDUwl8V-eLQ-C2kgEUnxii0AkXgigFYgwPs0HvbzVf2Y5tD3WOp
+Response Debug ID: f20419cfdd8f0
+Response: Array
+(
+    [code] => 404
+    [message] => Not Found
+)
+
+Response Body: {"name":"USER_BUSINESS_ERROR","message":"Invalid account: AF1D2bDUwl8V-eLQ-C2kgEUnxii0AkXgigFYgwPs0HvbzVf2Y5tD3WOp","debug_id":"f20419cfdd8f0"}
+
+2023-02-21T13:22:43+00:00 WARNING [USER_BUSINESS_ERROR] Invalid account: AF1D2bDUwl8V-eLQ-C2kgEUnxii0AkXgigFYgwPs0HvbzVf2Y5tD3WOp
+2023-02-21T13:22:47+00:00 DEBUG GET https://api.sandbox.paypal.com/v1/customer/partners/MPMFHQTVMBZ6G/merchant-integrations/AF1D2bDUwl8V-eLQ-C2kgEUnxii0AkXgigFYgwPs0HvbzVf2Y5tD3WOp
+Response Debug ID: 273e0071341e7
+Response: Array
+(
+    [code] => 404
+    [message] => Not Found
+)
+
+Response Body: {"name":"USER_BUSINESS_ERROR","message":"Invalid account: AF1D2bDUwl8V-eLQ-C2kgEUnxii0AkXgigFYgwPs0HvbzVf2Y5tD3WOp","debug_id":"273e0071341e7"}
+
+2023-02-21T13:22:47+00:00 WARNING [USER_BUSINESS_ERROR] Invalid account: AF1D2bDUwl8V-eLQ-C2kgEUnxii0AkXgigFYgwPs0HvbzVf2Y5tD3WOp
+2023-02-21T13:22:53+00:00 DEBUG GET https://api.sandbox.paypal.com/v1/customer/partners/MPMFHQTVMBZ6G/merchant-integrations/AF1D2bDUwl8V-eLQ-C2kgEUnxii0AkXgigFYgwPs0HvbzVf2Y5tD3WOp
+Response Debug ID: eb0168888a531
+Response: Array
+(
+    [code] => 404
+    [message] => Not Found
+)
+
+Response Body: {"name":"USER_BUSINESS_ERROR","message":"Invalid account: AF1D2bDUwl8V-eLQ-C2kgEUnxii0AkXgigFYgwPs0HvbzVf2Y5tD3WOp","debug_id":"eb0168888a531"}
+
+2023-02-21T13:22:53+00:00 WARNING [USER_BUSINESS_ERROR] Invalid account: AF1D2bDUwl8V-eLQ-C2kgEUnxii0AkXgigFYgwPs0HvbzVf2Y5tD3WOp
+2023-02-21T13:22:55+00:00 DEBUG GET https://api.sandbox.paypal.com/v1/customer/partners/MPMFHQTVMBZ6G/merchant-integrations/AF1D2bDUwl8V-eLQ-C2kgEUnxii0AkXgigFYgwPs0HvbzVf2Y5tD3WOp
+Response Debug ID: 3ded63e289104
+Response: Array
+(
+    [code] => 404
+    [message] => Not Found
+)
+
+Response Body: {"name":"USER_BUSINESS_ERROR","message":"Invalid account: AF1D2bDUwl8V-eLQ-C2kgEUnxii0AkXgigFYgwPs0HvbzVf2Y5tD3WOp","debug_id":"3ded63e289104"}
+
+2023-02-21T13:22:55+00:00 WARNING [USER_BUSINESS_ERROR] Invalid account: AF1D2bDUwl8V-eLQ-C2kgEUnxii0AkXgigFYgwPs0HvbzVf2Y5tD3WOp
+2023-02-21T13:22:57+00:00 DEBUG DELETE https://api.sandbox.paypal.com/v1/notifications/webhooks/0W56738957945780B
+Response Debug ID: e2e16f5c74c67
+Response: Array
+(
+    [code] => 204
+    [message] => No Content
+)
+
+
+2023-02-21T13:22:57+00:00 INFO Webhooks deleted.
+2023-02-21T13:23:00+00:00 DEBUG POST https://api.sandbox.paypal.com/v1/oauth2/token?grant_type=client_credentials
+Response Debug ID: 55a2a612df368
+Response: Array
+(
+    [code] => 200
+    [message] => OK
+)
+
+
+2023-02-21T13:23:03+00:00 DEBUG GET https://connect.woocommerce.com/ppc/v1/customer/partners/K8SKZ36LQBWXJ/merchant-integrations/
+Response: Array
+(
+    [code] => 404
+    [message] => Not Found
+)
+
+Response Body: <!DOCTYPE html>
+<html>
+    <head>
+        <meta name="robots" content="noindex,nofollow" />
+        <style>
+            /* Copyright (c) 2010, Yahoo! Inc. All rights reserved. Code licensed under the BSD License: http://developer.yahoo.com/yui/license.html */
+            html{color:#000;background:#FFF;}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{margin:0;padding:0;}table{border-collapse:collapse;border-spacing:0;}fieldset,img{border:0;}address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal;}li{list-style:none;}caption,th{text-align:left;}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}q:before,q:after{content:'';}abbr,acronym{border:0;font-variant:normal;}sup{vertical-align:text-top;}sub{vertical-align:text-bottom;}input,textarea,select{font-family:inherit;font-size:inherit;font-weight:inherit;}input,textarea,select{*font-size:100%;}legend{color:#000;}
+            html { background: #eee; padding: 10px }
+            img { border: 0; }
+            #sf-resetcontent { width:970px; margin:0 auto; }
+                            body { background-color: #fff; color: #222; font: 16px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; margin: 0; }
+                .container { margin: 30px; max-width: 600px; }
+                h1 { color: #dc3545; font-size: 24px; }
+        </style>
+    </head>
+    <body>
+                        <div class="container">
+                    <h1>Sorry, the page you are looking for could not be found.</h1>
+                </div>
+    </body>
+</html>
+
+2023-02-21T13:23:03+00:00 WARNING [Error] Unknown error while connecting to PayPal. Status code: 0.
+2023-02-21T13:23:04+00:00 DEBUG GET https://connect.woocommerce.com/ppc/v1/customer/partners/K8SKZ36LQBWXJ/merchant-integrations/
+Response: Array
+(
+    [code] => 404
+    [message] => Not Found
+)
+
+Response Body: <!DOCTYPE html>
+<html>
+    <head>
+        <meta name="robots" content="noindex,nofollow" />
+        <style>
+            /* Copyright (c) 2010, Yahoo! Inc. All rights reserved. Code licensed under the BSD License: http://developer.yahoo.com/yui/license.html */
+            html{color:#000;background:#FFF;}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{margin:0;padding:0;}table{border-collapse:collapse;border-spacing:0;}fieldset,img{border:0;}address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal;}li{list-style:none;}caption,th{text-align:left;}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}q:before,q:after{content:'';}abbr,acronym{border:0;font-variant:normal;}sup{vertical-align:text-top;}sub{vertical-align:text-bottom;}input,textarea,select{font-family:inherit;font-size:inherit;font-weight:inherit;}input,textarea,select{*font-size:100%;}legend{color:#000;}
+            html { background: #eee; padding: 10px }
+            img { border: 0; }
+            #sf-resetcontent { width:970px; margin:0 auto; }
+                            body { background-color: #fff; color: #222; font: 16px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; margin: 0; }
+                .container { margin: 30px; max-width: 600px; }
+                h1 { color: #dc3545; font-size: 24px; }
+        </style>
+    </head>
+    <body>
+                        <div class="container">
+                    <h1>Sorry, the page you are looking for could not be found.</h1>
+                </div>
+    </body>
+</html>
+
+2023-02-21T13:23:04+00:00 WARNING [Error] Unknown error while connecting to PayPal. Status code: 0.
+2023-02-21T13:23:06+00:00 DEBUG GET https://connect.woocommerce.com/ppc/v1/customer/partners/K8SKZ36LQBWXJ/merchant-integrations/
+Response: Array
+(
+    [code] => 404
+    [message] => Not Found
+)
+
+Response Body: <!DOCTYPE html>
+<html>
+    <head>
+        <meta name="robots" content="noindex,nofollow" />
+        <style>
+            /* Copyright (c) 2010, Yahoo! Inc. All rights reserved. Code licensed under the BSD License: http://developer.yahoo.com/yui/license.html */
+            html{color:#000;background:#FFF;}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{margin:0;padding:0;}table{border-collapse:collapse;border-spacing:0;}fieldset,img{border:0;}address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal;}li{list-style:none;}caption,th{text-align:left;}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}q:before,q:after{content:'';}abbr,acronym{border:0;font-variant:normal;}sup{vertical-align:text-top;}sub{vertical-align:text-bottom;}input,textarea,select{font-family:inherit;font-size:inherit;font-weight:inherit;}input,textarea,select{*font-size:100%;}legend{color:#000;}
+            html { background: #eee; padding: 10px }
+            img { border: 0; }
+            #sf-resetcontent { width:970px; margin:0 auto; }
+                            body { background-color: #fff; color: #222; font: 16px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; margin: 0; }
+                .container { margin: 30px; max-width: 600px; }
+                h1 { color: #dc3545; font-size: 24px; }
+        </style>
+    </head>
+    <body>
+                        <div class="container">
+                    <h1>Sorry, the page you are looking for could not be found.</h1>
+                </div>
+    </body>
+</html>
+
+2023-02-21T13:23:06+00:00 WARNING [Error] Unknown error while connecting to PayPal. Status code: 0.
+2023-02-21T13:23:07+00:00 DEBUG GET https://connect.woocommerce.com/ppc/v1/customer/partners/K8SKZ36LQBWXJ/merchant-integrations/
+Response: Array
+(
+    [code] => 404
+    [message] => Not Found
+)
+
+Response Body: <!DOCTYPE html>
+<html>
+    <head>
+        <meta name="robots" content="noindex,nofollow" />
+        <style>
+            /* Copyright (c) 2010, Yahoo! Inc. All rights reserved. Code licensed under the BSD License: http://developer.yahoo.com/yui/license.html */
+            html{color:#000;background:#FFF;}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{margin:0;padding:0;}table{border-collapse:collapse;border-spacing:0;}fieldset,img{border:0;}address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal;}li{list-style:none;}caption,th{text-align:left;}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}q:before,q:after{content:'';}abbr,acronym{border:0;font-variant:normal;}sup{vertical-align:text-top;}sub{vertical-align:text-bottom;}input,textarea,select{font-family:inherit;font-size:inherit;font-weight:inherit;}input,textarea,select{*font-size:100%;}legend{color:#000;}
+            html { background: #eee; padding: 10px }
+            img { border: 0; }
+            #sf-resetcontent { width:970px; margin:0 auto; }
+                            body { background-color: #fff; color: #222; font: 16px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; margin: 0; }
+                .container { margin: 30px; max-width: 600px; }
+                h1 { color: #dc3545; font-size: 24px; }
+        </style>
+    </head>
+    <body>
+                        <div class="container">
+                    <h1>Sorry, the page you are looking for could not be found.</h1>
+                </div>
+    </body>
+</html>
+
+2023-02-21T13:23:07+00:00 WARNING [Error] Unknown error while connecting to PayPal. Status code: 0.
+2023-02-21T13:23:09+00:00 DEBUG POST https://connect.woocommerce.com/ppc/v2/customer/partner-referrals
+Request Body: {"partner_config_override":{"return_url":"https:\/\/lo.fashion.com\/wp-admin\/admin.php?page=wc-settings&tab=checkout&section=ppcp-gateway","return_url_description":"Return to your shop.","show_add_credit_card":true},"products":["PPCP"],"legal_consents":[{"type":"SHARE_DATA_CONSENT","granted":true}],"operations":[{"operation":"API_INTEGRATION","api_integration_preference":{"rest_api_integration":{"integration_method":"PAYPAL","integration_type":"FIRST_PARTY","first_party_details":{"features":["PAYMENT","FUTURE_PAYMENT","REFUND","ADVANCED_TRANSACTIONS_SEARCH","VAULT","TRACKING_SHIPMENT_READWRITE"],"seller_nonce":"a1233wtergfsdt4365tzrshgfbaewa36AGa1233wtergfsdt4365tzrshgfbaewa36AG"}}}}]}
+Response Debug ID: a6f995208ad5c
+Response: Array
+(
+    [code] => 201
+    [message] => Created
+)
+
+
+2023-02-21T13:23:11+00:00 DEBUG POST https://connect.woocommerce.com/ppc/v2/customer/partner-referrals
+Request Body: {"partner_config_override":{"return_url":"https:\/\/lo.fashion.com\/wp-admin\/admin.php?page=wc-settings&tab=checkout&section=ppcp-gateway","return_url_description":"Return to your shop.","show_add_credit_card":true},"products":["EXPRESS_CHECKOUT"],"legal_consents":[{"type":"SHARE_DATA_CONSENT","granted":true}],"operations":[{"operation":"API_INTEGRATION","api_integration_preference":{"rest_api_integration":{"integration_method":"PAYPAL","integration_type":"FIRST_PARTY","first_party_details":{"features":["PAYMENT","FUTURE_PAYMENT","REFUND","ADVANCED_TRANSACTIONS_SEARCH","VAULT","TRACKING_SHIPMENT_READWRITE"],"seller_nonce":"a1233wtergfsdt4365tzrshgfbaewa36AGa1233wtergfsdt4365tzrshgfbaewa36AG"}}}}]}
+Response Debug ID: 8cf87c5389ff3
+Response: Array
+(
+    [code] => 201
+    [message] => Created
+)
+
+
+2023-02-21T13:23:14+00:00 DEBUG GET https://connect.woocommerce.com/ppc/v1/notifications/webhooks
+Response: Array
+(
+    [code] => 404
+    [message] => Not Found
+)
+
+Response Body: <!DOCTYPE html>
+<html>
+    <head>
+        <meta name="robots" content="noindex,nofollow" />
+        <style>
+            /* Copyright (c) 2010, Yahoo! Inc. All rights reserved. Code licensed under the BSD License: http://developer.yahoo.com/yui/license.html */
+            html{color:#000;background:#FFF;}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{margin:0;padding:0;}table{border-collapse:collapse;border-spacing:0;}fieldset,img{border:0;}address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal;}li{list-style:none;}caption,th{text-align:left;}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}q:before,q:after{content:'';}abbr,acronym{border:0;font-variant:normal;}sup{vertical-align:text-top;}sub{vertical-align:text-bottom;}input,textarea,select{font-family:inherit;font-size:inherit;font-weight:inherit;}input,textarea,select{*font-size:100%;}legend{color:#000;}
+            html { background: #eee; padding: 10px }
+            img { border: 0; }
+            #sf-resetcontent { width:970px; margin:0 auto; }
+                            body { background-color: #fff; color: #222; font: 16px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; margin: 0; }
+                .container { margin: 30px; max-width: 600px; }
+                h1 { color: #dc3545; font-size: 24px; }
+        </style>
+    </head>
+    <body>
+                        <div class="container">
+                    <h1>Sorry, the page you are looking for could not be found.</h1>
+                </div>
+    </body>
+</html>
+
+2023-02-21T13:23:14+00:00 ERROR Failed to load webhooks list: Could not retrieve value for key "webhook.status.registered-webhooks from inner container
+2023-02-21T13:23:15+00:00 DEBUG POST https://connect.woocommerce.com/ppcsandbox/v2/customer/partner-referrals
+Request Body: {"partner_config_override":{"return_url":"https:\/\/lo.fashion.com\/wp-admin\/admin.php?page=wc-settings&tab=checkout&section=ppcp-gateway","return_url_description":"Return to your shop.","show_add_credit_card":true},"products":["PPCP"],"legal_consents":[{"type":"SHARE_DATA_CONSENT","granted":true}],"operations":[{"operation":"API_INTEGRATION","api_integration_preference":{"rest_api_integration":{"integration_method":"PAYPAL","integration_type":"FIRST_PARTY","first_party_details":{"features":["PAYMENT","FUTURE_PAYMENT","REFUND","ADVANCED_TRANSACTIONS_SEARCH","VAULT","TRACKING_SHIPMENT_READWRITE"],"seller_nonce":"a1233wtergfsdt4365tzrshgfbaewa36AGa1233wtergfsdt4365tzrshgfbaewa36AG"}}}}]}
+Response Debug ID: ca8fc79fe09ee
+Response: Array
+(
+    [code] => 201
+    [message] => Created
+)
+
+
+2023-02-21T13:23:17+00:00 DEBUG POST https://connect.woocommerce.com/ppcsandbox/v2/customer/partner-referrals
+Request Body: {"partner_config_override":{"return_url":"https:\/\/lo.fashion.com\/wp-admin\/admin.php?page=wc-settings&tab=checkout&section=ppcp-gateway","return_url_description":"Return to your shop.","show_add_credit_card":true},"products":["EXPRESS_CHECKOUT"],"legal_consents":[{"type":"SHARE_DATA_CONSENT","granted":true}],"operations":[{"operation":"API_INTEGRATION","api_integration_preference":{"rest_api_integration":{"integration_method":"PAYPAL","integration_type":"FIRST_PARTY","first_party_details":{"features":["PAYMENT","FUTURE_PAYMENT","REFUND","ADVANCED_TRANSACTIONS_SEARCH","VAULT","TRACKING_SHIPMENT_READWRITE"],"seller_nonce":"a1233wtergfsdt4365tzrshgfbaewa36AGa1233wtergfsdt4365tzrshgfbaewa36AG"}}}}]}
+Response Debug ID: ebbef272620d
+Response: Array
+(
+    [code] => 201
+    [message] => Created
+)
+
+
+2023-02-21T13:23:17+00:00 DEBUG GET https://connect.woocommerce.com/ppc/v1/customer/partners/K8SKZ36LQBWXJ/merchant-integrations/
+Response: Array
+(
+    [code] => 404
+    [message] => Not Found
+)
+
+Response Body: <!DOCTYPE html>
+<html>
+    <head>
+        <meta name="robots" content="noindex,nofollow" />
+        <style>
+            /* Copyright (c) 2010, Yahoo! Inc. All rights reserved. Code licensed under the BSD License: http://developer.yahoo.com/yui/license.html */
+            html{color:#000;background:#FFF;}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{margin:0;padding:0;}table{border-collapse:collapse;border-spacing:0;}fieldset,img{border:0;}address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal;}li{list-style:none;}caption,th{text-align:left;}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}q:before,q:after{content:'';}abbr,acronym{border:0;font-variant:normal;}sup{vertical-align:text-top;}sub{vertical-align:text-bottom;}input,textarea,select{font-family:inherit;font-size:inherit;font-weight:inherit;}input,textarea,select{*font-size:100%;}legend{color:#000;}
+            html { background: #eee; padding: 10px }
+            img { border: 0; }
+            #sf-resetcontent { width:970px; margin:0 auto; }
+                            body { background-color: #fff; color: #222; font: 16px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; margin: 0; }
+                .container { margin: 30px; max-width: 600px; }
+                h1 { color: #dc3545; font-size: 24px; }
+        </style>
+    </head>
+    <body>
+                        <div class="container">
+                    <h1>Sorry, the page you are looking for could not be found.</h1>
+                </div>
+    </body>
+</html>
+
+2023-02-21T13:23:17+00:00 WARNING [Error] Unknown error while connecting to PayPal. Status code: 0.
+2023-02-21T13:23:21+00:00 DEBUG GET https://connect.woocommerce.com/ppc/v1/customer/partners/K8SKZ36LQBWXJ/merchant-integrations/
+Response: Array
+(
+    [code] => 404
+    [message] => Not Found
+)
+
+Response Body: <!DOCTYPE html>
+<html>
+    <head>
+        <meta name="robots" content="noindex,nofollow" />
+        <style>
+            /* Copyright (c) 2010, Yahoo! Inc. All rights reserved. Code licensed under the BSD License: http://developer.yahoo.com/yui/license.html */
+            html{color:#000;background:#FFF;}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{margin:0;padding:0;}table{border-collapse:collapse;border-spacing:0;}fieldset,img{border:0;}address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal;}li{list-style:none;}caption,th{text-align:left;}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}q:before,q:after{content:'';}abbr,acronym{border:0;font-variant:normal;}sup{vertical-align:text-top;}sub{vertical-align:text-bottom;}input,textarea,select{font-family:inherit;font-size:inherit;font-weight:inherit;}input,textarea,select{*font-size:100%;}legend{color:#000;}
+            html { background: #eee; padding: 10px }
+            img { border: 0; }
+            #sf-resetcontent { width:970px; margin:0 auto; }
+                            body { background-color: #fff; color: #222; font: 16px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; margin: 0; }
+                .container { margin: 30px; max-width: 600px; }
+                h1 { color: #dc3545; font-size: 24px; }
+        </style>
+    </head>
+    <body>
+                        <div class="container">
+                    <h1>Sorry, the page you are looking for could not be found.</h1>
+                </div>
+    </body>
+</html>
+
+2023-02-21T13:23:21+00:00 WARNING [Error] Unknown error while connecting to PayPal. Status code: 0.
+2023-02-21T13:23:23+00:00 DEBUG GET https://connect.woocommerce.com/ppc/v1/customer/partners/K8SKZ36LQBWXJ/merchant-integrations/
+Response: Array
+(
+    [code] => 404
+    [message] => Not Found
+)
+
+Response Body: <!DOCTYPE html>
+<html>
+    <head>
+        <meta name="robots" content="noindex,nofollow" />
+        <style>
+            /* Copyright (c) 2010, Yahoo! Inc. All rights reserved. Code licensed under the BSD License: http://developer.yahoo.com/yui/license.html */
+            html{color:#000;background:#FFF;}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{margin:0;padding:0;}table{border-collapse:collapse;border-spacing:0;}fieldset,img{border:0;}address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal;}li{list-style:none;}caption,th{text-align:left;}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}q:before,q:after{content:'';}abbr,acronym{border:0;font-variant:normal;}sup{vertical-align:text-top;}sub{vertical-align:text-bottom;}input,textarea,select{font-family:inherit;font-size:inherit;font-weight:inherit;}input,textarea,select{*font-size:100%;}legend{color:#000;}
+            html { background: #eee; padding: 10px }
+            img { border: 0; }
+            #sf-resetcontent { width:970px; margin:0 auto; }
+                            body { background-color: #fff; color: #222; font: 16px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; margin: 0; }
+                .container { margin: 30px; max-width: 600px; }
+                h1 { color: #dc3545; font-size: 24px; }
+        </style>
+    </head>
+    <body>
+                        <div class="container">
+                    <h1>Sorry, the page you are looking for could not be found.</h1>
+                </div>
+    </body>
+</html>
+
+2023-02-21T13:23:23+00:00 WARNING [Error] Unknown error while connecting to PayPal. Status code: 0.
+2023-02-21T13:23:24+00:00 DEBUG GET https://connect.woocommerce.com/ppc/v1/customer/partners/K8SKZ36LQBWXJ/merchant-integrations/
+Response: Array
+(
+    [code] => 404
+    [message] => Not Found
+)
+
+Response Body: <!DOCTYPE html>
+<html>
+    <head>
+        <meta name="robots" content="noindex,nofollow" />
+        <style>
+            /* Copyright (c) 2010, Yahoo! Inc. All rights reserved. Code licensed under the BSD License: http://developer.yahoo.com/yui/license.html */
+            html{color:#000;background:#FFF;}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{margin:0;padding:0;}table{border-collapse:collapse;border-spacing:0;}fieldset,img{border:0;}address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal;}li{list-style:none;}caption,th{text-align:left;}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}q:before,q:after{content:'';}abbr,acronym{border:0;font-variant:normal;}sup{vertical-align:text-top;}sub{vertical-align:text-bottom;}input,textarea,select{font-family:inherit;font-size:inherit;font-weight:inherit;}input,textarea,select{*font-size:100%;}legend{color:#000;}
+            html { background: #eee; padding: 10px }
+            img { border: 0; }
+            #sf-resetcontent { width:970px; margin:0 auto; }
+                            body { background-color: #fff; color: #222; font: 16px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; margin: 0; }
+                .container { margin: 30px; max-width: 600px; }
+                h1 { color: #dc3545; font-size: 24px; }
+        </style>
+    </head>
+    <body>
+                        <div class="container">
+                    <h1>Sorry, the page you are looking for could not be found.</h1>
+                </div>
+    </body>
+</html>
+
+2023-02-21T13:23:24+00:00 WARNING [Error] Unknown error while connecting to PayPal. Status code: 0.
+2023-02-21T13:23:26+00:00 DEBUG GET https://connect.woocommerce.com/ppc/v1/customer/partners/K8SKZ36LQBWXJ/merchant-integrations/
+Response: Array
+(
+    [code] => 404
+    [message] => Not Found
+)
+
+Response Body: <!DOCTYPE html>
+<html>
+    <head>
+        <meta name="robots" content="noindex,nofollow" />
+        <style>
+            /* Copyright (c) 2010, Yahoo! Inc. All rights reserved. Code licensed under the BSD License: http://developer.yahoo.com/yui/license.html */
+            html{color:#000;background:#FFF;}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{margin:0;padding:0;}table{border-collapse:collapse;border-spacing:0;}fieldset,img{border:0;}address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal;}li{list-style:none;}caption,th{text-align:left;}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}q:before,q:after{content:'';}abbr,acronym{border:0;font-variant:normal;}sup{vertical-align:text-top;}sub{vertical-align:text-bottom;}input,textarea,select{font-family:inherit;font-size:inherit;font-weight:inherit;}input,textarea,select{*font-size:100%;}legend{color:#000;}
+            html { background: #eee; padding: 10px }
+            img { border: 0; }
+            #sf-resetcontent { width:970px; margin:0 auto; }
+                            body { background-color: #fff; color: #222; font: 16px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; margin: 0; }
+                .container { margin: 30px; max-width: 600px; }
+                h1 { color: #dc3545; font-size: 24px; }
+        </style>
+    </head>
+    <body>
+                        <div class="container">
+                    <h1>Sorry, the page you are looking for could not be found.</h1>
+                </div>
+    </body>
+</html>
+
+2023-02-21T13:23:26+00:00 WARNING [Error] Unknown error while connecting to PayPal. Status code: 0.
+2023-02-21T13:23:28+00:00 DEBUG GET https://connect.woocommerce.com/ppc/v1/customer/partners/K8SKZ36LQBWXJ/merchant-integrations/
+Response: Array
+(
+    [code] => 404
+    [message] => Not Found
+)
+
+Response Body: <!DOCTYPE html>
+<html>
+    <head>
+        <meta name="robots" content="noindex,nofollow" />
+        <style>
+            /* Copyright (c) 2010, Yahoo! Inc. All rights reserved. Code licensed under the BSD License: http://developer.yahoo.com/yui/license.html */
+            html{color:#000;background:#FFF;}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{margin:0;padding:0;}table{border-collapse:collapse;border-spacing:0;}fieldset,img{border:0;}address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal;}li{list-style:none;}caption,th{text-align:left;}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}q:before,q:after{content:'';}abbr,acronym{border:0;font-variant:normal;}sup{vertical-align:text-top;}sub{vertical-align:text-bottom;}input,textarea,select{font-family:inherit;font-size:inherit;font-weight:inherit;}input,textarea,select{*font-size:100%;}legend{color:#000;}
+            html { background: #eee; padding: 10px }
+            img { border: 0; }
+            #sf-resetcontent { width:970px; margin:0 auto; }
+                            body { background-color: #fff; color: #222; font: 16px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; margin: 0; }
+                .container { margin: 30px; max-width: 600px; }
+                h1 { color: #dc3545; font-size: 24px; }
+        </style>
+    </head>
+    <body>
+                        <div class="container">
+                    <h1>Sorry, the page you are looking for could not be found.</h1>
+                </div>
+    </body>
+</html>
+
+2023-02-21T13:23:28+00:00 WARNING [Error] Unknown error while connecting to PayPal. Status code: 0.
+2023-02-21T13:23:32+00:00 DEBUG GET https://connect.woocommerce.com/ppc/v1/customer/partners/K8SKZ36LQBWXJ/merchant-integrations/
+Response: Array
+(
+    [code] => 404
+    [message] => Not Found
+)
+
+Response Body: <!DOCTYPE html>
+<html>
+    <head>
+        <meta name="robots" content="noindex,nofollow" />
+        <style>
+            /* Copyright (c) 2010, Yahoo! Inc. All rights reserved. Code licensed under the BSD License: http://developer.yahoo.com/yui/license.html */
+            html{color:#000;background:#FFF;}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{margin:0;padding:0;}table{border-collapse:collapse;border-spacing:0;}fieldset,img{border:0;}address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal;}li{list-style:none;}caption,th{text-align:left;}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}q:before,q:after{content:'';}abbr,acronym{border:0;font-variant:normal;}sup{vertical-align:text-top;}sub{vertical-align:text-bottom;}input,textarea,select{font-family:inherit;font-size:inherit;font-weight:inherit;}input,textarea,select{*font-size:100%;}legend{color:#000;}
+            html { background: #eee; padding: 10px }
+            img { border: 0; }
+            #sf-resetcontent { width:970px; margin:0 auto; }
+                            body { background-color: #fff; color: #222; font: 16px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; margin: 0; }
+                .container { margin: 30px; max-width: 600px; }
+                h1 { color: #dc3545; font-size: 24px; }
+        </style>
+    </head>
+    <body>
+                        <div class="container">
+                    <h1>Sorry, the page you are looking for could not be found.</h1>
+                </div>
+    </body>
+</html>
+
+2023-02-21T13:23:32+00:00 WARNING [Error] Unknown error while connecting to PayPal. Status code: 0.
+2023-02-21T13:23:42+00:00 DEBUG GET https://connect.woocommerce.com/ppc/v1/customer/partners/K8SKZ36LQBWXJ/merchant-integrations/
+Request failed. WP error message: cURL error 28: Operation timed out after 10001 milliseconds with 0 out of 0 bytes received
+
+2023-02-21T13:23:42+00:00 WARNING Could not fetch sellers status.
+2023-02-21T13:25:56+00:00 DEBUG GET https://connect.woocommerce.com/ppc/v1/notifications/webhooks
+Response: Array
+(
+    [code] => 404
+    [message] => Not Found
+)
+
+Response Body: <!DOCTYPE html>
+<html>
+    <head>
+        <meta name="robots" content="noindex,nofollow" />
+        <style>
+            /* Copyright (c) 2010, Yahoo! Inc. All rights reserved. Code licensed under the BSD License: http://developer.yahoo.com/yui/license.html */
+            html{color:#000;background:#FFF;}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{margin:0;padding:0;}table{border-collapse:collapse;border-spacing:0;}fieldset,img{border:0;}address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal;}li{list-style:none;}caption,th{text-align:left;}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}q:before,q:after{content:'';}abbr,acronym{border:0;font-variant:normal;}sup{vertical-align:text-top;}sub{vertical-align:text-bottom;}input,textarea,select{font-family:inherit;font-size:inherit;font-weight:inherit;}input,textarea,select{*font-size:100%;}legend{color:#000;}
+            html { background: #eee; padding: 10px }
+            img { border: 0; }
+            #sf-resetcontent { width:970px; margin:0 auto; }
+                            body { background-color: #fff; color: #222; font: 16px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; margin: 0; }
+                .container { margin: 30px; max-width: 600px; }
+                h1 { color: #dc3545; font-size: 24px; }
+        </style>
+    </head>
+    <body>
+                        <div class="container">
+                    <h1>Sorry, the page you are looking for could not be found.</h1>
+                </div>
+    </body>
+</html>
+
+2023-02-21T13:25:56+00:00 ERROR Failed to load webhooks list: Could not retrieve value for key "webhook.status.registered-webhooks from inner container
+2023-02-21T13:25:58+00:00 DEBUG GET https://connect.woocommerce.com/ppc/v1/customer/partners/K8SKZ36LQBWXJ/merchant-integrations/
+Response: Array
+(
+    [code] => 404
+    [message] => Not Found
+)
+
+Response Body: <!DOCTYPE html>
+<html>
+    <head>
+        <meta name="robots" content="noindex,nofollow" />
+        <style>
+            /* Copyright (c) 2010, Yahoo! Inc. All rights reserved. Code licensed under the BSD License: http://developer.yahoo.com/yui/license.html */
+            html{color:#000;background:#FFF;}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{margin:0;padding:0;}table{border-collapse:collapse;border-spacing:0;}fieldset,img{border:0;}address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal;}li{list-style:none;}caption,th{text-align:left;}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}q:before,q:after{content:'';}abbr,acronym{border:0;font-variant:normal;}sup{vertical-align:text-top;}sub{vertical-align:text-bottom;}input,textarea,select{font-family:inherit;font-size:inherit;font-weight:inherit;}input,textarea,select{*font-size:100%;}legend{color:#000;}
+            html { background: #eee; padding: 10px }
+            img { border: 0; }
+            #sf-resetcontent { width:970px; margin:0 auto; }
+                            body { background-color: #fff; color: #222; font: 16px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; margin: 0; }
+                .container { margin: 30px; max-width: 600px; }
+                h1 { color: #dc3545; font-size: 24px; }
+        </style>
+    </head>
+    <body>
+                        <div class="container">
+                    <h1>Sorry, the page you are looking for could not be found.</h1>
+                </div>
+    </body>
+</html>
+
+2023-02-21T13:25:58+00:00 WARNING [Error] Unknown error while connecting to PayPal. Status code: 0.
+2023-02-21T13:26:00+00:00 DEBUG GET https://connect.woocommerce.com/ppc/v1/customer/partners/K8SKZ36LQBWXJ/merchant-integrations/
+Response: Array
+(
+    [code] => 404
+    [message] => Not Found
+)
+
+Response Body: <!DOCTYPE html>
+<html>
+    <head>
+        <meta name="robots" content="noindex,nofollow" />
+        <style>
+            /* Copyright (c) 2010, Yahoo! Inc. All rights reserved. Code licensed under the BSD License: http://developer.yahoo.com/yui/license.html */
+            html{color:#000;background:#FFF;}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{margin:0;padding:0;}table{border-collapse:collapse;border-spacing:0;}fieldset,img{border:0;}address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal;}li{list-style:none;}caption,th{text-align:left;}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}q:before,q:after{content:'';}abbr,acronym{border:0;font-variant:normal;}sup{vertical-align:text-top;}sub{vertical-align:text-bottom;}input,textarea,select{font-family:inherit;font-size:inherit;font-weight:inherit;}input,textarea,select{*font-size:100%;}legend{color:#000;}
+            html { background: #eee; padding: 10px }
+            img { border: 0; }
+            #sf-resetcontent { width:970px; margin:0 auto; }
+                            body { background-color: #fff; color: #222; font: 16px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; margin: 0; }
+                .container { margin: 30px; max-width: 600px; }
+                h1 { color: #dc3545; font-size: 24px; }
+        </style>
+    </head>
+    <body>
+                        <div class="container">
+                    <h1>Sorry, the page you are looking for could not be found.</h1>
+                </div>
+    </body>
+</html>
+
+2023-02-21T13:26:00+00:00 WARNING [Error] Unknown error while connecting to PayPal. Status code: 0.
+2023-02-21T13:26:03+00:00 DEBUG GET https://connect.woocommerce.com/ppc/v1/customer/partners/K8SKZ36LQBWXJ/merchant-integrations/
+Response: Array
+(
+    [code] => 404
+    [message] => Not Found
+)
+
+Response Body: <!DOCTYPE html>
+<html>
+    <head>
+        <meta name="robots" content="noindex,nofollow" />
+        <style>
+            /* Copyright (c) 2010, Yahoo! Inc. All rights reserved. Code licensed under the BSD License: http://developer.yahoo.com/yui/license.html */
+            html{color:#000;background:#FFF;}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{margin:0;padding:0;}table{border-collapse:collapse;border-spacing:0;}fieldset,img{border:0;}address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal;}li{list-style:none;}caption,th{text-align:left;}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}q:before,q:after{content:'';}abbr,acronym{border:0;font-variant:normal;}sup{vertical-align:text-top;}sub{vertical-align:text-bottom;}input,textarea,select{font-family:inherit;font-size:inherit;font-weight:inherit;}input,textarea,select{*font-size:100%;}legend{color:#000;}
+            html { background: #eee; padding: 10px }
+            img { border: 0; }
+            #sf-resetcontent { width:970px; margin:0 auto; }
+                            body { background-color: #fff; color: #222; font: 16px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; margin: 0; }
+                .container { margin: 30px; max-width: 600px; }
+                h1 { color: #dc3545; font-size: 24px; }
+        </style>
+    </head>
+    <body>
+                        <div class="container">
+                    <h1>Sorry, the page you are looking for could not be found.</h1>
+                </div>
+    </body>
+</html>
+
+2023-02-21T13:26:03+00:00 WARNING [Error] Unknown error while connecting to PayPal. Status code: 0.
+2023-02-21T13:26:07+00:00 DEBUG GET https://connect.woocommerce.com/ppc/v1/customer/partners/K8SKZ36LQBWXJ/merchant-integrations/
+Response: Array
+(
+    [code] => 404
+    [message] => Not Found
+)
+
+Response Body: <!DOCTYPE html>
+<html>
+    <head>
+        <meta name="robots" content="noindex,nofollow" />
+        <style>
+            /* Copyright (c) 2010, Yahoo! Inc. All rights reserved. Code licensed under the BSD License: http://developer.yahoo.com/yui/license.html */
+            html{color:#000;background:#FFF;}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{margin:0;padding:0;}table{border-collapse:collapse;border-spacing:0;}fieldset,img{border:0;}address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal;}li{list-style:none;}caption,th{text-align:left;}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}q:before,q:after{content:'';}abbr,acronym{border:0;font-variant:normal;}sup{vertical-align:text-top;}sub{vertical-align:text-bottom;}input,textarea,select{font-family:inherit;font-size:inherit;font-weight:inherit;}input,textarea,select{*font-size:100%;}legend{color:#000;}
+            html { background: #eee; padding: 10px }
+            img { border: 0; }
+            #sf-resetcontent { width:970px; margin:0 auto; }
+                            body { background-color: #fff; color: #222; font: 16px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; margin: 0; }
+                .container { margin: 30px; max-width: 600px; }
+                h1 { color: #dc3545; font-size: 24px; }
+        </style>
+    </head>
+    <body>
+                        <div class="container">
+                    <h1>Sorry, the page you are looking for could not be found.</h1>
+                </div>
+    </body>
+</html>
+
+2023-02-21T13:26:07+00:00 WARNING [Error] Unknown error while connecting to PayPal. Status code: 0.
+2023-02-21T13:26:08+00:00 DEBUG GET https://connect.woocommerce.com/ppc/v1/customer/partners/K8SKZ36LQBWXJ/merchant-integrations/
+Response: Array
+(
+    [code] => 404
+    [message] => Not Found
+)
+
+Response Body: <!DOCTYPE html>
+<html>
+    <head>
+        <meta name="robots" content="noindex,nofollow" />
+        <style>
+            /* Copyright (c) 2010, Yahoo! Inc. All rights reserved. Code licensed under the BSD License: http://developer.yahoo.com/yui/license.html */
+            html{color:#000;background:#FFF;}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{margin:0;padding:0;}table{border-collapse:collapse;border-spacing:0;}fieldset,img{border:0;}address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal;}li{list-style:none;}caption,th{text-align:left;}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}q:before,q:after{content:'';}abbr,acronym{border:0;font-variant:normal;}sup{vertical-align:text-top;}sub{vertical-align:text-bottom;}input,textarea,select{font-family:inherit;font-size:inherit;font-weight:inherit;}input,textarea,select{*font-size:100%;}legend{color:#000;}
+            html { background: #eee; padding: 10px }
+            img { border: 0; }
+            #sf-resetcontent { width:970px; margin:0 auto; }
+                            body { background-color: #fff; color: #222; font: 16px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; margin: 0; }
+                .container { margin: 30px; max-width: 600px; }
+                h1 { color: #dc3545; font-size: 24px; }
+        </style>
+    </head>
+    <body>
+                        <div class="container">
+                    <h1>Sorry, the page you are looking for could not be found.</h1>
+                </div>
+    </body>
+</html>
+
+2023-02-21T13:26:08+00:00 WARNING [Error] Unknown error while connecting to PayPal. Status code: 0.
+2023-02-21T13:26:10+00:00 DEBUG GET https://connect.woocommerce.com/ppc/v1/customer/partners/K8SKZ36LQBWXJ/merchant-integrations/
+Response: Array
+(
+    [code] => 404
+    [message] => Not Found
+)
+
+Response Body: <!DOCTYPE html>
+<html>
+    <head>
+        <meta name="robots" content="noindex,nofollow" />
+        <style>
+            /* Copyright (c) 2010, Yahoo! Inc. All rights reserved. Code licensed under the BSD License: http://developer.yahoo.com/yui/license.html */
+            html{color:#000;background:#FFF;}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{margin:0;padding:0;}table{border-collapse:collapse;border-spacing:0;}fieldset,img{border:0;}address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal;}li{list-style:none;}caption,th{text-align:left;}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}q:before,q:after{content:'';}abbr,acronym{border:0;font-variant:normal;}sup{vertical-align:text-top;}sub{vertical-align:text-bottom;}input,textarea,select{font-family:inherit;font-size:inherit;font-weight:inherit;}input,textarea,select{*font-size:100%;}legend{color:#000;}
+            html { background: #eee; padding: 10px }
+            img { border: 0; }
+            #sf-resetcontent { width:970px; margin:0 auto; }
+                            body { background-color: #fff; color: #222; font: 16px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; margin: 0; }
+                .container { margin: 30px; max-width: 600px; }
+                h1 { color: #dc3545; font-size: 24px; }
+        </style>
+    </head>
+    <body>
+                        <div class="container">
+                    <h1>Sorry, the page you are looking for could not be found.</h1>
+                </div>
+    </body>
+</html>
+
+2023-02-21T13:26:10+00:00 WARNING [Error] Unknown error while connecting to PayPal. Status code: 0.
+2023-02-21T13:26:13+00:00 DEBUG GET https://connect.woocommerce.com/ppc/v1/customer/partners/K8SKZ36LQBWXJ/merchant-integrations/
+Response: Array
+(
+    [code] => 404
+    [message] => Not Found
+)
+
+Response Body: <!DOCTYPE html>
+<html>
+    <head>
+        <meta name="robots" content="noindex,nofollow" />
+        <style>
+            /* Copyright (c) 2010, Yahoo! Inc. All rights reserved. Code licensed under the BSD License: http://developer.yahoo.com/yui/license.html */
+            html{color:#000;background:#FFF;}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{margin:0;padding:0;}table{border-collapse:collapse;border-spacing:0;}fieldset,img{border:0;}address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal;}li{list-style:none;}caption,th{text-align:left;}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}q:before,q:after{content:'';}abbr,acronym{border:0;font-variant:normal;}sup{vertical-align:text-top;}sub{vertical-align:text-bottom;}input,textarea,select{font-family:inherit;font-size:inherit;font-weight:inherit;}input,textarea,select{*font-size:100%;}legend{color:#000;}
+            html { background: #eee; padding: 10px }
+            img { border: 0; }
+            #sf-resetcontent { width:970px; margin:0 auto; }
+                            body { background-color: #fff; color: #222; font: 16px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; margin: 0; }
+                .container { margin: 30px; max-width: 600px; }
+                h1 { color: #dc3545; font-size: 24px; }
+        </style>
+    </head>
+    <body>
+                        <div class="container">
+                    <h1>Sorry, the page you are looking for could not be found.</h1>
+                </div>
+    </body>
+</html>
+
+2023-02-21T13:26:13+00:00 WARNING [Error] Unknown error while connecting to PayPal. Status code: 0.
+2023-02-21T13:26:15+00:00 DEBUG GET https://connect.woocommerce.com/ppc/v1/customer/partners/K8SKZ36LQBWXJ/merchant-integrations/
+Response: Array
+(
+    [code] => 404
+    [message] => Not Found
+)
+
+Response Body: <!DOCTYPE html>
+<html>
+    <head>
+        <meta name="robots" content="noindex,nofollow" />
+        <style>
+            /* Copyright (c) 2010, Yahoo! Inc. All rights reserved. Code licensed under the BSD License: http://developer.yahoo.com/yui/license.html */
+            html{color:#000;background:#FFF;}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{margin:0;padding:0;}table{border-collapse:collapse;border-spacing:0;}fieldset,img{border:0;}address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal;}li{list-style:none;}caption,th{text-align:left;}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}q:before,q:after{content:'';}abbr,acronym{border:0;font-variant:normal;}sup{vertical-align:text-top;}sub{vertical-align:text-bottom;}input,textarea,select{font-family:inherit;font-size:inherit;font-weight:inherit;}input,textarea,select{*font-size:100%;}legend{color:#000;}
+            html { background: #eee; padding: 10px }
+            img { border: 0; }
+            #sf-resetcontent { width:970px; margin:0 auto; }
+                            body { background-color: #fff; color: #222; font: 16px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; margin: 0; }
+                .container { margin: 30px; max-width: 600px; }
+                h1 { color: #dc3545; font-size: 24px; }
+        </style>
+    </head>
+    <body>
+                        <div class="container">
+                    <h1>Sorry, the page you are looking for could not be found.</h1>
+                </div>
+    </body>
+</html>
+
+2023-02-21T13:26:15+00:00 WARNING [Error] Unknown error while connecting to PayPal. Status code: 0.
+2023-02-21T13:29:49+00:00 DEBUG POST https://api.sandbox.paypal.com/v1/oauth2/token/
+Response Debug ID: 6943b7e92c2fd
+Response: Array
+(
+    [code] => 401
+    [message] => Unauthorized
+)
+
+Response Body: {"error":"invalid_authz_code","error_description":"Authorization code not found in cache"}
+
+2023-02-21T13:29:49+00:00 WARNING No token found.
+2023-02-21T13:29:49+00:00 ERROR Onboarding completion handling error: No token found.
+2023-02-21T13:29:49+00:00 DEBUG POST https://api.sandbox.paypal.com/v1/oauth2/token/
+Response Debug ID: 5ae25c827fcb7
+Response: Array
+(
+    [code] => 200
+    [message] => OK
+)
+
+
+2023-02-21T13:29:51+00:00 DEBUG GET https://connect.woocommerce.com/ppcsandbox/v1/notifications/webhooks
+Response: Array
+(
+    [code] => 404
+    [message] => Not Found
+)
+
+Response Body: <!DOCTYPE html>
+<html>
+    <head>
+        <meta name="robots" content="noindex,nofollow" />
+        <style>
+            /* Copyright (c) 2010, Yahoo! Inc. All rights reserved. Code licensed under the BSD License: http://developer.yahoo.com/yui/license.html */
+            html{color:#000;background:#FFF;}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{margin:0;padding:0;}table{border-collapse:collapse;border-spacing:0;}fieldset,img{border:0;}address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal;}li{list-style:none;}caption,th{text-align:left;}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}q:before,q:after{content:'';}abbr,acronym{border:0;font-variant:normal;}sup{vertical-align:text-top;}sub{vertical-align:text-bottom;}input,textarea,select{font-family:inherit;font-size:inherit;font-weight:inherit;}input,textarea,select{*font-size:100%;}legend{color:#000;}
+            html { background: #eee; padding: 10px }
+            img { border: 0; }
+            #sf-resetcontent { width:970px; margin:0 auto; }
+                            body { background-color: #fff; color: #222; font: 16px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; margin: 0; }
+                .container { margin: 30px; max-width: 600px; }
+                h1 { color: #dc3545; font-size: 24px; }
+        </style>
+    </head>
+    <body>
+                        <div class="container">
+                    <h1>Sorry, the page you are looking for could not be found.</h1>
+                </div>
+    </body>
+</html>
+
+2023-02-21T13:29:51+00:00 ERROR Failed to load webhooks list: Could not retrieve value for key "webhook.status.registered-webhooks from inner container
+2023-02-21T13:29:53+00:00 DEBUG GET https://api.sandbox.paypal.com/v1/customer/partners/MPMFHQTVMBZ6G/merchant-integrations/credentials/
+Response Debug ID: 20084745a4a8b
+Response: Array
+(
+    [code] => 200
+    [message] => OK
+)
+
+
+2023-02-21T13:29:53+00:00 DEBUG GET https://connect.woocommerce.com/ppcsandbox/v1/customer/partners/MPMFHQTVMBZ6G/merchant-integrations/
+Response: Array
+(
+    [code] => 404
+    [message] => Not Found
+)
+
+Response Body: <!DOCTYPE html>
+<html>
+    <head>
+        <meta name="robots" content="noindex,nofollow" />
+        <style>
+            /* Copyright (c) 2010, Yahoo! Inc. All rights reserved. Code licensed under the BSD License: http://developer.yahoo.com/yui/license.html */
+            html{color:#000;background:#FFF;}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{margin:0;padding:0;}table{border-collapse:collapse;border-spacing:0;}fieldset,img{border:0;}address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal;}li{list-style:none;}caption,th{text-align:left;}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}q:before,q:after{content:'';}abbr,acronym{border:0;font-variant:normal;}sup{vertical-align:text-top;}sub{vertical-align:text-bottom;}input,textarea,select{font-family:inherit;font-size:inherit;font-weight:inherit;}input,textarea,select{*font-size:100%;}legend{color:#000;}
+            html { background: #eee; padding: 10px }
+            img { border: 0; }
+            #sf-resetcontent { width:970px; margin:0 auto; }
+                            body { background-color: #fff; color: #222; font: 16px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; margin: 0; }
+                .container { margin: 30px; max-width: 600px; }
+                h1 { color: #dc3545; font-size: 24px; }
+        </style>
+    </head>
+    <body>
+                        <div class="container">
+                    <h1>Sorry, the page you are looking for could not be found.</h1>
+                </div>
+    </body>
+</html>
+
+2023-02-21T13:29:53+00:00 WARNING [Error] Unknown error while connecting to PayPal. Status code: 0.
+2023-02-21T13:29:56+00:00 DEBUG GET https://connect.woocommerce.com/ppcsandbox/v1/customer/partners/MPMFHQTVMBZ6G/merchant-integrations/
+Response: Array
+(
+    [code] => 404
+    [message] => Not Found
+)
+
+Response Body: <!DOCTYPE html>
+<html>
+    <head>
+        <meta name="robots" content="noindex,nofollow" />
+        <style>
+            /* Copyright (c) 2010, Yahoo! Inc. All rights reserved. Code licensed under the BSD License: http://developer.yahoo.com/yui/license.html */
+            html{color:#000;background:#FFF;}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{margin:0;padding:0;}table{border-collapse:collapse;border-spacing:0;}fieldset,img{border:0;}address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal;}li{list-style:none;}caption,th{text-align:left;}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}q:before,q:after{content:'';}abbr,acronym{border:0;font-variant:normal;}sup{vertical-align:text-top;}sub{vertical-align:text-bottom;}input,textarea,select{font-family:inherit;font-size:inherit;font-weight:inherit;}input,textarea,select{*font-size:100%;}legend{color:#000;}
+            html { background: #eee; padding: 10px }
+            img { border: 0; }
+            #sf-resetcontent { width:970px; margin:0 auto; }
+                            body { background-color: #fff; color: #222; font: 16px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; margin: 0; }
+                .container { margin: 30px; max-width: 600px; }
+                h1 { color: #dc3545; font-size: 24px; }
+        </style>
+    </head>
+    <body>
+                        <div class="container">
+                    <h1>Sorry, the page you are looking for could not be found.</h1>
+                </div>
+    </body>
+</html>
+
+2023-02-21T13:29:56+00:00 WARNING [Error] Unknown error while connecting to PayPal. Status code: 0.
+2023-02-21T13:30:00+00:00 DEBUG POST https://connect.woocommerce.com/ppcsandbox/v1/notifications/webhooks
+Request Body: {"url":"https:\/\/lo.fashion.com\/index.php?rest_route=\/paypal\/v1\/incoming","event_types":[{"name":"CHECKOUT.ORDER.APPROVED"},{"name":"CHECKOUT.ORDER.COMPLETED"},{"name":"CHECKOUT.PAYMENT-APPROVAL.REVERSED"},{"name":"PAYMENT.CAPTURE.REFUNDED"},{"name":"PAYMENT.AUTHORIZATION.VOIDED"},{"name":"PAYMENT.CAPTURE.REVERSED"},{"name":"PAYMENT.ORDER.CANCELLED"},{"name":"PAYMENT.CAPTURE.DENIED"},{"name":"PAYMENT.CAPTURE.COMPLETED"},{"name":"VAULT.PAYMENT-TOKEN.CREATED"},{"name":"VAULT.CREDIT-CARD.CREATED"},{"name":"PAYMENT.CAPTURE.PENDING"}]}
+Response: Array
+(
+    [code] => 404
+    [message] => Not Found
+)
+
+Response Body: <!DOCTYPE html>
+<html>
+    <head>
+        <meta name="robots" content="noindex,nofollow" />
+        <style>
+            /* Copyright (c) 2010, Yahoo! Inc. All rights reserved. Code licensed under the BSD License: http://developer.yahoo.com/yui/license.html */
+            html{color:#000;background:#FFF;}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{margin:0;padding:0;}table{border-collapse:collapse;border-spacing:0;}fieldset,img{border:0;}address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal;}li{list-style:none;}caption,th{text-align:left;}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}q:before,q:after{content:'';}abbr,acronym{border:0;font-variant:normal;}sup{vertical-align:text-top;}sub{vertical-align:text-bottom;}input,textarea,select{font-family:inherit;font-size:inherit;font-weight:inherit;}input,textarea,select{*font-size:100%;}legend{color:#000;}
+            html { background: #eee; padding: 10px }
+            img { border: 0; }
+            #sf-resetcontent { width:970px; margin:0 auto; }
+                            body { background-color: #fff; color: #222; font: 16px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; margin: 0; }
+                .container { margin: 30px; max-width: 600px; }
+                h1 { color: #dc3545; font-size: 24px; }
+        </style>
+    </head>
+    <body>
+                        <div class="container">
+                    <h1>Sorry, the page you are looking for could not be found.</h1>
+                </div>
+    </body>
+</html>
+
+2023-02-21T13:30:00+00:00 ERROR Failed to subscribe webhooks: [Error] Unknown error while connecting to PayPal. Status code: 0.
+2023-02-21T13:30:00+00:00 DEBUG GET https://connect.woocommerce.com/ppcsandbox/v1/customer/partners/MPMFHQTVMBZ6G/merchant-integrations/
+Response: Array
+(
+    [code] => 404
+    [message] => Not Found
+)
+
+Response Body: <!DOCTYPE html>
+<html>
+    <head>
+        <meta name="robots" content="noindex,nofollow" />
+        <style>
+            /* Copyright (c) 2010, Yahoo! Inc. All rights reserved. Code licensed under the BSD License: http://developer.yahoo.com/yui/license.html */
+            html{color:#000;background:#FFF;}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{margin:0;padding:0;}table{border-collapse:collapse;border-spacing:0;}fieldset,img{border:0;}address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal;}li{list-style:none;}caption,th{text-align:left;}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}q:before,q:after{content:'';}abbr,acronym{border:0;font-variant:normal;}sup{vertical-align:text-top;}sub{vertical-align:text-bottom;}input,textarea,select{font-family:inherit;font-size:inherit;font-weight:inherit;}input,textarea,select{*font-size:100%;}legend{color:#000;}
+            html { background: #eee; padding: 10px }
+            img { border: 0; }
+            #sf-resetcontent { width:970px; margin:0 auto; }
+                            body { background-color: #fff; color: #222; font: 16px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; margin: 0; }
+                .container { margin: 30px; max-width: 600px; }
+                h1 { color: #dc3545; font-size: 24px; }
+        </style>
+    </head>
+    <body>
+                        <div class="container">
+                    <h1>Sorry, the page you are looking for could not be found.</h1>
+                </div>
+    </body>
+</html>
+
+2023-02-21T13:30:00+00:00 WARNING [Error] Unknown error while connecting to PayPal. Status code: 0.
+2023-02-21T13:30:10+00:00 DEBUG GET https://connect.woocommerce.com/ppcsandbox/v1/customer/partners/MPMFHQTVMBZ6G/merchant-integrations/
+Request failed. WP error message: cURL error 28: Connection timed out after 10001 milliseconds
+
+2023-02-21T13:30:10+00:00 WARNING Could not fetch sellers status.
+2023-02-21T13:30:13+00:00 DEBUG GET https://connect.woocommerce.com/ppcsandbox/v1/notifications/webhooks
+Response: Array
+(
+    [code] => 404
+    [message] => Not Found
+)
+
+Response Body: <!DOCTYPE html>
+<html>
+    <head>
+        <meta name="robots" content="noindex,nofollow" />
+        <style>
+            /* Copyright (c) 2010, Yahoo! Inc. All rights reserved. Code licensed under the BSD License: http://developer.yahoo.com/yui/license.html */
+            html{color:#000;background:#FFF;}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{margin:0;padding:0;}table{border-collapse:collapse;border-spacing:0;}fieldset,img{border:0;}address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal;}li{list-style:none;}caption,th{text-align:left;}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}q:before,q:after{content:'';}abbr,acronym{border:0;font-variant:normal;}sup{vertical-align:text-top;}sub{vertical-align:text-bottom;}input,textarea,select{font-family:inherit;font-size:inherit;font-weight:inherit;}input,textarea,select{*font-size:100%;}legend{color:#000;}
+            html { background: #eee; padding: 10px }
+            img { border: 0; }
+            #sf-resetcontent { width:970px; margin:0 auto; }
+                            body { background-color: #fff; color: #222; font: 16px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; margin: 0; }
+                .container { margin: 30px; max-width: 600px; }
+                h1 { color: #dc3545; font-size: 24px; }
+        </style>
+    </head>
+    <body>
+                        <div class="container">
+                    <h1>Sorry, the page you are looking for could not be found.</h1>
+                </div>
+    </body>
+</html>
+
+2023-02-21T13:30:13+00:00 ERROR Failed to load webhooks list: Could not retrieve value for key "webhook.status.registered-webhooks from inner container
+2023-02-21T13:30:17+00:00 DEBUG GET https://connect.woocommerce.com/ppcsandbox/v1/customer/partners/MPMFHQTVMBZ6G/merchant-integrations/GYLPTR6XAV7S6
+Response: Array
+(
+    [code] => 404
+    [message] => Not Found
+)
+
+Response Body: <!DOCTYPE html>
+<html>
+    <head>
+        <meta name="robots" content="noindex,nofollow" />
+        <style>
+            /* Copyright (c) 2010, Yahoo! Inc. All rights reserved. Code licensed under the BSD License: http://developer.yahoo.com/yui/license.html */
+            html{color:#000;background:#FFF;}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{margin:0;padding:0;}table{border-collapse:collapse;border-spacing:0;}fieldset,img{border:0;}address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal;}li{list-style:none;}caption,th{text-align:left;}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}q:before,q:after{content:'';}abbr,acronym{border:0;font-variant:normal;}sup{vertical-align:text-top;}sub{vertical-align:text-bottom;}input,textarea,select{font-family:inherit;font-size:inherit;font-weight:inherit;}input,textarea,select{*font-size:100%;}legend{color:#000;}
+            html { background: #eee; padding: 10px }
+            img { border: 0; }
+            #sf-resetcontent { width:970px; margin:0 auto; }
+                            body { background-color: #fff; color: #222; font: 16px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; margin: 0; }
+                .container { margin: 30px; max-width: 600px; }
+                h1 { color: #dc3545; font-size: 24px; }
+        </style>
+    </head>
+    <body>
+                        <div class="container">
+                    <h1>Sorry, the page you are looking for could not be found.</h1>
+                </div>
+    </body>
+</html>
+
+2023-02-21T13:30:17+00:00 WARNING [Error] Unknown error while connecting to PayPal. Status code: 0.
+2023-02-21T13:30:26+00:00 DEBUG GET https://connect.woocommerce.com/ppcsandbox/v1/customer/partners/MPMFHQTVMBZ6G/merchant-integrations/GYLPTR6XAV7S6
+Response: Array
+(
+    [code] => 404
+    [message] => Not Found
+)
+
+Response Body: <!DOCTYPE html>
+<html>
+    <head>
+        <meta name="robots" content="noindex,nofollow" />
+        <style>
+            /* Copyright (c) 2010, Yahoo! Inc. All rights reserved. Code licensed under the BSD License: http://developer.yahoo.com/yui/license.html */
+            html{color:#000;background:#FFF;}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{margin:0;padding:0;}table{border-collapse:collapse;border-spacing:0;}fieldset,img{border:0;}address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal;}li{list-style:none;}caption,th{text-align:left;}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}q:before,q:after{content:'';}abbr,acronym{border:0;font-variant:normal;}sup{vertical-align:text-top;}sub{vertical-align:text-bottom;}input,textarea,select{font-family:inherit;font-size:inherit;font-weight:inherit;}input,textarea,select{*font-size:100%;}legend{color:#000;}
+            html { background: #eee; padding: 10px }
+            img { border: 0; }
+            #sf-resetcontent { width:970px; margin:0 auto; }
+                            body { background-color: #fff; color: #222; font: 16px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; margin: 0; }
+                .container { margin: 30px; max-width: 600px; }
+                h1 { color: #dc3545; font-size: 24px; }
+        </style>
+    </head>
+    <body>
+                        <div class="container">
+                    <h1>Sorry, the page you are looking for could not be found.</h1>
+                </div>
+    </body>
+</html>
+
+2023-02-21T13:30:26+00:00 WARNING [Error] Unknown error while connecting to PayPal. Status code: 0.
+2023-02-21T13:30:28+00:00 DEBUG GET https://connect.woocommerce.com/ppcsandbox/v1/customer/partners/MPMFHQTVMBZ6G/merchant-integrations/GYLPTR6XAV7S6
+Response: Array
+(
+    [code] => 404
+    [message] => Not Found
+)
+
+Response Body: <!DOCTYPE html>
+<html>
+    <head>
+        <meta name="robots" content="noindex,nofollow" />
+        <style>
+            /* Copyright (c) 2010, Yahoo! Inc. All rights reserved. Code licensed under the BSD License: http://developer.yahoo.com/yui/license.html */
+            html{color:#000;background:#FFF;}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{margin:0;padding:0;}table{border-collapse:collapse;border-spacing:0;}fieldset,img{border:0;}address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal;}li{list-style:none;}caption,th{text-align:left;}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}q:before,q:after{content:'';}abbr,acronym{border:0;font-variant:normal;}sup{vertical-align:text-top;}sub{vertical-align:text-bottom;}input,textarea,select{font-family:inherit;font-size:inherit;font-weight:inherit;}input,textarea,select{*font-size:100%;}legend{color:#000;}
+            html { background: #eee; padding: 10px }
+            img { border: 0; }
+            #sf-resetcontent { width:970px; margin:0 auto; }
+                            body { background-color: #fff; color: #222; font: 16px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; margin: 0; }
+                .container { margin: 30px; max-width: 600px; }
+                h1 { color: #dc3545; font-size: 24px; }
+        </style>
+    </head>
+    <body>
+                        <div class="container">
+                    <h1>Sorry, the page you are looking for could not be found.</h1>
+                </div>
+    </body>
+</html>
+
+2023-02-21T13:30:28+00:00 WARNING [Error] Unknown error while connecting to PayPal. Status code: 0.
+2023-02-21T13:30:29+00:00 DEBUG GET https://connect.woocommerce.com/ppcsandbox/v1/customer/partners/MPMFHQTVMBZ6G/merchant-integrations/GYLPTR6XAV7S6
+Response: Array
+(
+    [code] => 404
+    [message] => Not Found
+)
+
+Response Body: <!DOCTYPE html>
+<html>
+    <head>
+        <meta name="robots" content="noindex,nofollow" />
+        <style>
+            /* Copyright (c) 2010, Yahoo! Inc. All rights reserved. Code licensed under the BSD License: http://developer.yahoo.com/yui/license.html */
+            html{color:#000;background:#FFF;}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{margin:0;padding:0;}table{border-collapse:collapse;border-spacing:0;}fieldset,img{border:0;}address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal;}li{list-style:none;}caption,th{text-align:left;}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}q:before,q:after{content:'';}abbr,acronym{border:0;font-variant:normal;}sup{vertical-align:text-top;}sub{vertical-align:text-bottom;}input,textarea,select{font-family:inherit;font-size:inherit;font-weight:inherit;}input,textarea,select{*font-size:100%;}legend{color:#000;}
+            html { background: #eee; padding: 10px }
+            img { border: 0; }
+            #sf-resetcontent { width:970px; margin:0 auto; }
+                            body { background-color: #fff; color: #222; font: 16px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; margin: 0; }
+                .container { margin: 30px; max-width: 600px; }
+                h1 { color: #dc3545; font-size: 24px; }
+        </style>
+    </head>
+    <body>
+                        <div class="container">
+                    <h1>Sorry, the page you are looking for could not be found.</h1>
+                </div>
+    </body>
+</html>
+
+2023-02-21T13:30:29+00:00 WARNING [Error] Unknown error while connecting to PayPal. Status code: 0.
+2023-02-21T13:30:31+00:00 DEBUG GET https://connect.woocommerce.com/ppcsandbox/v1/customer/partners/MPMFHQTVMBZ6G/merchant-integrations/GYLPTR6XAV7S6
+Response: Array
+(
+    [code] => 404
+    [message] => Not Found
+)
+
+Response Body: <!DOCTYPE html>
+<html>
+    <head>
+        <meta name="robots" content="noindex,nofollow" />
+        <style>
+            /* Copyright (c) 2010, Yahoo! Inc. All rights reserved. Code licensed under the BSD License: http://developer.yahoo.com/yui/license.html */
+            html{color:#000;background:#FFF;}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{margin:0;padding:0;}table{border-collapse:collapse;border-spacing:0;}fieldset,img{border:0;}address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal;}li{list-style:none;}caption,th{text-align:left;}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}q:before,q:after{content:'';}abbr,acronym{border:0;font-variant:normal;}sup{vertical-align:text-top;}sub{vertical-align:text-bottom;}input,textarea,select{font-family:inherit;font-size:inherit;font-weight:inherit;}input,textarea,select{*font-size:100%;}legend{color:#000;}
+            html { background: #eee; padding: 10px }
+            img { border: 0; }
+            #sf-resetcontent { width:970px; margin:0 auto; }
+                            body { background-color: #fff; color: #222; font: 16px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; margin: 0; }
+                .container { margin: 30px; max-width: 600px; }
+                h1 { color: #dc3545; font-size: 24px; }
+        </style>
+    </head>
+    <body>
+                        <div class="container">
+                    <h1>Sorry, the page you are looking for could not be found.</h1>
+                </div>
+    </body>
+</html>
+
+2023-02-21T13:30:31+00:00 WARNING [Error] Unknown error while connecting to PayPal. Status code: 0.
+2023-02-21T13:30:33+00:00 DEBUG GET https://connect.woocommerce.com/ppcsandbox/v1/customer/partners/MPMFHQTVMBZ6G/merchant-integrations/GYLPTR6XAV7S6
+Response: Array
+(
+    [code] => 404
+    [message] => Not Found
+)
+
+Response Body: <!DOCTYPE html>
+<html>
+    <head>
+        <meta name="robots" content="noindex,nofollow" />
+        <style>
+            /* Copyright (c) 2010, Yahoo! Inc. All rights reserved. Code licensed under the BSD License: http://developer.yahoo.com/yui/license.html */
+            html{color:#000;background:#FFF;}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{margin:0;padding:0;}table{border-collapse:collapse;border-spacing:0;}fieldset,img{border:0;}address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal;}li{list-style:none;}caption,th{text-align:left;}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}q:before,q:after{content:'';}abbr,acronym{border:0;font-variant:normal;}sup{vertical-align:text-top;}sub{vertical-align:text-bottom;}input,textarea,select{font-family:inherit;font-size:inherit;font-weight:inherit;}input,textarea,select{*font-size:100%;}legend{color:#000;}
+            html { background: #eee; padding: 10px }
+            img { border: 0; }
+            #sf-resetcontent { width:970px; margin:0 auto; }
+                            body { background-color: #fff; color: #222; font: 16px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; margin: 0; }
+                .container { margin: 30px; max-width: 600px; }
+                h1 { color: #dc3545; font-size: 24px; }
+        </style>
+    </head>
+    <body>
+                        <div class="container">
+                    <h1>Sorry, the page you are looking for could not be found.</h1>
+                </div>
+    </body>
+</html>
+
+2023-02-21T13:30:33+00:00 WARNING [Error] Unknown error while connecting to PayPal. Status code: 0.
+2023-02-21T13:30:34+00:00 DEBUG GET https://connect.woocommerce.com/ppcsandbox/v1/customer/partners/MPMFHQTVMBZ6G/merchant-integrations/GYLPTR6XAV7S6
+Response: Array
+(
+    [code] => 404
+    [message] => Not Found
+)
+
+Response Body: <!DOCTYPE html>
+<html>
+    <head>
+        <meta name="robots" content="noindex,nofollow" />
+        <style>
+            /* Copyright (c) 2010, Yahoo! Inc. All rights reserved. Code licensed under the BSD License: http://developer.yahoo.com/yui/license.html */
+            html{color:#000;background:#FFF;}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{margin:0;padding:0;}table{border-collapse:collapse;border-spacing:0;}fieldset,img{border:0;}address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal;}li{list-style:none;}caption,th{text-align:left;}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}q:before,q:after{content:'';}abbr,acronym{border:0;font-variant:normal;}sup{vertical-align:text-top;}sub{vertical-align:text-bottom;}input,textarea,select{font-family:inherit;font-size:inherit;font-weight:inherit;}input,textarea,select{*font-size:100%;}legend{color:#000;}
+            html { background: #eee; padding: 10px }
+            img { border: 0; }
+            #sf-resetcontent { width:970px; margin:0 auto; }
+                            body { background-color: #fff; color: #222; font: 16px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; margin: 0; }
+                .container { margin: 30px; max-width: 600px; }
+                h1 { color: #dc3545; font-size: 24px; }
+        </style>
+    </head>
+    <body>
+                        <div class="container">
+                    <h1>Sorry, the page you are looking for could not be found.</h1>
+                </div>
+    </body>
+</html>
+
+2023-02-21T13:30:34+00:00 WARNING [Error] Unknown error while connecting to PayPal. Status code: 0.
+2023-02-21T13:30:38+00:00 DEBUG GET https://connect.woocommerce.com/ppcsandbox/v1/customer/partners/MPMFHQTVMBZ6G/merchant-integrations/GYLPTR6XAV7S6
+Response: Array
+(
+    [code] => 404
+    [message] => Not Found
+)
+
+Response Body: <!DOCTYPE html>
+<html>
+    <head>
+        <meta name="robots" content="noindex,nofollow" />
+        <style>
+            /* Copyright (c) 2010, Yahoo! Inc. All rights reserved. Code licensed under the BSD License: http://developer.yahoo.com/yui/license.html */
+            html{color:#000;background:#FFF;}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{margin:0;padding:0;}table{border-collapse:collapse;border-spacing:0;}fieldset,img{border:0;}address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal;}li{list-style:none;}caption,th{text-align:left;}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}q:before,q:after{content:'';}abbr,acronym{border:0;font-variant:normal;}sup{vertical-align:text-top;}sub{vertical-align:text-bottom;}input,textarea,select{font-family:inherit;font-size:inherit;font-weight:inherit;}input,textarea,select{*font-size:100%;}legend{color:#000;}
+            html { background: #eee; padding: 10px }
+            img { border: 0; }
+            #sf-resetcontent { width:970px; margin:0 auto; }
+                            body { background-color: #fff; color: #222; font: 16px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; margin: 0; }
+                .container { margin: 30px; max-width: 600px; }
+                h1 { color: #dc3545; font-size: 24px; }
+        </style>
+    </head>
+    <body>
+                        <div class="container">
+                    <h1>Sorry, the page you are looking for could not be found.</h1>
+                </div>
+    </body>
+</html>
+
+2023-02-21T13:30:38+00:00 WARNING [Error] Unknown error while connecting to PayPal. Status code: 0.
+2023-02-21T13:34:19+00:00 DEBUG GET https://connect.woocommerce.com/ppcsandbox/v1/customer/partners/MPMFHQTVMBZ6G/merchant-integrations/GYLPTR6XAV7S6
+Response: Array
+(
+    [code] => 404
+    [message] => Not Found
+)
+
+Response Body: <!DOCTYPE html>
+<html>
+    <head>
+        <meta name="robots" content="noindex,nofollow" />
+        <style>
+            /* Copyright (c) 2010, Yahoo! Inc. All rights reserved. Code licensed under the BSD License: http://developer.yahoo.com/yui/license.html */
+            html{color:#000;background:#FFF;}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{margin:0;padding:0;}table{border-collapse:collapse;border-spacing:0;}fieldset,img{border:0;}address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal;}li{list-style:none;}caption,th{text-align:left;}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}q:before,q:after{content:'';}abbr,acronym{border:0;font-variant:normal;}sup{vertical-align:text-top;}sub{vertical-align:text-bottom;}input,textarea,select{font-family:inherit;font-size:inherit;font-weight:inherit;}input,textarea,select{*font-size:100%;}legend{color:#000;}
+            html { background: #eee; padding: 10px }
+            img { border: 0; }
+            #sf-resetcontent { width:970px; margin:0 auto; }
+                            body { background-color: #fff; color: #222; font: 16px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; margin: 0; }
+                .container { margin: 30px; max-width: 600px; }
+                h1 { color: #dc3545; font-size: 24px; }
+        </style>
+    </head>
+    <body>
+                        <div class="container">
+                    <h1>Sorry, the page you are looking for could not be found.</h1>
+                </div>
+    </body>
+</html>
+
+2023-02-21T13:34:19+00:00 WARNING [Error] Unknown error while connecting to PayPal. Status code: 0.
+2023-02-21T13:34:20+00:00 DEBUG GET https://connect.woocommerce.com/ppcsandbox/v1/customer/partners/MPMFHQTVMBZ6G/merchant-integrations/GYLPTR6XAV7S6
+Response: Array
+(
+    [code] => 404
+    [message] => Not Found
+)
+
+Response Body: <!DOCTYPE html>
+<html>
+    <head>
+        <meta name="robots" content="noindex,nofollow" />
+        <style>
+            /* Copyright (c) 2010, Yahoo! Inc. All rights reserved. Code licensed under the BSD License: http://developer.yahoo.com/yui/license.html */
+            html{color:#000;background:#FFF;}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{margin:0;padding:0;}table{border-collapse:collapse;border-spacing:0;}fieldset,img{border:0;}address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal;}li{list-style:none;}caption,th{text-align:left;}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}q:before,q:after{content:'';}abbr,acronym{border:0;font-variant:normal;}sup{vertical-align:text-top;}sub{vertical-align:text-bottom;}input,textarea,select{font-family:inherit;font-size:inherit;font-weight:inherit;}input,textarea,select{*font-size:100%;}legend{color:#000;}
+            html { background: #eee; padding: 10px }
+            img { border: 0; }
+            #sf-resetcontent { width:970px; margin:0 auto; }
+                            body { background-color: #fff; color: #222; font: 16px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; margin: 0; }
+                .container { margin: 30px; max-width: 600px; }
+                h1 { color: #dc3545; font-size: 24px; }
+        </style>
+    </head>
+    <body>
+                        <div class="container">
+                    <h1>Sorry, the page you are looking for could not be found.</h1>
+                </div>
+    </body>
+</html>
+
+2023-02-21T13:34:20+00:00 WARNING [Error] Unknown error while connecting to PayPal. Status code: 0.
+2023-02-21T13:35:24+00:00 DEBUG GET https://connect.woocommerce.com/ppcsandbox/v1/notifications/webhooks
+Response: Array
+(
+    [code] => 404
+    [message] => Not Found
+)
+
+Response Body: <!DOCTYPE html>
+<html>
+    <head>
+        <meta name="robots" content="noindex,nofollow" />
+        <style>
+            /* Copyright (c) 2010, Yahoo! Inc. All rights reserved. Code licensed under the BSD License: http://developer.yahoo.com/yui/license.html */
+            html{color:#000;background:#FFF;}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{margin:0;padding:0;}table{border-collapse:collapse;border-spacing:0;}fieldset,img{border:0;}address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal;}li{list-style:none;}caption,th{text-align:left;}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}q:before,q:after{content:'';}abbr,acronym{border:0;font-variant:normal;}sup{vertical-align:text-top;}sub{vertical-align:text-bottom;}input,textarea,select{font-family:inherit;font-size:inherit;font-weight:inherit;}input,textarea,select{*font-size:100%;}legend{color:#000;}
+            html { background: #eee; padding: 10px }
+            img { border: 0; }
+            #sf-resetcontent { width:970px; margin:0 auto; }
+                            body { background-color: #fff; color: #222; font: 16px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; margin: 0; }
+                .container { margin: 30px; max-width: 600px; }
+                h1 { color: #dc3545; font-size: 24px; }
+        </style>
+    </head>
+    <body>
+                        <div class="container">
+                    <h1>Sorry, the page you are looking for could not be found.</h1>
+                </div>
+    </body>
+</html>
+
+2023-02-21T13:35:24+00:00 ERROR Failed to load webhooks list: Could not retrieve value for key "webhook.status.registered-webhooks from inner container
+2023-02-21T13:35:28+00:00 DEBUG GET https://connect.woocommerce.com/ppcsandbox/v1/customer/partners/MPMFHQTVMBZ6G/merchant-integrations/GYLPTR6XAV7S6
+Response: Array
+(
+    [code] => 404
+    [message] => Not Found
+)
+
+Response Body: <!DOCTYPE html>
+<html>
+    <head>
+        <meta name="robots" content="noindex,nofollow" />
+        <style>
+            /* Copyright (c) 2010, Yahoo! Inc. All rights reserved. Code licensed under the BSD License: http://developer.yahoo.com/yui/license.html */
+            html{color:#000;background:#FFF;}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{margin:0;padding:0;}table{border-collapse:collapse;border-spacing:0;}fieldset,img{border:0;}address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal;}li{list-style:none;}caption,th{text-align:left;}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}q:before,q:after{content:'';}abbr,acronym{border:0;font-variant:normal;}sup{vertical-align:text-top;}sub{vertical-align:text-bottom;}input,textarea,select{font-family:inherit;font-size:inherit;font-weight:inherit;}input,textarea,select{*font-size:100%;}legend{color:#000;}
+            html { background: #eee; padding: 10px }
+            img { border: 0; }
+            #sf-resetcontent { width:970px; margin:0 auto; }
+                            body { background-color: #fff; color: #222; font: 16px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; margin: 0; }
+                .container { margin: 30px; max-width: 600px; }
+                h1 { color: #dc3545; font-size: 24px; }
+        </style>
+    </head>
+    <body>
+                        <div class="container">
+                    <h1>Sorry, the page you are looking for could not be found.</h1>
+                </div>
+    </body>
+</html>
+
+2023-02-21T13:35:28+00:00 WARNING [Error] Unknown error while connecting to PayPal. Status code: 0.
+2023-02-21T13:35:30+00:00 DEBUG GET https://connect.woocommerce.com/ppcsandbox/v1/customer/partners/MPMFHQTVMBZ6G/merchant-integrations/GYLPTR6XAV7S6
+Response: Array
+(
+    [code] => 404
+    [message] => Not Found
+)
+
+Response Body: <!DOCTYPE html>
+<html>
+    <head>
+        <meta name="robots" content="noindex,nofollow" />
+        <style>
+            /* Copyright (c) 2010, Yahoo! Inc. All rights reserved. Code licensed under the BSD License: http://developer.yahoo.com/yui/license.html */
+            html{color:#000;background:#FFF;}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{margin:0;padding:0;}table{border-collapse:collapse;border-spacing:0;}fieldset,img{border:0;}address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal;}li{list-style:none;}caption,th{text-align:left;}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}q:before,q:after{content:'';}abbr,acronym{border:0;font-variant:normal;}sup{vertical-align:text-top;}sub{vertical-align:text-bottom;}input,textarea,select{font-family:inherit;font-size:inherit;font-weight:inherit;}input,textarea,select{*font-size:100%;}legend{color:#000;}
+            html { background: #eee; padding: 10px }
+            img { border: 0; }
+            #sf-resetcontent { width:970px; margin:0 auto; }
+                            body { background-color: #fff; color: #222; font: 16px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; margin: 0; }
+                .container { margin: 30px; max-width: 600px; }
+                h1 { color: #dc3545; font-size: 24px; }
+        </style>
+    </head>
+    <body>
+                        <div class="container">
+                    <h1>Sorry, the page you are looking for could not be found.</h1>
+                </div>
+    </body>
+</html>
+
+2023-02-21T13:35:30+00:00 WARNING [Error] Unknown error while connecting to PayPal. Status code: 0.
+2023-02-21T13:35:33+00:00 DEBUG GET https://connect.woocommerce.com/ppcsandbox/v1/customer/partners/MPMFHQTVMBZ6G/merchant-integrations/GYLPTR6XAV7S6
+Response: Array
+(
+    [code] => 404
+    [message] => Not Found
+)
+
+Response Body: <!DOCTYPE html>
+<html>
+    <head>
+        <meta name="robots" content="noindex,nofollow" />
+        <style>
+            /* Copyright (c) 2010, Yahoo! Inc. All rights reserved. Code licensed under the BSD License: http://developer.yahoo.com/yui/license.html */
+            html{color:#000;background:#FFF;}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{margin:0;padding:0;}table{border-collapse:collapse;border-spacing:0;}fieldset,img{border:0;}address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal;}li{list-style:none;}caption,th{text-align:left;}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}q:before,q:after{content:'';}abbr,acronym{border:0;font-variant:normal;}sup{vertical-align:text-top;}sub{vertical-align:text-bottom;}input,textarea,select{font-family:inherit;font-size:inherit;font-weight:inherit;}input,textarea,select{*font-size:100%;}legend{color:#000;}
+            html { background: #eee; padding: 10px }
+            img { border: 0; }
+            #sf-resetcontent { width:970px; margin:0 auto; }
+                            body { background-color: #fff; color: #222; font: 16px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; margin: 0; }
+                .container { margin: 30px; max-width: 600px; }
+                h1 { color: #dc3545; font-size: 24px; }
+        </style>
+    </head>
+    <body>
+                        <div class="container">
+                    <h1>Sorry, the page you are looking for could not be found.</h1>
+                </div>
+    </body>
+</html>
+
+2023-02-21T13:35:33+00:00 WARNING [Error] Unknown error while connecting to PayPal. Status code: 0.
+2023-02-21T13:35:34+00:00 DEBUG GET https://connect.woocommerce.com/ppcsandbox/v1/customer/partners/MPMFHQTVMBZ6G/merchant-integrations/GYLPTR6XAV7S6
+Response: Array
+(
+    [code] => 404
+    [message] => Not Found
+)
+
+Response Body: <!DOCTYPE html>
+<html>
+    <head>
+        <meta name="robots" content="noindex,nofollow" />
+        <style>
+            /* Copyright (c) 2010, Yahoo! Inc. All rights reserved. Code licensed under the BSD License: http://developer.yahoo.com/yui/license.html */
+            html{color:#000;background:#FFF;}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{margin:0;padding:0;}table{border-collapse:collapse;border-spacing:0;}fieldset,img{border:0;}address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal;}li{list-style:none;}caption,th{text-align:left;}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}q:before,q:after{content:'';}abbr,acronym{border:0;font-variant:normal;}sup{vertical-align:text-top;}sub{vertical-align:text-bottom;}input,textarea,select{font-family:inherit;font-size:inherit;font-weight:inherit;}input,textarea,select{*font-size:100%;}legend{color:#000;}
+            html { background: #eee; padding: 10px }
+            img { border: 0; }
+            #sf-resetcontent { width:970px; margin:0 auto; }
+                            body { background-color: #fff; color: #222; font: 16px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; margin: 0; }
+                .container { margin: 30px; max-width: 600px; }
+                h1 { color: #dc3545; font-size: 24px; }
+        </style>
+    </head>
+    <body>
+                        <div class="container">
+                    <h1>Sorry, the page you are looking for could not be found.</h1>
+                </div>
+    </body>
+</html>
+
+2023-02-21T13:35:34+00:00 WARNING [Error] Unknown error while connecting to PayPal. Status code: 0.
+2023-02-21T13:35:35+00:00 DEBUG GET https://connect.woocommerce.com/ppcsandbox/v1/customer/partners/MPMFHQTVMBZ6G/merchant-integrations/GYLPTR6XAV7S6
+Response: Array
+(
+    [code] => 404
+    [message] => Not Found
+)
+
+Response Body: <!DOCTYPE html>
+<html>
+    <head>
+        <meta name="robots" content="noindex,nofollow" />
+        <style>
+            /* Copyright (c) 2010, Yahoo! Inc. All rights reserved. Code licensed under the BSD License: http://developer.yahoo.com/yui/license.html */
+            html{color:#000;background:#FFF;}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{margin:0;padding:0;}table{border-collapse:collapse;border-spacing:0;}fieldset,img{border:0;}address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal;}li{list-style:none;}caption,th{text-align:left;}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}q:before,q:after{content:'';}abbr,acronym{border:0;font-variant:normal;}sup{vertical-align:text-top;}sub{vertical-align:text-bottom;}input,textarea,select{font-family:inherit;font-size:inherit;font-weight:inherit;}input,textarea,select{*font-size:100%;}legend{color:#000;}
+            html { background: #eee; padding: 10px }
+            img { border: 0; }
+            #sf-resetcontent { width:970px; margin:0 auto; }
+                            body { background-color: #fff; color: #222; font: 16px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; margin: 0; }
+                .container { margin: 30px; max-width: 600px; }
+                h1 { color: #dc3545; font-size: 24px; }
+        </style>
+    </head>
+    <body>
+                        <div class="container">
+                    <h1>Sorry, the page you are looking for could not be found.</h1>
+                </div>
+    </body>
+</html>
+
+2023-02-21T13:35:35+00:00 WARNING [Error] Unknown error while connecting to PayPal. Status code: 0.
+2023-02-21T13:35:39+00:00 DEBUG GET https://connect.woocommerce.com/ppcsandbox/v1/customer/partners/MPMFHQTVMBZ6G/merchant-integrations/GYLPTR6XAV7S6
+Response: Array
+(
+    [code] => 404
+    [message] => Not Found
+)
+
+Response Body: <!DOCTYPE html>
+<html>
+    <head>
+        <meta name="robots" content="noindex,nofollow" />
+        <style>
+            /* Copyright (c) 2010, Yahoo! Inc. All rights reserved. Code licensed under the BSD License: http://developer.yahoo.com/yui/license.html */
+            html{color:#000;background:#FFF;}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{margin:0;padding:0;}table{border-collapse:collapse;border-spacing:0;}fieldset,img{border:0;}address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal;}li{list-style:none;}caption,th{text-align:left;}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}q:before,q:after{content:'';}abbr,acronym{border:0;font-variant:normal;}sup{vertical-align:text-top;}sub{vertical-align:text-bottom;}input,textarea,select{font-family:inherit;font-size:inherit;font-weight:inherit;}input,textarea,select{*font-size:100%;}legend{color:#000;}
+            html { background: #eee; padding: 10px }
+            img { border: 0; }
+            #sf-resetcontent { width:970px; margin:0 auto; }
+                            body { background-color: #fff; color: #222; font: 16px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; margin: 0; }
+                .container { margin: 30px; max-width: 600px; }
+                h1 { color: #dc3545; font-size: 24px; }
+        </style>
+    </head>
+    <body>
+                        <div class="container">
+                    <h1>Sorry, the page you are looking for could not be found.</h1>
+                </div>
+    </body>
+</html>
+
+2023-02-21T13:35:39+00:00 WARNING [Error] Unknown error while connecting to PayPal. Status code: 0.
+2023-02-21T13:35:41+00:00 DEBUG GET https://connect.woocommerce.com/ppcsandbox/v1/customer/partners/MPMFHQTVMBZ6G/merchant-integrations/GYLPTR6XAV7S6
+Response: Array
+(
+    [code] => 404
+    [message] => Not Found
+)
+
+Response Body: <!DOCTYPE html>
+<html>
+    <head>
+        <meta name="robots" content="noindex,nofollow" />
+        <style>
+            /* Copyright (c) 2010, Yahoo! Inc. All rights reserved. Code licensed under the BSD License: http://developer.yahoo.com/yui/license.html */
+            html{color:#000;background:#FFF;}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{margin:0;padding:0;}table{border-collapse:collapse;border-spacing:0;}fieldset,img{border:0;}address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal;}li{list-style:none;}caption,th{text-align:left;}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}q:before,q:after{content:'';}abbr,acronym{border:0;font-variant:normal;}sup{vertical-align:text-top;}sub{vertical-align:text-bottom;}input,textarea,select{font-family:inherit;font-size:inherit;font-weight:inherit;}input,textarea,select{*font-size:100%;}legend{color:#000;}
+            html { background: #eee; padding: 10px }
+            img { border: 0; }
+            #sf-resetcontent { width:970px; margin:0 auto; }
+                            body { background-color: #fff; color: #222; font: 16px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; margin: 0; }
+                .container { margin: 30px; max-width: 600px; }
+                h1 { color: #dc3545; font-size: 24px; }
+        </style>
+    </head>
+    <body>
+                        <div class="container">
+                    <h1>Sorry, the page you are looking for could not be found.</h1>
+                </div>
+    </body>
+</html>
+
+2023-02-21T13:35:41+00:00 WARNING [Error] Unknown error while connecting to PayPal. Status code: 0.
+2023-02-21T13:35:46+00:00 DEBUG GET https://connect.woocommerce.com/ppcsandbox/v1/customer/partners/MPMFHQTVMBZ6G/merchant-integrations/GYLPTR6XAV7S6
+Response: Array
+(
+    [code] => 404
+    [message] => Not Found
+)
+
+Response Body: <!DOCTYPE html>
+<html>
+    <head>
+        <meta name="robots" content="noindex,nofollow" />
+        <style>
+            /* Copyright (c) 2010, Yahoo! Inc. All rights reserved. Code licensed under the BSD License: http://developer.yahoo.com/yui/license.html */
+            html{color:#000;background:#FFF;}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{margin:0;padding:0;}table{border-collapse:collapse;border-spacing:0;}fieldset,img{border:0;}address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal;}li{list-style:none;}caption,th{text-align:left;}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}q:before,q:after{content:'';}abbr,acronym{border:0;font-variant:normal;}sup{vertical-align:text-top;}sub{vertical-align:text-bottom;}input,textarea,select{font-family:inherit;font-size:inherit;font-weight:inherit;}input,textarea,select{*font-size:100%;}legend{color:#000;}
+            html { background: #eee; padding: 10px }
+            img { border: 0; }
+            #sf-resetcontent { width:970px; margin:0 auto; }
+                            body { background-color: #fff; color: #222; font: 16px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; margin: 0; }
+                .container { margin: 30px; max-width: 600px; }
+                h1 { color: #dc3545; font-size: 24px; }
+        </style>
+    </head>
+    <body>
+                        <div class="container">
+                    <h1>Sorry, the page you are looking for could not be found.</h1>
+                </div>
+    </body>
+</html>
+
+2023-02-21T13:35:46+00:00 WARNING [Error] Unknown error while connecting to PayPal. Status code: 0.
+2023-02-21T13:37:06+00:00 DEBUG POST https://api.sandbox.paypal.com/v1/oauth2/token/
+Response Debug ID: eafccaf6943f8
+Response: Array
+(
+    [code] => 200
+    [message] => OK
+)
+
+
+2023-02-21T13:37:08+00:00 DEBUG GET https://connect.woocommerce.com/ppcsandbox/v1/notifications/webhooks
+Response: Array
+(
+    [code] => 404
+    [message] => Not Found
+)
+
+Response Body: <!DOCTYPE html>
+<html>
+    <head>
+        <meta name="robots" content="noindex,nofollow" />
+        <style>
+            /* Copyright (c) 2010, Yahoo! Inc. All rights reserved. Code licensed under the BSD License: http://developer.yahoo.com/yui/license.html */
+            html{color:#000;background:#FFF;}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{margin:0;padding:0;}table{border-collapse:collapse;border-spacing:0;}fieldset,img{border:0;}address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal;}li{list-style:none;}caption,th{text-align:left;}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}q:before,q:after{content:'';}abbr,acronym{border:0;font-variant:normal;}sup{vertical-align:text-top;}sub{vertical-align:text-bottom;}input,textarea,select{font-family:inherit;font-size:inherit;font-weight:inherit;}input,textarea,select{*font-size:100%;}legend{color:#000;}
+            html { background: #eee; padding: 10px }
+            img { border: 0; }
+            #sf-resetcontent { width:970px; margin:0 auto; }
+                            body { background-color: #fff; color: #222; font: 16px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; margin: 0; }
+                .container { margin: 30px; max-width: 600px; }
+                h1 { color: #dc3545; font-size: 24px; }
+        </style>
+    </head>
+    <body>
+                        <div class="container">
+                    <h1>Sorry, the page you are looking for could not be found.</h1>
+                </div>
+    </body>
+</html>
+
+2023-02-21T13:37:08+00:00 ERROR Failed to load webhooks list: Could not retrieve value for key "webhook.status.registered-webhooks from inner container
+2023-02-21T13:37:08+00:00 DEBUG POST https://api.sandbox.paypal.com/v1/oauth2/token/
+Response Debug ID: 6231cc0c69492
+Response: Array
+(
+    [code] => 401
+    [message] => Unauthorized
+)
+
+Response Body: {"error":"invalid_authz_code","error_description":"Authorization code not found in cache"}
+
+2023-02-21T13:37:08+00:00 WARNING No token found.
+2023-02-21T13:37:08+00:00 ERROR Onboarding completion handling error: No token found.
+2023-02-21T13:37:10+00:00 DEBUG GET https://api.sandbox.paypal.com/v1/customer/partners/MPMFHQTVMBZ6G/merchant-integrations/credentials/
+Response Debug ID: f9f49315bc36a
+Response: Array
+(
+    [code] => 200
+    [message] => OK
+)
+
+
+2023-02-21T13:37:11+00:00 DEBUG GET https://connect.woocommerce.com/ppcsandbox/v1/customer/partners/MPMFHQTVMBZ6G/merchant-integrations/GYLPTR6XAV7S6
+Response: Array
+(
+    [code] => 404
+    [message] => Not Found
+)
+
+Response Body: <!DOCTYPE html>
+<html>
+    <head>
+        <meta name="robots" content="noindex,nofollow" />
+        <style>
+            /* Copyright (c) 2010, Yahoo! Inc. All rights reserved. Code licensed under the BSD License: http://developer.yahoo.com/yui/license.html */
+            html{color:#000;background:#FFF;}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{margin:0;padding:0;}table{border-collapse:collapse;border-spacing:0;}fieldset,img{border:0;}address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal;}li{list-style:none;}caption,th{text-align:left;}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}q:before,q:after{content:'';}abbr,acronym{border:0;font-variant:normal;}sup{vertical-align:text-top;}sub{vertical-align:text-bottom;}input,textarea,select{font-family:inherit;font-size:inherit;font-weight:inherit;}input,textarea,select{*font-size:100%;}legend{color:#000;}
+            html { background: #eee; padding: 10px }
+            img { border: 0; }
+            #sf-resetcontent { width:970px; margin:0 auto; }
+                            body { background-color: #fff; color: #222; font: 16px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; margin: 0; }
+                .container { margin: 30px; max-width: 600px; }
+                h1 { color: #dc3545; font-size: 24px; }
+        </style>
+    </head>
+    <body>
+                        <div class="container">
+                    <h1>Sorry, the page you are looking for could not be found.</h1>
+                </div>
+    </body>
+</html>
+
+2023-02-21T13:37:11+00:00 WARNING [Error] Unknown error while connecting to PayPal. Status code: 0.
+2023-02-21T13:37:13+00:00 DEBUG GET https://connect.woocommerce.com/ppcsandbox/v1/customer/partners/MPMFHQTVMBZ6G/merchant-integrations/GYLPTR6XAV7S6
+Response: Array
+(
+    [code] => 404
+    [message] => Not Found
+)
+
+Response Body: <!DOCTYPE html>
+<html>
+    <head>
+        <meta name="robots" content="noindex,nofollow" />
+        <style>
+            /* Copyright (c) 2010, Yahoo! Inc. All rights reserved. Code licensed under the BSD License: http://developer.yahoo.com/yui/license.html */
+            html{color:#000;background:#FFF;}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{margin:0;padding:0;}table{border-collapse:collapse;border-spacing:0;}fieldset,img{border:0;}address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal;}li{list-style:none;}caption,th{text-align:left;}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}q:before,q:after{content:'';}abbr,acronym{border:0;font-variant:normal;}sup{vertical-align:text-top;}sub{vertical-align:text-bottom;}input,textarea,select{font-family:inherit;font-size:inherit;font-weight:inherit;}input,textarea,select{*font-size:100%;}legend{color:#000;}
+            html { background: #eee; padding: 10px }
+            img { border: 0; }
+            #sf-resetcontent { width:970px; margin:0 auto; }
+                            body { background-color: #fff; color: #222; font: 16px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; margin: 0; }
+                .container { margin: 30px; max-width: 600px; }
+                h1 { color: #dc3545; font-size: 24px; }
+        </style>
+    </head>
+    <body>
+                        <div class="container">
+                    <h1>Sorry, the page you are looking for could not be found.</h1>
+                </div>
+    </body>
+</html>
+
+2023-02-21T13:37:13+00:00 WARNING [Error] Unknown error while connecting to PayPal. Status code: 0.
+2023-02-21T13:37:14+00:00 DEBUG GET https://connect.woocommerce.com/ppcsandbox/v1/customer/partners/MPMFHQTVMBZ6G/merchant-integrations/GYLPTR6XAV7S6
+Response: Array
+(
+    [code] => 404
+    [message] => Not Found
+)
+
+Response Body: <!DOCTYPE html>
+<html>
+    <head>
+        <meta name="robots" content="noindex,nofollow" />
+        <style>
+            /* Copyright (c) 2010, Yahoo! Inc. All rights reserved. Code licensed under the BSD License: http://developer.yahoo.com/yui/license.html */
+            html{color:#000;background:#FFF;}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{margin:0;padding:0;}table{border-collapse:collapse;border-spacing:0;}fieldset,img{border:0;}address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal;}li{list-style:none;}caption,th{text-align:left;}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}q:before,q:after{content:'';}abbr,acronym{border:0;font-variant:normal;}sup{vertical-align:text-top;}sub{vertical-align:text-bottom;}input,textarea,select{font-family:inherit;font-size:inherit;font-weight:inherit;}input,textarea,select{*font-size:100%;}legend{color:#000;}
+            html { background: #eee; padding: 10px }
+            img { border: 0; }
+            #sf-resetcontent { width:970px; margin:0 auto; }
+                            body { background-color: #fff; color: #222; font: 16px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; margin: 0; }
+                .container { margin: 30px; max-width: 600px; }
+                h1 { color: #dc3545; font-size: 24px; }
+        </style>
+    </head>
+    <body>
+                        <div class="container">
+                    <h1>Sorry, the page you are looking for could not be found.</h1>
+                </div>
+    </body>
+</html>
+
+2023-02-21T13:37:14+00:00 WARNING [Error] Unknown error while connecting to PayPal. Status code: 0.
+2023-02-21T13:37:17+00:00 DEBUG GET https://connect.woocommerce.com/ppcsandbox/v1/customer/partners/MPMFHQTVMBZ6G/merchant-integrations/GYLPTR6XAV7S6
+Response: Array
+(
+    [code] => 404
+    [message] => Not Found
+)
+
+Response Body: <!DOCTYPE html>
+<html>
+    <head>
+        <meta name="robots" content="noindex,nofollow" />
+        <style>
+            /* Copyright (c) 2010, Yahoo! Inc. All rights reserved. Code licensed under the BSD License: http://developer.yahoo.com/yui/license.html */
+            html{color:#000;background:#FFF;}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{margin:0;padding:0;}table{border-collapse:collapse;border-spacing:0;}fieldset,img{border:0;}address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal;}li{list-style:none;}caption,th{text-align:left;}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}q:before,q:after{content:'';}abbr,acronym{border:0;font-variant:normal;}sup{vertical-align:text-top;}sub{vertical-align:text-bottom;}input,textarea,select{font-family:inherit;font-size:inherit;font-weight:inherit;}input,textarea,select{*font-size:100%;}legend{color:#000;}
+            html { background: #eee; padding: 10px }
+            img { border: 0; }
+            #sf-resetcontent { width:970px; margin:0 auto; }
+                            body { background-color: #fff; color: #222; font: 16px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; margin: 0; }
+                .container { margin: 30px; max-width: 600px; }
+                h1 { color: #dc3545; font-size: 24px; }
+        </style>
+    </head>
+    <body>
+                        <div class="container">
+                    <h1>Sorry, the page you are looking for could not be found.</h1>
+                </div>
+    </body>
+</html>
+
+2023-02-21T13:37:17+00:00 WARNING [Error] Unknown error while connecting to PayPal. Status code: 0.
+2023-02-21T13:37:21+00:00 DEBUG POST https://api.sandbox.paypal.com/v1/oauth2/token?grant_type=client_credentials
+Response Debug ID: 9b588aa84d6e3
+Response: Array
+(
+    [code] => 200
+    [message] => OK
+)
+
+
+2023-02-21T13:37:24+00:00 DEBUG GET https://api.sandbox.paypal.com/v1/notifications/webhooks
+Response Debug ID: e61981cc3e8ee
+Response: Array
+(
+    [code] => 200
+    [message] => OK
+)
+
+
+2023-02-21T13:37:26+00:00 DEBUG GET https://api.sandbox.paypal.com/v1/customer/partners/MPMFHQTVMBZ6G/merchant-integrations/GYLPTR6XAV7S6
+Response Debug ID: e72acbbc968d6
+Response: Array
+(
+    [code] => 200
+    [message] => OK
+)
+
+
+2023-02-21T13:37:30+00:00 DEBUG GET https://api.sandbox.paypal.com/v1/customer/partners/MPMFHQTVMBZ6G/merchant-integrations/GYLPTR6XAV7S6
+Response Debug ID: d437126e3ff09
+Response: Array
+(
+    [code] => 200
+    [message] => OK
+)
+
+
+2023-02-21T13:37:32+00:00 DEBUG POST https://api.sandbox.paypal.com/v1/notifications/webhooks
+Request Body: {"url":"https:\/\/lo.fashion.com\/index.php?rest_route=\/paypal\/v1\/incoming","event_types":[{"name":"CHECKOUT.ORDER.APPROVED"},{"name":"CHECKOUT.ORDER.COMPLETED"},{"name":"CHECKOUT.PAYMENT-APPROVAL.REVERSED"},{"name":"PAYMENT.CAPTURE.REFUNDED"},{"name":"PAYMENT.AUTHORIZATION.VOIDED"},{"name":"PAYMENT.CAPTURE.REVERSED"},{"name":"PAYMENT.ORDER.CANCELLED"},{"name":"PAYMENT.CAPTURE.DENIED"},{"name":"PAYMENT.CAPTURE.COMPLETED"},{"name":"VAULT.PAYMENT-TOKEN.CREATED"},{"name":"VAULT.CREDIT-CARD.CREATED"},{"name":"PAYMENT.CAPTURE.PENDING"}]}
+Response Debug ID: 6412841a3e106
+Response: Array
+(
+    [code] => 201
+    [message] => Created
+)
+
+
+2023-02-21T13:37:32+00:00 INFO Webhooks subscribed.
+2023-02-21T13:37:36+00:00 DEBUG GET https://api.sandbox.paypal.com/v1/notifications/webhooks
+Response Debug ID: 7c6d135acbff2
+Response: Array
+(
+    [code] => 200
+    [message] => OK
+)
+
+
+2023-02-21T13:37:38+00:00 DEBUG POST https://api.sandbox.paypal.com/v1/notifications/webhooks
+Request Body: {"url":"https:\/\/lo.fashion.com\/index.php?rest_route=\/paypal\/v1\/incoming","event_types":[{"name":"CHECKOUT.ORDER.APPROVED"},{"name":"CHECKOUT.ORDER.COMPLETED"},{"name":"CHECKOUT.PAYMENT-APPROVAL.REVERSED"},{"name":"PAYMENT.CAPTURE.REFUNDED"},{"name":"PAYMENT.AUTHORIZATION.VOIDED"},{"name":"PAYMENT.CAPTURE.REVERSED"},{"name":"PAYMENT.ORDER.CANCELLED"},{"name":"PAYMENT.CAPTURE.DENIED"},{"name":"PAYMENT.CAPTURE.COMPLETED"},{"name":"VAULT.PAYMENT-TOKEN.CREATED"},{"name":"VAULT.CREDIT-CARD.CREATED"},{"name":"PAYMENT.CAPTURE.PENDING"}]}
+Response Debug ID: e0215fcbcc0a9
+Response: Array
+(
+    [code] => 400
+    [message] => Bad Request
+)
+
+Response Body: {"name":"WEBHOOK_URL_ALREADY_EXISTS","message":"Webhook URL already exists","debug_id":"e0215fcbcc0a9","information_link":"https://developer.paypal.com/docs/api/webhooks/#errors","details":[],"links":[]}
+
+2023-02-21T13:37:38+00:00 ERROR Failed to subscribe webhooks: [WEBHOOK_URL_ALREADY_EXISTS] Webhook URL already exists
+2023-02-21T13:39:55+00:00 DEBUG GET https://api.sandbox.paypal.com/v1/notifications/webhooks
+Response Debug ID: f1b09778e9efe
+Response: Array
+(
+    [code] => 200
+    [message] => OK
+)
+
+
+2023-02-21T13:39:59+00:00 DEBUG POST https://api.sandbox.paypal.com/v1/oauth2/token?grant_type=client_credentials
+Response Debug ID: 31a4304c9efae
+Response: Array
+(
+    [code] => 200
+    [message] => OK
+)
+
+
+2023-02-21T13:40:00+00:00 DEBUG GET https://api.sandbox.paypal.com/v1/notifications/webhooks
+Response Debug ID: 9aa0c50c78bac
+Response: Array
+(
+    [code] => 200
+    [message] => OK
+)
+
+
+2023-02-21T13:40:04+00:00 DEBUG GET https://api.sandbox.paypal.com/v1/customer/partners/MPMFHQTVMBZ6G/merchant-integrations/GYLPTR6XAV7S6
+Response Debug ID: 6863440b18022
+Response: Array
+(
+    [code] => 200
+    [message] => OK
+)
+
+
+2023-02-21T13:40:07+00:00 DEBUG GET https://api.sandbox.paypal.com/v1/customer/partners/MPMFHQTVMBZ6G/merchant-integrations/GYLPTR6XAV7S6
+Response Debug ID: 879cdfe49c293
+Response: Array
+(
+    [code] => 200
+    [message] => OK
+)
+
+
+2023-02-21T13:40:18+00:00 DEBUG GET https://api.sandbox.paypal.com/v1/notifications/webhooks
+Request failed. WP error message: cURL error 28: Operation timed out after 10000 milliseconds with 0 out of 0 bytes received
+
+2023-02-21T13:41:17+00:00 DEBUG POST https://api.sandbox.paypal.com/v1/oauth2/token?grant_type=client_credentials
+Response Debug ID: 225fb6e76d04a
+Response: Array
+(
+    [code] => 200
+    [message] => OK
+)
+
+
+2023-02-21T13:41:28+00:00 DEBUG GET https://api.sandbox.paypal.com/v1/customer/partners/MPMFHQTVMBZ6G/merchant-integrations/GYLPTR6XAV7S6
+Response Debug ID: 2a53a3a798bf8
+Response: Array
+(
+    [code] => 200
+    [message] => OK
+)
+
+
+2023-02-21T13:41:32+00:00 DEBUG GET https://api.sandbox.paypal.com/v1/customer/partners/MPMFHQTVMBZ6G/merchant-integrations/GYLPTR6XAV7S6
+Response Debug ID: fb1f1e162190a
+Response: Array
+(
+    [code] => 200
+    [message] => OK
+)
+
+
+2023-02-21T13:43:59+00:00 DEBUG POST https://api.sandbox.paypal.com/v2/checkout/orders
+Request Body: {"intent":"CAPTURE","purchase_units":[{"reference_id":"default","amount":{"currency_code":"USD","value":"20.50","breakdown":{"item_total":{"currency_code":"USD","value":"20.50"},"shipping":{"currency_code":"USD","value":"0.00"},"tax_total":{"currency_code":"USD","value":"0.00"}}},"description":"","items":[{"name":"Energizing Marine Lotion","unit_amount":{"currency_code":"USD","value":"20.50"},"quantity":1,"description":"Faucibus lacus tincidunt molestie accumsan nibh non odio aenean molestie purus tristique sed tempor consequat risus tellus amet","sku":"","category":"PHYSICAL_GOODS"}],"payee":{"merchant_id":"GYLPTR6XAV7S6"},"shipping":{"name":{"full_name":" "},"address":{"country_code":"US","address_line_1":"12345, 9999658588","admin_area_1":"CA","admin_area_2":"555885558","postal_code":"12345"}}}],"application_context":{"user_action":"CONTINUE","shipping_preference":"GET_FROM_FILE","landing_page":"LOGIN","locale":"en-US","return_url":"https:\/\/lo.fashion.com\/?wc-ajax=ppc-return-url","cancel_url":"https:\/\/lo.fashion.com\/?page_id=979"},"payer":{"email_address":"yuag@iu.net","name":{"given_name":"suoiw","surname":"dddd"},"address":{"country_code":"US","address_line_1":"12345, 9999658588","admin_area_1":"CA","admin_area_2":"555885558","postal_code":"12345"},"phone":{"phone_type":"HOME","phone_number":{"national_number":"888888"}}},"payment_method":{"payee_preferred":"UNRESTRICTED","payer_selected":"PAYPAL"}}
+Response Debug ID: bf225b50c6180
+Response: Array
+(
+    [code] => 201
+    [message] => Created
+)
+
+
+2023-02-21T13:44:30+00:00 DEBUG  https://api.sandbox.paypal.com/v2/checkout/orders/0GK43626WM718310K
+Response Debug ID: 33c11b722ffb3
+Response: Array
+(
+    [code] => 200
+    [message] => OK
+)
+
+
+2023-02-21T13:44:36+00:00 DEBUG PATCH https://api.sandbox.paypal.com/v2/checkout/orders/0GK43626WM718310K
+Request Body: [{"op":"replace","value":{"reference_id":"default","amount":{"currency_code":"USD","value":"20.50","breakdown":{"item_total":{"currency_code":"USD","value":"20.50"},"shipping":{"currency_code":"USD","value":"0.00"},"tax_total":{"currency_code":"USD","value":"0.00"}}},"description":"","items":[{"name":"Energizing Marine Lotion","unit_amount":{"currency_code":"USD","value":"20.50"},"quantity":1,"description":"Faucibus lacus tincidunt molestie accumsan nibh non odio aenean molestie purus tristique sed tempor consequat risus tellus amet","sku":"","category":"PHYSICAL_GOODS"}],"payee":{"merchant_id":"GYLPTR6XAV7S6"},"custom_id":"1120","invoice_id":"caedbe-1120","shipping":{"name":{"full_name":"John Doe"},"address":{"country_code":"HK","address_line_1":"\u4e5d\u56db\u4e0a\u8bfe 11\u53f7","admin_area_1":"Hong Kong Island","admin_area_2":"Hong Kong Island","postal_code":"999077"}}},"path":"\/purchase_units\/@reference_id=='default'"}]
+Response Debug ID: badd3023dde63
+Response: Array
+(
+    [code] => 204
+    [message] => No Content
+)
+
+
+2023-02-21T13:44:46+00:00 DEBUG  https://api.sandbox.paypal.com/v2/checkout/orders/0GK43626WM718310K
+Response Debug ID: 5821f1b345f4
+Response: Array
+(
+    [code] => 200
+    [message] => OK
+)
+
+
+2023-02-21T13:44:50+00:00 DEBUG POST https://api.sandbox.paypal.com/v2/checkout/orders/0GK43626WM718310K/capture
+Response Debug ID: 431502521c12c
+Response: Array
+(
+    [code] => 201
+    [message] => Created
+)
+
+
+2023-02-21T13:45:07+00:00 DEBUG POST https://api.sandbox.paypal.com/v1/oauth2/token?grant_type=client_credentials
+Response Debug ID: d80939fd23835
+Response: Array
+(
+    [code] => 200
+    [message] => OK
+)
+
+
+2023-02-21T13:45:22+00:00 DEBUG GET https://api.sandbox.paypal.com/v1/customer/partners/MPMFHQTVMBZ6G/merchant-integrations/GYLPTR6XAV7S6
+Response Debug ID: 94c2593dafc88
+Response: Array
+(
+    [code] => 200
+    [message] => OK
+)
+
+
+2023-02-21T13:45:25+00:00 DEBUG GET https://api.sandbox.paypal.com/v1/customer/partners/MPMFHQTVMBZ6G/merchant-integrations/GYLPTR6XAV7S6
+Response Debug ID: 61c491f3778ab
+Response: Array
+(
+    [code] => 200
+    [message] => OK
+)
+
+

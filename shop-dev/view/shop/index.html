@@ -1,0 +1,28 @@
+{include file="home/common/header" /}
+<div class="ls-top-picks">
+    <h2 class="picks-title">
+        Shop
+    </h2>
+    <div class="ls-pick-inner">
+        <div class="ls-product-box">
+            <?php
+            foreach($list as $rs){
+            ?>
+            <div class="ls-product-item">
+                <a class="ls-p-inner" href="product/<?php echo $rs['product_uri']; ?>">
+                    <div class="ls-p-img">
+                        <img src="/storage/<?php echo $rs['img_uri']; ?>">
+                    </div>
+                    <div class="ls-p-info">
+                        <div class="ls-p-price">$<?php echo $rs['price']; ?></div>
+                        <h2 class="ls-p-title"><?php echo $rs['name']; ?></h2>
+                    </div>
+                </a>
+            </div>
+            <?php
+            }
+            ?>
+        </div>
+    </div>
+</div>
+{include file="home/common/footer" /}

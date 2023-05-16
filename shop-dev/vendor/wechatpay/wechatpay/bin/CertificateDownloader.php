@@ -18,7 +18,6 @@ require_once $file;
 unset($possibleFiles, $possibleFile, $file);
 
 use GuzzleHttp\Middleware;
-use GuzzleHttp\Utils;
 use GuzzleHttp\Exception\RequestException;
 use Psr\Http\Message\ResponseInterface;
 use WeChatPay\Builder;
@@ -41,7 +40,7 @@ class CertificateDownloader
             return;
         }
         if (isset($opts['version'])) {
-            static::prompt(ClientDecoratorInterface::VERSION);
+            self::prompt(ClientDecoratorInterface::VERSION);
             return;
         }
         $this->job($opts);
@@ -59,7 +58,7 @@ class CertificateDownloader
         return static function(ResponseInterface $response) use ($apiv3Key, &$certs): ResponseInterface {
             $body = (string) $response->getBody();
             /** @var object{data:array<object{encrypt_certificate:object{serial_no:string,nonce:string,associated_data:string}}>} $json */
-            $json = Utils::jsonDecode($body);
+            $json = \json_decode($body);
             $data = \is_object($json) && isset($json->data) && \is_array($json->data) ? $json->data : [];
             \array_map(static function($row) use ($apiv3Key, &$certs) {
                 $cert = $row->encrypt_certificate;
@@ -93,19 +92,19 @@ class CertificateDownloader
         /** @var \GuzzleHttp\HandlerStack $stack */
         $stack = $instance->getDriver()->select(ClientDecoratorInterface::JSON_BASED)->getConfig('handler');
         // The response middle stacks were executed one by one on `FILO` order.
-        $stack->after('verifier', Middleware::mapResponse(static::certsInjector($apiv3Key, $certs)), 'injector');
-        $stack->before('verifier', Middleware::mapResponse(static::certsRecorder((string) $outputDir, $certs)), 'recorder');
+        $stack->after('verifier', Middleware::mapResponse(self::certsInjector($apiv3Key, $certs)), 'injector');
+        $stack->before('verifier', Middleware::mapResponse(self::certsRecorder((string) $outputDir, $certs)), 'recorder');
 
         $instance->chain('v3/certificates')->getAsync(
             ['debug' => true]
         )->otherwise(static function($exception) {
-            static::prompt($exception->getMessage());
+            self::prompt($exception->getMessage());
             if ($exception instanceof RequestException && $exception->hasResponse()) {
                 /** @var ResponseInterface $response */
                 $response = $exception->getResponse();
-                static::prompt((string) $response->getBody(), '', '');
+                self::prompt((string) $response->getBody(), '', '');
             }
-            static::prompt($exception->getTraceAsString());
+            self::prompt($exception->getTraceAsString());
         })->wait();
     }
 
@@ -121,21 +120,21 @@ class CertificateDownloader
         return static function(ResponseInterface $response) use ($outputDir, &$certs): ResponseInterface {
             $body = (string) $response->getBody();
             /** @var object{data:array<object{effective_time:string,expire_time:string:serial_no:string}>} $json */
-            $json = Utils::jsonDecode($body);
+            $json = \json_decode($body);
             $data = \is_object($json) && isset($json->data) && \is_array($json->data) ? $json->data : [];
             \array_walk($data, static function($row, $index, $certs) use ($outputDir) {
                 $serialNo = $row->serial_no;
                 $outpath = $outputDir . \DIRECTORY_SEPARATOR . 'wechatpay_' . $serialNo . '.pem';
 
-                static::prompt(
+                self::prompt(
                     'Certificate #' . $index . ' {',
-                    '    Serial Number: ' . static::highlight($serialNo),
+                    '    Serial Number: ' . self::highlight($serialNo),
                     '    Not Before: ' . (new \DateTime($row->effective_time))->format(\DateTime::W3C),
                     '    Not After: ' . (new \DateTime($row->expire_time))->format(\DateTime::W3C),
-                    '    Saved to: ' . static::highlight($outpath),
+                    '    Saved to: ' . self::highlight($outpath),
                     '    You may confirm the above infos again even if this library already did(by Crypto\Rsa::verify):',
-                    '      ' . static::highlight(\sprintf('openssl x509 -in %s -noout -serial -dates', $outpath)),
-                    '    Content: ', '', $certs[$serialNo], '',
+                    '      ' . self::highlight(\sprintf('openssl x509 -in %s -noout -serial -dates', $outpath)),
+                    '    Content: ', '', $certs[$serialNo] ?? '', '',
                     '}'
                 );
 
@@ -194,8 +193,9 @@ class CertificateDownloader
         foreach ($opts as $opt) {
             [$key, $alias, $mandatory] = $opt;
             if (isset($parsed[$key]) || isset($parsed[$alias])) {
-                $possiable = $parsed[$key] ?? $parsed[$alias] ?? '';
-                $args[$key] = (string) (\is_array($possiable) ? $possiable[0] : $possiable);
+                /** @var string|string[] $possible */
+                $possible = $parsed[$key] ?? $parsed[$alias] ?? '';
+                $args[$key] = \is_array($possible) ? $possible[0] : $possible;
             } elseif ($mandatory) {
                 return null;
             }
@@ -212,7 +212,7 @@ class CertificateDownloader
 
     private function printHelp(): void
     {
-        static::prompt(
+        self::prompt(
             'Usage: 微信支付平台证书下载工具 [-hV]',
             '                    -f=<privateKeyFilePath> -k=<apiv3Key> -m=<merchantId>',
             '                    -s=<serialNo> -o=[outputFilePath] -u=[baseUri]',
