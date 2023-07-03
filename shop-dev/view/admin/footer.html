@@ -1,25 +1,7 @@
+<script src="/static/extend/layui/layui.js"></script>
+<script src="/static/js/backend.js"></script>
 <script>
-layui.use(['element', 'layer', 'util', 'jquery', 'form', "table"], function() {
-	var element = layui.element,
-		layer = layui.layer,
-		util = layui.util,
-		$ = layui.$;
-		
-	
-   $("#btn-pass").on("click", function(){
-		layer.open({
-			title: "修改密码",
-			type: 2,
-			area: ["480px", "320px"],
-			content: '{$url_pass}',
-			end: function(){
-				//tablens.reload();
-			}
-		}); 
-	});
-   
 
-});
 </script>
 	</body>
 </html>

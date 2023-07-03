@@ -1,0 +1,111 @@
+{include file="admin/header" /}
+<div class="layui-container edit-box">
+	<div class="layui-row">
+		<form class="layui-form" method="POST">
+			<div class="layui-form-item">
+				<label class="layui-form-label">order num</label>
+				<div class="layui-input-block order-line-height">
+					{$data.order_num}
+				</div>
+			</div>
+			<div class="layui-form-item">
+				<label class="layui-form-label">order date</label>
+				<div class="layui-input-block order-line-height">
+					{$data.added_date}
+				</div>
+			</div>
+			<div class="layui-form-item">
+				<label class="layui-form-label">total price</label>
+				<div class="layui-input-block order-line-height">
+					${$data.total_price}
+				</div>
+			</div>
+			
+			
+			<div class="layui-form-item">
+				<label class="layui-form-label">order status</label>
+				<div class="layui-input-block">
+					<select name="order_status">
+						<option value=""></option>
+						<?php foreach($order_status_list as $key => $val){ 
+					
+								$checked = '';
+								if($data['order_status'] == $key){
+									$checked = 'selected';
+								}
+							?>
+						<option value="{$key}" <?php echo $checked; ?>>
+							<?php 
+								echo $val; ?>
+						</option>
+						<?php
+							}
+							?>
+					</select>
+				</div>
+			</div>
+			
+			<div class="layui-form-item">
+				<label class="layui-form-label">order notes</label>
+				<div class="layui-input-block">
+					<textarea name="short_desc" id="short_desc" placeholder="short_desc"
+						autocomplete="off" class="layui-textarea"></textarea>
+				</div>
+			</div>
+
+
+			<div class="layui-form-item">
+				<div class="layui-input-block">
+					<input type="hidden" name="id" id="id" value="{$data['id']}">
+					<button type="button" class="layui-btn" id="submit-video" lay-submit
+						lay-filter="cate-form">Save</button>
+				</div>
+			</div>
+		</form>
+	</div>
+
+</div>
+
+
+{include file="admin/footer" /}
+
+<script>
+	var uid = "",
+		$;
+	layui.use(['element', 'layer', 'util', 'jquery', "form", "upload"], function () {
+		var form = layui.form,
+			element = layui.element,
+			layer = layui.layer,
+			upload = layui.upload,
+			util = layui.util;
+
+			$ = layui.$;
+		form.on('submit(cate-form)', function (data) {
+			$.ajax({
+				type: "POST",
+				// async: false,
+				dataType: "json",
+				data: data.field,
+				url: "{$url}",
+				success: function (res) {
+					if (res.code == 1) {
+						layer.msg(res.msg, function () {
+							location.href = "{$url_list}";
+						});
+						/*
+						window.parent.location.reload();//刷新父页面
+						var index = parent.layer.getFrameIndex(window.name); //获取窗口索引
+						parent.layer.close(index);
+						*/
+					} else {
+						layer.msg(res.msg);
+					}
+				}
+			});
+
+			return false;
+		});
+
+
+	});	
+</script>

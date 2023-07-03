@@ -3,7 +3,7 @@
 			
 
 			<div class="layui-body">
-				<div style="padding: 15px;"><a class="layui-btn" href="/Admin/cateEdit">Add</a></div>
+				<!-- <div style="padding: 15px;"><a class="layui-btn" href="/Admin/orderEdit">Add</a></div> -->
 				<table class="layui-table" id="video-list" lay-size="lg">
 				</table>
 			</div>
@@ -16,13 +16,12 @@
 		        }
 		</style>
 		
-		
 {include file="admin/footer" /}
-
 <script>
 	var home = "{$home}",
 		del = '',
 		edit = '',
+		order_status_list = JSON.parse('<?php echo $order_status_list; ?>');
 		base_url = "{$base_url}";
 		//JS 
 		layui.use(['element', 'layer', 'util', 'jquery', 'form', "table"], function() {
@@ -36,20 +35,18 @@
 			  //第一个实例
 			  var tablens = table.render({
 				elem: '#video-list'
-				,url: "/Admin/ajaxCateList" //数据接口
+				,url: "/Admin/ajaxOrderList" //数据接口
 				,page: true ,//开启分页
 				height: 680,
 				limit: 20
 				,cols: [[ //表头
 				  {field: 'id', title: 'ID', width:60,  fixed: 'left'}
-				  ,{field: 'cate_name', title: 'name', width: 360, templet: function(d){
-					if(d.level == 1){
-						return "-" + d.cate_name;
-					}else if(d.level == 2){
-						return "--" + d.cate_name;
-					}
-					return d.cate_name;
+				  ,{field: 'order_num', title: 'Order Num', width: 240}
+				  ,{field: 'added_date', title: 'Order Date', width: 180},
+				  {field: 'order_status', title: 'Status', width: 100, templet: function(d){
+					return order_status_list[d.order_status];
 				  }},
+				  {field: 'total_price', title: 'Total'},
 				  {field: 'view', title: '操作', templet: function(d){
 					  return '<a class="layui-btn" href="javascript:void(0);" onclick="edit(' + d.id + ')">edit</a>';
 				  }}
@@ -87,7 +84,7 @@
 			}
 
 			edit = function(id){
-				location.href = "/Admin/cateEdit/id/" + id;
+				location.href = "/Admin/orderEdit/id/" + id;
 			}
 
 			//头部事件
@@ -132,7 +129,18 @@
 				}); 
 			});
 
-		
+		   $("#btn-pass").on("click", function(){
+				layer.open({
+					title: "修改密码",
+					type: 2,
+					area: ["480px", "320px"],
+					content: '{$url_pass}',
+					end: function(){
+						//tablens.reload();
+					}
+				}); 
+			});
+		   
 
 		});
 		

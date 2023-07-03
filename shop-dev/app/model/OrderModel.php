@@ -74,6 +74,39 @@ class OrderModel extends Model{
         return $order_num;
     }
 
+    public static function getOrderCount($where = []){
+        $ret = Db::name('order')
+            ->alias('a')
+            ->join('order_price b', 'a.id = b.order_id', 'left')
+            ->field('count(*) as count')
+            ->where($where)
+            ->select();  
+
+        return isset($ret[0]['count']) ? $ret[0]['count'] : 0;
+    }
+
+    public static function getOrderList($where = [], $limit_s = 0, $limit_e = 0){
+        $ret = Db::name('order')
+            ->alias('a')
+            ->join('order_price b', 'a.id = b.order_id', 'left')
+            ->field('a.id, a.order_num, a.added_date, a.order_status, b.total_price')
+        ->where($where)
+        ->limit($limit_s, $limit_e)
+        ->order('a.id desc')
+        ->select();  
+        return $ret;
+    }
+
+    public static function getOrderAllById($id){
+        $ret = Db::name('order')
+            ->alias('a')
+            ->join('order_price b', 'a.id = b.order_id', 'left')
+            ->field('a.id, a.order_num, a.added_date, a.order_status, b.total_price')
+        ->where(['a.id' => $id])
+        ->find();  
+        return $ret;
+    }
+
     private static function genOrderNum(){
         return uniqid();
     }

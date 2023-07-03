@@ -42,6 +42,15 @@ return [
     'stripe' => [
         'test_mode' => true,
         'key' => 'sk_test_DiSWYAGGrHqwawYjWopzklpS00ohKhFRhz'
+    ],
+
+    'order_status_list' => [
+        1 => 'pending',
+        2 => 'processing', 
+        3 => 'completed',
+        4 => 'failed', 
+        5 => 'canceled', 
+        6 => 'refund'
     ]
 
 ];

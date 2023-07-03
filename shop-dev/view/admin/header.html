@@ -5,8 +5,8 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 		<title>shop admin</title>
 		<link href="/static/extend/layui/css/layui.css" rel="stylesheet">
-		<link href="/static/backend.css" rel="stylesheet">
-		<script src="/static/extend/layui/layui.js"></script>
+		<link href="/static/css/backend.css" rel="stylesheet">
+		
 	</head>
 	<body>
 		<div class="layui-layout layui-layout-admin">
@@ -39,14 +39,14 @@
 				<div class="layui-side-scroll">
 					<!-- 左侧导航区域（可配合layui已有的垂直导航） -->
 					<ul class="layui-nav layui-nav-tree" lay-filter="test">
-						<li class="layui-nav-item layui-nav-itemed">
+						<li class="layui-nav-item <?php if(in_array($uri, ['productList', 'cateList'])){ echo 'layui-nav-itemed'; } ?>">
 							<a class="" href="javascript:;">product management</a>
 							<dl class="layui-nav-child">
 								<dd class="<?php if($uri == 'productList') echo 'active'; ?>"><a href="/Admin/productList">product list</a></dd>
 								<dd class="<?php if($uri == 'cateList') echo 'active'; ?>"><a href="/Admin/cateList">category list</a></dd>
 							</dl>
 						</li>
-						<li class="layui-nav-item">
+						<li class="layui-nav-item <?php if(in_array($uri, ['orderList'])){ echo 'layui-nav-itemed'; } ?>">
 							<a class="" href="javascript:;">order management</a>
 							<dl class="layui-nav-child">
 								<dd class="<?php if($uri == 'orderList') echo 'active'; ?>"><a href="/Admin/orderList">order list</a></dd>

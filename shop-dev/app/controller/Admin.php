@@ -21,6 +21,8 @@ use Endroid\QrCode\Writer\PngWriter;
 use app\model\ProductModel;
 use app\model\CateModel;
 use app\controller\ProductCommon;
+use app\model\OrderModel;
+use think\facade\Config;
 // use think\App;
 
 class Admin extends BackController
@@ -39,6 +41,47 @@ class Admin extends BackController
 		View::assign('title', 'Product List');
 		return View::fetch('productList');
     }
+
+	public function orderList(){
+		
+		$url = $this->url('/Admin/orderEdit');
+		$order_status_list = Config::get('app.order_status_list');
+		
+		View::assign('url', $url);
+		View::assign('uri', 'orderList');
+		View::assign('title', 'Order List');
+		View::assign('order_status_list', json_encode($order_status_list));
+		
+		return View::fetch('orderList');
+    }
+
+	public function ajaxOrderList(){
+		
+		$where = [];
+		$keyword = addslashes(trim(Request::param('keyword')));
+		if($keyword){
+			$where .= 'a.order_num like "%' . $keyword . '%" ';
+		}
+		$page = intval(Request::param('page'));
+		if(! $page){
+			$page = 1;
+		}
+		$limit = intval(Request::param('limit'));
+		if(! $limit){
+			$limit = 20;
+		}
+		
+		$list = OrderModel::getOrderList($where, ($page - 1) * $limit, $limit);
+		$count = OrderModel::getOrderCount($where);
+	
+		$ret = [
+			'code' => 0,
+			'count' => $count,
+			'data' => $list,
+			'msg' => ''
+		];
+		return json($ret);
+	}
 	
 	public function ajaxProductList(){
 		
@@ -174,6 +217,36 @@ class Admin extends BackController
 		View::assign('url_list', $url_list);
 		View::assign('data', $data);
         return View::fetch('productEdit');
+    }
+
+	public function orderEdit(){
+		$id = intval(Request::param('id'));
+		$data = [
+			'order_num' => '',
+			'name' => '',
+			'id' => '',
+			'price' => '',
+			'short_desc' => '',
+			'long_desc' => '',
+			'uri' => ''
+		];
+		$url_list = $this->url('/Admin/orderList');
+		$url_update = $this->url('/Admin/actionOrderEdit');
+		$order_status_list = Config::get('app.order_status_list');
+
+		View::assign('uri', 'orderList');
+
+		if(! $id){
+			View::assign('title', 'Order Add');
+		}else{
+			View::assign('title', 'Order Edit');
+			$data = OrderModel::getOrderAllById($id);
+			View::assign('url', $url_update);
+		}
+		View::assign('url_list', $url_list);
+		View::assign('data', $data);
+		View::assign('order_status_list', $order_status_list);
+        return View::fetch('orderEdit');
     }
 
     public function pass(){
@@ -435,6 +508,48 @@ class Admin extends BackController
 			Db::rollback();
 			return json($ret);
 		}
+
+		$commit = Db::commit();
+        if($commit === false){
+            Db::rollback();
+			$ret['msg'] = 'save failed code 10006';
+            return json($ret);
+        }
+
+		$ret['code'] = 1;
+		$ret['msg'] = 'save success';
+		return json($ret);
+    }
+
+	public function actionOrderEdit(){
+        $ret = [
+			'code' => 0,
+			'data' => '',
+			'msg' => ''
+		];
+		$name = trim(Request::param('name'));
+		$order_status = intval(Request::param('order_status'));
+		$id = intval(Request::param('id'));
+		if(! $order_status || ! $id){
+			$ret['msg'] = 'param error';
+			return json($ret);
+		}
+		
+		$date = date('Y-m-d H:i:s');
+		$data = [
+			'order_status' => $order_status,
+			'updated_by' => $this->userid,
+			'updated_date' => $date
+		];
+		Db::startTrans();
+		$status = Db::name('order')->where(['id' => $id])->update($data);
+		if($status === false){
+			Db::rollback();
+			$ret['msg'] = 'save failed code 10002';
+			return json($ret);
+		}
+
+		
 
 		$commit = Db::commit();
         if($commit === false){
