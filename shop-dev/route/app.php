@@ -16,4 +16,5 @@ Route::get('think', function () {
 
 Route::get('hello/:name', 'index/hello');
 Route::get('product/:id', 'Product/index');
+Route::get('cate/:uri', 'Cate/index');
 // Route::get('checkout/key/:order', 'Checkout/result');

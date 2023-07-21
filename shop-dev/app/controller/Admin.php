@@ -23,10 +23,13 @@ use app\model\CateModel;
 use app\controller\ProductCommon;
 use app\model\OrderModel;
 use think\facade\Config;
+use app\model\UserModel;
+use app\model\RoleModel;
 // use think\App;
 
 class Admin extends BackController
 {
+	use AdminSubTrait;
 	
 	public function index(){
 		return $this->productList();
@@ -55,6 +58,17 @@ class Admin extends BackController
 		return View::fetch('orderList');
     }
 
+	public function userList(){
+		
+		$url = $this->url('/Admin/userEdit');
+		
+		View::assign('url', $url);
+		View::assign('uri', 'userList');
+		View::assign('title', 'User List');
+		
+		return View::fetch('userList');
+    }
+
 	public function ajaxOrderList(){
 		
 		$where = [];
@@ -73,6 +87,34 @@ class Admin extends BackController
 		
 		$list = OrderModel::getOrderList($where, ($page - 1) * $limit, $limit);
 		$count = OrderModel::getOrderCount($where);
+	
+		$ret = [
+			'code' => 0,
+			'count' => $count,
+			'data' => $list,
+			'msg' => ''
+		];
+		return json($ret);
+	}
+
+	public function ajaxUserList(){
+		
+		$where = [];
+		$keyword = addslashes(trim(Request::param('keyword')));
+		if($keyword){
+			$where .= 'a.order_num like "%' . $keyword . '%" ';
+		}
+		$page = intval(Request::param('page'));
+		if(! $page){
+			$page = 1;
+		}
+		$limit = intval(Request::param('limit'));
+		if(! $limit){
+			$limit = 20;
+		}
+		
+		$list = UserModel::getUserList($where, ($page - 1) * $limit, $limit);
+		$count = UserModel::getUserCount($where);
 	
 		$ret = [
 			'code' => 0,
@@ -247,6 +289,35 @@ class Admin extends BackController
 		View::assign('data', $data);
 		View::assign('order_status_list', $order_status_list);
         return View::fetch('orderEdit');
+    }
+
+	public function userEdit(){
+		$id = intval(Request::param('id'));
+		$data = [
+			'account' => '',
+			'name' => '',
+			'id' => '',
+			'role_id' => '',
+		];
+		$url_list = $this->url('/Admin/userList');
+		$url_update = $this->url('/Admin/actionUserEdit');
+		$role_list = RoleModel::getListOptions();
+
+		View::assign('uri', 'userList');
+		View::assign('url', 'userList');
+
+
+		if(! $id){
+			View::assign('title', 'User Add');
+		}else{
+			View::assign('title', 'User Edit');
+			$data = UserModel::getUserAllById($id);
+			View::assign('url', $url_update);
+		}
+		View::assign('url_list', $url_list);
+		View::assign('role_list', $role_list);
+		View::assign('data', $data);
+        return View::fetch('userEdit');
     }
 
     public function pass(){
@@ -562,6 +633,50 @@ class Admin extends BackController
 		$ret['msg'] = 'save success';
 		return json($ret);
     }
+
+	/*
+	public function actionUserEdit(){
+        $ret = [
+			'code' => 0,
+			'data' => '',
+			'msg' => ''
+		];
+
+		$role_id = intval(Request::param('role_id'));
+		$id = intval(Request::param('id'));
+		if(! $role_id || ! $id){
+			$ret['msg'] = 'param error';
+			return json($ret);
+		}
+		
+		$date = date('Y-m-d H:i:s');
+		$data = [
+			'order_status' => $order_status,
+			'updated_by' => $this->userid,
+			'updated_date' => $date
+		];
+		Db::startTrans();
+		$status = Db::name('order')->where(['id' => $id])->update($data);
+		if($status === false){
+			Db::rollback();
+			$ret['msg'] = 'save failed code 10002';
+			return json($ret);
+		}
+
+		
+
+		$commit = Db::commit();
+        if($commit === false){
+            Db::rollback();
+			$ret['msg'] = 'save failed code 10006';
+            return json($ret);
+        }
+
+		$ret['code'] = 1;
+		$ret['msg'] = 'save success';
+		return json($ret);
+    }
+	*/
 
     public function actionCateAdd(){
 		

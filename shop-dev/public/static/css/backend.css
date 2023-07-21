@@ -43,3 +43,12 @@
 .order-line-height{
 	line-height: 40px;
 }
+.ls-home{
+	position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 12px;
+}
+.ls-home a{
+	color: #fff;
+}

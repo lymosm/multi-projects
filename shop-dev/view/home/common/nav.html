@@ -34,7 +34,7 @@
 			foreach($cate_list as $rs){
 			?>
 			<li>
-				<a href="/Cate/index/id/{$rs['uri']}">{$rs['cate_name']}</a>
+				<a href="/cate/{$rs['uri']}">{$rs['cate_name']}</a>
 				<?php
 				if(isset($rs['_child']) && $rs['_child']){
 				?>
@@ -42,7 +42,7 @@
 					<?php 
 					foreach($rs['_child'] as $rs1){
 					?>
-					<li><a href="/Cate/index/id/{$rs['uri']}">{$rs1['cate_name']}</a>
+					<li><a href="/cate/{$rs['uri']}">{$rs1['cate_name']}</a>
 						<?php 
 						if(isset($rs1['_child']) && $rs1['_child']){
 						?>
@@ -50,7 +50,7 @@
 							<?php
 							foreach($rs1['_child'] as $rs2){
 							?>
-								<li><a href="/Cate/index/id/{$rs['uri']}">{$rs2['cate_name']}</a></li>
+								<li><a href="/cate/{$rs['uri']}">{$rs2['cate_name']}</a></li>
 							<?php
 							}
 							?>
@@ -81,13 +81,69 @@
 				<a href="javascript:;" class="search-loader" title="搜索"><i class="icon icon-search iconfont"></i></a>
 			</li>
 			<li class="nav-login no">
-				<a href="" class="signin-loader"><i class="icon icon-user"></i><span>登录</span></a>
+				<a id="ls-btn-login-show" href="javascript:void(0);" class="signin-loader"><i class="icon icon-user"></i><span>登录</span></a>
 				<b class="nav-line"></b>
-				<a href="" class="signup-loader"><span>注册</span></a>
+				<a id="ls-btn-reg-show" href="javascript:void(0);" class="signup-loader"><span>注册</span></a>
 				<b class="nav-line"></b>
 				<a href="/Cart" class="signup-loader"><span>Cart</span></a></li>
 			<li class="nav-button"><a href="javascript:;" class="nav-loader"><i class="icon icon-menu"></i></a></li>
 		</ul>
 
 	</div>
+</div>
+<div class="ls-login-reg-box" id="ls-login-reg-box">
+	<div class="ls-lr-close-box">
+		<div class="ls-lr-close" id="ls-lr-close">X</div>
+	</div>
+		
+	<div class="ls-login-box active" id="ls-login-box">
+		<form id="ls-login-form">
+			<div class="ls-login-title">
+				Login
+			</div>
+			<div class="ls-login-tip">
+				No account? <span class="ls-link" id="ls-btn-toggle-reg">Register</span>
+			</div>
+			<div class="ls-login-ipt">
+				<input type="text" name="account" class="ls-ipt">
+				<i class="ls-ipt-line"></i>
+				<div class="ls-placeholder">Account</div>
+			</div>
+			<div class="ls-login-ipt">
+				<input type="text" name="password" class="ls-ipt">
+				<i class="ls-ipt-line"></i>
+				<div class="ls-placeholder">Password</div>
+			</div>
+			<div class="ls-login-action">
+				<div class="ls-btn-login" id="ls-btn-login">Login</div>
+			</div>
+		</form>
+	</div>
+
+	<div class="ls-reg-box" id="ls-reg-box">
+		<form id="ls-login-form">
+			<div class="ls-login-title">
+				Register
+			</div>
+			<div class="ls-login-tip">
+				Has account? <span class="ls-link" id="ls-btn-toggle-login">Login</span>
+			</div>
+			<div class="ls-login-ipt">
+				<input type="text" name="account" class="ls-ipt">
+				<i class="ls-ipt-line"></i>
+				<div class="ls-placeholder">Account</div>
+			</div>
+			<div class="ls-login-ipt">
+				<input type="text" name="password" class="ls-ipt">
+				<i class="ls-ipt-line"></i>
+				<div class="ls-placeholder">Password</div>
+			</div>
+			<div class="ls-login-action">
+				<div class="ls-btn-login ls-btn-reg" id="ls-btn-reg">Sign up</div>
+			</div>
+		</form>
+	</div>
+</div>
+<div class="ls-shadow-box" id="ls-shadow-box">
+
 </div>

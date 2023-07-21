@@ -1,0 +1,1 @@
+<div>hello <?php echo '<pre>'; print_r($user); ?></div>

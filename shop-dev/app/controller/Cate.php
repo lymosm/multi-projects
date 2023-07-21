@@ -18,11 +18,11 @@ class Cate extends BaseController
 		parent::__construct($app, false);
 	}
 
-	public function index($id){
-		if(! trim($id)){
+	public function index($uri){
+		if(! trim($uri)){
 			return View::fetch('404');
 		}
-		$cate = CateModel::getCateInfo($id);
+		$cate = CateModel::getCateInfo($uri);
 		if(! $cate){
 			return View::fetch('404');
 		}

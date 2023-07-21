@@ -84,6 +84,58 @@ $(function(){
         });
     });
 
+    $(".ls-ipt").on("focus", function(){
+        var $this = $(this);
+        var $parent = $this.parent();
+        let $target = $parent.find(".ls-placeholder");
+        $target.addClass("active");
+    });
+
+    $("#ls-btn-toggle-reg").on("click", function(){
+        $("#ls-login-box").removeClass("active");
+        $("#ls-reg-box").addClass("active");
+    });
+    $("#ls-btn-toggle-login").on("click", function(){
+        $("#ls-login-box").addClass("active");
+        $("#ls-reg-box").removeClass("active");
+    });
+    $("#ls-btn-login-show").on("click", function(){
+        $("#ls-login-reg-box").addClass("active");
+        $("#ls-shadow-box").addClass("active");
+        $("#ls-btn-toggle-login").click();
+    });
+    $("#ls-btn-reg-show").on("click", function(){
+        $("#ls-login-reg-box").addClass("active");
+        $("#ls-shadow-box").addClass("active");
+        $("#ls-btn-toggle-reg").click();
+    });
+    $("#ls-lr-close").on("click", function(){
+        $("#ls-login-reg-box").removeClass("active");
+        $("#ls-shadow-box").removeClass("active");
+    });
+
+    $("#ls-btn-login").on("click", function(){
+        var url = host + "Checkout/saveCheckout";
+        var data = $("#checkout-form").serialize();
+        var $loading = $("#ls-shade-box");
+        $loading.addClass("active");
+        $.ajax({
+            type: "POST",
+            url: url,
+            data: data,
+            success: function(res){
+                if(res.code == 1){
+                    ls_obj.message("added success");
+                    location.href = res.data.redirect;
+                }else{
+                    ls_obj.message(res.msg);
+                }
+                
+                $loading.removeClass("active");
+            }
+        });
+    });
+
 });
 
 var stripe_obj = {

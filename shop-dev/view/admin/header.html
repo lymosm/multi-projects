@@ -11,7 +11,13 @@
 	<body>
 		<div class="layui-layout layui-layout-admin">
 			<div class="layui-header">
-				<div class="layui-logo layui-hide-xs layui-bg-black">shop admin</div>
+				<div class="layui-logo layui-hide-xs layui-bg-black">
+					shop admin
+					
+				</div>
+				<div class="ls-home">
+					<a href="/" target="_blank">Home</a>
+				</div>
 				<!-- 头部区域（可配合layui 已有的水平导航） -->
 				<ul class="layui-nav layui-layout-left">
 					<!-- 移动端显示 -->
@@ -50,6 +56,12 @@
 							<a class="" href="javascript:;">order management</a>
 							<dl class="layui-nav-child">
 								<dd class="<?php if($uri == 'orderList') echo 'active'; ?>"><a href="/Admin/orderList">order list</a></dd>
+							</dl>
+						</li>
+						<li class="layui-nav-item <?php if(in_array($uri, ['userList'])){ echo 'layui-nav-itemed'; } ?>">
+							<a class="" href="javascript:;">user management</a>
+							<dl class="layui-nav-child">
+								<dd class="<?php if($uri == 'userList') echo 'active'; ?>"><a href="/Admin/userList">user list</a></dd>
 							</dl>
 						</li>
 					</ul>
