@@ -3,13 +3,39 @@
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
+# app = "lymos-mysql"
+# primary_region = "nrt"
+
+# [http_service]
+#  internal_port = 8080
+#  force_https = true
+#  auto_stop_machines = true
+#  auto_start_machines = true
+#  min_machines_running = 0
+#  processes = ["app"]
+# password is pwd
+
 app = "lymos-mysql"
+kill_signal = "SIGINT"
+kill_timeout = 5
+
+# If copy/paste'ing, adjust this
+# to the region you're deploying to
 primary_region = "nrt"
 
-[http_service]
-  internal_port = 8080
-  force_https = true
-  auto_stop_machines = true
-  auto_start_machines = true
-  min_machines_running = 0
-  processes = ["app"]
+[processes]
+  app = "--datadir /data/mysql --default-authentication-plugin mysql_native_password --performance-schema=OFF --innodb-buffer-pool-size 64M"
+
+[mounts]
+  source="mysqldata"
+  destination="/data"
+
+[env]
+  MYSQL_DATABASE = "some_db"
+  MYSQL_USER = "non_root_user"
+
+# As of 04/25/2023:
+# MySQL 8.0.33 has a bug in it
+# so avoid that specific version
+[build]
+  image = "mysql:8.0.32"
