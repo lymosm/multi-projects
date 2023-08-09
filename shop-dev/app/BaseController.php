@@ -11,6 +11,7 @@ use think\facade\Db;
 use think\facade\Request;
 use think\facade\View;
 use app\model\CateModel;
+use app\model\UserModel;
 
 /**
  * 控制器基础类
@@ -46,6 +47,7 @@ abstract class BaseController
     public $session_id = '';
     public $userid = 0;
     public $date = '';
+    public $user = [];
 
     /**
      * 构造方法
@@ -58,6 +60,7 @@ abstract class BaseController
         $this->session_id = session_id();
         $this->app     = $app;
         $this->request = $this->app->request;
+
         $this->userid = intval(session('userid'));
         $this->date = date('Y-m-d H:i:s');
 		
@@ -70,6 +73,8 @@ abstract class BaseController
         if($check_token){
             $this->verifyToken();
         }
+        $this->getLoginUser();
+        View::assign('user', $this->user);
     }
 	
 	public function url($uri){
@@ -208,5 +213,10 @@ abstract class BaseController
             $ip = request()->ip();
         }
         return $ip;
+    }
+
+    public function getLoginUser(){
+        $userid = session('userid');
+        $this->user = UserModel::getUserAllById($userid);
     }
 }

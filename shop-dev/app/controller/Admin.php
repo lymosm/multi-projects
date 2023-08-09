@@ -30,6 +30,7 @@ use app\model\RoleModel;
 class Admin extends BackController
 {
 	use AdminSubTrait;
+	use PageTrait;
 	
 	public function index(){
 		return $this->productList();

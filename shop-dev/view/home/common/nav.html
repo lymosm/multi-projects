@@ -81,9 +81,26 @@
 				<a href="javascript:;" class="search-loader" title="搜索"><i class="icon icon-search iconfont"></i></a>
 			</li>
 			<li class="nav-login no">
+				<?php 
+				if(isset($user['account'])){
+				?>
+				<div class="ls-account-logo" id="ls-account-logo">
+					<div class="ls-account" id="ls-account">{$user['account']}</div>
+					<div class="ls-myaccount-box" id="ls-myaccount-box">
+						<a href="/account" class="ls-account-item">My Account</a>
+						<div class="ls-account-item" id="ls-btn-logout">Logout</div>
+					</div>
+				</div>
+				
+				<?php
+				}else{
+				?>
 				<a id="ls-btn-login-show" href="javascript:void(0);" class="signin-loader"><i class="icon icon-user"></i><span>登录</span></a>
 				<b class="nav-line"></b>
 				<a id="ls-btn-reg-show" href="javascript:void(0);" class="signup-loader"><span>注册</span></a>
+				<?php
+				}
+				?>
 				<b class="nav-line"></b>
 				<a href="/Cart" class="signup-loader"><span>Cart</span></a></li>
 			<li class="nav-button"><a href="javascript:;" class="nav-loader"><i class="icon icon-menu"></i></a></li>
@@ -110,7 +127,7 @@
 				<div class="ls-placeholder">Account</div>
 			</div>
 			<div class="ls-login-ipt">
-				<input type="text" name="password" class="ls-ipt">
+				<input type="password" name="pwd" class="ls-ipt">
 				<i class="ls-ipt-line"></i>
 				<div class="ls-placeholder">Password</div>
 			</div>

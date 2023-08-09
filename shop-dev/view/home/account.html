@@ -1,0 +1,35 @@
+{include file="home/common/header" /}
+<div class="ls-ac-box">
+    <div class="ls-ac-left">
+        <div class="ls-ac-account">
+            Lomadmin
+        </div>
+        <a href="{$url_account}" class="ls-ac-item">
+            My Account
+        </a>
+        <a href="{$url_order}" class="ls-ac-item">
+            My Orders
+        </a>
+        <a href="/logout" class="ls-ac-item">
+            Logout
+        </a>
+    </div>
+    <div class="ls-ac-right">
+        <?php 
+        if($type == 'my'){
+        ?>
+            {include file="home/account/my-account"}
+        <?php
+        }else if($type == 'order'){
+        ?>
+        {include file="home/account/my-order"}
+        <?php
+        }else if($type == 'view-order'){
+        ?>
+        {include file="home/account/view-order"}
+        <?php
+        }
+        ?>
+    </div>
+</div>
+{include file="home/common/footer" /}

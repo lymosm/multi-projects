@@ -79,7 +79,7 @@ class Checkout extends BaseController
 			'email' => $email,
 			'address' => $address,
 			'session_id' => $this->session_id,
-			'uid' => $this->_uid
+			'uid' => $this->userid
 		];
 
 		$cart = CartModel::getCartData($this->session_id);

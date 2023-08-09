@@ -1,0 +1,146 @@
+{include file="admin/header" /}
+
+			
+
+			<div class="layui-body">
+				<div style="padding: 15px;"><a class="layui-btn" href="/Admin/pageEdit">Add</a></div>
+				<table class="layui-table" id="video-list" lay-size="lg">
+				</table>
+			</div>
+
+		</div>
+		<style>
+		tbody .layui-table-cell {
+		            height: 100px;
+		            line-height: 100px;
+		        }
+		</style>
+		
+{include file="admin/footer" /}
+<script>
+	var home = "{$home}",
+		del = '',
+		edit = '',
+		base_url = "{$base_url}";
+		//JS 
+		layui.use(['element', 'layer', 'util', 'jquery', 'form', "table"], function() {
+			var element = layui.element,
+				layer = layui.layer,
+				util = layui.util,
+				$ = layui.$;
+				
+			var table = layui.table;
+			  
+			  //第一个实例
+			  var tablens = table.render({
+				elem: '#video-list'
+				,url: "/Admin/ajaxPageList" //数据接口
+				,page: true ,//开启分页
+				height: 680,
+				limit: 20
+				,cols: [[ //表头
+				  {field: 'id', title: 'ID', width:60,  fixed: 'left'}
+				  ,{field: 'Title', title: 'Title', width: 240},
+				  {field: 'Url', title: 'Url', width: 200},
+				  {field: 'Author', title: 'Author', width: 200},
+				  ,{field: 'added_date', title: 'Added Date', width: 200},
+				  
+				  {field: 'view', title: 'Action', templet: function(d){
+					  return '<a class="layui-btn" href="javascript:void(0);" onclick="edit(' + d.id + ')">edit</a>';
+				  }}
+				 
+				]]
+			  });
+			 /* 
+			$("#btn-search").on("click", function(){
+				tablens.reload({
+					where: {
+						keyword: $("#keyword").val()
+					}
+				});
+			});
+
+
+*/
+
+			del = function(id){
+				$.ajax({
+					type: "POST",
+					data: {id: id},
+					url: "/Admin/actionVideoDelete",
+					success: function(res){
+						console.log(res);
+						if(res.code == 1){
+							layer.alert("删除成功！", function(){
+								location.reload();
+							})
+						}else{
+							layer.alert(res.msg);
+						}
+					}
+				}); 
+			}
+
+			edit = function(id){
+				location.href = "/Admin/userEdit/id/" + id;
+			}
+
+			//头部事件
+			util.event('lay-header-event', {
+				//左侧菜单事件
+				menuLeft: function(othis) {
+					layer.msg('展开左侧菜单的操作', {
+						icon: 0
+					});
+				},
+				menuRight: function() {
+					layer.open({
+						type: 1,
+						content: '<div style="padding: 15px;">处理右侧面板的操作</div>',
+						area: ['260px', '100%'],
+						offset: 'rt' //右上角
+							,
+						anim: 5,
+						shadeClose: true
+					});
+				}
+			});
+			
+			var form = layui.form;
+			
+			//监听提交
+			/*
+			form.on('submit(formDemo)', function(data){
+			 // layer.msg(JSON.stringify(data.field));
+			  return true;
+			});
+		*/
+		   $("#btn-add").on("click", function(){
+				layer.open({
+					title: "添加视频",
+					type: 2,
+					area: ["780px", "560px"],
+					content: '{$url}',
+					end: function(){
+						tablens.reload();
+					}
+				}); 
+			});
+
+		   $("#btn-pass").on("click", function(){
+				layer.open({
+					title: "修改密码",
+					type: 2,
+					area: ["480px", "320px"],
+					content: '{$url_pass}',
+					end: function(){
+						//tablens.reload();
+					}
+				}); 
+			});
+		   
+
+		});
+		
+	
+</script>

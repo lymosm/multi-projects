@@ -13,9 +13,12 @@ use Lymos\Stripe\stripe;
 
 class Home extends BaseController
 {
+
+	use MyAccount;
 	
 	public function __construct(\think\App $app){
 		parent::__construct($app, false);
+		
 	}
 
 	public function test(){

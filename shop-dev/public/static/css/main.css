@@ -1,6 +1,6 @@
 @font-face {
     font-family: "iconfont";
-    src: url('../fonts/iconfont.ttf') format('truetype');
+    src: url('../fonts/iconfont.ttf?t=37387898778') format('truetype');
 }
 body,html{
     padding: 0;
@@ -36,6 +36,10 @@ a{
 .ls-home-top img{
     height: 600px;
 }
+.search-loader{
+    display: inline-block;
+    margin-top: 3px;
+}
 .ls-home-top .slick-slide .img-link{
     display: block;
     justify-content: center;
@@ -52,7 +56,7 @@ a{
     height: 100%;
 }
 .ls-logo-box{
-    line-height: 80px;
+    line-height: 72px;
 }
 .ls-cate-box{
     width: 70%;
@@ -63,14 +67,14 @@ a{
     height: 100%;
 }
 .iconfont{  
-    font-family:"iconfont" !important;  
-    font-size:16px;  
+    font-family: "iconfont" !important;  
+    font-size: 16px;  
     font-style:normal;  
     -webkit-font-smoothing: antialiased;  
     -webkit-text-stroke-width: 0.2px;  
 }  
 .icon-search:before{
-    content: "\e600";
+    content: "\e67d";
 }
 .nav-right{
     display: flex;
@@ -151,11 +155,22 @@ a{
 }
 .ls-p-img{
     height: 300px;
+    text-align: center;
+}
+.ls-common-img{
+    height: 100%;
+    object-fit: contain;
+}
+.ls-p-info{
+    margin-top: 10px;
 }
 .ls-p-inner{
     background-color: #eeeeee;
     padding: 10px;
     display: block;
+}
+.p-img-gallary{
+    
 }
 .ls-footer {
     position: relative;
@@ -169,6 +184,9 @@ a{
 }
 .lo-product{
     display: flex;
+    width: 80%;
+    margin: 0 auto;
+    max-width: 1150px;
 }
 .lo-product-inner{
     width: 74%;
@@ -177,11 +195,26 @@ a{
 .ls-product-recommand{
     width: 26%;
 }
+.ls-product-qty{
+    width: 80px;
+    padding: 6px;
+    outline: none;
+}
 .product-left{
-    width: 60%;
+    width: 50%;
+}
+.ls-product-desc-box{
+    width: 80%;
+    margin: 0 auto;
+    padding-bottom: 40px;
+    margin-top: 20px;
+}
+.ls-product-desc{
+    border-top: 1px solid #ccc;
+    padding-top: 20px;
 }
 .product-right{
-    width: 40%;
+    width: 50%;
     padding-left: 2vw;
 }
 .p-img-thumb{
@@ -221,6 +254,7 @@ a{
     text-align: center;
     color: #fff;
     cursor: pointer;
+    border-radius: 6px;
 }
 .ls-btn:hover{
     color: rgb(226, 223, 223);
@@ -363,7 +397,7 @@ button.slick-prev:before{
     height: 100vh;
     background-color: #000;
     opacity: 0.4;
-    z-index: 2;
+    z-index: 20;
     position: fixed;
     top: 0;
     left: 0;
@@ -386,7 +420,7 @@ button.slick-prev:before{
     top: 20%;
     margin-left: -10%;
     left: 50%;
-    z-index: 3;
+    z-index: 21;
     color: #fff;
     padding-top: 20px;
     text-align: center;
@@ -446,7 +480,7 @@ button.slick-prev:before{
     background: rgba(255, 255, 255, 0.8);
     box-shadow: 0, 0, 10px;
     border-radius: 8px;
-    z-index: 11;
+    z-index: 9;
     padding: 20px;
     top: 26%;
     backdrop-filter: saturate(5) blur(20px);
@@ -463,7 +497,7 @@ button.slick-prev:before{
     left: 0;
     transition: opacity .15s linear;
     background-color: #000;
-    z-index: 10;
+    z-index: 8;
     opacity: 0.5;
     display: none;
 }
@@ -576,3 +610,124 @@ button.slick-prev:before{
 .ls-btn-login.ls-btn-reg{
     background: linear-gradient(135deg, #60e464 10%, #5cb85b 100%);
 }
+.ls-account{
+    display: inline-block;
+    padding-bottom: 4px;
+}
+.ls-myaccount-box{
+    position: absolute;
+    top: 36px;
+    right: 26px;
+    z-index: 2;
+    background-color: #fff;
+    display: none;
+}
+.ls-myaccount-box.active{
+    display: block;
+}
+.nav-login{
+    position: relative;
+}
+.ls-account-item{
+    border-bottom: 1px solid #dfdfdf;
+    width: 100px;
+    padding: 10px;
+    cursor: pointer;
+}
+.ls-account-logo{
+    display: inline-block;
+}
+
+
+/************************************* account page start ********************************/
+.ls-ac-box{
+    width: 80%;
+    display: flex;
+    min-height: 30vw;
+    margin: 0 auto;
+    max-width: 960px;
+}
+.ls-ac-left{
+    width: 32%;
+    border-right: 1px solid #ccc;
+}
+.ls-ac-right{
+    width: 80%;
+    padding-left: 40px;
+    padding-bottom: 40px;
+}
+.ls-ac-item{
+    display: block;
+    border-bottom: 1px solid #ccc;
+    text-align: center;
+    padding: 10px;
+}
+.ls-account-save{
+    width: 120px;
+}
+.ls-ac-ipt{
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+    width: 240px;
+    border-radius: 6px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.ls-ac-ipt input{
+    border: none;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    outline: none;
+}
+.ls-ac-ipt input:focus, .ls-ac-ipt input:visited, .ls-ac-ipt input:active{
+    border: none;
+}
+.ls-form-label{
+    display: block;
+    margin-bottom: 10px;
+}
+.ls-tr{
+    display: flex;
+    border-bottom: 1px solid #ccc;
+}
+.ls-th{
+    padding: 10px;
+}
+.ls-td{
+    padding: 10px;
+}
+.ls-w-10{
+    width: 10%;
+}
+.ls-w-20{
+    width: 20%;
+}
+.ls-w-30{
+    width: 30%;
+}
+.ls-w-40{
+    width: 40%;
+}
+.ls-w-50{
+    width: 50%;
+}
+.ls-order-item{
+    display: flex;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid #eee;
+}
+.ls-od-left{
+    width: 70%;
+}
+.ls-od-right{
+    width: 30%;
+}
+.ls-sh-addr{
+    margin-bottom: 10px;
+}
+.ls-line-order{
+    height: 1px;
+    margin-top: 20px;
+}
+/************************************* account page end ********************************/

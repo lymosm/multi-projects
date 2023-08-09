@@ -8,7 +8,7 @@
                     $html = '';
                     foreach($product_img as $rs){
                         $html .= '<div>';
-                        $html .= '<img src="' . $rs['uri'] . '">';
+                        $html .= '<img class="ls-common-img" src="/storage/' . $rs['uri'] . '">';
                         $html .= '</div>';
                     }
                     echo $html;
@@ -21,7 +21,7 @@
                     $html = '';
                     foreach($product_img as $rs){
                         $html .= '<div class="gallary-thumb-item"><div class="thumb-img-inner">';
-                        $html .= '<img src="' . $rs['uri'] . '"></div>';
+                        $html .= '<img class="ls-common-img" src="/storage/' . $rs['uri'] . '"></div>';
                         $html .= '</div>';
                     }
                     echo $html;
@@ -40,7 +40,7 @@
             <div class="p-action">
                 <label>
                     Number:
-                    <input type="number" id="qty" name="quity" value="1">
+                    <input type="number" id="qty" class="ls-product-qty" name="quity" value="1">
                 </label>
                 <input type="hidden" id="product-id" value="{$product['id']}">
                 <a href="javascript:void(0);" id="ls-btn-add-cart" class="ls-btn-cart">Add To Cart</a>
@@ -50,9 +50,9 @@
     <div class="ls-product-recommand">
         <?php foreach($product_recommand as $rs){
         ?>
-        <a class="ls-verital-p-item" href="">
+        <a class="ls-verital-p-item" href="/product/{$rs['product_uri']}">
             <div class="ls-v-img">
-                <img src="{$rs['img_uri']}">
+                <img class="ls-common-img" src="/storage/{$rs['img_uri']}">
             </div>
             <div class="ls-v-text">
                 <h3 class="p-title">{$rs['name']}</h3>
@@ -67,9 +67,9 @@
         ?>
         <?php foreach($product_recommand as $rs){
             ?>
-            <a class="ls-verital-p-item" href="">
+            <a class="ls-verital-p-item" href="/product/{$rs['product_uri']}">
                 <div class="ls-v-img">
-                    <img src="{$rs['img_uri']}">
+                    <img class="ls-common-img" src="/storage/{$rs['img_uri']}">
                 </div>
                 <div class="ls-v-text">
                     <h3 class="p-title">{$rs['name']}</h3>
@@ -82,6 +82,14 @@
             <?php
                 }
             ?>
+    </div>
+    
+    
+</div>
+<div class="ls-product-desc-box">
+    <h2>Description</h2>
+    <div class="ls-product-desc">
+        {$product['long_desc']}
     </div>
 </div>
 {include file="home/common/footer" /}

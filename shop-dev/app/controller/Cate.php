@@ -30,6 +30,8 @@ class Cate extends BaseController
 		$limit = 2;
 		$product_list = ProductModel::getProductListByCate(['c.cate_id' => $cate['id']], $page, $limit);
 		$list = array_chunk($product_list, 4);
+		error_log(print_r($list, true) . "\r\n", 3, '/www/debug.log');
+
 
 		View::assign('title', $cate['cate_name']);
 		View::assign('cate', $cate);

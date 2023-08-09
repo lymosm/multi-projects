@@ -1,0 +1,28 @@
+<div class="ls-ac-ac-box">
+    <div class="ls-table">
+        <div class="ls-thead">
+            <div class="ls-tr">
+                <div class="ls-th ls-w-30">Order</div>
+                <div class="ls-th ls-w-20">Date</div>
+                <div class="ls-th ls-w-20">Status</div>
+                <div class="ls-th ls-w-20">Total</div>
+                <div class="ls-th ls-w-10">Detail</div>
+            </div>
+        </div>
+        <div class="ls-tbody">
+            <?php
+            foreach($order_list as $rs){
+            ?>
+            <div class="ls-tr">
+                <div class="ls-td ls-w-30">{$rs['order_num']}</div>
+                <div class="ls-td ls-w-20">{$rs['added_date']}</div>
+                <div class="ls-td ls-w-20">{$rs['order_status']}</div>
+                <div class="ls-td ls-w-20">{$rs['total_price']}</div>
+                <div class="ls-td ls-w-10"><a href="{$url_order_view}{$rs['order_num']}">Detail</a></div>
+            </div>
+            <?php
+            }
+            ?>
+        </div>
+    </div>
+</div>

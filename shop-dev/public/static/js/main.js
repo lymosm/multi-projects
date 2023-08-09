@@ -115,8 +115,8 @@ $(function(){
     });
 
     $("#ls-btn-login").on("click", function(){
-        var url = host + "Checkout/saveCheckout";
-        var data = $("#checkout-form").serialize();
+        var url = host + "HomeLogin/login";
+        var data = $("#ls-login-form").serialize();
         var $loading = $("#ls-shade-box");
         $loading.addClass("active");
         $.ajax({
@@ -125,8 +125,62 @@ $(function(){
             data: data,
             success: function(res){
                 if(res.code == 1){
-                    ls_obj.message("added success");
-                    location.href = res.data.redirect;
+                    ls_obj.message("login success");
+                    location.reload();
+                }else{
+                    ls_obj.message(res.msg);
+                }
+                
+                $loading.removeClass("active");
+            }
+        });
+    });
+/*
+    $("#ls-account-logo").on("mouseenter", function(){
+        $("#ls-myaccount-box").addClass("active");
+    }).on("mouseleave", function(){
+        $("#ls-myaccount-box").removeClass("active");
+    });
+*/
+    $("#ls-account-logo").hover(function(){
+        $("#ls-myaccount-box").addClass("active");
+    }, function(){
+        $("#ls-myaccount-box").removeClass("active");
+    });
+
+    $("#ls-btn-logout").on("click", function(){
+        var url = host + "HomeLogin/logout";
+        var $loading = $("#ls-shade-box");
+        $loading.addClass("active");
+        $.ajax({
+            type: "POST",
+            url: url,
+            data: {},
+            success: function(res){
+                if(res.code == 1){
+                    ls_obj.message("logout success");
+                    location.reload();
+                }else{
+                    ls_obj.message(res.msg);
+                }
+                
+                $loading.removeClass("active");
+            }
+        });
+    });
+
+    $("#ls-account-save").on("click", function(){
+        var url = host + "Home/changeAccount";
+        var data = $(this).parents("form").serialize();
+        var $loading = $("#ls-shade-box");
+        $loading.addClass("active");
+        $.ajax({
+            type: "POST",
+            url: url,
+            data: data,
+            success: function(res){
+                if(res.code == 1){
+                    ls_obj.message("save success");
                 }else{
                     ls_obj.message(res.msg);
                 }

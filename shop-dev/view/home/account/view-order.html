@@ -1,0 +1,86 @@
+<?php
+$product_list = $order['product_list'];
+$user = $order['user'];
+$price = $order['price'];
+
+?>
+<div class="ls-ac-ac-box">
+    <div class="ls-ac-order-num">
+        Order number: {$price['order_num']}
+    </div>
+    <h3>Order Details</h3>
+    <div class="ls-order-detail-box">
+        <div class="ls-order-item">
+            <div class="ls-od-left">
+                Product
+            </div>
+            <div class="ls-od-right">
+                Total
+            </div>
+        </div>
+        <?php
+        foreach($product_list as $rs){
+        ?>
+        <div class="ls-order-item">
+            <div class="ls-od-left">
+                {$rs['product_name']}
+            </div>
+            <div class="ls-od-right">
+                {$rs['item_price']}
+            </div>
+        </div>
+        <?php
+        }
+        ?>
+
+        <div class="ls-line-order"></div>
+        <div class="ls-order-item">
+            <div class="ls-od-left">
+                Subtotal
+            </div>
+            <div class="ls-od-right">
+                
+            </div>
+        </div>
+        <div class="ls-order-item">
+            <div class="ls-od-left">
+                Payment Method
+            </div>
+            <div class="ls-od-right">
+                {$price['paid_type']}
+            </div>
+        </div>
+        <div class="ls-order-item">
+            <div class="ls-od-left">
+                Total
+            </div>
+            <div class="ls-od-right">
+                ${$price['total_price']}
+            </div>
+        </div>
+    </div>
+    <h3>Shipping Address</h3>
+    <div class="ls-shipping-box">
+        <div class="ls-sh-addr">
+            {$user['first_name']} {$user['last_name']}
+        </div>
+        <div class="ls-sh-addr">
+            {$user['country']}
+        </div>
+        <div class="ls-sh-addr">
+            {$user['state']}
+        </div>
+        <div class="ls-sh-addr">
+            {$user['city']}
+        </div>
+        <div class="ls-sh-addr">
+            {$user['address']}
+        </div>
+        <div class="ls-sh-addr">
+            {$user['email']}
+        </div>
+        <div class="ls-sh-addr">
+            {$user['phone']}
+        </div>
+    </div>
+</div>

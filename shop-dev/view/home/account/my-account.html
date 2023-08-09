@@ -1,0 +1,32 @@
+<div class="ls-ac-ac-box">
+    <form>
+        <div class="ls-ac-form-item">
+            <label class="ls-form-label">Account Name</label>
+            <div class="ls-ac-ipt">
+                <input type="text" name="account" disabled value="<?php echo $user['account']; ?>">
+            </div>
+        </div>
+        <div class="ls-ac-form-item">
+            <label class="ls-form-label">Old Password</label>
+            <div class="ls-ac-ipt">
+                <input type="password" name="old_password" value="">
+            </div>
+        </div>
+        <div class="ls-ac-form-item">
+            <label class="ls-form-label">New Password</label>
+            <div class="ls-ac-ipt">
+                <input type="password" name="new_password" value="">
+            </div>
+        </div>
+        <div class="ls-ac-form-item">
+            <label class="ls-form-label">Confirm Password</label>
+            <div class="ls-ac-ipt">
+                <input type="password" name="confirm_password" value="">
+            </div>
+        </div>
+        <input type="hidden" name="account_id" value="<?php echo $userid; ?>">
+        <div class="ls-ac-form-item">
+            <div class="ls-btn ls-account-save" id="ls-account-save">Save</div>
+        </div>
+    </form>
+</div>

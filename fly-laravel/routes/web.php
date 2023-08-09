@@ -15,6 +15,6 @@ use App\Http\Controllers\TestController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
 Route::get('/test', [TestController::class, 'test']);

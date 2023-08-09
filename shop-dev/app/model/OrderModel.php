@@ -97,6 +97,21 @@ class OrderModel extends Model{
         return $ret;
     }
 
+    public static function getUserOrderList($where = [], $limit_s = 0, $limit_e = 0){
+        $ret = Db::name('order')
+            ->alias('a')
+            ->join('order_price b', 'a.id = b.order_id', 'left')
+            ->join('order_user c', 'c.order_id = a.id', 'left')
+            ->field('a.id, a.order_num, a.added_date, a.order_status, b.total_price')
+        ->where($where)
+        ->limit($limit_s, $limit_e)
+        ->order('a.id desc')
+        ->select();  
+        error_log(print_r(Db::getLastSql(), true) . "\r\n", 3, '/www/debug.log');
+
+        return $ret;
+    }
+
     public static function getOrderAllById($id){
         $ret = Db::name('order')
             ->alias('a')
@@ -120,6 +135,7 @@ class OrderModel extends Model{
             ->field('b.order_id, b.product_id, b.product_name, b.price, b.qty, b.item_price, a.order_num')
             ->where($where)
             ->select();
+
         $user = Db::name('order')->alias('a')
             ->join('order_user b', 'a.id = b.order_id', 'left')
             ->field('b.order_id, b.session_id, b.country, b.state, b.city, b.first_name, b.last_name, b.email, b.address, b.phone')

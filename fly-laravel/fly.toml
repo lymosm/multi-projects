@@ -19,6 +19,9 @@ console_command = "php /var/www/html/artisan tinker"
   LOG_STDERR_FORMATTER = "Monolog\\Formatter\\JsonFormatter"
   SESSION_DRIVER = "cookie"
   SESSION_SECURE_COOKIE = "true"
+  DB_CONNECTION = "mysql"
+  DB_HOST = "nrt.lymos-mysql.internal"
+  DB_DATABASE = "fly_db"
 
 [http_service]
   internal_port = 8080
