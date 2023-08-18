@@ -6,11 +6,10 @@ use think\facade\Db;
 
 class PageModel extends Model{
 
-    public static function getPageCount($where = []){
-        $ret = Db::name('user')
+    public static function getCount($where = []){
+        $ret = Db::name('page')
             ->alias('a')
-            ->join('user_role b', 'a.id = b.user_id', 'left')
-            ->join('role c', 'b.role_id = c.id', 'left')
+            ->join('user b', 'b.id = a.added_by', 'left')
             ->field('count(*) as count')
             ->where($where)
             ->select();  
@@ -18,12 +17,20 @@ class PageModel extends Model{
         return isset($ret[0]['count']) ? $ret[0]['count'] : 0;
     }
 
-    public static function getPageList($where = [], $limit_s = 0, $limit_e = 0){
-        $ret = Db::name('user')
+    public static function getPageByUri($uri){
+        $ret = Db::name('page')
+        ->alias('a')
+        ->field('a.id, a.title, a.uri, a.content')
+        ->where(['a.uri' => $uri])
+        ->find();  
+        return $ret;
+    }
+
+    public static function getList($where = [], $limit_s = 0, $limit_e = 0){
+        $ret = Db::name('page')
             ->alias('a')
-            ->join('user_role b', 'a.id = b.user_id', 'left')
-            ->join('role c', 'b.role_id = c.id', 'left')
-            ->field('a.id, a.account, a.added_date, c.name as role_name')
+            ->join('user b', 'b.id = a.added_by', 'left')
+            ->field('a.id, a.title, a.uri, a.content, b.account as added_by, a.added_date')
         ->where($where)
         ->limit($limit_s, $limit_e)
         ->order('a.id desc')
@@ -32,10 +39,9 @@ class PageModel extends Model{
     }
 
     public static function getPageAllById($id){
-        $ret = Db::name('user')
+        $ret = Db::name('page')
         ->alias('a')
-        ->join('user_role b', 'a.id = b.user_id', 'left')
-        ->field('a.id, a.account, a.added_date, b.role_id')
+        ->field('a.id, a.title, a.uri, a.content')
         ->where(['a.id' => $id])
         ->find();  
         return $ret;

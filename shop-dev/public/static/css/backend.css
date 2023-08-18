@@ -52,3 +52,6 @@
 .ls-home a{
 	color: #fff;
 }
+.ls-common-textarea{
+	min-height: 100px;
+}

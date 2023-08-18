@@ -4,9 +4,25 @@ namespace app\controller;
 use think\facade\Request;
 use think\facade\Db;
 use think\facade\View;
+use app\model\PageModel;
+use app\controller\Error;
 
 Trait PageTrait 
 {
+
+	public function page(string $uri = ''){
+		if(! $uri){
+			return Error::e404();
+		}
+		$data = PageModel::getPageByUri($uri);
+		if(! $data){
+			return Error::e404();
+		}
+
+		View::assign('title', $data['title']);
+		View::assign('data', $data);
+		return View::fetch('home/template/page');
+	}
 
 	public function pageList(){
 		
@@ -24,7 +40,7 @@ Trait PageTrait
 		$where = [];
 		$keyword = addslashes(trim(Request::param('keyword')));
 		if($keyword){
-			$where .= 'a.order_num like "%' . $keyword . '%" ';
+			$where .= 'a.title like "%' . $keyword . '%" ';
 		}
 		$page = intval(Request::param('page'));
 		if(! $page){
@@ -35,8 +51,8 @@ Trait PageTrait
 			$limit = 20;
 		}
 		
-		$list = UserModel::getUserList($where, ($page - 1) * $limit, $limit);
-		$count = UserModel::getUserCount($where);
+		$list = PageModel::getList($where, ($page - 1) * $limit, $limit);
+		$count = PageModel::getCount($where);
 	
 		$ret = [
 			'code' => 0,
@@ -50,30 +66,30 @@ Trait PageTrait
 	public function pageEdit(){
 		$id = intval(Request::param('id'));
 		$data = [
-			'account' => '',
-			'name' => '',
+			'title' => '',
+			'uri' => '',
 			'id' => '',
-			'role_id' => '',
+			'content' => '',
 		];
-		$url_list = $this->url('/Admin/userList');
-		$url_update = $this->url('/Admin/actionUserEdit');
-		$role_list = RoleModel::getListOptions();
+		$url_list = $this->url('/Admin/pageList');
+		$url_update = $this->url('/Admin/actionPageEdit');
 
-		View::assign('uri', 'userList');
-		View::assign('url', 'userList');
+		View::assign('uri', 'pageList');
+		View::assign('url', 'actionPageEdit');
 
 
 		if(! $id){
-			View::assign('title', 'User Add');
+			View::assign('title', 'Page Add');
 		}else{
-			View::assign('title', 'User Edit');
-			$data = UserModel::getUserAllById($id);
+			View::assign('title', 'Page Edit');
+			$data = PageModel::getPageAllById($id);
+			error_log(print_r(htmlentities($data['content']), true) . "\r\n", 3, '/www/debug.log');
+
 			View::assign('url', $url_update);
 		}
 		View::assign('url_list', $url_list);
-		View::assign('role_list', $role_list);
 		View::assign('data', $data);
-        return View::fetch('userEdit');
+        return View::fetch('pageEdit');
     }
 	
 	
@@ -85,26 +101,37 @@ Trait PageTrait
 			'msg' => ''
 		];
 
-		$role_id = intval(Request::param('role'));
+		$title = Request::param('title');
+		$uri = Request::param('uri');
+		$content = Request::param('content');
 		$id = intval(Request::param('id'));
-		if(! $role_id || ! $id){
+		if(! $title || ! $uri){
 			$ret['msg'] = 'param error';
 			return json($ret);
 		}
 		
 		$date = date('Y-m-d H:i:s');
 		$data = [
-			'role_id' => $role_id
+			'title' => $title,
+			'uri' => $uri,
+			'content' => $content
 		];
 		Db::startTrans();
-		$status = Db::name('user_role')->where(['user_id' => $id])->update($data);
+		if($id){
+			$data['updated_by'] = $this->userid;
+			$data['updated_date'] = $date;
+			$status = Db::name('page')->where(['id' => $id])->update($data);
+		}else{
+			$data['added_by'] = $this->userid;
+			$data['added_date'] = $date;
+			$status = Db::name('page')->insert($data);
+		}
+		
 		if($status === false){
 			Db::rollback();
 			$ret['msg'] = 'save failed code 10002';
 			return json($ret);
 		}
-
-		
 
 		$commit = Db::commit();
         if($commit === false){

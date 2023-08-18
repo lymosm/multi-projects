@@ -9,10 +9,11 @@
 // | Author: liu21st <liu21st@gmail.com>
 // +----------------------------------------------------------------------
 use think\facade\Route;
-
+/*
 Route::get('think', function () {
     return 'hello,ThinkPHP6!';
 });
+*/
 
 Route::get('hello/:name', 'index/hello');
 Route::get('product/:id', 'Product/index');
@@ -21,4 +22,6 @@ Route::get('account/view-order/:type', 'Home/account');
 Route::get('account/:type', 'Home/account');
 Route::get('account', 'Home/account');
 Route::get('logout', 'Home/logout');
+Route::get('page/:uri', 'Home/page');
+Route::get('page', 'Home/page');
 // Route::get('checkout/key/:order', 'Checkout/result');
