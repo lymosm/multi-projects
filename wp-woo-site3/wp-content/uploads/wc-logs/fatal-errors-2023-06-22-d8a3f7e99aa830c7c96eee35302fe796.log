@@ -1,0 +1,21 @@
+2023-06-22T06:55:51+00:00 CRITICAL Uncaught ArgumentCountError: Too few arguments to function rorAdmin::actionChangeOrderStatus(), 1 passed in /Volumes/dev/www/multi-projects/wp-woo-site3/wp-includes/class-wp-hook.php on line 305 and exactly 2 expected in /Volumes/dev/www/multi-projects/wp-woo-site3/wp-content/plugins/receive-orders/lib/rorAdmin.php:19
+Stack trace:
+#0 /Volumes/dev/www/multi-projects/wp-woo-site3/wp-includes/class-wp-hook.php(305): rorAdmin->actionChangeOrderStatus(2432)
+#1 /Volumes/dev/www/multi-projects/wp-woo-site3/wp-includes/class-wp-hook.php(327): WP_Hook->apply_filters('', Array)
+#2 /Volumes/dev/www/multi-projects/wp-woo-site3/wp-includes/plugin.php(470): WP_Hook->do_action(Array)
+#3 /Volumes/dev/www/multi-projects/wp-woo-site3/wp-content/plugins/woocommerce/includes/class-wc-order.php(266): do_action('woocommerce_ord...', 2432, 'processing')
+#4 /Volumes/dev/www/multi-projects/wp-woo-site3/wp-content/plugins/woocommerce/includes/admin/meta-boxes/class-wc-meta-box-order-data.php(634): WC_Order->set_status('wc-processing', '', true)
+#5 /Volumes/dev/www/multi-projects/wp-woo-site3/wp-includes/class-wp-hook.php(305): WC_Meta_Box_Order_Data::save(2432)
+#6 /Volumes/dev/www/multi-projects/wp-woo-site3/wp-includes/class-wp-hook.php(327): WP_Hook->apply_filters(NULL, Array)
+#7 /Volumes/dev/www/multi-projects/wp-woo-site3/wp-includes/plugin.php(470): WP_Hook->do_action(Array)
+#8 /Volumes/dev/www/multi-projects/wp-woo-site3/wp-content/plugins/woocommerce/includes/admin/class-wc-admin-meta-boxes.php(246): do_action('woocommerce_pro...', 2432, Object(WP_Post))
+#9 /Volumes/dev/www/multi-projects/wp-woo-site3/wp-includes/class-wp-hook.php(305): WC_Admin_Meta_Boxes->save_meta_boxes(2432, Object(WP_Post))
+#10 /Volumes/dev/www/multi-projects/wp-woo-site3/wp-includes/class-wp-hook.php(327): WP_Hook->apply_filters('', Array)
+#11 /Volumes/dev/www/multi-projects/wp-woo-site3/wp-includes/plugin.php(470): WP_Hook->do_action(Array)
+#12 /Volumes/dev/www/multi-projects/wp-woo-site3/wp-includes/post.php(4468): do_action('save_post', 2432, Object(WP_Post), true)
+#13 /Volumes/dev/www/multi-projects/wp-woo-site3/wp-includes/post.php(4570): wp_insert_post(Array, false, true)
+#14 /Volumes/dev/www/multi-projects/wp-woo-site3/wp-admin/includes/post.php(423): wp_update_post(Array)
+#15 /Volumes/dev/www/multi-projects/wp-woo-site3/wp-admin/post.php(227): edit_post()
+#16 {main}
+  thrown in /Volumes/dev/www/multi-projects/wp-woo-site3/wp-content/plugins/receive-orders/lib/rorAdmin.php on line 19
+

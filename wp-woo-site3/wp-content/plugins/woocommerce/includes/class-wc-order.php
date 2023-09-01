@@ -263,6 +263,7 @@ class WC_Order extends WC_Abstract_Order {
 			);
 
 			if ( $manual_update ) {
+
 				do_action( 'woocommerce_order_edit_status', $this->get_id(), $result['to'] );
 			}
 

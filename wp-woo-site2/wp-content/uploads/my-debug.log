@@ -1,0 +1,162 @@
+init
+2023-06-24 05:32:52
+t_7a5ada5fad7ddd37796860b991a872
+WC_Cart Object
+(
+    [cart_contents] => Array
+        (
+        )
+
+    [removed_cart_contents] => Array
+        (
+        )
+
+    [applied_coupons] => Array
+        (
+        )
+
+    [shipping_methods:protected] => 
+    [default_totals:protected] => Array
+        (
+            [subtotal] => 0
+            [subtotal_tax] => 0
+            [shipping_total] => 0
+            [shipping_tax] => 0
+            [shipping_taxes] => Array
+                (
+                )
+
+            [discount_total] => 0
+            [discount_tax] => 0
+            [cart_contents_total] => 0
+            [cart_contents_tax] => 0
+            [cart_contents_taxes] => Array
+                (
+                )
+
+            [fee_total] => 0
+            [fee_tax] => 0
+            [fee_taxes] => Array
+                (
+                )
+
+            [total] => 0
+            [total_tax] => 0
+        )
+
+    [totals:protected] => Array
+        (
+        )
+
+    [session:protected] => WC_Cart_Session Object
+        (
+            [cart:protected] => WC_Cart Object
+ *RECURSION*
+        )
+
+    [fees_api:protected] => WC_Cart_Fees Object
+        (
+            [fees:WC_Cart_Fees:private] => Array
+                (
+                )
+
+            [cart:WC_Cart_Fees:private] => WC_Cart Object
+ *RECURSION*
+            [default_fee_props:WC_Cart_Fees:private] => Array
+                (
+                    [id] => 
+                    [name] => 
+                    [tax_class] => 
+                    [taxable] => 
+                    [amount] => 0
+                    [total] => 0
+                )
+
+        )
+
+    [cart_session_data] => Array
+        (
+            [cart_contents_total] => 0
+            [total] => 0
+            [subtotal] => 0
+            [subtotal_ex_tax] => 0
+            [tax_total] => 0
+            [taxes] => Array
+                (
+                )
+
+            [shipping_taxes] => Array
+                (
+                )
+
+            [discount_cart] => 0
+            [discount_cart_tax] => 0
+            [shipping_total] => 0
+            [shipping_tax_total] => 0
+            [coupon_discount_amounts] => Array
+                (
+                )
+
+            [coupon_discount_tax_amounts] => Array
+                (
+                )
+
+            [fee_total] => 0
+            [fees] => Array
+                (
+                )
+
+        )
+
+    [coupon_applied_count] => Array
+        (
+        )
+
+)
+
+Array
+(
+    [woocommerce_cart_hash] => 8ca674e587ede80c9de95bc99d919409
+    [woocommerce_items_in_cart] => 1
+    [wp_woocommerce_session_2365b234fb9e1381e0550efad22f0081] => t_7a5ada5fad7ddd37796860b991a872||1687757489||1687753889||8e9bff9778f8cf2d1072d01e4d3fadd1
+)
+
+Array
+(
+    [SERVER_SOFTWARE] => nginx/1.21.3
+    [REQUEST_URI] => /checkout/?ror_key=t_7a5ada5fad7ddd37796860b991a872&ror_state=4
+    [USER] => lymos
+    [HOME] => /Users/lymos
+    [HTTP_ACCEPT_ENCODING] => gzip, deflate, br
+    [HTTP_REFERER] => https://lo.woo3.com/checkout/?cart=t_7a5ada5fad7ddd37796860b991a872
+    [HTTP_ACCEPT_LANGUAGE] => en-us
+    [HTTP_USER_AGENT] => Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0.3 Safari/605.1.15
+    [HTTP_COOKIE] => woocommerce_cart_hash=8ca674e587ede80c9de95bc99d919409; woocommerce_items_in_cart=1; wp_woocommerce_session_2365b234fb9e1381e0550efad22f0081=t_7a5ada5fad7ddd37796860b991a872%7C%7C1687757489%7C%7C1687753889%7C%7C8e9bff9778f8cf2d1072d01e4d3fadd1
+    [HTTP_CONNECTION] => keep-alive
+    [HTTP_ACCEPT] => text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+    [HTTP_HOST] => lo.woo2.com
+    [REDIRECT_STATUS] => 200
+    [SERVER_NAME] => lo.woo2.com
+    [SERVER_PORT] => 443
+    [SERVER_ADDR] => 127.0.0.1
+    [REMOTE_PORT] => 56644
+    [REMOTE_ADDR] => 127.0.0.1
+    [GATEWAY_INTERFACE] => CGI/1.1
+    [HTTPS] => on
+    [REQUEST_SCHEME] => https
+    [SERVER_PROTOCOL] => HTTP/1.1
+    [DOCUMENT_ROOT] => /Volumes/dev/www/multi-projects/wp-woo-site2
+    [DOCUMENT_URI] => /index.php
+    [SCRIPT_NAME] => /index.php
+    [CONTENT_LENGTH] => 
+    [CONTENT_TYPE] => 
+    [REQUEST_METHOD] => GET
+    [QUERY_STRING] => ror_key=t_7a5ada5fad7ddd37796860b991a872&ror_state=4
+    [SCRIPT_FILENAME] => /Volumes/dev/www/multi-projects/wp-woo-site2/index.php
+    [FCGI_ROLE] => RESPONDER
+    [PHP_SELF] => /index.php
+    [REQUEST_TIME_FLOAT] => 1687584771.6172
+    [REQUEST_TIME] => 1687584771
+)
+
+

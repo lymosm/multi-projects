@@ -1,0 +1,13 @@
+2023-06-18T06:41:09+00:00 CRITICAL Uncaught Error: Cannot use object of type WP_Error as array in /Volumes/dev/www/multi-projects/wp-woo-site3/wp-content/plugins/receive-orders/lib/rorFront.php:115
+Stack trace:
+#0 /Volumes/dev/www/multi-projects/wp-woo-site3/wp-includes/class-wp-hook.php(303): rorFront->getCheckoutData('')
+#1 /Volumes/dev/www/multi-projects/wp-woo-site3/wp-includes/class-wp-hook.php(327): WP_Hook->apply_filters('', Array)
+#2 /Volumes/dev/www/multi-projects/wp-woo-site3/wp-includes/plugin.php(470): WP_Hook->do_action(Array)
+#3 /Volumes/dev/www/multi-projects/wp-woo-site3/wp-settings.php(600): do_action('wp_loaded')
+#4 /Volumes/dev/www/multi-projects/wp-woo-site3/wp-config.php(96): require_once('/Volumes/dev/ww...')
+#5 /Volumes/dev/www/multi-projects/wp-woo-site3/wp-load.php(50): require_once('/Volumes/dev/ww...')
+#6 /Volumes/dev/www/multi-projects/wp-woo-site3/wp-blog-header.php(13): require_once('/Volumes/dev/ww...')
+#7 /Volumes/dev/www/multi-projects/wp-woo-site3/index.php(17): require('/Volumes/dev/ww...')
+#8 {main}
+  thrown in /Volumes/dev/www/multi-projects/wp-woo-site3/wp-content/plugins/receive-orders/lib/rorFront.php on line 115
+

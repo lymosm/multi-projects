@@ -1,0 +1,95 @@
+.ror-tab{
+	display: flex;
+}
+.tab-item{
+	border-right: 0.4px solid #fff;
+	padding: 20px 10px;
+	background-color: #efefef;
+	cursor: pointer;
+}
+.tab-item.active{
+	background-color: #fff;
+	color: #000;
+}
+.tab-item:nth-child(3){
+	border-right: none;
+}
+.ror-title{
+	padding: 20px;
+	background-color: #fff;
+}
+.ror-cont{
+	background-color: #fff;
+	padding: 20px;
+}
+.ror-cont-tab.active{
+	display: block;
+}
+.ror-cont-tab{
+	display: none;
+}
+.ror-form-item{
+	padding: 6px;
+	display: flex;
+}
+.ror-form-item label{
+	padding-right: 10px;
+	text-align: right;
+	height: 36px;
+	line-height: 36px;
+	display: block;
+	width: 6%;
+}
+.ror-form-item input[type=text]{
+	height: 36px;
+	width: 20%;
+}
+.ror-btn{
+	background-color: #1aaa12;
+	padding: 10px 40px;
+	border-radius: 4px;
+	color: #fff;
+	border: none;
+	cursor: pointer;
+	margin-left: 10%;
+}
+.ror-loading{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background-color: #000;
+    z-index: 9999;
+    opacity: 0.3;
+    top: 0;
+    left: 0;
+    background-image: url("../image/loading.gif");
+    background-repeat: no-repeat;
+    background-position: center;
+    display: none;
+}
+.ror-table{
+	border-spacing: 0;
+}
+.ror-table td,.ror-table th{
+	padding: 16px;
+	border-bottom: 1px solid #efefef;
+}
+.ror-table tbody tr:nth-child(2n){
+	background-color: #efefef;
+}
+.ror-page{
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+.ror-page a, .ror-page > span{
+	margin-right: 10px;
+}
+.ror-page a{
+	text-decoration: none;
+	color: #ccc;
+	cursor: default;
+}
+.ror-page a.active{
+	color: blue;
+	cursor: pointer;
+}

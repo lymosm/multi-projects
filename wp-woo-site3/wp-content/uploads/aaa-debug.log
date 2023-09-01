@@ -1,0 +1,258 @@
+get cart init 0000
+get cart init 0000
+get cart init 0000
+get cart init 0000
+get cart init 0000
+get cart init 0000
+get cart init 0000
+get cart init 0000
+get cart init 0000
+get cart init 0000
+get cart init 0000
+get cart init 0000
+get cart init 0000
+get cart init 0000
+get cart init 0000
+get cart init 0000
+get cart init 0000
+get cart init 
+Array
+(
+    [SERVER_SOFTWARE] => nginx/1.21.3
+    [REQUEST_URI] => /checkout/?cart=1
+    [USER] => lymos
+    [HOME] => /Users/lymos
+    [HTTP_ACCEPT_ENCODING] => gzip, deflate, br
+    [HTTP_REFERER] => https://lo.wpp.com/cart/
+    [HTTP_ACCEPT_LANGUAGE] => en-us
+    [HTTP_USER_AGENT] => Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0.3 Safari/605.1.15
+    [HTTP_COOKIE] => tk_ai=woo%3AHpJv0vkczae1sBupnU4yZ28J; wordpress_test_cookie=WP%20Cookie%20check; woocommerce_cart_hash=a0989228e9bc7159db939093501ab7db; woocommerce_items_in_cart=1; wp_woocommerce_session_7d0f8ecda2846f8a55e943cc8ae68f6d=1%7C%7C1687880187%7C%7C1687876587%7C%7C2565c689a829c717a6f6d6062ba4e3a7; wordpress_logged_in_7d0f8ecda2846f8a55e943cc8ae68f6d=admin%7C1687880183%7C4LBTtFMlAzktY8DYVtFhl7rNKvqvwW4nJzmq4E9wW1M%7C855ecf78853807af44a6fbe52c3e18fe5432aa2c0ed58c891559e960e731b184; wp-settings-1=libraryContent%3Dbrowse; wp-settings-time-1=1667692948
+    [HTTP_CONNECTION] => keep-alive
+    [HTTP_ACCEPT] => text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+    [HTTP_HOST] => lo.woo3.com
+    [REDIRECT_STATUS] => 200
+    [SERVER_NAME] => lo.woo3.com
+    [SERVER_PORT] => 443
+    [SERVER_ADDR] => 127.0.0.1
+    [REMOTE_PORT] => 59710
+    [REMOTE_ADDR] => 127.0.0.1
+    [GATEWAY_INTERFACE] => CGI/1.1
+    [HTTPS] => on
+    [REQUEST_SCHEME] => https
+    [SERVER_PROTOCOL] => HTTP/1.1
+    [DOCUMENT_ROOT] => /Volumes/dev/www/multi-projects/wp-woo-site3
+    [DOCUMENT_URI] => /index.php
+    [SCRIPT_NAME] => /index.php
+    [CONTENT_LENGTH] => 
+    [CONTENT_TYPE] => 
+    [REQUEST_METHOD] => GET
+    [QUERY_STRING] => cart=1
+    [SCRIPT_FILENAME] => /Volumes/dev/www/multi-projects/wp-woo-site3/index.php
+    [FCGI_ROLE] => RESPONDER
+    [PHP_SELF] => /index.php
+    [REQUEST_TIME_FLOAT] => 1687707483.4546
+    [REQUEST_TIME] => 1687707483
+)
+
+get cart
+https://lo.wpp.com/wp-json/post-orders/v1/cart/1
+Array
+(
+    [headers] => Requests_Utility_CaseInsensitiveDictionary Object
+        (
+            [data:protected] => Array
+                (
+                    [server] => nginx/1.21.3
+                    [date] => Sun, 25 Jun 2023 15:38:08 GMT
+                    [content-type] => application/json; charset=UTF-8
+                    [x-powered-by] => PHP/8.0.11
+                    [set-cookie] => LUMISESESSID=VWDDOHLAFZ3GNXUBAVPK; expires=Tue, 25-Jul-2023 15:38:04 GMT; Max-Age=2592000; path=/
+                    [x-robots-tag] => noindex
+                    [link] => <https://lo.wpp.com/wp-json/>; rel="https://api.w.org/"
+                    [x-content-type-options] => nosniff
+                    [access-control-expose-headers] => X-WP-Total, X-WP-TotalPages, Link
+                    [access-control-allow-headers] => Authorization, X-WP-Nonce, Content-Disposition, Content-MD5, Content-Type
+                    [allow] => GET
+                    [vary] => Origin
+                )
+
+        )
+
+    [body] => {"status":"success","data":"a:12:{s:4:\"cart\";s:412:\"a:1:{s:32:\"c51ce410c124a10e0db5e4b97fc2af39\";a:11:{s:3:\"key\";s:32:\"c51ce410c124a10e0db5e4b97fc2af39\";s:10:\"product_id\";i:13;s:12:\"variation_id\";i:0;s:9:\"variation\";a:0:{}s:8:\"quantity\";i:2;s:9:\"data_hash\";s:32:\"b5c1d5ca8bae6d4896cf1807cdf763f0\";s:13:\"line_tax_data\";a:2:{s:8:\"subtotal\";a:0:{}s:5:\"total\";a:0:{}}s:13:\"line_subtotal\";d:198;s:17:\"line_subtotal_tax\";i:0;s:10:\"line_total\";d:198;s:8:\"line_tax\";i:0;}}\";s:11:\"cart_totals\";s:396:\"a:15:{s:8:\"subtotal\";s:3:\"198\";s:12:\"subtotal_tax\";i:0;s:14:\"shipping_total\";s:1:\"6\";s:12:\"shipping_tax\";i:0;s:14:\"shipping_taxes\";a:0:{}s:14:\"discount_total\";i:0;s:12:\"discount_tax\";i:0;s:19:\"cart_contents_total\";s:3:\"198\";s:17:\"cart_contents_tax\";i:0;s:19:\"cart_contents_taxes\";a:0:{}s:9:\"fee_total\";s:1:\"0\";s:7:\"fee_tax\";i:0;s:9:\"fee_taxes\";a:0:{}s:5:\"total\";s:6:\"204.00\";s:9:\"total_tax\";d:0;}\";s:15:\"applied_coupons\";s:6:\"a:0:{}\";s:22:\"coupon_discount_totals\";s:6:\"a:0:{}\";s:26:\"coupon_discount_tax_totals\";s:6:\"a:0:{}\";s:21:\"removed_cart_contents\";s:6:\"a:0:{}\";s:22:\"shipping_for_package_0\";s:654:\"a:2:{s:12:\"package_hash\";s:40:\"wc_ship_e75ca351927f4503f844d7cba6234fb5\";s:5:\"rates\";a:2:{s:11:\"flat_rate:1\";O:16:\"WC_Shipping_Rate\":2:{s:7:\"\u0000*\u0000data\";a:6:{s:2:\"id\";s:11:\"flat_rate:1\";s:9:\"method_id\";s:9:\"flat_rate\";s:11:\"instance_id\";i:1;s:5:\"label\";s:9:\"Flat rate\";s:4:\"cost\";d:6;s:5:\"taxes\";a:0:{}}s:12:\"\u0000*\u0000meta_data\";a:1:{s:5:\"Items\";s:15:\"test1 &times; 2\";}}s:15:\"free_shipping:2\";O:16:\"WC_Shipping_Rate\":2:{s:7:\"\u0000*\u0000data\";a:6:{s:2:\"id\";s:15:\"free_shipping:2\";s:9:\"method_id\";s:13:\"free_shipping\";s:11:\"instance_id\";i:2;s:5:\"label\";s:13:\"Free shipping\";s:4:\"cost\";d:0;s:5:\"taxes\";a:0:{}}s:12:\"\u0000*\u0000meta_data\";a:1:{s:5:\"Items\";s:15:\"test1 &times; 2\";}}}}\";s:25:\"previous_shipping_methods\";s:66:\"a:1:{i:0;a:2:{i:0;s:11:\"flat_rate:1\";i:1;s:15:\"free_shipping:2\";}}\";s:23:\"chosen_shipping_methods\";s:29:\"a:1:{i:0;s:11:\"flat_rate:1\";}\";s:22:\"shipping_method_counts\";s:14:\"a:1:{i:0;i:2;}\";s:8:\"customer\";s:793:\"a:27:{s:2:\"id\";s:1:\"1\";s:13:\"date_modified\";s:25:\"2023-04-02T13:12:47+00:00\";s:8:\"postcode\";s:5:\"12345\";s:4:\"city\";s:3:\"222\";s:9:\"address_1\";s:4:\"2222\";s:7:\"address\";s:4:\"2222\";s:9:\"address_2\";s:2:\"22\";s:5:\"state\";s:2:\"AL\";s:7:\"country\";s:2:\"US\";s:17:\"shipping_postcode\";s:0:\"\";s:13:\"shipping_city\";s:0:\"\";s:18:\"shipping_address_1\";s:0:\"\";s:16:\"shipping_address\";s:0:\"\";s:18:\"shipping_address_2\";s:0:\"\";s:14:\"shipping_state\";s:2:\"AL\";s:16:\"shipping_country\";s:2:\"US\";s:13:\"is_vat_exempt\";s:0:\"\";s:19:\"calculated_shipping\";s:0:\"\";s:10:\"first_name\";s:3:\"ee3\";s:9:\"last_name\";s:3:\"333\";s:7:\"company\";s:0:\"\";s:5:\"phone\";s:11:\"22222222222\";s:5:\"email\";s:10:\"ldy@23.com\";s:19:\"shipping_first_name\";s:0:\"\";s:18:\"shipping_last_name\";s:0:\"\";s:16:\"shipping_company\";s:0:\"\";s:14:\"shipping_phone\";s:0:\"\";}\";s:10:\"wc_notices\";N;}","products":{"13":{"ID":13,"post_author":"1","post_date":"2022-01-08 02:33:24","post_date_gmt":"2022-01-08 02:33:24","post_content":"test 1","post_title":"test1","post_excerpt":"","post_status":"publish","comment_status":"open","ping_status":"closed","post_password":"","post_name":"test1","to_ping":"","pinged":"","post_modified":"2023-03-22 12:49:23","post_modified_gmt":"2023-03-22 12:49:23","post_content_filtered":"","post_parent":0,"guid":"http:\/\/wpp.com\/?post_type=product&#038;p=13","menu_order":0,"post_type":"product","post_mime_type":"","comment_count":"0","filter":"raw"}},"images":{"13":"https:\/\/lo.wpp.com\/wp-content\/uploads\/2022\/01\/FBB1903007-H.jpg"}}
+    [response] => Array
+        (
+            [code] => 200
+            [message] => OK
+        )
+
+    [cookies] => Array
+        (
+            [0] => WP_Http_Cookie Object
+                (
+                    [name] => LUMISESESSID
+                    [value] => VWDDOHLAFZ3GNXUBAVPK
+                    [expires] => 1690299484
+                    [path] => /
+                    [domain] => lo.wpp.com
+                    [host_only] => 1
+                )
+
+        )
+
+    [filename] => 
+    [http_response] => WP_HTTP_Requests_Response Object
+        (
+            [response:protected] => Requests_Response Object
+                (
+                    [body] => {"status":"success","data":"a:12:{s:4:\"cart\";s:412:\"a:1:{s:32:\"c51ce410c124a10e0db5e4b97fc2af39\";a:11:{s:3:\"key\";s:32:\"c51ce410c124a10e0db5e4b97fc2af39\";s:10:\"product_id\";i:13;s:12:\"variation_id\";i:0;s:9:\"variation\";a:0:{}s:8:\"quantity\";i:2;s:9:\"data_hash\";s:32:\"b5c1d5ca8bae6d4896cf1807cdf763f0\";s:13:\"line_tax_data\";a:2:{s:8:\"subtotal\";a:0:{}s:5:\"total\";a:0:{}}s:13:\"line_subtotal\";d:198;s:17:\"line_subtotal_tax\";i:0;s:10:\"line_total\";d:198;s:8:\"line_tax\";i:0;}}\";s:11:\"cart_totals\";s:396:\"a:15:{s:8:\"subtotal\";s:3:\"198\";s:12:\"subtotal_tax\";i:0;s:14:\"shipping_total\";s:1:\"6\";s:12:\"shipping_tax\";i:0;s:14:\"shipping_taxes\";a:0:{}s:14:\"discount_total\";i:0;s:12:\"discount_tax\";i:0;s:19:\"cart_contents_total\";s:3:\"198\";s:17:\"cart_contents_tax\";i:0;s:19:\"cart_contents_taxes\";a:0:{}s:9:\"fee_total\";s:1:\"0\";s:7:\"fee_tax\";i:0;s:9:\"fee_taxes\";a:0:{}s:5:\"total\";s:6:\"204.00\";s:9:\"total_tax\";d:0;}\";s:15:\"applied_coupons\";s:6:\"a:0:{}\";s:22:\"coupon_discount_totals\";s:6:\"a:0:{}\";s:26:\"coupon_discount_tax_totals\";s:6:\"a:0:{}\";s:21:\"removed_cart_contents\";s:6:\"a:0:{}\";s:22:\"shipping_for_package_0\";s:654:\"a:2:{s:12:\"package_hash\";s:40:\"wc_ship_e75ca351927f4503f844d7cba6234fb5\";s:5:\"rates\";a:2:{s:11:\"flat_rate:1\";O:16:\"WC_Shipping_Rate\":2:{s:7:\"\u0000*\u0000data\";a:6:{s:2:\"id\";s:11:\"flat_rate:1\";s:9:\"method_id\";s:9:\"flat_rate\";s:11:\"instance_id\";i:1;s:5:\"label\";s:9:\"Flat rate\";s:4:\"cost\";d:6;s:5:\"taxes\";a:0:{}}s:12:\"\u0000*\u0000meta_data\";a:1:{s:5:\"Items\";s:15:\"test1 &times; 2\";}}s:15:\"free_shipping:2\";O:16:\"WC_Shipping_Rate\":2:{s:7:\"\u0000*\u0000data\";a:6:{s:2:\"id\";s:15:\"free_shipping:2\";s:9:\"method_id\";s:13:\"free_shipping\";s:11:\"instance_id\";i:2;s:5:\"label\";s:13:\"Free shipping\";s:4:\"cost\";d:0;s:5:\"taxes\";a:0:{}}s:12:\"\u0000*\u0000meta_data\";a:1:{s:5:\"Items\";s:15:\"test1 &times; 2\";}}}}\";s:25:\"previous_shipping_methods\";s:66:\"a:1:{i:0;a:2:{i:0;s:11:\"flat_rate:1\";i:1;s:15:\"free_shipping:2\";}}\";s:23:\"chosen_shipping_methods\";s:29:\"a:1:{i:0;s:11:\"flat_rate:1\";}\";s:22:\"shipping_method_counts\";s:14:\"a:1:{i:0;i:2;}\";s:8:\"customer\";s:793:\"a:27:{s:2:\"id\";s:1:\"1\";s:13:\"date_modified\";s:25:\"2023-04-02T13:12:47+00:00\";s:8:\"postcode\";s:5:\"12345\";s:4:\"city\";s:3:\"222\";s:9:\"address_1\";s:4:\"2222\";s:7:\"address\";s:4:\"2222\";s:9:\"address_2\";s:2:\"22\";s:5:\"state\";s:2:\"AL\";s:7:\"country\";s:2:\"US\";s:17:\"shipping_postcode\";s:0:\"\";s:13:\"shipping_city\";s:0:\"\";s:18:\"shipping_address_1\";s:0:\"\";s:16:\"shipping_address\";s:0:\"\";s:18:\"shipping_address_2\";s:0:\"\";s:14:\"shipping_state\";s:2:\"AL\";s:16:\"shipping_country\";s:2:\"US\";s:13:\"is_vat_exempt\";s:0:\"\";s:19:\"calculated_shipping\";s:0:\"\";s:10:\"first_name\";s:3:\"ee3\";s:9:\"last_name\";s:3:\"333\";s:7:\"company\";s:0:\"\";s:5:\"phone\";s:11:\"22222222222\";s:5:\"email\";s:10:\"ldy@23.com\";s:19:\"shipping_first_name\";s:0:\"\";s:18:\"shipping_last_name\";s:0:\"\";s:16:\"shipping_company\";s:0:\"\";s:14:\"shipping_phone\";s:0:\"\";}\";s:10:\"wc_notices\";N;}","products":{"13":{"ID":13,"post_author":"1","post_date":"2022-01-08 02:33:24","post_date_gmt":"2022-01-08 02:33:24","post_content":"test 1","post_title":"test1","post_excerpt":"","post_status":"publish","comment_status":"open","ping_status":"closed","post_password":"","post_name":"test1","to_ping":"","pinged":"","post_modified":"2023-03-22 12:49:23","post_modified_gmt":"2023-03-22 12:49:23","post_content_filtered":"","post_parent":0,"guid":"http:\/\/wpp.com\/?post_type=product&#038;p=13","menu_order":0,"post_type":"product","post_mime_type":"","comment_count":"0","filter":"raw"}},"images":{"13":"https:\/\/lo.wpp.com\/wp-content\/uploads\/2022\/01\/FBB1903007-H.jpg"}}
+                    [raw] => HTTP/1.1 200 OK
+Server: nginx/1.21.3
+Date: Sun, 25 Jun 2023 15:38:08 GMT
+Content-Type: application/json; charset=UTF-8
+Transfer-Encoding: chunked
+Connection: close
+X-Powered-By: PHP/8.0.11
+Set-Cookie: LUMISESESSID=VWDDOHLAFZ3GNXUBAVPK; expires=Tue, 25-Jul-2023 15:38:04 GMT; Max-Age=2592000; path=/
+X-Robots-Tag: noindex
+Link: <https://lo.wpp.com/wp-json/>; rel="https://api.w.org/"
+X-Content-Type-Options: nosniff
+Access-Control-Expose-Headers: X-WP-Total, X-WP-TotalPages, Link
+Access-Control-Allow-Headers: Authorization, X-WP-Nonce, Content-Disposition, Content-MD5, Content-Type
+Allow: GET
+Vary: Origin
+
+{"status":"success","data":"a:12:{s:4:\"cart\";s:412:\"a:1:{s:32:\"c51ce410c124a10e0db5e4b97fc2af39\";a:11:{s:3:\"key\";s:32:\"c51ce410c124a10e0db5e4b97fc2af39\";s:10:\"product_id\";i:13;s:12:\"variation_id\";i:0;s:9:\"variation\";a:0:{}s:8:\"quantity\";i:2;s:9:\"data_hash\";s:32:\"b5c1d5ca8bae6d4896cf1807cdf763f0\";s:13:\"line_tax_data\";a:2:{s:8:\"subtotal\";a:0:{}s:5:\"total\";a:0:{}}s:13:\"line_subtotal\";d:198;s:17:\"line_subtotal_tax\";i:0;s:10:\"line_total\";d:198;s:8:\"line_tax\";i:0;}}\";s:11:\"cart_totals\";s:396:\"a:15:{s:8:\"subtotal\";s:3:\"198\";s:12:\"subtotal_tax\";i:0;s:14:\"shipping_total\";s:1:\"6\";s:12:\"shipping_tax\";i:0;s:14:\"shipping_taxes\";a:0:{}s:14:\"discount_total\";i:0;s:12:\"discount_tax\";i:0;s:19:\"cart_contents_total\";s:3:\"198\";s:17:\"cart_contents_tax\";i:0;s:19:\"cart_contents_taxes\";a:0:{}s:9:\"fee_total\";s:1:\"0\";s:7:\"fee_tax\";i:0;s:9:\"fee_taxes\";a:0:{}s:5:\"total\";s:6:\"204.00\";s:9:\"total_tax\";d:0;}\";s:15:\"applied_coupons\";s:6:\"a:0:{}\";s:22:\"coupon_discount_totals\";s:6:\"a:0:{}\";s:26:\"coupon_discount_tax_totals\";s:6:\"a:0:{}\";s:21:\"removed_cart_contents\";s:6:\"a:0:{}\";s:22:\"shipping_for_package_0\";s:654:\"a:2:{s:12:\"package_hash\";s:40:\"wc_ship_e75ca351927f4503f844d7cba6234fb5\";s:5:\"rates\";a:2:{s:11:\"flat_rate:1\";O:16:\"WC_Shipping_Rate\":2:{s:7:\"\u0000*\u0000data\";a:6:{s:2:\"id\";s:11:\"flat_rate:1\";s:9:\"method_id\";s:9:\"flat_rate\";s:11:\"instance_id\";i:1;s:5:\"label\";s:9:\"Flat rate\";s:4:\"cost\";d:6;s:5:\"taxes\";a:0:{}}s:12:\"\u0000*\u0000meta_data\";a:1:{s:5:\"Items\";s:15:\"test1 &times; 2\";}}s:15:\"free_shipping:2\";O:16:\"WC_Shipping_Rate\":2:{s:7:\"\u0000*\u0000data\";a:6:{s:2:\"id\";s:15:\"free_shipping:2\";s:9:\"method_id\";s:13:\"free_shipping\";s:11:\"instance_id\";i:2;s:5:\"label\";s:13:\"Free shipping\";s:4:\"cost\";d:0;s:5:\"taxes\";a:0:{}}s:12:\"\u0000*\u0000meta_data\";a:1:{s:5:\"Items\";s:15:\"test1 &times; 2\";}}}}\";s:25:\"previous_shipping_methods\";s:66:\"a:1:{i:0;a:2:{i:0;s:11:\"flat_rate:1\";i:1;s:15:\"free_shipping:2\";}}\";s:23:\"chosen_shipping_methods\";s:29:\"a:1:{i:0;s:11:\"flat_rate:1\";}\";s:22:\"shipping_method_counts\";s:14:\"a:1:{i:0;i:2;}\";s:8:\"customer\";s:793:\"a:27:{s:2:\"id\";s:1:\"1\";s:13:\"date_modified\";s:25:\"2023-04-02T13:12:47+00:00\";s:8:\"postcode\";s:5:\"12345\";s:4:\"city\";s:3:\"222\";s:9:\"address_1\";s:4:\"2222\";s:7:\"address\";s:4:\"2222\";s:9:\"address_2\";s:2:\"22\";s:5:\"state\";s:2:\"AL\";s:7:\"country\";s:2:\"US\";s:17:\"shipping_postcode\";s:0:\"\";s:13:\"shipping_city\";s:0:\"\";s:18:\"shipping_address_1\";s:0:\"\";s:16:\"shipping_address\";s:0:\"\";s:18:\"shipping_address_2\";s:0:\"\";s:14:\"shipping_state\";s:2:\"AL\";s:16:\"shipping_country\";s:2:\"US\";s:13:\"is_vat_exempt\";s:0:\"\";s:19:\"calculated_shipping\";s:0:\"\";s:10:\"first_name\";s:3:\"ee3\";s:9:\"last_name\";s:3:\"333\";s:7:\"company\";s:0:\"\";s:5:\"phone\";s:11:\"22222222222\";s:5:\"email\";s:10:\"ldy@23.com\";s:19:\"shipping_first_name\";s:0:\"\";s:18:\"shipping_last_name\";s:0:\"\";s:16:\"shipping_company\";s:0:\"\";s:14:\"shipping_phone\";s:0:\"\";}\";s:10:\"wc_notices\";N;}","products":{"13":{"ID":13,"post_author":"1","post_date":"2022-01-08 02:33:24","post_date_gmt":"2022-01-08 02:33:24","post_content":"test 1","post_title":"test1","post_excerpt":"","post_status":"publish","comment_status":"open","ping_status":"closed","post_password":"","post_name":"test1","to_ping":"","pinged":"","post_modified":"2023-03-22 12:49:23","post_modified_gmt":"2023-03-22 12:49:23","post_content_filtered":"","post_parent":0,"guid":"http:\/\/wpp.com\/?post_type=product&#038;p=13","menu_order":0,"post_type":"product","post_mime_type":"","comment_count":"0","filter":"raw"}},"images":{"13":"https:\/\/lo.wpp.com\/wp-content\/uploads\/2022\/01\/FBB1903007-H.jpg"}}
+                    [headers] => Requests_Response_Headers Object
+                        (
+                            [data:protected] => Array
+                                (
+                                    [server] => Array
+                                        (
+                                            [0] => nginx/1.21.3
+                                        )
+
+                                    [date] => Array
+                                        (
+                                            [0] => Sun, 25 Jun 2023 15:38:08 GMT
+                                        )
+
+                                    [content-type] => Array
+                                        (
+                                            [0] => application/json; charset=UTF-8
+                                        )
+
+                                    [x-powered-by] => Array
+                                        (
+                                            [0] => PHP/8.0.11
+                                        )
+
+                                    [set-cookie] => Array
+                                        (
+                                            [0] => LUMISESESSID=VWDDOHLAFZ3GNXUBAVPK; expires=Tue, 25-Jul-2023 15:38:04 GMT; Max-Age=2592000; path=/
+                                        )
+
+                                    [x-robots-tag] => Array
+                                        (
+                                            [0] => noindex
+                                        )
+
+                                    [link] => Array
+                                        (
+                                            [0] => <https://lo.wpp.com/wp-json/>; rel="https://api.w.org/"
+                                        )
+
+                                    [x-content-type-options] => Array
+                                        (
+                                            [0] => nosniff
+                                        )
+
+                                    [access-control-expose-headers] => Array
+                                        (
+                                            [0] => X-WP-Total, X-WP-TotalPages, Link
+                                        )
+
+                                    [access-control-allow-headers] => Array
+                                        (
+                                            [0] => Authorization, X-WP-Nonce, Content-Disposition, Content-MD5, Content-Type
+                                        )
+
+                                    [allow] => Array
+                                        (
+                                            [0] => GET
+                                        )
+
+                                    [vary] => Array
+                                        (
+                                            [0] => Origin
+                                        )
+
+                                )
+
+                        )
+
+                    [status_code] => 200
+                    [protocol_version] => 1.1
+                    [success] => 1
+                    [redirects] => 0
+                    [url] => https://lo.wpp.com/wp-json/post-orders/v1/cart/1
+                    [history] => Array
+                        (
+                        )
+
+                    [cookies] => Requests_Cookie_Jar Object
+                        (
+                            [cookies:protected] => Array
+                                (
+                                    [LUMISESESSID] => Requests_Cookie Object
+                                        (
+                                            [name] => LUMISESESSID
+                                            [value] => VWDDOHLAFZ3GNXUBAVPK
+                                            [attributes] => Requests_Utility_CaseInsensitiveDictionary Object
+                                                (
+                                                    [data:protected] => Array
+                                                        (
+                                                            [expires] => 1690299484
+                                                            [max-age] => 1690299488
+                                                            [path] => /
+                                                            [domain] => lo.wpp.com
+                                                        )
+
+                                                )
+
+                                            [flags] => Array
+                                                (
+                                                    [creation] => 1687707488
+                                                    [last-access] => 1687707488
+                                                    [persistent] => 
+                                                    [host-only] => 1
+                                                )
+
+                                            [reference_time] => 1687707488
+                                        )
+
+                                )
+
+                        )
+
+                )
+
+            [filename:protected] => 
+            [data] => 
+            [headers] => 
+            [status] => 
+        )
+
+)
+
+get cart init 0000
+get cart init 0000
+get cart init 0000
+get cart init 0000
+get cart init 0000
+get cart init 0000
+get cart init 0000
+get cart init 0000
+get cart init 0000
+get cart init 0000
+get cart init 0000
+get cart init 0000
