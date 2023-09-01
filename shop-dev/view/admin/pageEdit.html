@@ -1,0 +1,107 @@
+{include file="admin/header" /}
+<div class="layui-container edit-box">
+	<div class="layui-row">
+		<form class="layui-form" method="POST">
+			<div class="layui-form-item">
+				<label class="layui-form-label">Page Title</label>
+				<div class="layui-input-block order-line-height">
+					<input type="text" name="title" id="title" required lay-verify="required" placeholder="Page Title"
+								autocomplete="off" class="layui-input" value="{$data['title']}">
+				</div>
+			</div>
+			<div class="layui-form-item">
+				<label class="layui-form-label">Page Uri</label>
+				<div class="layui-input-block order-line-height">
+					<input type="text" name="uri" id="uri" required lay-verify="required" placeholder="Page Uri"
+								autocomplete="off" class="layui-input" value="{$data['uri']}">
+				</div>
+			</div>
+			<div class="layui-form-item">
+				<label class="layui-form-label">Content</label>
+				<div class="layui-input-block order-line-height">
+					<div id="editor—wrapper">
+						<div id="toolbar-container"><!-- 工具栏 --></div>
+						<div id="editor-container" class="ls-common-textarea"><!-- 编辑器 --></div>
+					</div>
+					<input type="hidden" name="content" id="content" value="{$data['content']}">
+				</div>
+			</div>
+			<div class="layui-form-item">
+				<div class="layui-input-block">
+					<input type="hidden" name="id" id="id" value="{$data['id']}">
+					<button type="button" class="layui-btn" id="submit-video" lay-submit
+						lay-filter="cate-form">Save</button>
+				</div>
+			</div>
+		</form>
+	</div>
+
+</div>
+
+
+{include file="admin/footer" /}
+<link rel="stylesheet" href="/static/extend/wangeditor/wangeditor.css"/>
+<script src="/static/extend/wangeditor/wangeditor.js"></script>
+<script>
+
+const { createEditor, createToolbar } = window.wangEditor
+
+const editorConfig = {
+    placeholder: 'Fill your content',
+    onChange(editor) {
+      const html = editor.getHtml()
+	  document.getElementById("content").value = html;
+      // 也可以同步到 <textarea>
+    }
+}
+
+const editor = createEditor({
+    selector: '#editor-container',
+    html: '<?php echo $data["content"]; ?>',
+    config: editorConfig,
+    mode: 'default', // or 'simple'
+})
+
+const toolbarConfig = {}
+
+const toolbar = createToolbar({
+    editor,
+    selector: '#toolbar-container',
+    config: toolbarConfig,
+    mode: 'default', // or 'simple'
+});
+
+	var uid = "",
+		$;
+	layui.use(['element', 'layer', 'util', 'jquery', "form", "upload"], function () {
+		var form = layui.form,
+			element = layui.element,
+			layer = layui.layer,
+			upload = layui.upload,
+			util = layui.util;
+
+			$ = layui.$;
+		form.on('submit(cate-form)', function (data) {
+			$.ajax({
+				type: "POST",
+				// async: false,
+				dataType: "json",
+				data: data.field,
+				url: "{$url}",
+				success: function (res) {
+					if (res.code == 1) {
+						layer.msg(res.msg, function () {
+							location.href = "{$url_list}";
+						});
+					} else {
+						layer.msg(res.msg);
+					}
+				}
+			});
+
+			return false;
+		});
+
+
+	});	
+</script>

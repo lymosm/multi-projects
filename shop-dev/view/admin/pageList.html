@@ -38,12 +38,15 @@
 				,page: true ,//开启分页
 				height: 680,
 				limit: 20
-				,cols: [[ //表头
-				  {field: 'id', title: 'ID', width:60,  fixed: 'left'}
-				  ,{field: 'Title', title: 'Title', width: 240},
-				  {field: 'Url', title: 'Url', width: 200},
-				  {field: 'Author', title: 'Author', width: 200},
-				  ,{field: 'added_date', title: 'Added Date', width: 200},
+				,cols: [
+					[ //表头
+				  {field: 'id', title: 'ID', width:60,  fixed: 'left'},
+				  {field: 'title', title: 'Title', width: 240},
+				  {field: 'uri', title: 'Url', width: 200, templet: function(d){
+					return '<a target="_blank" href="/page/' + d.uri + '">' + d.uri + '</a>';
+				  }},
+				  {field: 'added_by', title: 'Author', width: 200},
+				  {field: 'added_date', title: 'Added Date', width: 200},
 				  
 				  {field: 'view', title: 'Action', templet: function(d){
 					  return '<a class="layui-btn" href="javascript:void(0);" onclick="edit(' + d.id + ')">edit</a>';
@@ -82,7 +85,7 @@
 			}
 
 			edit = function(id){
-				location.href = "/Admin/userEdit/id/" + id;
+				location.href = "/Admin/pageEdit/id/" + id;
 			}
 
 			//头部事件

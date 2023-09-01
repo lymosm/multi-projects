@@ -15,6 +15,7 @@ class Home extends BaseController
 {
 
 	use MyAccount;
+	use PageTrait;
 	
 	public function __construct(\think\App $app){
 		parent::__construct($app, false);
