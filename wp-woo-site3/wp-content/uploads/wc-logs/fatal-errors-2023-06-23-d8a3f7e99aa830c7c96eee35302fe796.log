@@ -1,0 +1,50 @@
+2023-06-23T02:38:26+00:00 CRITICAL Uncaught ArgumentCountError: Too few arguments to function rorFront::beforeOrderSave(), 1 passed in /Volumes/dev/www/multi-projects/wp-woo-site3/wp-includes/class-wp-hook.php on line 305 and exactly 2 expected in /Volumes/dev/www/multi-projects/wp-woo-site3/wp-content/plugins/receive-orders/lib/rorFront.php:49
+Stack trace:
+#0 /Volumes/dev/www/multi-projects/wp-woo-site3/wp-includes/class-wp-hook.php(305): rorFront->beforeOrderSave(Object(Automattic\WooCommerce\Admin\Overrides\Order))
+#1 /Volumes/dev/www/multi-projects/wp-woo-site3/wp-includes/class-wp-hook.php(327): WP_Hook->apply_filters('', Array)
+#2 /Volumes/dev/www/multi-projects/wp-woo-site3/wp-includes/plugin.php(470): WP_Hook->do_action(Array)
+#3 /Volumes/dev/www/multi-projects/wp-woo-site3/wp-content/plugins/woocommerce/includes/abstracts/abstract-wc-order.php(184): do_action('woocommerce_bef...', Object(Automattic\WooCommerce\Admin\Overrides\Order), Object(WC_Data_Store))
+#4 /Volumes/dev/www/multi-projects/wp-woo-site3/wp-content/plugins/woocommerce/includes/class-wc-order.php(221): WC_Abstract_Order->save()
+#5 /Volumes/dev/www/multi-projects/wp-woo-site3/wp-content/plugins/woocommerce/includes/class-wc-checkout.php(391): WC_Order->save()
+#6 /Volumes/dev/www/multi-projects/wp-woo-site3/wp-content/plugins/woocommerce/includes/class-wc-checkout.php(1183): WC_Checkout->create_order(Array)
+#7 /Volumes/dev/www/multi-projects/wp-woo-site3/wp-content/plugins/woocommerce/includes/class-wc-ajax.php(461): WC_Checkout->process_checkout()
+#8 /Volumes/dev/www/multi-projects/wp-woo-site3/wp-includes/class-wp-hook.php(303): WC_AJAX::checkout('')
+#9 /Volumes/dev/www/multi-projects/wp-woo-site3/wp-includes/class-wp-hook.php(327): WP_Hook->apply_filters('', Array)
+#10 /Volumes/dev/www/multi-projects/wp-woo-site3/wp-includes/plugin.php(470): WP_Hook->do_action(Array)
+#11 /Volumes/dev/www/multi-projects/wp-woo-site3/wp-content/plugins/woocommerce/includes/class-wc-ajax.php(90): do_action('wc_ajax_checkou...')
+#12 /Volumes/dev/www/multi-projects/wp-woo-site3/wp-includes/class-wp-hook.php(303): WC_AJAX::do_wc_ajax('')
+#13 /Volumes/dev/www/multi-projects/wp-woo-site3/wp-includes/class-wp-hook.php(327): WP_Hook->apply_filters(false, Array)
+#14 /Volumes/dev/www/multi-projects/wp-woo-site3/wp-includes/plugin.php(470): WP_Hook->do_action(Array)
+#15 /Volumes/dev/www/multi-projects/wp-woo-site3/wp-includes/template-loader.php(13): do_action('template_redire...')
+#16 /Volumes/dev/www/multi-projects/wp-woo-site3/wp-blog-header.php(19): require_once('/Volumes/dev/ww...')
+#17 /Volumes/dev/www/multi-projects/wp-woo-site3/index.php(17): require('/Volumes/dev/ww...')
+#18 {main}
+  thrown in /Volumes/dev/www/multi-projects/wp-woo-site3/wp-content/plugins/receive-orders/lib/rorFront.php on line 49
+
+2023-06-23T02:54:17+00:00 CRITICAL Uncaught ArgumentCountError: Too few arguments to function rorFront::statusChanged(), 1 passed in /Volumes/dev/www/multi-projects/wp-woo-site3/wp-includes/class-wp-hook.php on line 305 and at least 3 expected in /Volumes/dev/www/multi-projects/wp-woo-site3/wp-content/plugins/receive-orders/lib/rorFront.php:51
+Stack trace:
+#0 /Volumes/dev/www/multi-projects/wp-woo-site3/wp-includes/class-wp-hook.php(305): rorFront->statusChanged(2472)
+#1 /Volumes/dev/www/multi-projects/wp-woo-site3/wp-includes/class-wp-hook.php(327): WP_Hook->apply_filters('', Array)
+#2 /Volumes/dev/www/multi-projects/wp-woo-site3/wp-includes/plugin.php(470): WP_Hook->do_action(Array)
+#3 /Volumes/dev/www/multi-projects/wp-woo-site3/wp-content/plugins/woocommerce/includes/class-wc-order.php(378): do_action('woocommerce_ord...', 2472, 'pending', 'failed', Object(Automattic\WooCommerce\Admin\Overrides\Order))
+#4 /Volumes/dev/www/multi-projects/wp-woo-site3/wp-content/plugins/woocommerce/includes/class-wc-order.php(222): WC_Order->status_transition()
+#5 /Volumes/dev/www/multi-projects/wp-woo-site3/wp-content/plugins/woocommerce/includes/class-wc-order.php(338): WC_Order->save()
+#6 /Volumes/dev/www/multi-projects/wp-woo-site3/wp-content/plugins/woo-stripe-payment/includes/abstract/abstract-wc-stripe-payment.php(343): WC_Order->update_status('failed', 'Error processin...')
+#7 /Volumes/dev/www/multi-projects/wp-woo-site3/wp-content/plugins/woo-stripe-payment/includes/class-wc-stripe-payment-intent.php(56): WC_Stripe_Payment->add_payment_failed_note(Object(Automattic\WooCommerce\Admin\Overrides\Order), Object(WP_Error))
+#8 /Volumes/dev/www/multi-projects/wp-woo-site3/wp-content/plugins/woo-stripe-payment/includes/abstract/abstract-wc-payment-gateway-stripe.php(385): WC_Stripe_Payment_Intent->process_payment(Object(Automattic\WooCommerce\Admin\Overrides\Order), Object(WC_Payment_Gateway_Stripe_CC))
+#9 /Volumes/dev/www/multi-projects/wp-woo-site3/wp-content/plugins/woocommerce/includes/class-wc-checkout.php(982): WC_Payment_Gateway_Stripe->process_payment(2472)
+#10 /Volumes/dev/www/multi-projects/wp-woo-site3/wp-content/plugins/woocommerce/includes/class-wc-checkout.php(1206): WC_Checkout->process_order_payment(2472, 'stripe_cc')
+#11 /Volumes/dev/www/multi-projects/wp-woo-site3/wp-content/plugins/woocommerce/includes/class-wc-ajax.php(461): WC_Checkout->process_checkout()
+#12 /Volumes/dev/www/multi-projects/wp-woo-site3/wp-includes/class-wp-hook.php(303): WC_AJAX::checkout('')
+#13 /Volumes/dev/www/multi-projects/wp-woo-site3/wp-includes/class-wp-hook.php(327): WP_Hook->apply_filters('', Array)
+#14 /Volumes/dev/www/multi-projects/wp-woo-site3/wp-includes/plugin.php(470): WP_Hook->do_action(Array)
+#15 /Volumes/dev/www/multi-projects/wp-woo-site3/wp-content/plugins/woocommerce/includes/class-wc-ajax.php(90): do_action('wc_ajax_checkou...')
+#16 /Volumes/dev/www/multi-projects/wp-woo-site3/wp-includes/class-wp-hook.php(303): WC_AJAX::do_wc_ajax('')
+#17 /Volumes/dev/www/multi-projects/wp-woo-site3/wp-includes/class-wp-hook.php(327): WP_Hook->apply_filters(false, Array)
+#18 /Volumes/dev/www/multi-projects/wp-woo-site3/wp-includes/plugin.php(470): WP_Hook->do_action(Array)
+#19 /Volumes/dev/www/multi-projects/wp-woo-site3/wp-includes/template-loader.php(13): do_action('template_redire...')
+#20 /Volumes/dev/www/multi-projects/wp-woo-site3/wp-blog-header.php(19): require_once('/Volumes/dev/ww...')
+#21 /Volumes/dev/www/multi-projects/wp-woo-site3/index.php(17): require('/Volumes/dev/ww...')
+#22 {main}
+  thrown in /Volumes/dev/www/multi-projects/wp-woo-site3/wp-content/plugins/receive-orders/lib/rorFront.php on line 51
+
