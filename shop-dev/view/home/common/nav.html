@@ -6,30 +6,6 @@
 	</div>
 	<div class="ls-cate-box">
 		<ul class="nav-main">
-			<!--
-			<li>
-				<a href="">aa</a>
-			</li>
-			<li>
-				<a href="">bb</a>
-				<ul class="sub-menu">
-					<li><a href="">bbb</a></li>
-					<li><a href="">bbb2</a></li>
-				</ul>
-			</li>
-			<li>
-				<a href="">cc</a>
-				<ul class="sub-menu">
-					<li>
-						<a href="">ccc</a>
-						<ul class="sub-menu">
-							<li><a href="">cccc</a></li>
-						</ul>
-					</li>
-					<li><a href="">ccc2</a></li>
-				</ul>
-			</li>
-			-->
 			<?php
 			foreach($cate_list as $rs){
 			?>
@@ -51,6 +27,52 @@
 							foreach($rs1['_child'] as $rs2){
 							?>
 								<li><a href="/cate/{$rs['uri']}">{$rs2['cate_name']}</a></li>
+							<?php
+							}
+							?>
+							</ul>
+						<?php
+						}
+						?>
+					</li>
+					<?php
+					}
+					?>
+				</ul>
+				<?php
+				}
+				?>
+			</li>
+			<?php
+			}
+			?>
+
+
+			<?php
+			foreach($menu_list as $rs){
+				$item = $menu_items[$rs['id']];
+			?>
+			<li>
+				<a href="/cate/{$item['url']}">{$item['name']}</a>
+				<?php
+				if(isset($rs['_child']) && $rs['_child']){
+				?>
+				<ul class="sub-menu">
+					<?php 
+					foreach($rs['_child'] as $rs1){
+						$item = $menu_items[$rs1['id']];
+
+					?>
+					<li><a href="/cate/{$item['url']}">{$item['name']}</a>
+						<?php 
+						if(isset($rs1['_child']) && $rs1['_child']){
+						?>
+							<ul class="sub-menu">
+							<?php
+							foreach($rs1['_child'] as $rs2){
+								$item = $menu_items[$rs2['id']];
+							?>
+								<li><a href="/cate/{$item['url']}">{$item['name']}</a></li>
 							<?php
 							}
 							?>

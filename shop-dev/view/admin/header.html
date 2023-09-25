@@ -70,6 +70,12 @@
 								<dd class="<?php if($uri == 'userList') echo 'active'; ?>"><a href="/Admin/userList">user list</a></dd>
 							</dl>
 						</li>
+						<li class="layui-nav-item <?php if(in_array($uri, ['menu'])){ echo 'layui-nav-itemed'; } ?>">
+							<a class="" href="javascript:;">appearance</a>
+							<dl class="layui-nav-child">
+								<dd class="<?php if($uri == 'menu') echo 'active'; ?>"><a href="/Admin/menu">menu</a></dd>
+							</dl>
+						</li>
 					</ul>
 				</div>
 			</div>

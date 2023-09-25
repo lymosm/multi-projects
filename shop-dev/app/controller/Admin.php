@@ -31,6 +31,7 @@ class Admin extends BackController
 {
 	use AdminSubTrait;
 	use PageTrait;
+	use MenuTrait;
 	
 	public function index(){
 		return $this->productList();

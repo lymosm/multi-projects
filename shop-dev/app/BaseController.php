@@ -12,6 +12,7 @@ use think\facade\Request;
 use think\facade\View;
 use app\model\CateModel;
 use app\model\UserModel;
+use app\model\MenuModel;
 
 /**
  * 控制器基础类
@@ -65,8 +66,13 @@ abstract class BaseController
         $this->date = date('Y-m-d H:i:s');
 		
         $cate_list = CateModel::getList();
-
+        $cate_list = [];  // use the down menu list
 		View::assign('cate_list', $cate_list);
+
+        // get menu list
+        $menu_data = MenuModel::getMenuTree();
+        View::assign('menu_list', $menu_data['menu_list']);
+        View::assign('menu_items', $menu_data['menu_items']);
 
         // 控制器初始化
         $this->initialize();

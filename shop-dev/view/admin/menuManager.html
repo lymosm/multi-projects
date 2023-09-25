@@ -1,0 +1,85 @@
+{include file="admin/header" /}
+<div class="layui-body">
+<div class="ls-menu-box">
+	<div class="ls-menu-left">
+		<div class="ls-menu-item">
+			<div class="ls-menu-item-inner">
+				Pages
+				
+			</div>
+			<div class="ls-menu-item-info">
+				<div class="ls-menu-list">
+					<div class="ls-menu-option">
+						<label class="ls-menu-item-title">
+							<input class="ls-menu-checkbox" type="checkbox"><span class="ls-item-name" data-url="88888">aaaa</span>
+						</label>
+					</div>
+					<div class="ls-menu-option">
+						<label class="ls-menu-item-title">
+							<input class="ls-menu-checkbox" type="checkbox"><span class="ls-item-name" data-url="99999">bbbb</span>
+						</label>
+					</div>
+					<div class="ls-menu-option">
+						<label class="ls-menu-item-title">
+							<input class="ls-menu-checkbox" type="checkbox"><span class="ls-item-name" data-url="7777">ccc</span>
+						</label>
+					</div>
+				</div>
+				<div class="ls-menu-add-btn layui-btn layui-btn-sm ls-btn-add-menu">
+					Add To Menu
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="ls-menu-right">
+		<div class="ls-menu-action">
+			<div class="ls-menu-add-btn layui-btn layui-btn-sm" id="ls-btn-menu-save">
+				Save
+			</div>
+		</div>
+		<div class="ls-menu-container" id="ls-menu-container">
+			<!-- 
+			<div class="ls-menu-tr" draggable="true" data-url="">ioiioi</div>
+			<div class="ls-menu-tr" draggable="true">ioiioi</div>
+			<div class="ls-menu-tr ls-depth-1" draggable="true">ioiioi</div>
+			-->
+			<?php 
+			foreach($menu_list as $rs){
+				$item = $menu_items[$rs['id']];
+				echo '<div class="ls-menu-tr" draggable="true" data-id="' . $rs['id'] . '" data-url="' . $item['url'] . '">' .  $item['name'] . '</div>';
+				if(isset($rs['_child'])){
+					foreach($rs['_child'] as $rs1){
+						$item = $menu_items[$rs1['id']];
+						echo '<div class="ls-menu-tr ls-depth-1" draggable="true" data-id="' . $rs1['id'] . '" data-url="' . $item['url'] . '">' .  $item['name'] . '</div>';
+					}
+				}
+			}
+			?>
+		</div>
+		<form id="menu-form">
+			<?php 
+			foreach($menu_list as $rs){
+				$pid = $rs['id'];
+				$ipt_html = '<input type="hidden" id="menu-ipt-' . $pid . '" name="menu_parent[' . $pid . ']" value="0">';
+				$ipt_html .= '<input type="hidden" name="menu_id[' . $pid . ']" value="' . $pid . '">';
+				echo $ipt_html;
+				if(isset($rs['_child'])){
+					foreach($rs['_child'] as $rs1){
+						$ppid = $rs1['id'];
+						$ipt_html = '<input type="hidden" id="menu-ipt-' . $ppid . '" name="menu_parent[' . $ppid . ']" value="' . $pid . '">';
+						$ipt_html .= '<input type="hidden" name="menu_id[' . $ppid . ']" value="' . $ppid . '">';
+						echo $ipt_html;
+					}
+				}
+			}
+			?>
+		</form>
+	</div>
+</div>		
+</div>
+		
+		
+{include file="admin/footer" /}
+<script>
+
+</script>

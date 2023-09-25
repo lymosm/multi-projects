@@ -55,3 +55,124 @@
 .ls-common-textarea{
 	min-height: 100px;
 }
+
+.ls-menu-box{
+	display: flex;
+	margin: 0 auto;
+	margin-top: 100px;
+	width: 90%;
+	
+}
+.ls-menu-left{
+	width: 30%;
+	border: 1px solid #ccc;
+}
+.ls-menu-right{
+	width: 65%;
+	margin-left: 5%;
+	border: 1px solid #ccc;
+	min-height: 20vw;
+}
+.ls-menu-item{
+	border-bottom: 1px solid #ccc;
+
+}
+.ls-menu-item-inner{
+	padding: 14px;
+	font-weight: bold;
+	position: relative;
+	cursor: pointer;
+}
+.ls-menu-item-inner::after{
+	position: absolute;
+	content: " ";
+	right: 10px;
+	border-top: 1px solid #000;
+	border-right: 1px solid #000;
+	height: 10px;
+	width: 10px;
+	font-weight: bold;
+	transform: rotate(135deg);
+	top: 12px;
+	-webkit-font-smoothing: antialiased;
+}
+.ls-menu-item-info{
+	border-top: 1px solid #ccc;
+	padding: 20px;
+}
+.ls-menu-list{
+	background-color: #f1f1f1;
+	padding: 20px;
+}
+.ls-menu-option{
+	cursor: pointer;
+	margin-bottom: 10px;
+}
+.ls-menu-item-title{
+	vertical-align: middle;
+}
+.ls-menu-item-title input[type=checkbox]{
+	margin-right: 10px;
+	margin-top: -2px;
+	display: inline-block;
+	vertical-align: middle;
+}
+.ls-menu-add-btn{
+	margin-top: 10px;
+}
+.ls-menu-tr{
+	padding: 10px;
+	background-color: #f1f1ee;
+	border: 1px solid #ddd;
+	cursor: move;
+	width: 300px;
+	margin-bottom: 2px;
+}
+.ls-menu-container{
+	padding: 40px;
+}
+.ls-depth-1{
+	margin-left: 30px;
+}
+.ls-menu-action{
+	text-align: right;
+	padding-right: 20px;
+}
+
+.ls-shade-box{
+    width: 100%;
+    height: 100vh;
+    background-color: #000;
+    opacity: 0.4;
+    z-index: 20;
+    position: fixed;
+    top: 0;
+    left: 0;
+    text-align: center;
+    padding-top: 10%;
+    display: none;
+}
+.ls-shade-box.active{
+    display: block;
+}
+.ls-shade-box img{
+    align-items: center;
+    width: 20px;
+}
+.ls-alert-box{
+    position: fixed;
+    width: 20%;
+    height: 100px;
+    background-color: #555;
+    top: 20%;
+    margin-left: -10%;
+    left: 50%;
+    z-index: 21;
+    color: #fff;
+    padding-top: 20px;
+    text-align: center;
+    display: none;
+}
+.ls-alert-box.active{
+    display: block;
+}
