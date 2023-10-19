@@ -10,9 +10,16 @@
         "production": "mix --production"
     },
     "devDependencies": {
-        "axios": "^0.21",
-        "laravel-mix": "^6.0.6",
         "lodash": "^4.17.19",
         "postcss": "^8.1.14"
+    },
+    "dependencies": {
+        "axios": "^1.5.1",
+        "browser-sync": "^2.29.3",
+        "browser-sync-webpack-plugin": "^2.3.0",
+        "laravel-mix": "^6.0.49",
+        "vue-loader": "^17.3.0",
+        "vue-router": "^4.2.5",
+        "vuex": "^4.1.0"
     }
 }

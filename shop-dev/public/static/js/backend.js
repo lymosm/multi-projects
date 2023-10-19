@@ -57,13 +57,15 @@ layui.use(['element', 'layer', 'util', 'jquery', 'form', "table"], function() {
 				$(dragging).addClass(dragging_deep_class);
 
 				if(dragging_deep_class != ""){
-					var $prevs = $(dragging).prev(".ls-menu-tr");
-					console.log(dragging);
+					var $prevs = $(dragging).prevAll(".ls-menu-tr");
 					$prevs.each(function(){
 						if(parent_menu_id != 0){
 							return ;
 						}
+						
 						var $_this = $(this);
+						// console.log($_this);
+						
 						if(! $_this.hasClass(dragging_deep_class)){
 							parent_menu_id = $_this.data("id");
 							console.log("parent id: " + parent_menu_id);
@@ -78,7 +80,7 @@ layui.use(['element', 'layer', 'util', 'jquery', 'form', "table"], function() {
 				$(dragging).removeClass("ls-depth-1");
 				$(dragging).removeClass("ls-depth-2");
 			}
-			console.log(dragging_deep_class);
+			// console.log(dragging_deep_class);
 			if(target.className.indexOf("ls-menu-tr") != -1 && target != dragging){
 				if(_getIndex(dragging) < _getIndex(target)){
 					parent.insertBefore(dragging, target.nextSibling);
@@ -87,7 +89,7 @@ layui.use(['element', 'layer', 'util', 'jquery', 'form', "table"], function() {
 				}
 				console.log('6666');
 				if(dragging_deep_class != ""){
-					var $prevs = $(dragging).prev(".ls-menu-tr");
+					var $prevs = $(dragging).prevAll(".ls-menu-tr");
 					console.log("5555");
 					console.log(dragging);
 					$prevs.each(function(){

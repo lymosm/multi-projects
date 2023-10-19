@@ -8,11 +8,18 @@ class MenuModel extends Model{
 
     public static function getMenuTree(){
         $mm = self::getMainMenu();
+
+        if(! $mm || ! isset($mm['menu'])){
+            return [
+                'menu_list' => [],
+                'menu_items' => []
+            ];
+        }
         $menu = json_decode($mm['menu'], true);
         $menu_ids = [];
         foreach($menu as $rs){
-            if(isset($rs['child'])){
-                foreach($rs['child'] as $rss){
+            if(isset($rs['_child'])){
+                foreach($rs['_child'] as $rss){
                     $menu_ids[] = $rss['id'];
                 }
             }

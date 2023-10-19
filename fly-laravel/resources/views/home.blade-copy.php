@@ -8,7 +8,6 @@
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
-        <link rel="stylesheet" type="text/css" href="/css/app.css">
 
         <!-- Styles -->
         <style>
@@ -21,12 +20,7 @@
             }
         </style>
     </head>
-    <script type="module">
-        // import Test from "./../resources/views/components/Test.vue";
-    </script>
     <body class="antialiased">
-       <router-view />
-        <div id="app" class="app"></div>
-       <script src="/js/app.js"></script>
+       
     </body>
 </html>

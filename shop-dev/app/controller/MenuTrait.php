@@ -124,7 +124,9 @@ trait MenuTrait{
 			if($parent){
 				foreach($tree as $key => $rs){
 					if($rs['id'] == $parent){
-						$tree[$key]['_child'][] = $id2;
+						$tree[$key]['_child'][] = [
+							'id' => $id2
+						];
 					}
 				}
 			}
