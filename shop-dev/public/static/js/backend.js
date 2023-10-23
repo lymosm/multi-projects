@@ -155,6 +155,29 @@ layui.use(['element', 'layer', 'util', 'jquery', 'form', "table"], function() {
 			}
 		});
 	});
+
+	$(".ls-btn-add-menu-custom").on("click", function(){
+		var $this = $(this);
+		
+				var name = $.trim($("#ls-custom-title").val());
+				const url = $.trim($("#ls-custom-url").val());
+			if(name == "" || url == ""){
+				return ;
+			}
+				$.ajax({
+					type: "POST",
+					url: "/Admin/addMenu",
+					data: {name: name, url: url},
+					success: function(res){
+						var id = res.data;
+						var html = '<div class="ls-menu-tr" draggable="true" data-id=' + id + ' data-url="' + url + '">' + name + '</div>';
+						$("#ls-menu-container").append(html);
+						var ipt_html = '<input type="hidden" id="menu-ipt-' + id + '" name="menu_parent[' + id + ']" value="0">';
+						ipt_html += '<input type="hidden" name="menu_id[' + id + ']" value="' + id + '">';
+						$("#menu-form").append(ipt_html);
+					}
+				});
+	});
 	
 	$("#ls-btn-menu-save").on("click", function(){
 		const data = $("#menu-form").serialize();

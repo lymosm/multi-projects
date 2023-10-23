@@ -91,4 +91,38 @@ class Cart extends BaseController
 
 		return json($ret);
 	}
+
+	public function check(){
+		$ret = [
+			'code' => 0,
+			'data' => '',
+			'msg' => ''
+		];
+
+		$cart = CartModel::getCartData($this->session_id);
+
+		if($cart === false){
+			$ret['msg'] = 'cart error';
+			return json($ret);
+		}
+		if(isset($cart['cart_content'])){
+			$cart = $cart['cart_content'];
+			$cart = json_decode($cart, true);
+			error_log(print_r($cart, true) . "\r\n", 3, '/www/debug.log');
+
+			$count = 0;
+			if($cart['product_list']){
+				foreach($cart['product_list'] as $rs){
+					$count += intval($rs['qty']);
+				}
+			}
+			$ret['data'] = [
+				'count' => $count,
+				'cart' => $cart
+			];
+		}
+		$ret['code'] = 1;
+
+		return json($ret);
+	}
 }

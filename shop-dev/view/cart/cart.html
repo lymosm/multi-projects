@@ -10,7 +10,9 @@
                 <a class="ls-link" href="Product/index/id/{$rs['uri']}">{$rs['product_name']}</a>
             </div>
             <div class="c-item-number">{$rs['qty']}</div>
-            <div class="c-item-action"><a href="" class="ls-btn">delete</a></div>
+            <div class="c-item-action">
+                <a href="javascript:void(0); " class="ls-btn ls-cart-delete-item">delete</a>
+            </div>
         </div>
         <?php
             }

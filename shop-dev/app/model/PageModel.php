@@ -26,6 +26,15 @@ class PageModel extends Model{
         return $ret;
     }
 
+    public static function getPageData(){
+        $ret = Db::name('page')
+            ->alias('a')
+            ->field('a.title, a.uri')
+        ->order('a.id desc')
+        ->select();  
+        return $ret;
+    }
+
     public static function getList($where = [], $limit_s = 0, $limit_e = 0){
         $ret = Db::name('page')
             ->alias('a')

@@ -169,6 +169,9 @@ a{
     padding: 10px;
     display: block;
 }
+.ls-cart-count{
+    color: red;
+}
 .p-img-gallary{
     
 }
@@ -636,6 +639,19 @@ button.slick-prev:before{
 }
 .ls-account-logo{
     display: inline-block;
+}
+.ls-banner-item{
+    position: relative;
+}
+.ls-banner-txt-box{
+    position: absolute;
+    top: 50%;
+    transform: rotateY(-50%);
+    left: 10%;
+}
+.ls-home-top-text{
+    margin-bottom: 20px;
+    font-size: 1.4rem;
 }
 
 

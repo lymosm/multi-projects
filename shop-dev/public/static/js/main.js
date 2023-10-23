@@ -58,9 +58,28 @@ $(function(){
             success: function(res){
                 ls_obj.message("added success");
                 $loading.removeClass("active");
+                cartCheck();
             }
         });
     });
+
+    var cartCheck = function(){
+        var url = host + "Cart/check";
+        $.ajax({
+            type: "POST",
+            url: url,
+            data: {},
+            success: function(res){
+                if(res.code == 1){
+                    if(typeof res.data.count != "undefined"){
+                        $("#ls-cart-count").html(" (" + res.data.count + ")");
+                    }
+                }
+            }
+        });
+    };
+    setInterval(cartCheck, 3000);
+    cartCheck();
 
     $("#ls-btn-checkout").on("click", function(){
         var url = host + "Checkout/saveCheckout";

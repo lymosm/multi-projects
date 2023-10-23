@@ -4,26 +4,45 @@
 	<div class="ls-menu-left">
 		<div class="ls-menu-item">
 			<div class="ls-menu-item-inner">
-				Pages
-				
+				Custom	
 			</div>
 			<div class="ls-menu-item-info">
 				<div class="ls-menu-list">
+					
 					<div class="ls-menu-option">
 						<label class="ls-menu-item-title">
-							<input class="ls-menu-checkbox" type="checkbox"><span class="ls-item-name" data-url="88888">aaaa</span>
+							<input type="text" class="layui-input" placeholder="Title" id="ls-custom-title">
 						</label>
 					</div>
 					<div class="ls-menu-option">
 						<label class="ls-menu-item-title">
-							<input class="ls-menu-checkbox" type="checkbox"><span class="ls-item-name" data-url="99999">bbbb</span>
+							<input type="text" class="layui-input" placeholder="Url" id="ls-custom-url">
 						</label>
 					</div>
+					
+				</div>
+				<div class="ls-menu-add-btn layui-btn layui-btn-sm ls-btn-add-menu-custom">
+					Add To Menu
+				</div>
+			</div>
+		</div>
+		<div class="ls-menu-item">
+			<div class="ls-menu-item-inner">
+				Pages	
+			</div>
+			<div class="ls-menu-item-info">
+				<div class="ls-menu-list">
+					<?php 
+					foreach($page_data as $rs){
+					?>
 					<div class="ls-menu-option">
 						<label class="ls-menu-item-title">
-							<input class="ls-menu-checkbox" type="checkbox"><span class="ls-item-name" data-url="7777">ccc</span>
+							<input class="ls-menu-checkbox" type="checkbox"><span class="ls-item-name" data-url="<?php echo $page_base_url . $rs['uri']; ?>"><?php echo $rs['title']; ?></span>
 						</label>
 					</div>
+					<?php
+					}
+					?>
 				</div>
 				<div class="ls-menu-add-btn layui-btn layui-btn-sm ls-btn-add-menu">
 					Add To Menu

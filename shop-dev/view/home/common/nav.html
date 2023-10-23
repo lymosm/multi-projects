@@ -53,7 +53,7 @@
 				$item = $menu_items[$rs['id']];
 			?>
 			<li>
-				<a href="/cate/{$item['url']}">{$item['name']}</a>
+				<a href="{$item['url']}">{$item['name']}</a>
 				<?php
 				if(isset($rs['_child']) && $rs['_child']){
 				?>
@@ -63,7 +63,7 @@
 						$item = $menu_items[$rs1['id']];
 
 					?>
-					<li><a href="/cate/{$item['url']}">{$item['name']}</a>
+					<li><a href="{$item['url']}">{$item['name']}</a>
 						<?php 
 						if(isset($rs1['_child']) && $rs1['_child']){
 						?>
@@ -72,7 +72,7 @@
 							foreach($rs1['_child'] as $rs2){
 								$item = $menu_items[$rs2['id']];
 							?>
-								<li><a href="/cate/{$item['url']}">{$item['name']}</a></li>
+								<li><a href="{$item['url']}">{$item['name']}</a></li>
 							<?php
 							}
 							?>
@@ -124,7 +124,7 @@
 				}
 				?>
 				<b class="nav-line"></b>
-				<a href="/Cart" class="signup-loader"><span>Cart</span></a></li>
+				<a href="/Cart" class="signup-loader"><span>Cart</span><span class="ls-cart-count" id="ls-cart-count"></span></a></li>
 			<li class="nav-button"><a href="javascript:;" class="nav-loader"><i class="icon icon-menu"></i></a></li>
 		</ul>
 

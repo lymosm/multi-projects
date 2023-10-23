@@ -7,6 +7,7 @@ use think\facade\View;
 use think\facade\Request;
 use think\facade\Db;
 use app\model\MenuModel;
+use app\model\PageModel;
 
 
 trait MenuTrait{
@@ -14,8 +15,13 @@ trait MenuTrait{
     public function menu(){
         $url = $this->url('/Admin/productEdit');
 		$menu_data = MenuModel::getMenuTree();
+		$page_data = PageModel::getPageData();
+		$page_base_url = $this->url('/page/');
+
         View::assign('menu_list', $menu_data['menu_list']);
         View::assign('menu_items', $menu_data['menu_items']);
+		View::assign('page_data', $page_data);
+		View::assign('page_base_url', $page_base_url);
 
 		View::assign('url', $url);
 		View::assign('uri', 'menu');
