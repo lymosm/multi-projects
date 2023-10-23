@@ -9,9 +9,10 @@
             <div class="c-item-title">
                 <a class="ls-link" href="Product/index/id/{$rs['uri']}">{$rs['product_name']}</a>
             </div>
+            <div class="c-item-number">${$rs['item_price']}</div>
             <div class="c-item-number">{$rs['qty']}</div>
             <div class="c-item-action">
-                <a href="javascript:void(0); " class="ls-btn ls-cart-delete-item">delete</a>
+                <a href="javascript:void(0); " data-id="<?php echo $rs['item_hash']; ?>" class="ls-btn ls-cart-delete-item">delete</a>
             </div>
         </div>
         <?php
@@ -21,7 +22,7 @@
     <div class="offset-10"></div>
     <div class="cart-price">
         <div class="total-price">
-            <label>total: </label>${$price_obj['total_price']}
+            <label>total: </label><span id="ls-cart-total">${$price_obj['total_price']}</span>
         </div>
         <div class="cart-action">
             <a class="ls-btn-checkout" href="/Checkout">Checkout</a>

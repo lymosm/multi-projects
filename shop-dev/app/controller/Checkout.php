@@ -43,7 +43,7 @@ class Checkout extends BaseController
 		$data = OrderModel::getOrderByNum($order);
 
 		View::assign('product_list', $data['product_list']);
-		View::assign('user', $data['user']);
+		View::assign('order_user', $data['user']);
 		View::assign('price', $data['price']);
 		return View::fetch('result');
 	}

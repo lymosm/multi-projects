@@ -79,6 +79,7 @@ abstract class BaseController
         if($check_token){
             $this->verifyToken();
         }
+
         $this->getLoginUser();
         View::assign('user', $this->user);
     }

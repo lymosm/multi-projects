@@ -25,6 +25,9 @@ class Cart extends BaseController
 			return View::fetch('cart_empty');
 		}
 		$cart_content = json_decode($cart['cart_content'], true);
+		if(isset($cart_content['product_list']) && ! $cart_content['product_list']){
+			return View::fetch('cart_empty');
+		}
 		
 		View::assign('product_list', $cart_content['product_list']);
 		View::assign('price_obj', $cart_content['price_obj']);
@@ -51,6 +54,7 @@ class Cart extends BaseController
 		}
 		$item_price = $product['price'] * $qty;
 		$product_item = [
+			'item_hash' => $this->get_hash(),
 			'product_id' => $product['id'],
 			'uri' => $product['uri'],
 			'product_name' => $product['name'],
@@ -92,6 +96,13 @@ class Cart extends BaseController
 		return json($ret);
 	}
 
+	public function get_hash(){
+		$chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()+-';
+		$random = $chars[mt_rand(0,73)].$chars[mt_rand(0,73)].$chars[mt_rand(0,73)].$chars[mt_rand(0,73)].$chars[mt_rand(0,73)];//Random 5 times
+		$content = uniqid() . $random;  
+		return sha1($content); 
+	}
+
 	public function check(){
 		$ret = [
 			'code' => 0,
@@ -108,7 +119,7 @@ class Cart extends BaseController
 		if(isset($cart['cart_content'])){
 			$cart = $cart['cart_content'];
 			$cart = json_decode($cart, true);
-			error_log(print_r($cart, true) . "\r\n", 3, '/www/debug.log');
+			// error_log(print_r($cart, true) . "\r\n", 3, '/www/debug.log');
 
 			$count = 0;
 			if($cart['product_list']){
@@ -122,6 +133,57 @@ class Cart extends BaseController
 			];
 		}
 		$ret['code'] = 1;
+
+		return json($ret);
+	}
+
+	public function delete(){
+		$ret = [
+			'code' => 0,
+			'data' => '',
+			'msg' => ''
+		];
+
+		$id = trim(Request::param('id'));
+
+		if(! $id){
+			$ret['msg'] = 'params error';
+			return json($ret);
+		}
+		$cart = CartModel::getCartData($this->session_id);
+
+		if($cart === false){
+			$ret['msg'] = 'cart error';
+			return json($ret);
+		}
+		if(isset($cart['cart_content'])){
+			$cart = $cart['cart_content'];
+			$cart = json_decode($cart, true);
+
+			$item_price = 0;
+			if($cart['product_list']){
+				$product_item = $cart['product_list'];
+
+				foreach($product_item as $key => $rs){
+					if($rs['item_hash'] == $id){
+						unset($product_item[$key]);
+						$item_price = $rs['item_price'];
+						break;
+					}
+				}
+			}
+			
+			$cart['product_list'] = $product_item;
+			$cart['price_obj']['total_price'] -= $item_price;
+			$res = CartModel::saveCartData($this->session_id, $cart, true);
+			if($res === false){
+				$ret['msg'] = 'save cart error';
+				return json($ret);
+			}
+			
+		}
+		$ret['code'] = 1;
+		$ret['data'] = $cart;
 
 		return json($ret);
 	}
