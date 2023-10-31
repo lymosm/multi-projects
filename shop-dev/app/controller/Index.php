@@ -9,6 +9,11 @@ use think\facade\Db;
  
 class Index extends BaseController
 {
+    public function __construct()
+    {
+        die('333');
+        
+    }
     public function index()
     {
         print_r(User::getList()->toArray());

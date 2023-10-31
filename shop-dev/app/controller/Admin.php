@@ -131,8 +131,23 @@ class Admin extends BackController
 		
 		$where = [];
 		$keyword = addslashes(trim(Request::param('keyword')));
+
 		if($keyword){
-			$where .= 'a.name like "%' . $keyword . '%" or b.qrcode_uri like "%' . $keyword . '%"';
+			// $where .= 'a.name like "%' . $keyword . '%" or b.qrcode_uri like "%' . $keyword . '%"';
+			/*
+			$where[0] = ['a.name',  'like',  '%' . $keyword . '%'];
+			$where['_logic'] = 'OR';
+			$where[1] = ['b.qrcode_uri', 'like', '%' . $keyword . '%'];
+			*/
+			// $where = ['a.name|a.uri', 'like', '%' . $keyword . '%'];
+			/*
+			$s_str = '%' . $keyword . '%';
+			$where = function ($query, $s_str) {
+				$query->where('a.name', 'like', $s_str)->orWhere('a.uri', 'like', $s_str);
+			};
+			*/
+			$where[] = ['a.name', 'like', '%' . $keyword . '%'];
+
 		}
 		$page = intval(Request::param('page'));
 		if(! $page){

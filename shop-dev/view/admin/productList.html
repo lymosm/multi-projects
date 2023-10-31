@@ -3,7 +3,16 @@
 			
 
 			<div class="layui-body">
-				<div style="padding: 15px;"><a class="layui-btn" href="/Admin/productEdit">Add</a></div>
+				<div class="layui-row ls-search-form">
+					<form class="layui-form layui-col-md12 x-so layui-form-pane" id="search">
+						<div class="layui-input-inline">
+							<input type="text" name="keys" id="keyword" placeholder="name" autocomplete="off" class="layui-input" style="width:240px" value="">
+						</div>
+						<button type="button" id="btn-search" class="layui-btn" ><i class="layui-icon">&#xe615;</i></button>
+						<a class="layui-btn" href="/Admin/productEdit">Add</a>
+					</form>
+
+				</div>
 				<table class="layui-table" id="video-list" lay-size="lg">
 				</table>
 			</div>
@@ -55,7 +64,7 @@
 				 
 				]]
 			  });
-			 /* 
+			 
 			$("#btn-search").on("click", function(){
 				tablens.reload({
 					where: {
@@ -64,8 +73,6 @@
 				});
 			});
 
-
-*/
 
 			del = function(id){
 				$.ajax({

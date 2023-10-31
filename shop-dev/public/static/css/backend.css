@@ -138,7 +138,10 @@
 	text-align: right;
 	padding-right: 20px;
 }
-
+.ls-search-form{
+	margin-top: 20px;
+	margin-left: 10px;
+}
 .ls-shade-box{
     width: 100%;
     height: 100vh;
