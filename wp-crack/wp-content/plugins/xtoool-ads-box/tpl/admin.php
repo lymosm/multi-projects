@@ -97,7 +97,8 @@ jQuery(function(){
                     return a.LAY_INDEX;
                 }},
                 {field: 'id', title: 'Action', width: 200, templet: function(a){
-                    var html = '<a href="javascript:;" class="vim-u delete" data-id="'+ a.id +'">Delete</a>';
+                    var html = '<a href="/wp-admin/admin.php?page=add_product&id='+ a.id +'" class="vim-u">Edit</a>';
+                     html += '<a href="javascript:;" class="vim-u delete" data-id="'+ a.id +'">Delete</a>';
                     return html;
                 }},
                 {field: 'image_url', title: 'image', width: 200, templet: function(a){

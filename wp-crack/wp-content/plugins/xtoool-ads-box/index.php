@@ -107,7 +107,7 @@ class plbProductListForBlog{
     public function frontScript(){
 		wp_register_style( 'layui-style', plugins_url( 'assets/lib/layui/css/layui.css', PLB_PATH ), [], self::PLB_VERSION );
         wp_enqueue_style( 'layui-style' );
-		wp_enqueue_script( 'layui-js', plugins_url( 'assets/lib/layui/layui.js', PLB_PATH), [], self::PLB_VERSION, true );
+		wp_enqueue_script( 'layui-js', plugins_url( 'assets/lib/layui/layui.js', PLB_PATH), ['jquery'], self::PLB_VERSION, true );
 	}
 
     public function productListShowinBlog( $content = null ){
@@ -115,8 +115,8 @@ class plbProductListForBlog{
         wp_register_style( 'swiper-style', plugins_url( 'assets/lib/swiper/swiper.min.css', PLB_PATH ), [], self::PLB_VERSION );
         wp_enqueue_style( 'swiper-style' );
         wp_enqueue_style( 'swiper-bundle-style' );
-		wp_enqueue_script( 'swiper-js', plugins_url( 'assets/lib/swiper/swiper.min.js', PLB_PATH), [], self::PLB_VERSION, true );
-        wp_enqueue_script( 'swiper-bundle-js', plugins_url( 'assets/lib/swiper/swiper-bundle.min.js', PLB_PATH), [], self::PLB_VERSION, true );
+		wp_enqueue_script( 'swiper-js', plugins_url( 'assets/lib/swiper/swiper.min.js', PLB_PATH), ['jquery'], self::PLB_VERSION, true );
+        wp_enqueue_script( 'swiper-bundle-js', plugins_url( 'assets/lib/swiper/swiper-bundle.min.js', PLB_PATH), ['jquery'], self::PLB_VERSION, true );
         // [plb_products_list list_id="16"]
         // 匹配出 list_id
         $list_id = sanitize_text_field($content['id']);
@@ -178,6 +178,7 @@ class plbProductListForBlog{
                     display:block;
                     background:#f3f3f3;
                     padding: 0 15px;
+                    margin-bottom: 20px;
                 }
                 div.swiper-button-next, div.swiper-button-prev{
                     background-image: none;
@@ -191,15 +192,15 @@ class plbProductListForBlog{
                     overflow-y: hidden;
                     position: relative;
                 }
-                .plb_blog_page_products_show{width:100%;padding:10px 0 15px;display: flow-root;}
+                .plb_blog_page_products_show{width:100%;padding:10px 0 15px;}
                 h2.plb_blog_page_products_show {font-weight: bold;
                     color: #000;
                     font-size: 18px;
                     margin: 0;
                     line-height: 40px;
                     padding-bottom: 0;
-                    font-family: Montserrat;}
-                .plb_blog_page_products_show dd{display: block;margin:0;padding:10px;background:#fff;font-family:Montserrat;}
+                    }
+                .plb_blog_page_products_show dd{display: block;margin:0;padding:10px;background:#fff;}
                 .plb_blog_page_products_show dd img{width:60%;margin: 0 auto;}
                 .plb_blog_page_products_show dd .product_title{height: 50px;overflow: hidden;padding-top: 10px;line-height: 20px;}
                 .plb_blog_page_products_show dd .product_title a{font-size:14px;color:#000;font-weight: 600;}
@@ -230,6 +231,7 @@ class plbProductListForBlog{
                 }
             </style>
             <script>
+            console.log(window);
                 if( jQuery(window).width() <= 768 ){
                     var num = 3;
                 } else {
@@ -268,7 +270,8 @@ class plbProductListForBlog{
         include_once 'tpl/admin.php';
     }
     public function addProduct(){
-        if( sanitize_text_field($_REQUEST['meted'])  == "add" ){
+        remove_action( 'admin_notices', 'update_nag', 3 );
+        if(isset($_REQUEST['meted']) && sanitize_text_field($_REQUEST['meted'])  == 'add' ){
             $data = $_REQUEST;
             if( isset($_REQUEST['id']) && $_REQUEST['id'] ){
                 $sql = 'update ' . $this->db->prefix . 'products_for_blog set product_title = "' . addslashes($data['product_title']) . '",
@@ -280,30 +283,38 @@ class plbProductListForBlog{
                 $sql_pre = $this->db->prepare($sql, sanitize_text_field($_REQUEST['id']));
                 $res = $this->db->query($sql_pre);
                 if( $res ){
-                    wp_redirect("/wp-admin/admin.php?page=product_list");exit;
+                    wp_redirect("/wp-admin/admin.php?page=product_list");
+                    echo '<script>location.href="/wp-admin/admin.php?page=product_list"</script>';
                 } else {
                     echo "<script>alert('update failed!')</script>";
-                    wp_redirect("/wp-admin/admin.php?page=add_product");exit;
+                    echo '<script>location.href="/wp-admin/admin.php?page=add_product"</script>';
                 }
+                exit;
             } else {
-                $data['regular_price'] = $data['regular_price']?addslashes($data['regular_price']):0;
+                $data['regular_price'] = isset($data['regular_price']) ? addslashes($data['regular_price']) : 0;
+                $data['price'] = isset($data['price']) ? addslashes($data['price']) : 0;
+                $data['image_url'] = isset($data['image_url']) ? addslashes($data['image_url']) : 0;
+                $data['url'] = isset($data['url']) ? addslashes($data['url']) : 0;
+                $data['product_title'] = isset($data['product_title']) ? addslashes($data['product_title']) : 0;
                 $sql = 'insert into ' . $this->db->prefix . 'products_for_blog ( product_title, regular_price, price, image_url, url, added_date) ';
                 $sql .= 'values (%s, %s, %s, %s, %s, %s)';
 
                 $sql_pre = $this->db->prepare($sql, $data['product_title'], $data['regular_price'], $data['price'], $data['image_url'], $data['url'], date('Y-m-d H:i:s'));
                 $res = $this->db->query($sql_pre);
+                
                 if( $res ){
-                    wp_redirect("/wp-admin/admin.php?page=product_list");exit;
+                    echo '<script>location.href="/wp-admin/admin.php?page=product_list"</script>';
                 } else {
                     echo "<script>alert('added failed')</script>";
-                    wp_redirect("/wp-admin/admin.php?page=add_product");exit;
+                    echo '<script>location.href="/wp-admin/admin.php?page=add_product"</script>';
                 }
+                exit;
             }
         } else {
             if( isset($_REQUEST['id']) && $_REQUEST['id'] ){
                 $sql = 'select * from '.$this->db->prefix.'products_for_blog where id = %d';
                 $sql_pre = $this->db->prepare($sql, sanitize_text_field($_REQUEST['id']));
-                $product = $this->db->get_results($sql_pre);
+                $product = $this->db->get_results($sql_pre, ARRAY_A);
                 if( !empty($product) ){
                     $product = $product[0];
                 }
@@ -344,7 +355,7 @@ class plbProductListForBlog{
         wp_send_json($ret);
     }
     public function addProductsList(){
-        if( sanitize_text_field($_REQUEST['meted'])  == "add" ){
+        if(isset($_REQUEST['meted']) && sanitize_text_field($_REQUEST['meted'])  == "add" ){
             $data = $_REQUEST;
             $products = explode('|',trim($data['products']));
             
@@ -364,7 +375,8 @@ class plbProductListForBlog{
                     $sql2 .= '(' . $products[$i] . ', ' . sanitize_text_field($_REQUEST['list_id']) . ')';
                 }
                 $res2 = $this->db->query($sql2);
-                wp_redirect("/wp-admin/admin.php?page=products_list_show");exit;
+                echo '<script>location.href="/wp-admin/admin.php?page=products_list_show"</script>';
+                exit;
             } else {
                 $data_array = array(   
                     'list_title' => addslashes($data['list_title']),
@@ -380,11 +392,13 @@ class plbProductListForBlog{
                 }
                 $res2 = $this->db->query($sql2);
                 if( $id ){
-                    wp_redirect("/wp-admin/admin.php?page=products_list_show");exit;
+                    echo '<script>location.href="/wp-admin/admin.php?page=products_list_show"</script>';
                 } else {
                     echo "<script>alert('add list failed！')</script>";
-                    wp_redirect("/wp-admin/admin.php?page=add_products_list");exit;
+                    echo '<script>location.href="/wp-admin/admin.php?page=add_products_list"</script>';
+
                 }
+                exit;
             }
         } else {
             $list_data = [];
