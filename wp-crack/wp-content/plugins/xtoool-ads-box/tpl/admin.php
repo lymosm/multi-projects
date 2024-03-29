@@ -1,3 +1,6 @@
+<?php 
+if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+?>
 <div class="layui-form-item search-form">
     <form class="layui-form" method="post" action="">
     <a class="layui-btn layui-btn-sm" href="/wp-admin/admin.php?page=add_product">Add Product</a>

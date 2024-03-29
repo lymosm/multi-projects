@@ -1,13 +1,13 @@
 <?php 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 ?>
-<div class="layui-form-item search-form">
+<div class="adsbx-search-form">
     <form class="layui-form" method="post" action="">
-    <a class="layui-btn layui-btn-sm" href="/wp-admin/admin.php?page=add_products_list">add product widget</a>
+    <a class="layui-btn layui-btn-sm" href="/wp-admin/admin.php?page=add_bannder_ad">add banner ads</a>
     <div class="layui-form-item">
-        <label class="layui-form-label">keyword</label>
+        <label class="layui-form-label">keyword: </label>
         <div class="layui-input-block">
-        <input type="text" name="keyword" placeholder="Title" class="layui-input layui-input-sm">
+        <input type="text" name="keyword" placeholder="Name" class="layui-input layui-input-sm">
         </div>
     </div>
     <div class="layui-form-item">
@@ -21,9 +21,12 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 <table id="product-table" class="layui-table">
 </table>
 <style>
+    .adsbx-search-form{
+        display: block;
+    }
     form.layui-form {
-        padding: 30px 30px 0;
-        margin-top: 20px;
+        padding: 0 30px 0;
+        margin-top: 10px;
     }
     .layui-form-item {
         display: inline-flex;
@@ -73,6 +76,9 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
         float:left;
         margin-right: 10px;
     }
+    #layui-table-page1 .layui-laypage-limits select{
+        width: 110px;
+    }
     .layui-table-cell{
         height:auto;
     }
@@ -95,34 +101,24 @@ jQuery(function(){
             limit: 20,
             method: "post",
             where: {
-                    action: "getProductListData", 
+                    action: "adsbx_ads_list", 
                     keyword: $("input[name='keyword']").val(),
                 },
             page: true,
             cols: [[ 
-                {field: 'list_id', title: 'ID', width:60, templet: function(a){
+                {field: 'id', title: 'ID', width:60, templet: function(a){
                     return a.LAY_INDEX;
                 }},
-                {field: 'list_title', title: 'show title', width: 200},
+                {field: 'name', title: 'Name', width: 200},
+                
+                {field: 'title', title: 'Product Title', width: 250},
+                {field: 'id', title: 'Shortcode', templet: function(a){
+                    const html = '[xt-ads-banner id="' + a.id + '"]';
+                    return html;
+                }},
                 {field: 'list_id', title: 'Action', width: 150, templet: function(a){
-                    var html = '<a href="/wp-admin/admin.php?page=add_products_list&list_id='+ a.list_id +'" class="vim-u">Edit</a>';
-                    html += '<a href="javascript:;" class="vim-u delete" data-id="'+ a.list_id +'">Delete</a>';
-                    return html;
-                }},
-                {field: 'list_id', title: 'code', width: 350, templet: function(a){
-                    var html = '<div>[plb_products_list id="'+ a.list_id +'"]</div>';
-                    return html;
-                }},
-                {field: 'product_title', title: 'products', templet: function(a){
-                    if(a.product_title == null || ! a.product_title){
-                        return '';
-                    }
-                    titles = a.product_title.split(",");
-                    urls = a.product_url.split(",");
-                    var html = '';
-                    for(var i=0; i<titles.length; i++){
-                        html += '<span class="product_title"><a href="'+ urls[i] +'">' + titles[i] + '</a></span>';
-                    }
+                    var html = '<a href="/wp-admin/admin.php?page=add_bannder_ad&id='+ a.id +'" class="vim-u">Edit</a>';
+                    html += '<a href="javascript:;" class="vim-u delete" data-id="'+ a.id +'">Delete</a>';
                     return html;
                 }}
             ]]
@@ -131,7 +127,7 @@ jQuery(function(){
         $("#btn-search").on("click", function(){
             p_table.reload({
                 where: {
-                    action: "getProductListData", 
+                    action: "adsbx_ads_list", 
                     keyword: $("input[name='keyword']").val(),
                 }
             });
@@ -140,24 +136,29 @@ jQuery(function(){
         $('body.wp-admin').on("click",'.delete',function(){
             var tb = $(this);
             var id = $(this).data('id');
-            $.ajax({
-                url: ajaxurl,
-                type: 'POST',
-                async: false,
-                data: {
-                    action: "deleteProductList",
-                    id: id
-                },
-                success: function( res ) {
-                    console.log(res);
-                    if( res.code ){
-                        tb.parents('tr').remove();
+            const index = layer.confirm("Delete it?", {"title": false, "btn": ["Ok", "Cancel"]}, function(){
+                layer.close(index);
+                const index2 = layer.load(0);
+                $.ajax({
+                    url: ajaxurl,
+                    type: 'POST',
+                    async: false,
+                    data: {
+                        action: "adsbx_delete_ads",
+                        id: id
+                    },
+                    success: function( res ) {
+                        layer.close(index2);
+                        if( res.code ){
+                            tb.parents('tr').remove();
+                        }
+                    },
+                    error:function(){
+                        console.log('error');
                     }
-                },
-                error:function(){
-                    console.log('error');
-                }
+                });
             });
+            
         });
     });
 });

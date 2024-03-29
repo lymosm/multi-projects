@@ -1,11 +1,11 @@
-=== Plugin Name ===
-Contributors: xtoool.com
+=== Xtoool Ads Box ===
+Contributors: xtoool
 Author URI: https://www.xtoool.com
 Donate link: https://www.xtoool.com/wordpress/redirecter/
 Tags: ads, htaccess, product, image, apache, nginx, post, admin
-Requires at least: 5.3
-Tested up to: 6.3.2
-Stable tag: 1.0.0
+Requires at least: 4.9
+Tested up to: 6.4.3
+Stable tag: 1.0.4
 Requires PHP: 5.4
 License: GPLv3
 

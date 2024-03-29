@@ -3,10 +3,12 @@
 Plugin Name: Xtoool Ads Box
 Plugin URI: https://www.xtoool.com/wordpress/
 Description: Xtoool Ads Box helps you create High-converting product bars to engage customers and grow sales.
-Version: 1.0.0
+Version: 1.0.4
 Author: xtoool.com
 Author URI: https://www.xtoool.com
 Text Domain: xtoool.com
+License: GPLv2 or later
+
 ============================================================================================================
 This software is provided "as is" and any express or implied warranties, including, but not limited to, the
 implied warranties of merchantibility and fitness for a particular purpose are disclaimed. In no event shall
@@ -21,19 +23,24 @@ For full license details see license.txt
 */
 namespace plbProductListForBlog;
 
+use Adsbx\AdsbxAdmin;
+use Adsbx\Shortcode;
+
 if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 
-define('PLB_DIR', dirname(__FILE__));
-define('PLB_PATH', __FILE__);
-define('PLB_URL', plugins_url('', __FILE__));
-define('PLB_BASE', plugin_basename(PLB_PATH));
+define('XTPLB_DIR', dirname(__FILE__));
+define('XTPLB_PATH', __FILE__);
+define('XTPLB_URL', plugins_url('', __FILE__));
+define('XTPLB_BASE', plugin_basename(XTPLB_PATH));
+define('ADSBX_PLUGIN_NAME', basename(XTPLB_DIR) . '/xtoool-ads-box.php');
 
 class plbProductListForBlog{
     private static $instance = null;
     public $db;
-    const PLB_VERSION = '1.0.0';
+    const XTPLB_VERSION = '1.0.4';
+    public $AdsbxAdmin_obj = null;
 
     public function __construct(){
         global $wpdb;
@@ -49,8 +56,55 @@ class plbProductListForBlog{
         add_action('wp_ajax_deleteProductList', [$this, 'deleteProductList']); 
 		add_shortcode('plb_products_list', [$this, 'productListShowinBlog']);
 
-        register_activation_hook(PLB_PATH, [$this, 'activate']);
+        register_activation_hook(XTPLB_PATH, [$this, 'activate']);
+        add_action( 'upgrader_process_complete', [$this, 'my_upgrate_function'], 10, 2);
+
         $this->_initScript();
+
+        require_once 'lib/AdsbxAdmin.php';
+        require_once 'lib/Shortcode.php';
+        $this->AdsbxAdmin_obj = new AdsbxAdmin($this);
+        new Shortcode($this);
+    }
+
+    public function my_upgrate_function( $upgrader_object, $options ) {
+
+        if ($options['action'] !== 'update' || $options['type'] !== 'plugin') {
+            return;
+        }
+
+        if (! in_array(ADSBX_PLUGIN_NAME, $options['plugins'] ?? [])) {
+            return;
+        }
+
+        if(self::XTPLB_VERSION == '1.0.2'){
+            $this->_update_1_0_3();
+        }
+
+    }
+
+    private function _update_1_0_3(){
+        global $wpdb;
+        $sql4 = 'CREATE TABLE if not exists `' . $wpdb->prefix . 'products_banner_blog` (
+			`id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL default "",
+  `image_url` varchar(255) NOT NULL default "",
+  `regular_price` varchar(25) NOT NULL default "",
+  `price` varchar(25) NOT NULL default "",
+  `title` varchar(255) NOT NULL default "",
+  `desc` text default null,
+  `shop_btn_text` varchar(255) NOT NULL default "",
+  `shop_btn_link` varchar(1000) NOT NULL default "",
+  `sub_btn_text` varchar(255) NOT NULL default "",
+  `sub_btn_link` varchar(1000) NOT NULL default "",
+  `added_by` int(11) not null default 0,
+  `added_date` datetime default null,
+  `updated_by` int(11) not null default 0,
+  `updated_date` datetime default null,
+  
+  PRIMARY KEY (`id`)
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4;';
+		$wpdb->query($sql4);
     }
 
     public function activate(){
@@ -60,7 +114,7 @@ class plbProductListForBlog{
 
 	private function _createTable(){
         global $wpdb;
-		$sql = 'CREATE TABLE `' . $wpdb->prefix . 'products_for_blog` (
+		$sql = 'CREATE TABLE if not exists `' . $wpdb->prefix . 'products_for_blog` (
 			`id` int(11) NOT NULL AUTO_INCREMENT,
   `product_title` varchar(255) NOT NULL,
   `regular_price` decimal(10, 2) DEFAULT NULL,
@@ -72,7 +126,7 @@ class plbProductListForBlog{
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4;';
 		$wpdb->query($sql);
 
-        $sql2 = 'CREATE TABLE `' . $wpdb->prefix . 'products_list_for_blog` (
+        $sql2 = 'CREATE TABLE if not exists `' . $wpdb->prefix . 'products_list_for_blog` (
 			`list_id` int(11) NOT NULL AUTO_INCREMENT,
   `list_title` varchar(255) NOT NULL,
   `order` int(11) NOT NULL DEFAULT "0",
@@ -81,11 +135,33 @@ class plbProductListForBlog{
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4;';
 		$wpdb->query($sql2);
 
-        $sql3 = 'CREATE TABLE `' . $wpdb->prefix . 'products_list_re_blog` (
+        $sql3 = 'CREATE TABLE if not exists `' . $wpdb->prefix . 'products_list_re_blog` (
 			`product_id` int(11) NOT NULL,
   `list_id` int(11) NOT NULL
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4;';
 		$wpdb->query($sql3);
+
+
+        $sql4 = 'CREATE TABLE if not exists `' . $wpdb->prefix . 'products_banner_blog` (
+			`id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL default "",
+  `image_url` varchar(255) NOT NULL default "",
+  `regular_price` varchar(25) NOT NULL default "",
+  `price` varchar(25) NOT NULL default "",
+  `title` varchar(255) NOT NULL default "",
+  `desc` text default null,
+  `shop_btn_text` varchar(255) NOT NULL default "",
+  `shop_btn_link` varchar(1000) NOT NULL default "",
+  `sub_btn_text` varchar(255) NOT NULL default "",
+  `sub_btn_link` varchar(1000) NOT NULL default "",
+  `added_by` int(11) not null default 0,
+  `added_date` datetime default null,
+  `updated_by` int(11) not null default 0,
+  `updated_date` datetime default null,
+  
+  PRIMARY KEY (`id`)
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4;';
+		$wpdb->query($sql4);
 		
 	}
 
@@ -99,24 +175,24 @@ class plbProductListForBlog{
 
 
     public function adminScript(){
-		wp_register_style( 'layui-style', plugins_url( 'assets/lib/layui/css/layui.css', PLB_PATH ), [], self::PLB_VERSION );
+		wp_register_style( 'layui-style', plugins_url( 'assets/lib/layui/css/layui.css', XTPLB_PATH ), [], self::XTPLB_VERSION );
         wp_enqueue_style( 'layui-style' );
-		wp_enqueue_script( 'layui-js', plugins_url( 'assets/lib/layui/layui.js', PLB_PATH), [], self::PLB_VERSION, true );
+		wp_enqueue_script( 'layui-js', plugins_url( 'assets/lib/layui/layui.js', XTPLB_PATH), [], self::XTPLB_VERSION, true );
 	}
 
     public function frontScript(){
-		wp_register_style( 'layui-style', plugins_url( 'assets/lib/layui/css/layui.css', PLB_PATH ), [], self::PLB_VERSION );
+		wp_register_style( 'layui-style', plugins_url( 'assets/lib/layui/css/layui.css', XTPLB_PATH ), [], self::XTPLB_VERSION );
         wp_enqueue_style( 'layui-style' );
-		wp_enqueue_script( 'layui-js', plugins_url( 'assets/lib/layui/layui.js', PLB_PATH), ['jquery'], self::PLB_VERSION, true );
+		wp_enqueue_script( 'layui-js', plugins_url( 'assets/lib/layui/layui.js', XTPLB_PATH), ['jquery'], self::XTPLB_VERSION, true );
 	}
 
     public function productListShowinBlog( $content = null ){
-        wp_register_style( 'swiper-bundle-style', plugins_url( 'assets/lib/swiper/swiper-bundle.min.css', PLB_PATH ), [], self::PLB_VERSION );
-        wp_register_style( 'swiper-style', plugins_url( 'assets/lib/swiper/swiper.min.css', PLB_PATH ), [], self::PLB_VERSION );
+        wp_register_style( 'swiper-bundle-style', plugins_url( 'assets/lib/swiper/swiper-bundle.min.css', XTPLB_PATH ), [], self::XTPLB_VERSION );
+        wp_register_style( 'swiper-style', plugins_url( 'assets/lib/swiper/swiper.min.css', XTPLB_PATH ), [], self::XTPLB_VERSION );
         wp_enqueue_style( 'swiper-style' );
         wp_enqueue_style( 'swiper-bundle-style' );
-		wp_enqueue_script( 'swiper-js', plugins_url( 'assets/lib/swiper/swiper.min.js', PLB_PATH), ['jquery'], self::PLB_VERSION, true );
-        wp_enqueue_script( 'swiper-bundle-js', plugins_url( 'assets/lib/swiper/swiper-bundle.min.js', PLB_PATH), ['jquery'], self::PLB_VERSION, true );
+		wp_enqueue_script( 'swiper-js', plugins_url( 'assets/lib/swiper/swiper.min.js', XTPLB_PATH), ['jquery'], self::XTPLB_VERSION, true );
+        wp_enqueue_script( 'swiper-bundle-js', plugins_url( 'assets/lib/swiper/swiper-bundle.min.js', XTPLB_PATH), ['jquery'], self::XTPLB_VERSION, true );
         // [plb_products_list list_id="16"]
         // 匹配出 list_id
         $list_id = sanitize_text_field($content['id']);
@@ -261,6 +337,8 @@ class plbProductListForBlog{
     public function admin_menu()
     {
         add_menu_page( 'Xtoool Ads Box', 'Xtoool Ads Box', 'manage_options', 'product_list', [&$this, 'productList'] );
+        add_submenu_page( 'product_list', 'Add Banner Ad', 'Add Banner Ad', 'manage_options', 'add_bannder_ad', [$this->AdsbxAdmin_obj, 'add_bannder_ad'] );
+        add_submenu_page( 'product_list', 'Banner Ad List', 'Banner Ad List', 'manage_options', 'bannder_ad_list', [$this->AdsbxAdmin_obj, 'bannder_ad_list'] );
         add_submenu_page( 'product_list', 'Add product', 'Add product', 'manage_options', 'add_product', [&$this, 'addProduct'] );
         add_submenu_page( 'product_list', 'products List', 'products List', 'manage_options', 'products_list_show', [&$this, 'productsShowList'] );
         add_submenu_page( 'product_list', 'Add products List', 'Add products list', 'manage_options', 'add_products_list', [&$this, 'addProductsList'] );
@@ -272,7 +350,14 @@ class plbProductListForBlog{
     public function addProduct(){
         remove_action( 'admin_notices', 'update_nag', 3 );
         if(isset($_REQUEST['meted']) && sanitize_text_field($_REQUEST['meted'])  == 'add' ){
-            $data = $_REQUEST;
+            $data = [
+                'id' => sanitize_text_field($_REQUEST['id']),
+                'product_title' => sanitize_text_field($_POST['product_title']),
+                'regular_price' => sanitize_text_field($_POST['regular_price']),
+                'price' => sanitize_text_field($_POST['price']),
+                'image_url' => sanitize_text_field($_POST['image_url']),
+                'url' => sanitize_text_field($_POST['url'])
+            ];
             if( isset($_REQUEST['id']) && $_REQUEST['id'] ){
                 $sql = 'update ' . $this->db->prefix . 'products_for_blog set product_title = "' . addslashes($data['product_title']) . '",
                 `regular_price`='.addslashes($data['regular_price']).',
@@ -283,7 +368,6 @@ class plbProductListForBlog{
                 $sql_pre = $this->db->prepare($sql, sanitize_text_field($_REQUEST['id']));
                 $res = $this->db->query($sql_pre);
                 if( $res ){
-                    wp_redirect("/wp-admin/admin.php?page=product_list");
                     echo '<script>location.href="/wp-admin/admin.php?page=product_list"</script>';
                 } else {
                     echo "<script>alert('update failed!')</script>";
@@ -356,9 +440,15 @@ class plbProductListForBlog{
     }
     public function addProductsList(){
         if(isset($_REQUEST['meted']) && sanitize_text_field($_REQUEST['meted'])  == "add" ){
-            $data = $_REQUEST;
+            $data = [
+                'list_id' => sanitize_text_field($_REQUEST['list_id']),
+                'products' => sanitize_text_field($_POST['products']),
+                'list_title' => sanitize_text_field($_POST['list_title']),
+                'order' => sanitize_text_field($_POST['order']),
+            ];
             $products = explode('|',trim($data['products']));
-            
+
+
             if( isset($_REQUEST['list_id']) && $_REQUEST['list_id'] ){
                 $sql = 'update ' . $this->db->prefix . 'products_list_for_blog set list_title = %s,
                 `order`=%d where list_id = %d';
@@ -430,9 +520,9 @@ class plbProductListForBlog{
         if( $keyword ){
             $where .= ' and product_title like "%%s%" ';
         }
-        $page = intval($_POST['page']);
+        $page = intval(sanitize_text_field($_POST['page']));
         $page = $page ? $page : 1;
-        $page_size = $_POST['limit'] ? intval($_POST['limit']) : 20;
+        $page_size =isset($_POST['limit']) ? intval(sanitize_text_field($_POST['limit'])) : 20;
         
         $list = $this->getData( $where, $page, $page_size );
         $sql_count = 'select count(*) as count from '.$this->db->prefix.'products_for_blog where 1=1 ' . $where;

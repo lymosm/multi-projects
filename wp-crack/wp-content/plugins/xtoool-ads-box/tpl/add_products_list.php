@@ -1,3 +1,44 @@
+<?php 
+if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+function xtplb_expanded_alowed_tags() {
+	$my_allowed = wp_kses_allowed_html( 'post' );
+	// iframe
+	$my_allowed['iframe'] = array(
+		'src'             => array(),
+		'height'          => array(),
+		'width'           => array(),
+		'frameborder'     => array(),
+		'allowfullscreen' => array(),
+	);
+	// form fields - input
+	$my_allowed['input'] = array(
+		'class' => array(),
+		'id'    => array(),
+		'name'  => array(),
+		'value' => array(),
+		'type'  => array(),
+	);
+	// select
+	$my_allowed['select'] = array(
+		'class'  => array(),
+		'id'     => array(),
+		'name'   => array(),
+		'value'  => array(),
+		'type'   => array(),
+	);
+	// select options
+	$my_allowed['option'] = array(
+		'selected' => array(),
+        'value' => []
+	);
+	// style
+	$my_allowed['style'] = array(
+		'types' => array(),
+	);
+
+	return $my_allowed;
+}
+?>
 <style>
 .add-form{padding:50px;}
 .product_title{background:#eee;margin-right:10px;padding:0 5px;line-height:30px;}
@@ -34,14 +75,16 @@
         <div class="layui-input-block">
             <input type="hidden" name="products" id="plb-products" lay-verify="required" class="layui-input layui-input-sm" readonly>
             <div class="layui-input products_html"></div>
+
             <select name="products_list">
                 <option value="">--chosen product--</option>
                 <?php 
                 $products_html ='';
                 foreach( $products as $product ){
-                    $products_html .= '<option value="'. esc_html($product->id) .'">'. esc_html($product->product_title) .'</option>';
+                    $products_html .= '<option value="'. esc_attr($product->id) .'">'. esc_xml($product->product_title) .'</option>';
                 }
-                echo $products_html;
+
+                echo wp_kses($products_html, xtplb_expanded_alowed_tags());
                 ?>
             </select>
         </div>
@@ -71,7 +114,7 @@
                     $titles = explode(',', $list_data->product_title); 
                     $ids = explode(',', $list_data->ids);
                     for($i=0; $i< count($titles); $i++){
-                        echo '<div class="plb-product-item"><span class="product_title">' . $titles[$i] . '</span><span class="plb-btn-remove" data-id="' . $ids[$i] . '">X</span></div>';
+                        echo wp_kses_post('<div class="plb-product-item"><span class="product_title">' . $titles[$i] . '</span><span class="plb-btn-remove" data-id="' . $ids[$i] . '">X</span></div>');
                     }
                 ?>
             </div>
@@ -80,9 +123,9 @@
                 <?php 
                 $products_html ='';
                 foreach( $products as $product ){
-                    $products_html .= '<option value="'. $product->id .'">'. $product->product_title .'</option>';
+                    $products_html .= '<option value="'. esc_attr($product->id) .'">'. esc_html($product->product_title) .'</option>';
                 }
-                echo $products_html;
+                echo wp_kses($products_html, xtplb_expanded_alowed_tags()); 
                 ?>
             </select>
         </div>
