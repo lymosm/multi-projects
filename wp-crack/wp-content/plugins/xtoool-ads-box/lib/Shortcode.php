@@ -12,6 +12,27 @@ class Shortcode{
     private function _addHooks(){
         // [xt-ads-banner id="4444"]
         add_shortcode('xt-ads-banner', [$this, 'showBanner']);
+        add_shortcode('xt-ads-custom', [$this, 'showCustom']);
+    }
+
+    public function showCustom($attr){
+        if(! isset($attr['code'])){
+            return '';
+        }
+        $id = $attr['code'];
+        if(! $id){
+            return '';
+        }
+        $sql = 'select content from ' . $this->obj->db->prefix . 'xtl_custom_ads where `code` = %s limit 1';
+        $sql_pre = $this->obj->db->prepare($sql, $id);
+        $temp = $this->obj->db->get_var($sql_pre);
+        if(! $temp){
+            return '';
+        }
+        ob_start();
+		echo $temp;
+		$data = ob_get_clean();
+		return $data;
     }
 
     public function showBanner($attr){
@@ -98,8 +119,9 @@ class Shortcode{
             
             <style>
                 .adsbx-btn{
-                    height: 40px;
-                    width: 120px;
+                    padding-left: 20px;
+                    padding-right: 20px;
+                    min-width: 80px;
                     display: inline-block;
                     text-align: center;
                     line-height: 2.7;
@@ -120,7 +142,7 @@ class Shortcode{
                     flex: 1;
                 }
                 .adsbx-banner{
-                    width: 60%;
+                    width: 100%;
                     display: flex;
                     margin: 0 auto;
                     background: #f9f9f9;
@@ -128,13 +150,13 @@ class Shortcode{
                     margin-bottom: 20px;
                 }
                 .adsbx-banner-left{
-                    width: 30%;
+                    width: 50%;
                 }
                 .adsbx-banner-price{
                     margin-bottom: 12px;
                 }
                 .adsbx-banner-right{
-                    width: 70%;
+                    width: 50%;
                     padding: 20px;
                     padding-left: 40px;
                 }

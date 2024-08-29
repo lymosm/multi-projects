@@ -3,7 +3,7 @@
 Plugin Name: Xtoool Ads Box
 Plugin URI: https://www.xtoool.com/wordpress/
 Description: Xtoool Ads Box helps you create High-converting product bars to engage customers and grow sales.
-Version: 1.0.4
+Version: 1.0.11
 Author: xtoool.com
 Author URI: https://www.xtoool.com
 Text Domain: xtoool.com
@@ -39,7 +39,7 @@ define('ADSBX_PLUGIN_NAME', basename(XTPLB_DIR) . '/xtoool-ads-box.php');
 class plbProductListForBlog{
     private static $instance = null;
     public $db;
-    const XTPLB_VERSION = '1.0.4';
+    const XTPLB_VERSION = '1.0.11';
     public $AdsbxAdmin_obj = null;
 
     public function __construct(){
@@ -59,6 +59,9 @@ class plbProductListForBlog{
         register_activation_hook(XTPLB_PATH, [$this, 'activate']);
         add_action( 'upgrader_process_complete', [$this, 'my_upgrate_function'], 10, 2);
 
+        // test hook
+        // do_action('upgrader_process_complete', null, ['action' => 'update', 'type' => 'plugin', 'plugins' => ['xtoool-ads-box/xtoool-ads-box.php']]);
+
         $this->_initScript();
 
         require_once 'lib/AdsbxAdmin.php';
@@ -77,10 +80,18 @@ class plbProductListForBlog{
             return;
         }
 
-        if(self::XTPLB_VERSION == '1.0.2'){
-            $this->_update_1_0_3();
+        if($this->_checkUpdate()){
+            $this->_update_1_0_7();
         }
 
+    }
+
+    private function _checkUpdate(){
+        if(str_replace('.', '', self::XTPLB_VERSION) <= 109){
+            return true;
+        }else{
+            return false;
+        }
     }
 
     private function _update_1_0_3(){
@@ -103,6 +114,28 @@ class plbProductListForBlog{
   `updated_date` datetime default null,
   
   PRIMARY KEY (`id`)
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4;';
+		$wpdb->query($sql4);
+    }
+
+    private function _update_1_0_7(){
+        $this->_update_1_0_3();
+
+        global $wpdb;
+        $sql4 = 'CREATE TABLE if not exists `' . $wpdb->prefix . 'xtl_custom_ads` (
+			`id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL default "",
+  `shotcode` varchar(255) NOT NULL default "",
+  `code` varchar(255) NOT NULL default "",
+  `content` text default null,
+  `added_by` int(11) not null default 0,
+  `added_date` datetime default null,
+  `updated_by` int(11) not null default 0,
+  `updated_date` datetime default null,
+  
+  PRIMARY KEY (`id`),
+  unique key(shotcode),
+  unique key(`code`)
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4;';
 		$wpdb->query($sql4);
     }
@@ -342,6 +375,8 @@ class plbProductListForBlog{
         add_submenu_page( 'product_list', 'Add product', 'Add product', 'manage_options', 'add_product', [&$this, 'addProduct'] );
         add_submenu_page( 'product_list', 'products List', 'products List', 'manage_options', 'products_list_show', [&$this, 'productsShowList'] );
         add_submenu_page( 'product_list', 'Add products List', 'Add products list', 'manage_options', 'add_products_list', [&$this, 'addProductsList'] );
+        add_submenu_page( 'product_list', 'Custom Ad', 'Custom Ad', 'manage_options', 'custom_list', [$this->AdsbxAdmin_obj, 'custom_list'] );
+        add_submenu_page( 'product_list', 'Add Custom Ad', 'Add Custom Ad', 'manage_options', 'add_custom_ad', [$this->AdsbxAdmin_obj, 'add_custom_ad'] );
     }
 
     public function productList(){
