@@ -1,3 +1,16 @@
+install:
+1. cp .env.example to .env
+2. composer install
+3. php artisan key:generate
+3. local dev to run: php artisan serve
+
+node version 20.18.1
+vue:
+1. npm install
+2. npm run dev
+3. npm run prod
+
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
 <p align="center">
